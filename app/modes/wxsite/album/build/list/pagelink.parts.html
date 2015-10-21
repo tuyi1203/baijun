@@ -1,0 +1,10 @@
+<root>
+ <data>
+     {{foreach from=$list item="ls"}}
+          <li><a href="javascript:void(0);"><div class="box"><img src="{{$ls.coverurl}}" /></div><p>{{$ls.albumtitle}}</p></a></li>
+     {{/foreach}}
+ </data>
+ <pagelink>
+    {{$pagelink}}
+ </pagelink>
+</root>

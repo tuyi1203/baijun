@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<node no="001">
+		<message>請輸入{0}</message>
+	</node>
+	<node no="002">
+		<message>{0}不一致</message>
+	</node>
+	<node no="003">
+		<message>不正確的{0}</message>
+	</node>
+	<node no="004">
+		<message>該{0}已存在</message>
+	</node>
+</root>

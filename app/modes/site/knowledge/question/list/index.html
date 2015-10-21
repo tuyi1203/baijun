@@ -1,0 +1,81 @@
+﻿{{include file="$WWW_PATH/innerheader.html"}}
+<body>
+{{include file="$WWW_PATH/menu.html"}}
+    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
+    {{include file="$WWW_PATH/rolling.html"}}
+    <div class="wrap">
+    	<div class="wL">
+        	<div class="hd"><h3>栏目导航</h3></div>
+            <div class="bd">
+            	<ul>
+               {{include file="$WWW_PATH/yongshuizhishi.html"}}
+                </ul>
+            </div>
+        </div>
+        <div class="wR">
+        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<a href="{:U('knowledge/question/list/default.html')}">用水知识</a></span>&gt;<span>常见问题</span></div>
+            <div class="bd">
+            	<div class="comPro">
+                	<h2>常见问题</h2>
+                    <div class="comProType"><b>问题分类：</b><p>
+                    {{foreach from=$categories item="ca" key="k"}}
+	                    {{if $ca == $activecategory}}
+	                        <a href="javascript:;" class="cu">{{$ca}}</a>
+	                    {{else}}
+	                            <a href="{:U('knowledge/question/list/list/category/{{$k}}.html')}">{{$ca}}</a>
+	                    {{/if}}
+                    {{/foreach}}
+                    {{*<a href="#">自来水</a><a href="#" class="cu">纯净水</a><a href="#">水你妹</a><a href="#">不是问题的问题</a>*}}
+                    </p>
+                    </div>
+                    {{if !empty($nofilter.list)}}
+                        <div class="lst" id="uiLst">
+                        {{foreach from=$nofilter.list item="record"}}
+                        <dl>
+                        <dt><i>Q</i><p>{{$record.title}}</p></dt>
+                        <dd><i>A</i><p>{{$record.content}}</p></dd>
+                        </dl>
+                        {{/foreach}}
+                        </div>
+                    {{/if}}
+                    {{*
+                    <div class="lst" id="uiLst">
+                    	<dl>
+                        <dt><i>Q</i><p>你妈贵姓？</p></dt>
+                        <dd><i>A</i><p>关你屁事</p></dd>
+                        </dl>
+                        <dl>
+                        <dt><i>Q</i><p>你吃了吗？</p></dt>
+                        <dd><i>A</i><p>关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事关你屁事</p></dd>
+                        </dl>
+                        <dl>
+                        <dt><i>Q</i><p>约吗？？</p></dt>
+                        <dd><i>A</i><p>关你屁事</p></dd>
+                        </dl>
+                    </div>
+                    *}}
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    {{include file="$WWW_PATH/footer.html"}}
+</div>
+
+{{include file="$WWW_PATH/floatdiv.html"}}
+<script>
+$(document).ready(function(e) {
+	//问答
+	$('#uiLst dl').find('dt').bind('click',function(){
+		if($(this).closest('dl').hasClass('open')){
+			$(this).closest('dl').removeClass('open');
+		}else{
+			$(this).closest('dl').addClass('open');
+		}
+	});
+});
+
+</script>
+</body>
+</html>

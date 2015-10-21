@@ -1,0 +1,83 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+	{{include file="$WWW_PATH/datepicker.html"}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i>&nbsp;{{$la.booking.create}}</strong>
+				</div>
+				<div class='panel-body'>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='ajaxForm'
+                    action='manage_booking-add-insert.json' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='w-100px'>{{$la.booking.name}}</th>
+				          <td>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[name]' id='name' value='' class="form-control" />
+				          </td>
+				          <td></td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.booking.tel}}</th>
+                          <td>
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[tel]' id='tel' value='' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+                        <tr>
+                          <th>{{$la.booking.content}}</th>
+                          <td>
+                          <div class="required required-wrapper"></div>
+                          <input type="text" name='data[content]' id='content' value="" class='form-control'>
+                            </td>
+                            <td></td>
+                       </tr>
+                       <tr>
+				          <th>{{$la.booking.content2}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <textarea name='data[content2]' id='content2' rows='6' class='form-control'></textarea>
+				           </td>
+					   </tr>
+					   <!--
+					   <tr>
+				          <th>{{$la.booking.publishtime}}</th>
+				          <td>
+				            <div class="input-append date">
+				              <input type='text' name='data[publishtime]' id='publishtime' value='{{$publishtime}}' class='form-control' />
+				              <span class='booking-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span>
+				            </div>
+				          </td>
+				          <td><span class="help-inline">{{$la.article.note.bookingedDate}}</span></td>
+				        </tr>
+
+				        <tr>
+				          <th>{{$la.booking.status}}</th>
+				          <td>
+				          {{html_radios options=$status_options name="data[status]" labels=true label_ids=true selected=$status_choose}}
+						</td>
+				        </tr>
+				        -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

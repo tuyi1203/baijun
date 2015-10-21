@@ -1,0 +1,51 @@
+{{ex class="css" fn="import"  arg1="js/datetimepicker/css/min.css"}}
+{{ex class="js"  fn="import"  arg1="js/datetimepicker/js/min.js"}}
+{{if $CLIENTLANG != 'en'}}
+    {{ex class="js"  fn="import"  arg1="js/datetimepicker/js/locales/$CLIENTLANG.js"}}
+{{/if}}
+<script language='javascript'>
+startDate = new Date(2000, 1, 1);
+var option = {
+	format: 'yyyy-mm-dd hh:ii',
+    startDate:startDate,
+	pickerPosition: 'top-left',
+	todayBtn: true,
+	autoclose: true,
+	keyboardNavigation:false,
+	language:'{{$CLIENTLANG}}',
+	minView:2,
+	todayHighlight:true
+};
+//var option = {};
+//option.full = {
+//format: 'yyyy-mm-dd hh:ii',
+//startDate:startDate,
+//pickerPosition: 'top-left',
+//todayBtn: true,
+//autoclose: true,
+//keyboardNavigation:false,
+//language:'{{$CLIENTLANG}}',
+//minView:2,
+//todayHighlight:true
+//};
+
+//option.simple = {
+//format: 'yyyy-mm-dd',
+//startDate:startDate,
+//pickerPosition: 'buttom-left',
+//todayBtn: true,
+//autoclose: true,
+//keyboardNavigation:false,
+//language:'{{$CLIENTLANG}}',
+//minView:2,
+//todayHighlight:true
+//};
+
+$(function()
+{
+//$(".date").datetimepicker(option.{
+//  {$datepicker.option}
+//});
+$(".date").datetimepicker(option);
+});
+</script>

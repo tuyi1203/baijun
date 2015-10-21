@@ -1,0 +1,97 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-picture'></i>{{$la.second.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='ajaxForm'
+                    action='{:U('module/second/edit/update.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+                          <th class='w-100px'>{{$la.second.mode}}</th>
+                          <td class='w-p40'>{{$mode}}<!--
+                          <select name='data[mode]' id='mode' class='form-control chosen'>
+							{{html_options options=$mode_options selected=$mode_choose}}
+						  </select> -->
+                            </td><td>
+                            <input type="hidden" name="data[mode]" value="{{$mode}}">
+                            <input type="hidden" name="data[id]" value="{{$id}}">
+                            <input type="hidden" name="data[parentid]" value="{{$pid}}">
+                            <input type="hidden" name="data[parentname]" value="{{$pname}}">
+                            </td>
+                       </tr>
+                        <tr>
+                          <th class='w-100px'>{{$la.second.pmodule}}</th>
+                          <td class='w-p40'>{{$pdes}}({{$pname}})
+                            </td><td></td>
+                       </tr>
+					   <tr>
+				          <th>{{$la.second.name}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[name]' id='name' value='{{$name}}' class="form-control" />
+				          </td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.second.des}}</th>
+                          <td colspan='2'>
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[des]' id='des' value='{{$pdes}}' class="form-control" />
+                          </td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.second.des_en}}</th>
+                          <td colspan='2'>
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[des_en]' id='des_en' value='{{$pdes_en}}' class="form-control" />
+                          </td>
+                       </tr>
+                        <tr>
+                          <th>{{$la.second.status}}</th>
+                          <td>
+                          <select name='data[status]' id='status' class='form-control chosen'>
+                            {{html_options options=$status_options selected=$status_choose}}
+                          </select>
+                            </td><td></td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.second.ctrstatus}}</th>
+                          <td>
+                          <select name='data[ctrflg]' id='ctrflg' class='form-control chosen'>
+                            {{html_options options=$ctrflg_options selected=$ctrflg_choose}}
+                          </select>
+                            </td><td></td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.second.menu}}</th>
+                          <td>
+                          <select name='data[menuflg]' id='menuflg' class='form-control chosen'>
+                            {{html_options options=$menuflg_options selected=$menuflg_choose}}
+                          </select>
+                            </td><td></td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+﻿html {
+	overflow-y: scroll;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style: normal;
+	font-weight: 400;
+}
+
+ol,ul,li {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: 400;
+}
+
+q:before,q:after {
+	content: '';
+}
+
+body {
+	font-family: Verdana, 宋体;
+	font-size: 12px;
+	text-align: center;
+	color: #454545;
+	background: #fff;
+}
+
+.clear {
+	clear: both
+}
+
+a:link,a:visited {
+	color: #008ed0;
+	text-decoration: none;
+	outline: none
+}
+
+a:hover {
+	color: #0071a6;
+	text-decoration: none;
+	outline: none
+}
+
+a:action {
+	outline: none
+}
+
+img {
+	border: 0
+}
+
+.none {
+	display: none;
+}
+
+.blank10 {
+	height: 10px;
+	font-size: 0;
+}
+
+.blank5 {
+	height: 5px;
+	font-size: 0;
+}
+
+/*txtcolor*/
+.red,a.red:link,a.red:visited {
+	color: #7a0000;
+}
+
+a.red:hover {
+	color: #d40000;
+}
+
+.blue,a.blue:link,a.blue:visited {
+	color: #0e3876;
+}
+
+a.blue:hover {
+	color: #0056d5;
+}
+
+.green,a.green:link,a.green:visited {
+	color: #1e702a;
+}
+
+a.green:hover {
+	color: #00b51a;
+}
+
+.gray,a.gray:link,a.gray:visited {
+	color: #727272;
+}
+
+a.gray:hover {
+	color: #9c9c9c;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.orange,a.orange:link,a,.orange:visited {
+	color: #da6100;
+}
+
+a.orange:hover {
+	color: #ff7100
+}
+
+.foot {
+	height: 80px;
+	line-height: 80px;
+	width: 100%;
+	background: #fff;
+}
+
+.head {
+	background: url(../images/head.gif) repeat-x;
+}
+
+.headCon {
+	width: 980px;
+	margin: 0 auto;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+}
+
+.headCon h1 {
+	font-size: 26px;
+	font-family: "黑体";
+	text-align: left;
+	color: #004ea4;
+	float: left;
+	display: inline;
+}
+
+.headCon p {
+	float: right;
+	display: inline;
+}
+
+.headCon p a {
+	margin: 0 0 0 10px;
+}
+
+.content {
+	border-bottom: 1px solid #ccc;
+}
+
+.contentCon {
+	zoom: 1;
+	background: url(../images/leftbg.gif) repeat-y;
+	width: 980px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.left {
+	float: left;
+	display: inline;
+	width: 174px;
+	padding: 20px 0;
+}
+
+.left ul li {
+	height: 30px;
+	line-height: 30px;
+}
+
+.left ul li a:link,.left ul li a:visited {
+	display: block;
+	padding-left: 20px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #444;
+}
+
+.left ul li a:hover {
+	color: #000
+}
+
+.right {
+	float: left;
+	display: inline;
+	width: 805px;
+}
+
+.part {
+	padding: 20px;
+	zoom: 1;
+}
+
+.part1 .tit {
+	color: #ff0000;
+}
+
+.part1 .uploadPic {
+	margin: 10px 0;
+}
+
+.part1 .picTable table thead tr td {
+	border: 1px solid #ccc;
+	background: #f2f2f2;
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.part1 .picTable table tbody tr td {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+.part1 .picTable table tbody tr td img {
+	width: 50px;
+	height: 50px;
+}
+
+.part1 .uploadPicBtn {
+	text-align: center;
+	text-align: center;
+	margin: 10px 0 0;
+}
+
+.part1 .uploadPicBtn input {
+	width: 100px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.part2 .searchData {
+	margin: 0 0 10px 0;
+}
+
+.part2 .dataTable table thead tr td {
+	border: 1px solid #ccc;
+	background: #f2f2f2;
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.part2 .dataTable table tbody tr td {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+.part2 .dataTable table tbody tr td img {
+	width: 50px;
+	height: 50px;
+}
+
+.part3 .addData i {
+	font-style: normal;
+	color: #d10000;
+}
+
+.part3 .addData table tbody tr td {
+	padding: 5px;
+}
+
+.part3 .addData table tbody tr td input.text {
+	width: 200px;
+}
+
+.part3 .addData table tbody tr td textarea.textarea {
+	height: 80px;
+	width: 300px;
+}
+
+.part3 .addData table tbody tr td .checkbox {
+	vertical-align: middle;
+	margin: 0 5px 0 0;
+}
+
+.part3 .addData table tbody tr td label {
+	vertical-align: middle;
+	color: #666
+}
+
+.part3 .addBtn {
+	margin: 0 0 0 94px
+}
+
+.part3 .addBtn input {
+	margin: 10px 5px 0 0;
+}
+
+.page {
+	margin: 10px 0 5px;
+	padding: 0 5px;
+}
+
+.pageL {
+	float: left;
+	display: inline;
+	width: 100px;
+}
+
+.pageR {
+	float: right;
+	display: inline;
+}
+
+.pageR a:link,.pageR a:visited {
+	margin: 0 5px;
+	vertical-align: middle;
+}
+
+.pageR select {
+	vertical-align: middle;
+	margin: 0 5px 0 0;
+}
+
+.pageR a.unClick:link,.pageR a.unClick:visited {
+	color: #ccc;
+	cursor: text;
+}
+
+.pageL em {
+	color: #d10000;
+}
+
+.pageL i {
+	font-style: normal;
+}
+
+/*登录*/
+.loginPart {
+	background: url(../images/loginPart.gif) no-repeat;
+	width: 809px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 147px 0 55px;
+}
+
+.loginBox {
+	background: url(../images/loginbox.gif) no-repeat;
+	width: 441px;
+	height: 305px;
+	margin: 0 auto;
+}
+
+.loginBoxCon {
+	padding: 45px 49px 0;
+	zoom: 1;
+}
+
+.loginBoxCon .inputPart {
+	height: 44px;
+	width: 340px;
+	background: url(../images/login.gif) no-repeat;
+	margin-bottom: 30px;
+}
+
+.loginBoxCon .idinput {
+	background-position: 0 0;
+}
+
+.loginBoxCon .passinput {
+	background-position: 0 -44px;
+}
+
+.loginBoxCon .inputPart input {
+	height: 30px;
+	line-height: 30px;
+	border: 0;
+	width: 248px;
+	margin: 6px 0 0 82px;
+}
+
+.loginBoxCon .tip {
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #fff;
+	margin: 0 0 0 78px;
+}
+
+.loginBoxCon .loginbtn {
+	margin: 20px 0 0;
+	text-align: right;
+}
+
+.loginBoxCon .loginbtn a:link,.loginBoxCon .loginbtn a:visited {
+	color: #fff;
+}
+
+.loginBoxCon .loginbtn a.btn:link,.loginBoxCon .loginbtn a.btn:visited {
+	width: 114px;
+	height: 36px;
+	display: inline-block;
+	background: url(../images/login.gif) no-repeat 0 -88px;
+	vertical-align: middle;
+	margin: 0 0 0 10px;
+}

@@ -1,0 +1,507 @@
+2015-10-20 14:50:17  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:28  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:34  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:39  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	select a.* , b.name categoryname from mw_question a left join mw_category b on a.category = b.id where a.category='67'  and a.`public` = '1'  order by createtime desc LIMIT 0 , 10
+2015-10-20 14:50:59  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:05  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:16  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:26  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:32  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:38  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:41  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:45  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:45  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:51  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:51:57  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:02  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:08  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:13  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:20  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:22  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:29  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:35  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:40  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:46  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:51  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:52:56  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:02  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:07  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:12  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:18  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:28  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:34  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:39  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:50  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:53:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:01  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:06  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:17  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:22  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:28  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:33  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:39  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:49  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:54:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:00  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:06  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:12  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:19  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:19  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:25  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:31  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:37  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:42  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:49  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:49  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:55:54  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:00  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:06  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:07  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:08  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:14  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:22  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:35  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:36  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:36  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:37  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:48  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:56:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:01  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:13  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:14  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:15  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:16  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:17  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:18  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:23  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:30  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:30  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:36  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:41  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:46  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:52  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:57:57  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:03  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:09  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:09  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:15  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:26  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:33  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:34  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:34  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:41  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:42  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:49  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:58:55  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:03  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:05  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:12  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:12  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:12  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:19  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:19  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:20  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:26  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:32  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:38  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:39  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:44  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:51  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:52  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:52  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 14:59:58  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:06  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:09  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:11  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:14  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:20  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:26  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:32  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:38  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:48  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:54  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:00:59  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:05  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:10  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:15  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:21  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:27  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:32  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:37  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:43  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'
+2015-10-20 15:01:48  REMOTE_IP:127.0.0.1  SQL実行失敗
+	1146: Table 'baijun.mw_question' doesn't exist
+	SELECT COUNT(id) as count FROM mw_question a WHERE  public = '0' AND  status = '1'

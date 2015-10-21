@@ -1,0 +1,39 @@
+{{include file="$WWW_PATH/header.html"}}
+<body class="front_page">
+{{include file="$WWW_PATH/topbanner.html"}}
+{{include file="$WWW_PATH/menu.html"}}
+<link rel="stylesheet" type="text/css" href="css/front.css" />
+<div class="content">
+    <section class="wrap">
+        <div class="page_left">
+            {{* include file="$WWW_PATH/meilizhanfang.html" *}}
+            {{include file="$WWW_PATH/team.html"}}
+            {{include file="$WWW_PATH/case.html"}}
+        </div>
+        <div class="page_right">
+            <div class="bread">{{$la.position}}<a href="./">{{$la.home}}</a><i>&gt;</i>{{$la.booking}}</div>
+            <div class="page_content page_orderlst">
+                <h2>{{$la.booking}}</h2>
+                <div class="lst">
+                    <ul>
+                    {{foreach from=$nofilter.list item="ls"}}
+                        <li>
+                        <dl>
+                        <dt><span>{{$la.customname}}<em class="orange">{{$ls.name}}</em></span><span>{{$la.xiaoqu}}<em>{{$ls.content}}</em></span></dt>
+                        <dd><i class="gray">{{$la.bookingdetail}}</i>{{$ls.content2}}</dd>
+                    </dl></li>
+                    {{/foreach}}
+                </div>
+                {{$pagelink}}
+            </div>
+        </div>
+        <div class="clear"></div>
+    </section>
+</div>
+
+{{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/consult.html"}}
+{{include file="$WWW_PATH/messagebox.html"}}
+
+</body>
+</html>

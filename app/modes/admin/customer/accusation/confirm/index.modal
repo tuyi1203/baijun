@@ -1,0 +1,82 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class=''></i> {{$la.accusation.confirm}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table'>
+        <tbody>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.name}}</th>
+            <td>
+                {{$name}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.cardno}}</th>
+            <td>
+                {{$cardno}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.tel}}</th>
+            <td>
+                {{$tel}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.email}}</th>
+            <td> <a href="mailto:{{$email}}">
+                {{$email}}
+                </a>
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.addr}}</th>
+            <td>
+                {{$addr}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.content}}</th>
+            <td>
+                {{$ta.content}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.createtime}}</th>
+            <td>
+                {{$createtime}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.replyman}}</th>
+            <td>
+                {{$replyman}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.replycontent}}</th>
+            <td>
+                {{$ta.replycontent}}
+            </td>
+          </tr>
+           <tr class='text-middle'>
+            <th class="w-100px">{{$la.accusation.editedDate}}</th>
+            <td>
+                {{$replytime}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+    <div class='modal-footer'>
+        <input type="button" data-loading="{{$la.close}}" value="{{$la.close}}" class="btn btn-primary" id="close">
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

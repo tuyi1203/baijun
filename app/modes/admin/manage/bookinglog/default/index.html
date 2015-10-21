@@ -1,0 +1,112 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+    {{include file="$WWW_PATH/datepicker.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.bookinglog.common}}</strong>
+				</div>
+				<form id='listForm'
+                    action='manage_bookinglog-default-list.html' method='post'>
+                 <table class="table">
+                          <tfoot>
+                              <tr>
+                                <td class='w-60px'>&nbsp;{{$la.bookinglog.name}}
+                                </td>
+                                <td class="">
+                                    <input type="text" name="data[name]" value="{{$name}}"/>
+                                </td>
+                                <td class='w-60px'>&nbsp;{{$la.bookinglog.department}}</td>
+                                  <td class="navList">
+                                  <select name='data[department]' id='department'>
+                                    {{html_options options=$department_options selected=$department_choose}}
+                                  </select>
+                                  </td>
+                                  <td class='w-100px'>&nbsp;{{$la.bookinglog.patient}}</td>
+                                  <td class="navList">
+                                 <input type="text" name="data[patient]" value="{{$patient}}"/>
+                                  </td>
+                              </tr>
+                              <tr>
+                              <td class='w-100px'>&nbsp;{{$la.bookinglog.date}}</td>
+                              <td class="navList" colspan='5'>
+                                {{$la.bookinglog.datefrom}}&nbsp; &nbsp;
+                                <input type="text" name="data[datefrom]" id="datefrom" value="{{$datefrom}}" class="date"/>
+                                {{$la.bookinglog.dateto}}&nbsp; &nbsp;
+                                <input type="text" name="data[dateto]" id="dateto" value="{{$dateto}}" class="date"/>
+                              </td>
+                              </tr>
+                              <tr>
+                              <td class='w-100px'>&nbsp;{{$la.bookinglog.addr}}</td>
+                              <td colspan="5"><input type="text" name="data[addr]" value="{{$addr}}" class="addr"/></td>
+                              </tr>
+                              <tr>
+                                <td colspan='6'>&nbsp; <input type='submit'
+                                    class='btn btn-primary' value='{{$la.bookinglog.search}}'
+                                    data-loading='{{$la.bookinglog.searching}}' />
+                                    {{if !empty($list)}}
+                                    &nbsp; <input type='button' id='print'
+                                    class='btn btn-primary' value='{{$la.bookinglog.print}}'
+                                     />
+                                     {{/if}}
+                                </td>
+                              </tr>
+                            </tfoot>
+                    </table>
+                    </form>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-150px'><div class='{{if $orderby=="department" and $sort=="desc"}}headerSortDown{{elseif $orderby=="department" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='manage_bookinglog-default-sort-currpage-{{$currpage}}-orderby-department-sort-{{if $orderby == "department"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.bookinglog.department}}</a>
+				</div></th>
+				        <th class='text-center w-100px'><div class='{{if $orderby=="name" and $sort=="desc"}}headerSortDown{{elseif $orderby=="name" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='manage_bookinglog-default-sort-currpage-{{$currpage}}-orderby-name-sort-{{if $orderby == "name"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.bookinglog.name}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="date" and $sort=="desc"}}headerSortDown{{elseif $orderby=="date" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='manage_bookinglog-default-sort-currpage-{{$currpage}}-orderby-date-sort-{{if $orderby == "date"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.bookinglog.date}}</a>
+                </div></th>
+				        <th class='text-center w-100px'>{{$la.bookinglog.patient}}</a>
+				</div></th>
+				        <th class='text-center w-160px'>{{$la.bookinglog.idno}}</a>
+				</div></th>
+				        <th class='text-center w-100px'>{{$la.bookinglog.telno}}</a>
+                </div></th>
+				        <th class='text-center'>{{$la.bookinglog.addr}}</a>
+                </div></th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.value}}</td>
+                        <td class='text-center'>{{$kv.name}}</a></td>
+                        <td class='text-center'>{{$kv.date}}&nbsp;{{$kv.begin_h}}:{{$kv.begin_m}}～{{$kv.end_h}}:{{$kv.end_m}}</td>
+                        <td class='text-center'>{{$kv.patient}}</td>
+                        <td class='text-center'>{{$kv.idno}}</td>
+                        <td class='text-center'>{{$kv.telno}}</td>
+                        <td>{{$kv.addr}}</td>
+                        <td class='text-center'>
+			                <a href='manage_bookinglog-default-delete-{{$kv.id}}.json' class="deleter">{{$la.delete}}</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='8'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

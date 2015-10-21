@@ -1,0 +1,63 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i> {{$la.wxalbum.add}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='wxalbum_wxalbum-add-insert.json' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='w-100px'>{{$la.wxalbum.title}}</th>
+				          <td>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='' class="form-control" />
+				          </td>
+				          <td></td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.wxalbum.desc}}</th>
+                          <td>
+                          <input type='text' name='data[desc]' id='desc' value='' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+                       <tr>
+                       <th>{{$la.wxalbum.wxalbumtype}}</th>
+                       <td>
+                          <select style="width:150px;" name='data[subkey]' id='subkey' class='form-control chosen selectMode'>
+                            {{html_options options=$subkey_options selected=$subkey_choose}}
+                          </select>
+                          </td>
+                          <td></td>
+                       </tr>
+                       <tr>
+                        <th>{{$la.wxalbum.sort}}</th>
+                       <td>
+                       <input type='text' style="width:100px;" name='data[sort]' id='sort' value='' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class=''></i> {{$la.message.confirm}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table'>
+        <tbody>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.message.name}}</th>
+            <td>
+                {{$name}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.message.tel}}</th>
+            <td>
+                {{$tel}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.message.content}}</th>
+            <td>
+                {{$content}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.message.createtime}}</th>
+            <td>
+                {{$createtime}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+    <div class='modal-footer'>
+        <input type="button" data-loading="{{$la.close}}" value="{{$la.close}}" class="btn btn-primary" id="close">
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

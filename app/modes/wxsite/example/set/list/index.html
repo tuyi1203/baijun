@@ -1,0 +1,22 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+<header><h1>{{$la.set.common}}</h1><a href="{{$la.breadcrumb.homepage}}" class="back mw-icon">&#xf122;</a><a href="{{$la.breadcrumb.homepage}}" class="index mw-icon">&#xf123;</a></header>
+<section class="content package">
+    <div class="lst" id="packageLst">
+        <ul>
+        {{foreach from=$list item="ls"}}
+            <li><a href="./example_set-detail-default-{{$ls.id}}.html"><b></b><em>{{$ls.title}}</em><i class="mw-icon">&#xf124;</i></a></li>
+        {{/foreach}}
+            <li><a href="./single_all-detail-default.html"><b></b><em>{{$alltitle}}</em><i class="mw-icon">&#xf124;</i></a></li>
+        </ul>
+    </div>
+</section>
+{{include file="$WWW_PATH/buttomstick.html"}}
+{{include file="$WWW_PATH/footer.html"}}
+<script>
+$(document).ready(function(e) {
+    $('#packageLst ul li:odd').addClass('oth');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{$la.bookinglog.print}}</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+table{ border-collapse:collapse;}
+.tableCnt{ padding:10px; font-size:16px; font-family:'微软雅黑';}
+.tableCnt .table{ width:100%; border:1px solid #ccc;}
+.tableCnt .table th, .tableCnt .table td{ border:1px solid #ccc; padding:10px; text-align:center;}
+.tableCnt .table th { color:#666; background-color:#f2f2f2;}
+.tableCnt .table td{ color:#666;}
+.tableCnt .table tbody tr:nth-child(even){ background-color:#f9f9f9}
+.tableCnt .table tbody tr:hover{ background-color:#fcf8e3;}
+</style>
+</head>
+
+<body>
+<div class="tableCnt">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{$la.bookinglog.department}}</th>
+                <th>{{$la.bookinglog.name}}</th>
+                <th>{{$la.bookinglog.date}}</th>
+                <th>{{$la.bookinglog.patient}}</th>
+                <th>{{$la.bookinglog.idno}}</th>
+                <th>{{$la.bookinglog.telno}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{foreach from=$list item="kv"}}
+            <tr>
+            <td class='text-center'>{{$kv.value}}</td>
+            <td class='text-center'>{{$kv.name}}</a></td>
+            <td class='text-center'>{{$kv.date}}&nbsp;{{$kv.begin_h}}:{{$kv.begin_m}}～{{$kv.end_h}}:{{$kv.end_m}}</td>
+            <td class='text-center'>{{$kv.patient}}</td>
+            <td class='text-center'>{{$kv.idno}}</td>
+            <td class='text-center'>{{$kv.telno}}</td>
+            </tr>
+        {{/foreach}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

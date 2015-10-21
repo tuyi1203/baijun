@@ -1,0 +1,101 @@
+<script>
+jQuery(document).ready(function(){
+   		//jQuery("dd:not(:first)").hide();
+   		jQuery("dd:not(.active)").hide();
+        jQuery("dt a").click(function(){
+        jQuery("dd:visible").slideUp("normal");
+       jQuery(this).parent().next().slideDown("normal");
+        return false;
+    });
+});
+</script>
+<style>
+dl,dt,dd,ul {
+	margin: 0;
+	padding: 0;
+}
+
+dl {
+	margin-top: 0px;
+}
+
+dt {
+	margin-top: 2px;
+}
+
+dt a {
+	display: block;
+	width: 170px;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	font-size: 18px;
+	padding-left: 5px;
+	color: #FFF;
+	background: #73C5E5;
+}
+
+dd {
+	width: 173px;
+	border: 1px solid #73C5E5;
+}
+
+ul li {
+	list-style: none;
+	padding: 5px;
+	text-align: left;
+}
+</style>
+<div class="left">
+	<dl>
+		<dt>
+			<a href="javascript:;">首页设置</a>
+		</dt>
+		<dd
+			<{if $MODULENAME == "home" }> class="active" <{/if}> >
+			<ul>
+			<!-- <li><a href="A00.html">首页幻灯片设置</a></li>  -->
+			<li><a href="home-index-default.html">首页幻灯片设置</a></li>
+		</ul>
+	</dd>
+		<dt>
+			<a href="javascript:;">图文管理</a>
+		</dt>
+		<dd
+			<{if $MODULENAME == "info" }> class="active" <{/if}> >
+			<ul>
+			<!-- <li><a href="A00.html">首页图片设置</a></li>  -->
+			<li><a href="info-index-default.html">图文修改/发布</a></li>
+			<li><a href="info-news-default.html">新闻修改/发布</a></li>
+		</ul>
+	</dd>
+		<dt>
+			<a href="javascript:;">产品管理</a>
+		</dt>
+		<dd
+			<{if $MODULENAME == "product" }> class="active" <{/if}> >
+			<ul>
+            <!-- <li><a href="A00.html">首页图片设置</a></li>  -->
+            <li><a href="product-index-default.html">产品修改/发布</a></li>
+            <li><a href="product-type-default.html">车型管理</a></li>
+            <li><a href="product-introduce-default.html">车型介绍</a></li>
+        </ul>
+    </dd>
+		<dt>
+			<a href="javascript:;">预约试驾管理</a>
+		</dt>
+		<dd>
+			<ul>
+				<li><a href="testdrive-index-default.html">预约列表</a></li>
+			</ul>
+		</dd>
+		<dt>
+			<a href="javascript:;">站点管理</a>
+		</dt>
+		<dd>
+			<ul>
+				<li><a href="system-index-default.html">系统管理</a></li>
+			</ul>
+		</dd>
+	</dl>
+</div>

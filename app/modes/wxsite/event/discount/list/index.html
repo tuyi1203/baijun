@@ -1,0 +1,16 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+<header><h1>{{$la.discount.common}}</h1><a href="{{$la.breadcrumb.homepage}}" class="back mw-icon">&#xf122;</a><a href="{{$la.breadcrumb.homepage}}" class="index mw-icon">&#xf123;</a></header>
+<section class="content actlst">
+    <div class="lst">
+        <ul>
+        {{foreach from=$list item="ls"}}
+            <li><a href="./event_discount-detail-default-{{$ls.id}}.html"><img src="{{$ls.url}}" /><p>{{$ls.title}}</p><div class="txtMask"></div></a></li>
+        {{/foreach}}
+        </ul>
+    </div>
+</section>
+{{include file="$WWW_PATH/buttomstick.html"}}
+{{include file="$WWW_PATH/footer.html"}}
+</body>
+</html>

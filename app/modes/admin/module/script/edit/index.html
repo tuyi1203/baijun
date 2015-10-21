@@ -1,0 +1,77 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-picture'></i> {{$la.script.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='ajaxForm'
+                    action='{:U('module/script/edit/update.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+                          <th class='w-100px'>{{$la.script.mode}}</th>
+                          <td class='w-p40'>{{$mode}}<!--
+                          <select name='data[mode]' id='mode' class='form-control chosen'>
+							{{html_options options=$mode_options selected=$mode_choose}}
+						  </select> -->
+                            </td>
+                            <input type="hidden" name="data[mode]" value="{{$mode}}" />
+                            <input type="hidden" name="data[id]" value="{{$id}}" />
+                            <input type="hidden" name="data[pid]" value="{{$pid}}" />
+                            <input type="hidden" name="data[sid]" value="{{$sid}}" />
+                            <input type="hidden" name="data[pname]" value="{{$pname}}" />
+                            <input type="hidden" name="data[sname]" value="{{$sname}}" />
+                            <td>
+                            </td>
+                       </tr>
+                        <tr>
+                          <th class='w-100px'>{{$la.script.pmodule}}</th>
+                          <td class='w-p40'>{{$pdes}}({{$pname}})
+                            </td><td></td>
+                       </tr>
+                       <tr>
+                          <th class='w-100px'>{{$la.script.smodule}}</th>
+                          <td class='w-p40'>{{$sdes}}({{$sname}})
+                            </td><td></td>
+                       </tr>
+					   <tr>
+				          <th>{{$la.script.name}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[name]' id='name' value='{{$name}}' class="form-control" />
+				          </td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.script.des}}</th>
+                          <td colspan='2'>
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[des]' id='des' value='{{$des}}' class="form-control" />
+                          </td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'>
+                         <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('module/script/default/list/mode/{{$mode}}/pid/{{$pid}}/sid/{{$sid}}.html')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

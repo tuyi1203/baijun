@@ -1,0 +1,62 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-th'></i>  {{$la.local.common}}</strong>
+
+                    <div class='panel-actions'>
+                        <a href='{:U('low/local/add/default.modal')}' data-toggle='modal'
+                            class='btn btn-primary'><i class="icon-plus"></i>  {{$la.local.create}}</a>
+                    </div>
+                </div>
+                    <form id='sortForm'
+                    action='{:U('low/local/default/update.json')}' method='post'>
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <!-- <th>{{$la.local.sort}}</th> -->
+                                <th>{{$la.local.title}}</th>
+                                <th>{{$la.local.createby}}</th>
+                                <th>{{$la.local.createtime}}</th>
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'><a target="_blank" href="{:U('system/file/default/download/id/{{$record.id}}.html')}">{{$record.title}}</a></td>
+                                <td class='text-center'>{{$record.name}}</td>
+                                <td class='text-center'>{{$record.createtime}}</td>
+                                <td class='text-center'><a
+                                    href='{:U('low/local/edit/default/id/{{$record.id}}.modal')}' data-toggle='modal'>{{$la.edit}}</a>
+                                    <a href='{:U('low/local/default/delete/id/{{$record.id}}.json')}'
+                                    class='deleter'>{{$la.delete}}</a>
+                                    </td>
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan='6'>&nbsp;
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

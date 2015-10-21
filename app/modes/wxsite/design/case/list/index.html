@@ -1,0 +1,72 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{ex fn='exportCss'}}
+<header><h1>{{$la.case.common}}</h1><a href="{{$la.breadcrumb.homepage}}" class="back mw-icon">&#xf122;</a><a href="{{$la.breadcrumb.homepage}}" class="index mw-icon">&#xf123;</a></header>
+<section class="content caselst">
+    <div class="screen">
+        <div class="tabT">
+            <a href="javascript:void(0);" ><b>{{$la.case.set}}</b><i {{if ($yjmset_choose)}}class="red"{{/if}}>({{if ($yjmset_choose)}}{{$yjmset_choose_val}}{{else}}{{$la.nochoose}}{{/if}})</i></a><a href="javascript:void(0);" ><b>{{$la.case.style}}</b><i {{if ($style_choose)}}class="red"{{/if}}>({{if ($style_choose)}}{{$style_choose_val}}{{else}}{{$la.nochoose}}{{/if}})</i></a><a href="javascript:void(0);"><b>{{$la.case.room}}</b><i {{if ($room_choose)}}class="red"{{/if}}>({{if ($room_choose)}}{{$room_choose_val}}{{else}}{{$la.nochoose}}{{/if}})</i></a><a href="javascript:void(0);"><b>{{$la.case.surface}}</b><i {{if ($surface_choose)}}class="red"{{/if}}>({{if ($surface_choose)}}{{$surface_choose_val}}{{else}}{{$la.nochoose}}{{/if}})</i></a>
+        </div>
+        <form method="post" action="./design_case-list-list.html" name="myForm">
+        <div class="tabC">
+            <div class="tabCon" id="yjmset">
+                <ul>
+                {{foreach from=$yjmset_options key="k" item="v"}}
+                    <li><a href="javascript:void(0);" {{if $yjmset_choose == $k}}class="cu"{{/if}}><b>{{if $k == ""}}{{$la.all}}{{else}}{{$v}}{{/if}}</b><i class="mw-icon">{{if $yjmset_choose == $k}}&#xf12d;{{else}}&#xf12c;{{/if}}</i></a>
+                        <input type="radio" name="data[yjmset]" value="{{$k}}" {{if $k == $yjmset_choose}}checked ="checked"{{/if}}/>
+                    </li>
+                {{/foreach}}
+                </ul>
+                <div class="close"><a href="javascript:void(0);"><i>×</i>{{$la.closefilter}}</a></div>
+            </div>
+            <div class="tabCon" id="style">
+                <ul>
+                 {{foreach from=$style_options key="k" item="v"}}
+                    <li><a href="javascript:void(0);" {{if $style_choose == $k}}class="cu"{{/if}}><b>{{if $k == ""}}{{$la.all}}{{else}}{{$v}}{{/if}}</b><i class="mw-icon">{{if $style_choose == $k}}&#xf12d;{{else}}&#xf12c;{{/if}}</i></a>
+                        <input type="radio" name="data[style]" value="{{$k}}" {{if $k == $style_choose}}checked ="checked"{{/if}}/>
+                    </li>
+                 {{/foreach}}
+                </ul>
+                <div class="close"><a href="javascript:void(0);" ><i>×</i>{{$la.closefilter}}</a></div>
+            </div>
+            <div class="tabCon" id="room">
+                <ul>
+                {{foreach from=$room_options key="k" item="v"}}
+                    <li><a href="javascript:void(0);" {{if $room_choose == $k}}class="cu"{{/if}}><b>{{if $k == ""}}{{$la.all}}{{else}}{{$v}}{{/if}}</b><i class="mw-icon">{{if $room_choose == $k}}&#xf12d;{{else}}&#xf12c;{{/if}}</i></a>
+                        <input type="radio" name="data[room]" value="{{$k}}" {{if $k == $room_choose}}checked ="checked"{{/if}}/>
+                    </li>
+                 {{/foreach}}
+                </ul>
+                <div class="close"><a href="javascript:void(0);" ><i>×</i>{{$la.closefilter}}</a></div>
+            </div>
+            <div class="tabCon" id="surface">
+                <ul>
+                {{foreach from=$surface_options key="k" item="v"}}
+                    <li><a href="javascript:void(0);" {{if $surface_choose == $k}}class="cu"{{/if}}><b>{{if $k == ""}}{{$la.all}}{{else}}{{$v}}{{/if}}</b><i class="mw-icon">{{if $surface_choose == $k}}&#xf12d;{{else}}&#xf12c;{{/if}}</i></a>
+                        <input type="radio" name="data[surface]" value="{{$k}}" {{if $k == $surface_choose}}checked ="checked"{{/if}}/>
+                    </li>
+                 {{/foreach}}
+                </ul>
+                <div class="close"><a href="javascript:void(0);" ><i>×</i>{{$la.closefilter}}</a></div>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="lst">
+        <ul>
+        {{foreach from=$list key="k" item="v"}}
+            <li><a href="./design_case-detail-default-{{$v.id}}.html"><div class="box"><img src="{{$v.url}}" /><p>{{$v.title}}</p><div class="txtMask"></div></div></a></li>
+        {{/foreach}}
+        </ul>
+        <div class="clear"></div>
+    </div>
+    {{$pagelink}}
+    <!--
+    <div class="loadMore"><a href="javascript:void(0);">加载更多</a></div>
+     -->
+</section>
+{{include file="$WWW_PATH/buttomstick.html"}}
+{{include file="$WWW_PATH/footer.html"}}
+{{ex fn='exportJs'}}
+</body>
+</html>

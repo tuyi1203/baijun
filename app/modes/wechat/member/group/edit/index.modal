@@ -1,0 +1,50 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-600px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-list-ul'></i> {{$la.group.common}}
+      </h4></br>
+       <form id="addForm" action="{:U('wechat/member/group/edit/insert.json')}">
+        <input type='text' name='data[title]' id='title' value='' class="form-control" style="width:200px;display:inline;"/>
+        <input type='submit'  id="submit" class='btn btn-primary' value='{{$la.group.add}}' data-loading='{{$la.loading}}' style="display:inline;"/>
+       </form>
+      <!-- </h4><a href="javascript:void(0);" data-href="{:U('system/group/add/default.modal')}" onclick="newfile(this);">{{$la.group.new}}</a> -->
+    </div>
+    <div class='modal-body'>
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <th class='text-center w-300px'>{{$la.group.name}}</th>
+            <th class='text-center w-80px''>{{$la.group.num}}</th>
+            <th class='text-center w-200px'>{{$la.actions}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{foreach item="group" from=$list}}
+          <tr class='text-middle' {{if $selectedgroupid == $group.id}}bgcolor="#b3d4fc"{{/if}}>
+            <td><span class="groupname">{{$group.name}}</span>
+            <div class="editor" style="display:none;">
+            <input type="text" value="" class="form-control" name="data[groupname]"  style="display:inline;width:200px;">
+                         <a href="javascript:void(0);" class="update" style="display:inline;" data-id="{{$group.id}}" data-href="{:U('wechat/member/group/edit/update.json')}">修改</a>&nbsp;<a style="display:inline;" class="cancel" href="javascript:void(0);">取消</a>
+                         </div>
+            </td>
+            <td class='text-center'>{{$group.cnt}}</td>
+            <td class='text-center'>
+            {{if $selectedgroupid != $group.id}}
+            <a class="select" href="javascript:void(0);" data-id="{{$group.id}}">{{$la.group.select}}</a>&nbsp;&nbsp;
+            {{/if}}
+            <a class="edit" href="javascript:void(0);" >{{$la.edit}}</a>&nbsp;
+            <a class="deleter" href="{:U('wechat/member/group/edit/delete/id/{{$group.id}}.json')}">{{$la.delete}}</a>
+            </td>
+          </tr>
+          {{/foreach}}
+        </tbody>
+      </table>
+    </div>
+    <div class='modal-footer'>
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

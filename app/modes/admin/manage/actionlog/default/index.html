@@ -1,0 +1,90 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+    {{include file="$WWW_PATH/datepicker.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.actionlog.common}}</strong>
+				</div>
+				<form id='listForm'
+                    action='{:U('manage/actionlog/default/list.html')}' method='post'>
+                 <table class="table">
+                          <tfoot>
+                              <tr>
+                                <td class='w-60px'>&nbsp;{{$la.actionlog.name}}
+                                </td>
+                                <td class="">
+                                    <input type="text" name="data[name]" value="{{$name}}"/>
+                                </td>
+                              </tr>
+                              <tr>
+                              <td class='w-100px'>&nbsp;{{$la.actionlog.time}}</td>
+                              <td class="navList" colspan='5'>
+                                {{$la.actionlog.timestart}}&nbsp; &nbsp;
+                                <input type="text" name="data[timestart]" id="timestart" value="{{$timestart}}" class="date"/>
+                                {{$la.actionlog.timeend}}&nbsp; &nbsp;
+                                <input type="text" name="data[timeend]" id="dateend" value="{{$timeend}}" class="date"/>
+                              </td>
+                              </tr>
+                              <tr>
+                                <td colspan='6'>&nbsp; <input type='submit'
+                                    class='btn btn-primary' value='{{$la.actionlog.search}}'
+                                    data-loading='{{$la.actionlog.searching}}' />
+                                </td>
+                              </tr>
+                            </tfoot>
+                    </table>
+                    </form>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-150px'><div class='{{if $orderby=="time" and $sort=="desc"}}headerSortDown{{elseif $orderby=="time" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('manage/actionlog/default/sort/currpage/{{$currpage}}/orderby/time/sort/{{if $orderby == "time"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.actionlog.time}}</a>
+				</div></th>
+				        <th class='text-center w-100px'><div class='{{if $orderby=="name" and $sort=="desc"}}headerSortDown{{elseif $orderby=="name" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('manage/actionlog/default/sort/currpage/{{$currpage}}/orderby/name/sort/{{if $orderby == "name"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.actionlog.name}}</a>
+				</div></th>
+				        <th class='text-center w-100px'>{{$la.actionlog.account}}</a>
+                </div></th>
+				        <th class='text-center w-100px'>{{$la.actionlog.ip}}</a>
+				</div></th>
+				        <th class='text-center w-160px'>{{$la.actionlog.module}}</a>
+				</div></th>
+				        <th class='text-center w-100px'>{{$la.actionlog.action}}</a>
+                </div></th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.time}}</td>
+                        <td class='text-center'>{{$kv.username}}</a></td>
+                        <td class='text-center'>{{$kv.accout}}</td>
+                        <td class='text-center'>{{$kv.ip}}</td>
+                        <td class='text-center'>{{$kv.module}}</td>
+                        <td class='text-center'>{{$kv.action}}</td>
+                        {{*
+                        <td class='text-center'>
+			                <a href='{:U('manage/actionlog/default/delete/{{$kv.id}}.json')}' class="deleter">{{$la.delete}}</a>
+                        </td>
+                         *}}
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='8'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

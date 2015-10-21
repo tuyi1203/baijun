@@ -1,0 +1,50 @@
+﻿{{include file="$WWW_PATH/innerheader.html"}}
+<body>
+{{include file="$WWW_PATH/menu.html"}}
+    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
+    {{include file="$WWW_PATH/rolling.html"}}
+    <div class="schLst">
+    	<h2>搜索结果</h2>
+        <div class="ope">以下是关键词"<b class="red">{{$keyword}}</b>"的搜索结果：</div>
+        <div class="lst">
+        	<ul id="lst">
+        	{{if empty($nofilter.list)}}
+            <li class="noData">对不起,没有找到"{{$keyword}}"相关内容</li>
+            {{/if}}
+            {{foreach from=$nofilter.list item="ls"}}
+            <li>
+                <div class="tit"><b><a target="_blank" href="{{$ls.url}}">{{$ls.title}}</a></b><em>来源：{{$ls.from}}</em></div>
+                <div class="txt">{{$ls.summary}}</div>
+            </li>
+            {{/foreach}}
+            {{*
+            <li>
+            	<div class="tit"><b><a href="#">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在<i class="red">约</i>还免费赠送双飞服务哦！</a></b><em>来源：水质公告</em></div>
+                <div class="txt">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！</div>
+            </li>
+            <li>
+            	<div class="tit"><b><a href="#">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在<i class="red">约</i>还免费赠送双飞服务哦！</a></b><em>来源：停水公告</em></div>
+                <div class="txt">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！</div>
+            </li>
+            <li>
+            	<div class="tit"><b><a href="#">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在<i class="red">约</i>还免费赠送双飞服务哦！</a></b><em>来源：水务之星</em></div>
+                <div class="txt">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！</div>
+            </li>
+            <li>
+            	<div class="tit"><b><a href="#">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在<i class="red">约</i>还免费赠送双飞服务哦！</a></b><em>来源：停水公告</em></div>
+                <div class="txt">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！</div>
+            </li>
+            <li>
+            	<div class="tit"><b><a href="#">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在<i class="red">约</i>还免费赠送双飞服务哦！</a></b><em>来源：停水公告</em></div>
+                <div class="txt">你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天<i class="red">约</i>了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！你今天约了吗？没约的话赶紧约吧，现在约还免费赠送双飞服务哦！</div>
+            </li>
+            *}}
+            </ul>
+        </div>
+        {{$pagelink}}
+    </div>
+    {{include file="$WWW_PATH/floatdiv.html"}}
+</div>
+{{include file="$WWW_PATH/footer.html"}}
+</body>
+</html>

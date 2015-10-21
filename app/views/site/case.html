@@ -1,0 +1,12 @@
+ <div class="front_part p2">
+     <div class="hd"><h6>{{$la.classicase}}</h6><div class="more"><a href="design_case-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+     <div class="bd">
+         <div class="lst">
+             <ul>
+             {{foreach from=$caselist item="list"}}
+                 <li><a href="design_case-detail-default-{{$list.id}}.html"><img src="{{$list.url}}" /><p>{{$list.title}}</p></a></li>
+             {{/foreach}}
+             </ul>
+         </div>
+     </div>
+ </div>

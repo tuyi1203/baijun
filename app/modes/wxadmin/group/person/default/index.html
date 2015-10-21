@@ -1,0 +1,104 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.person.common}}</strong>
+				</div>
+				<form id='listForm'
+                    action='group_person-default-list.html' method='post'>
+                    <!--
+				 <table class="table">
+                          <tfoot>
+                              <tr>
+                                <td class='w-100px'>&nbsp;{{$la.person.role}}
+                                </td>
+                                <td colspan='5'>
+                                    <select name='data[roleid]' id='roleid' class='selectMode'>
+                                        {{html_options options=$role_options selected=$role_choose}}
+                                    </select>
+                                </td>
+                                </tr>
+                              <tr>
+                                <td class='w-100px'>&nbsp;{{$la.person.name}}
+                                </td>
+                                <td colspan='5'>
+                                    <input type="text" name="data[name]" value="{{$name}}" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan='2'>&nbsp; <input type='submit' id='submit'
+                                    class='btn btn-primary' value='{{$la.person.search}}'
+                                    data-loading='{{$la.person.searching}}' />
+                                </td>
+                              </tr>
+                            </tfoot>
+                    </table>
+                     -->
+				{{if !empty($list)}}
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+                        <th class='text-center w-100px'>
+                        <div class='{{if $orderby=="sort" and $sort=="desc"}}headerSortDown{{elseif $orderby=="sort" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='group_person-default-sort-currpage-{{$currpage}}-orderby-sort-sort-{{if $orderby == "sort"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.person.sort}}</a>
+                </div></th>
+                        <th class='text-center w-100px'><div class='{{if $orderby=="hot" and $sort=="desc"}}headerSortDown{{elseif $orderby=="hot" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='group_person-default-sort-currpage-{{$currpage}}-orderby-hot-sort-{{if $orderby == "hot"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.person.hot}}</a>
+                </div></th>
+				        <th class='text-center w-160px'>{{$la.person.picture}}</th>
+				        <th class='text-center w-160px'>{{$la.person.name}}</th>
+				         <th class='text-center w-160px'>
+				         <div class='{{if $orderby=="level" and $sort=="desc"}}headerSortDown{{elseif $orderby=="level" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='group_person-default-sort-currpage-{{$currpage}}-orderby-level-sort-{{if $orderby == "level"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.person.level}}</a>
+                </div></th>
+                        <th class='text-center w-160px'>
+                        <div class='{{if $orderby=="team" and $sort=="desc"}}headerSortDown{{elseif $orderby=="team" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='group_person-default-sort-currpage-{{$currpage}}-orderby-team-sort-{{if $orderby == "team"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.person.team}}</a>
+                </div></th>
+                <!--
+                        <th class='text-center w-100px'>{{$la.person.homepage}}</th>
+                -->
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.sort}}</a></td>
+                        <td class='text-center'>{{$kv.hot}}</a></td>
+                        <td class='text-center'>
+                            {{if !empty($kv.url)}}
+                            <a target="_blank" href="{{$kv.url}}"><img class="image-small" src="{{$kv.url}}"></a>
+                            {{/if}}
+                        </td>
+                        <td class='text-center'>{{$kv.name}}</a></td>
+                        <td class='text-center'>{{$kv.levelname}}</td>
+                        <td class='text-center'>{{$kv.teamname}}</td>
+                        <!--
+                        <td class='text-center {{if $kv.homepage == "1"}}is-visible{{/if}}'>{{if $kv.homepage=="1"}}<a href="system_topimage-edit-default-objecttype-person-objectid-{{$kv.id}}.modal" data-toggle='modal'>{{$la.yes}}</a>{{/if}}</td>
+                         -->
+                        <td class='text-center'>
+                          <a href='group_person-edit-default-{{$kv.id}}.html' >{{$la.article.editor}}</a>
+                          <a href='../wxsite/design_person-detail-default-{{$kv.id}}.html' target="_blank">{{$la.article.view}}</a>
+                          <!-- <a href='group_person-edit-default-{{$kv.id}}.html' >{{$la.person.production}}</a> -->
+			              <!--<a href='group_person-default-delete-{{$kv.id}}.json' class="deleter">{{$la.delete}}</a> -->
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='7'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+				  </form>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>
