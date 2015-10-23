@@ -1,0 +1,188 @@
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<title>内江市水务责任有限公司</title>
+<!–[if lt IE9]>
+<script src="js/html5.js"></script>
+<![endif]–>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.innerfade.js"></script><!--滚动公告-->
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div class="mainTop">
+    <div class="con">
+        <div class="l">您好, 今天是<em>2015年1月7日</em>星期三</div>
+        <div class="r"><iframe width="270" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe></div>
+    </div>
+</div>
+<div class="main">
+    <header>
+        <div class="logo"><a href="#"></a></div>
+        <div class="sch"><label for="schText">站内搜索，请输入关键词</label><input type="text" class="text" id="schText" /><a href="javascript:void(0)" class="mwIcon">&#xf002;</a></div>
+        <div class="tel"><b class="mwIcon">&#xf095;</b><em>水务热线</em><i>2192000</i></div>
+    </header>
+    <nav>
+        <ul id="nav">
+            <li>
+                <a href="#" class="lnk">首页</a>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">公司简介</a>
+                <div class="box"><a href="#">公司简介</a><a href="#">公司荣誉</a><a href="#">组织机构</a><a href="#">领导致辞</a><a href="#">公司大事记</a><a href="#">发展规划</a><a href="#">财务工作</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">新闻动态</a>
+                <div class="box"><a href="#">公司动态</a><a href="#">行业动态</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">通知公告</a>
+                <div class="box"><a href="#">停水公告</a><a href="#">公司公告</a><a href="#">水质公告</a><a href="#">水压月报</a><a href="#">爆管公告</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">用水知识</a>
+                <div class="box"><a href="#">常见问题</a><a href="#">供排水生产工艺流程</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">客户服务</a>
+                <div class="box"><a href="#">用户须知</a><a href="#">现行水价</a><a href="#">水费查询</a><a href="#">缴费指南</a><a href="#">网上缴费</a><a href="#">网上调查</a><a href="#">企业微博</a><a href="#">企业微信</a><a href="#">网上报修</a><a href="#">服务承诺</a><a href="#">联系我们</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">文化建设</a>
+                <div class="box"><a href="#">党团风采</a><a href="#">水司文化</a><a href="#">水务之星</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">人力资源</a>
+                <div class="box"><a href="#">诚聘英才</a><a href="#">人才战略</a><a href="#">人事任免</a><a href="#">提交简历</a></div>
+            </li>
+            <li class="line"></li>
+            <li>
+                <a href="#" class="lnk">政务公开</a>
+                <div class="box"><a href="#">政府信息公开指南</a><a href="#">政府信息公开目录</a><a href="#">政府信息公开制度</a><a href="#">政府信息公开年报</a><a href="#">依申请公开信息</a></div>
+            </li>
+        </ul>
+    </nav>
+    <div class="fBn"><img src="img/fbn.jpg" /></div>
+    <div class="rolling">
+        <b><i class="mwIcon">&#xf0a1;</i>滚动公告：</b>
+        <div class="rollingLst">
+            <ul id="rolling_list">
+                <li><a href="#zhangxinxu">二套房贷首付或提至50% 政府拟打压楼市</a></li>
+                <li><a href="#zhangxinxu">陈云林抵台参加会谈 向绿营抗议者挥手</a></li>
+                <li><a href="#zhangxinxu">全国猪肉出场价连涨6周 农产品涨价幅度大</a></li>
+                <li><a href="#zhangxinxu">社会蓝皮书：明年底人均GDP将接近4000美元</a></li>
+                <li><a href="#zhangxinxu">媒体称中央拟明年推行官员任用提名新制度</a></li>
+                <li><a href="#zhangxinxu">中法167亿建核电公司 合资造大飞机发动机</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="wL">
+            <div class="hd"><h3>栏目导航</h3></div>
+            <div class="bd">
+                <ul>
+                <li><a href="#">公司简介<i class="mwIcon">&#xf105;</i></a></li>
+                <li><a href="#">公司荣誉<i class="mwIcon">&#xf105;</i></a></li>
+                <li><a href="#">组织机构<i class="mwIcon">&#xf105;</i></a></li>
+                <li><a href="#">领导致辞<i class="mwIcon">&#xf105;</i></a></li>
+                <li><a href="#">公司大事记<i class="mwIcon">&#xf105;</i></a></li>
+                <li class="cu"><a href="#">发展规划<i class="mwIcon">&#xf105;</i></a></li>
+                <li><a href="#">财务工作<i class="mwIcon">&#xf105;</i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wR">
+            <div class="bread">当前位置:<a href="#">首页</a>&gt;<span>图片列表</span></div>
+            <div class="bd">
+                <div class="imgLst">
+                    <h2>图片列表</h2>
+                    <ul>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li class="oth"><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题</p></a></li>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li class="oth"><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    <li class="oth"><a href="#"><div class="pic"><img src="img/newspic.jpg" /></div><p>文章标题文章标题文章标题文章标题文章标题</p></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="page">
+                    <div class="l"><em class="green">15</em>/20</div>
+                    <div class="r">
+                        <a title="上一页" href="javascript:void(0);" class="mwIcon">&#xf104;</a>
+                        <a href="javascript:void(0)" class="cu">1</a>
+                        <a href="javascript:void(0)">2</a>
+                        <a href="javascript:void(0)">3</a>
+                        <a href="javascript:void(0)">4</a>
+                        <a href="javascript:void(0)">5</a>
+                        <a href="javascript:void(0)" class="morePage">...</a>
+                        <a href="javascript:void(0)">250</a>
+                        <a title="下一页" href="javascript:void(0);" class="mwIcon">&#xf105;</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <footer>
+        <div class="footerNav"><a href="#">诚聘英才</a><i>|</i><a href="#">人才战略</a><i>|</i><a href="#">人事任免</a><i>|</i><a href="#">在线提交个人简历</a></div>
+        <div class="copyright">
+            <p>版权所有 Copyright (c) 2009-2010 内江市水务有限责任公司 联系电话：0832-2192000</p>
+            <p>ICP：蜀ICP备09037935号</p>
+        </div>
+    </footer>
+</div>
+
+<div class="floatDiv">
+    <ul>
+    <li class="qq"><a href="javascript:void(0);" onClick="window.open('tencent://message/?uin=407578371');"></a></li>
+    <li class="weixin" id="weixin"><a href="javascript:void(0);"></a><div class="box"><img src="img/ewm.jpg" /><p>扫一扫,关注官方微信</p></div></li>
+    <li class="weibo"><a href="#"></a></li>
+    <li class="backtop"><a href="javascript:void(0);" id="backTop"></a></li>
+    </ul>
+</div>
+<script>
+$(document).ready(function(e) {
+    //输入框调用
+    $.input('input.text');
+    //导航调用
+    $.hov('#nav li');
+
+    //浮动二维码调用
+    $.hov('#weixin');
+
+    //回到顶部
+    $('#backTop').bind('click',function(){
+        $('body,html').animate({scrollTop:0},500);
+    });
+
+    //滚动公告调用
+    $("#rolling_list").innerfade({
+        animationtype: "slide",
+        speed: 750,
+        timeout: 2000,
+        type: "random",
+        containerheight: "25px"
+    });
+});
+
+</script>
+</body>
+</html>

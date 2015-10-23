@@ -73,6 +73,7 @@ class clsNewsOfficenewsEditController extends clsAppController implements IActio
 //         $this->output->status_choose  = $output['status'];
         $this->output->status_options = getActicleStatusOptions();
         $this->output->editor         = array('id' => array('content'), 'tools' => 'full');
+        $this->output->datepicker     = array("option"=>'right');
     }
 
 

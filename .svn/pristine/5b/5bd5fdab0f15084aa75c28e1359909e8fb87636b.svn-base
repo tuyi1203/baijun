@@ -1,0 +1,18 @@
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<title>{:C('SITENAME')}</title>
+<!–[if lt IE9]>
+<script src="{:T('js/html5.js')}"></script>
+<![endif]–>
+<script src="{:T('js/jquery-1.8.3.min.js')}"></script>
+<script src="{:T('js/common.js')}"></script>
+<script src="{:T('js/jquery.innerfade.js')}"></script><!--滚动公告-->
+<link rel="stylesheet" type="text/css" href="{:T('css/base.css')}" />
+<link rel="stylesheet" type="text/css" href="{:T('css/style.css')}" />
+<link rel='icon' href='{:T('img/favicon.ico')}' type='image/x-icon' />
+<link rel='shortcut icon' href='{:T('img/favicon.ico')}' type='image/x-icon' />
+</head>

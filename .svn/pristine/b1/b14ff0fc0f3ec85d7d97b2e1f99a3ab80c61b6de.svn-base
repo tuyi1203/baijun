@@ -1,0 +1,96 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+	{{*include file="$WWW_PATH/kindeditor.html"*}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-edit'></i>&nbsp;{{$la.custommenu.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='ajaxForm'
+                    action='{:U('weixin/custommenu/edit/update.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+                          <th class='w-100px'>{{$la.custommenu.parent}}</th>
+                          <td class='w-200px'>
+                          <select name='data[pid]' id='pid' class='form-control chosen selectMode' disabled="disabled">
+                            {{html_options options=$pid_options selected=$pid}}
+                          </select>
+                            </td><td></td>
+                            <td><input type="hidden" name="data[id]" value="{{$id}}" ></td>
+                       </tr>
+					   <tr>
+				          <th>{{$la.custommenu.title}}</th>
+				          <td>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='{{$title}}' class="form-control" />
+				          </td>
+				          <td><label class="text-info">{{$la.custommenu.titleinfo}}</label></td><td></td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.custommenu.sort}}</th>
+                          <td>
+                          <select name='data[sort]' id='sort' class='form-control chosen selectMode'>
+                            {{html_options options=$sort_options selected=$sort}}
+                          </select>
+                            </td><td></td><td></td>
+                       </tr>
+                        <tr>
+                          <th>{{$la.custommenu.replytype}}</th>
+                          <td colspan='3'>
+                            {{html_radios options=$replytype_options name="data[replytype]" labels=true label_ids=true selected=$replytype_choose}}
+                          </td>
+                       </tr>
+                       <tr style="display:none;" id="1">
+                          <th>{{$la.custommenu.url}}</th>
+                          <td colspan="2">
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[url]' id='url' value='{{$url}}' class="form-control" placeholder="http://"/>
+                          </td>
+                          <td></td>
+                       <tr style="display:none;" id="2">
+				          <th>{{$la.custommenu.replytext}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <textarea name='data[replytext]' rows='10' class='form-control' id="replytext">{{$replytext}}</textarea>
+				           </td>
+					   </tr>
+					   <tr style="display:none;" id="3">
+                          <th>{{$la.custommenu.news}}</th>
+                          <td colspan='2'>
+                          <div class="required required-wrapper"></div>
+                          <textarea name='data[replynews]' id='content' rows='10' class='form-control'></textarea>
+                           </td>
+                       </tr>
+					   <!--
+					   <tr>
+				          <th>{{$la.custommenu.publishtime}}</th>
+				          <td>
+				            <div class="input-append date">
+				              <input type='text' name='data[publishtime]' id='publishtime' value='{{$publishtime}}' class='form-control' />
+				              <span class='custommenu-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span>
+				            </div>
+				          </td>
+				          <td><span class="help-inline">{{$la.article.note.custommenuedDate}}</span></td>
+				        </tr>
+				         -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

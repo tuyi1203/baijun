@@ -1,0 +1,57 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-picture'></i>  {{$la.event.common}}</strong>
+
+                    <div class='panel-actions'>
+                        <a href='single_event-add-default.html'
+                            class='btn btn-primary'><i class="icon-plus"></i>  {{$la.event.create}}</a>
+                    </div>
+                </div>
+                    <form id='sortForm'
+                    action='single_event-default-update.json' method='post'>
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <th>{{$la.event.picture}}</th>
+                                <th>{{$la.event.title}}</th>
+                                <th>{{$la.event.desc}}</th>
+                                <th class="w-100px">{{$la.event.status}}</th>
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'>
+                                <a target="_blank" href="{{$record.url}}"><img class="image-small" src="{{$record.url}}"></a></td>
+                                <td class='text-center'>{{$record.title}}</td>
+                                <td class='text-center'>{{$record.desc}}</td>
+                                <td class='text-center {{if $record.status == "1"}}is-visible{{/if}}'>{{if $record.status=="1"}}活动中{{/if}}</td>
+                                <td class='text-center'><a
+                                    href='single_event-edit-default-id-{{$record.id}}.html'>{{$la.edit}}</a>
+                                    <a href='single_event-default-delete-id-{{$record.id}}.json'
+                                    class='deleter'>{{$la.delete}}</a></td>
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                    </table>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.price.common}}</strong>
+				</div>
+				<form id='updateForm' action='./manage_price-default-update.json' method='post'>
+				   <table class="table" >
+                        <tr>
+                          <th class='w-160px' style="vertical-align:middle;">&nbsp;{{$la.price.base}}
+                          </th>
+                          <td style="width:120px;">
+                              <input type="text" id="base" name="data[base]" value="{{$base}}" class="form-control" style="width:120px"/>
+                          </td>
+                         <td colspan='2'>&nbsp; <input type='submit' id='submit'
+                             class='btn btn-primary' value='{{$la.save}}'
+                             data-loading='{{$la.saving}}' />
+                         </td>
+                         </tr>
+                    </table>
+                </form>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'>{{$la.price.name}}
+				</th>
+				        <th class='text-center w-150px'>{{$la.price.tel}}
+				</th>
+				        <th class='text-center w-150px'>{{$la.price.mianji}}
+                </th>
+                        <th class='text-center w-150px'>{{$la.price.taocan}}
+                </th>
+                        <th class='text-center w-150px'>{{$la.price.loupan2}}
+                </th>
+                        <th class='text-center w-150px'>{{$la.price.jiaofang}}
+                </th>
+                        <th class='text-center w-160px'>{{$la.price.createtime}}
+                </th>
+                        <th class='text-center w-100px'>{{$la.actions}}
+                </th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'><a href="manage_price-confirm-default-{{$kv.id}}.modal" data-toggle='modal'>{{$kv.name}}</a></td>
+                        <td class='text-center'>{{$kv.tel}}</td>
+                        <td class='text-center'>{{$kv.mianji}}</td>
+                        <td class='text-center'>{{$kv.taocan}}</td>
+                        <td>{{$kv.loupan}}{{ex class="filter" fn="cut_sense" arg1=$kv.loupan2 arg2="80"}}</td>
+                        <td class='text-center'>{{$kv.jiaofang}}</td>
+                        <td class='text-center'>{{$kv.createtime}}</td>
+                        <td class='text-center'>
+                        <a href='manage_price-default-delete-id-{{$kv.id}}.json' class="deleter">{{$la.delete}}</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='9'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

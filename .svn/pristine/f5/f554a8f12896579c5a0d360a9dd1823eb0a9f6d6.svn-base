@@ -1,0 +1,30 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+<script type="text/javascript" src="js/jgestures.min.js"></script>
+<script type="text/javascript" src="js/simple-inheritance.min.js"></script>
+
+<!-- NOTE: including the jQuery engine version -->
+<script type="text/javascript" src="js/jquery.zoom.1.1.js"></script>
+<script type="text/javascript" src="js/code-photoswipe-jQuery-1.0.11.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#Gallery  ul li a").photoSwipe();	
+});
+</script>
+{{ex fn='exportCss'}}
+<header><h1>{{$la.sample.common}}</h1><a href="{{$la.breadcrumb.homepage}}" class="back mw-icon">&#xf122;</a><a href="{{$la.breadcrumb.homepage}}" class="index mw-icon">&#xf123;</a></header>
+<section class="content piclist">
+    <div class="lst" id="Gallery">
+        <ul>
+        {{foreach from=$list item="ls"}}
+        <li><a href="{{$ls.coverurl}}"><div class="box"><img src="{{$ls.coverurl}}" /></div><p>{{$ls.albumtitle}}</p></a></li>
+        {{/foreach}}
+        </ul>
+        <div class="clear"></div>
+    </div>
+    {{$pagelink}}
+</section>
+{{include file="$WWW_PATH/buttomstick.html"}}
+{{include file="$WWW_PATH/footer.html"}}
+</body>
+</html>

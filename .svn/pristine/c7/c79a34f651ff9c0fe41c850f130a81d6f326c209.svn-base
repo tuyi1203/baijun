@@ -1,0 +1,84 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{*include file="$WWW_PATH/left_menu.html"*}}
+    {{if !empty($models)}}
+    	<div class='col-md-12'>
+	    	<div class='panel'>
+					<div class='panel-heading'>
+						<strong><i class='icon-list-ul'></i>&nbsp;待审核事项</strong>
+					</div>	
+					<table class='table table-hover table-striped tablesorter'>
+					    <thead>
+					      <tr>
+					        <th class='text-center'>待办事项</th>
+					        <th class='text-center w-160px'>未审核数量</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					    	{{foreach from=$models item="kv"}}	
+		                    <tr>
+		                    <td class='text-center'>{{$kv.title}}</td>
+		                    <td class='text-center'><a href="{{$kv.url}}">{{$kv.count}}</a></td>
+		                    </tr>
+		                    {{/foreach}}
+					    </tbody>
+					</table>					
+			</div>
+    	</div>
+    	{{/if}}
+		<div class='col-md-12'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.announce.common}}</strong>
+				</div>
+				<center>
+				<h1>{{$nofilter.sticktitle}}</h1>
+				</center>
+				<div style="padding:15px;">{{$nofilter.stickcontent}}</div>
+				<br>
+				<span style="float:right;margin-right:15px;" >{{$nofilter.stickfooter}}</span>
+				<br>
+				<br>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				  <!--
+				    <thead>
+				      <tr>
+				        <th class='text-center'><div class='{{if $orderby=="title" and $sort=="desc"}}headerSortDown{{elseif $orderby=="title" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='site_announce-default-sort-currpage-{{$currpage}}-orderby-title-sort-{{if $orderby == "title"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.title}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="createby" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createby" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='site_announce-default-sort-currpage-{{$currpage}}-orderby-createby-sort-{{if $orderby == "createby"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.author}}</a>
+                </div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="createtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='site_announce-default-sort-currpage-{{$currpage}}-orderby-createtime-sort-{{if $orderby == "createtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.addedDate}}</a>
+				</div></th>
+				      </tr>
+				    </thead>
+				  -->
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <!-- <td class='text-center'>{{$kv.id}}</td>  -->
+                        <td><a href="{:U('home/default/confirm/default/{{$kv.id}}.modal')}" data-toggle='modal'>{{$kv.title}}</a></td>
+                        <td class='text-center'>{{$kv.createname}}</td>
+                        <td class='text-center'>{{$kv.createtime}}</td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='6'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

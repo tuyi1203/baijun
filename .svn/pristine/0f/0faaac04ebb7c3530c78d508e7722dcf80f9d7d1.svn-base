@@ -1,0 +1,69 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i>  {{$la.event.create}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='single_event-add-insert.json' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='col-md-1 col-xs-2'>{{$la.event.title}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='' class="form-control" />
+				          </td>
+				          <td>
+				          </td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.event.keyword}}</th>
+                          <td>
+                            <input type='text' name='data[keyword]' id='keyword' value='' class="form-control" />
+                          </td>
+                          <td>  </td>
+                        </tr>
+				       <tr>
+                          <th>{{$la.event.picture}}</th>
+                          <td>
+                          <div class="required required-wrapper"></div>
+                            <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
+                          </td>
+                          <td>
+                            <label class="text-info">{{$la.file.eventinfo}}</label>
+                          </td>
+                       </tr>
+                       <tr>
+				          <th>{{$la.event.desc}}</th>
+				          <td colspan='2'>
+				          <textarea name='data[desc]' id='desc' rows='5' class='form-control'>{{$desc}}</textarea>
+				           </td>
+					   </tr>
+					    <tr>
+                          <th>{{$la.event.eventing}}</th>
+                          <td>
+                          {{html_radios options=$status_options name="data[status]" labels=true label_ids=true selected=$status_choose}}
+                            </td>
+                            <td>
+                            </td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

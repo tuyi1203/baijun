@@ -1,0 +1,84 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/kindeditor.html"}}
+    {{include file="$WWW_PATH/switcher.html"}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-building'></i>  {{$la.config.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('website/config/default/update.json')}' method='post'>
+					<table class='table table-form'>
+					{{*
+					<tr>
+                          <th class='w-100px'>{{$la.config.watermark}}</th>
+                          <td class='w-p40'>
+                          <select name='data[watermark]' id='watermark' class='form-control chosen selectMode'>
+                            {{html_options options=$watermark_options selected=$watermark_choose}}
+                          </select>
+                            </td>
+                            <td>
+                            <div class="required required-wrapper"></div>
+                            <input type="text" id="watermarkcontent" name="data[watermarkcontent]" class='form-control' value="{{$watermarkcontent}}" placeholder="{{$la.config.waterplaceholder}}"/>
+                            <input type="hidden" name="data[watermark_subkey]" value="{{$watermark_subkey}}" />
+                            <input type="hidden" name="data[watermarkcontent_subkey]" value="{{$watermarkcontent_subkey}}" />
+                            <td>
+
+                     </tr>
+                     *}}
+                     {{foreach from=$linklist item="link" key="k" name="linklist"}}
+                        <tr>
+                          {{if $smarty.foreach.linklist.iteration == 1}}
+                          <th class='w-100px'  rowspan="{{$smarty.foreach.linklist.total}}" >{{$la.config.link}}</th>
+                          {{/if}}
+                          <td>
+                          <div class="required required-wrapper"></div>
+                          <input type="text" class="form-control" value="{{$link.name}}" id="friendlink_{{$link.id}}" name="data[friendlink_{{$link.id}}]">
+                           </td>
+                           <td>
+                           </td>
+                       </tr>
+                     {{/foreach}}
+                        <tr>
+                          <th class='w-100px' rowspan="2">{{$la.config.filterkeywords}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[keywords]' id='keywords' rows='6' class='form-control'>{{$keywords}}</textarea>
+                           </td>
+                       </tr>
+                       <tr>
+                            <td><label class="text-info">{{$la.config.filterinfo}}</label></td>
+                            <td></td>
+                       </tr>
+                       <tr><th>{{$la.config.optimize}}</th>
+                       <td>{{html_radios options=$optimize_options name="data[optimize]" labels=true label_ids=true selected=$optimize_choose}}</td>
+                       <td><!-- <label class="text-info">{{$la.config.optimizeinfo}}</label> --></td>
+                       </tr>
+                       <tr><th>{{$la.config.homepagenotice}}</th>
+                       <td><input type="checkbox" name="data[homepagenotice]" data-size="small" data-on-color="success" data-on-text="开启" data-off-text="关闭" {{if !empty($notice)}}checked="checked"{{/if}}></td>
+                       <td><!-- <label class="text-info">{{$la.config.optimizeinfo}}</label> --></td>
+                       </tr>
+                       <tr class="contenttr">
+                       <th>{{$la.config.content}}</th>
+                       <td colspan="2"><div class="required required-wrapper"></div>
+                          <textarea name='data[content]' id='content' rows='10' class='form-control'>{{$noticecontent}}</textarea>
+                          </td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

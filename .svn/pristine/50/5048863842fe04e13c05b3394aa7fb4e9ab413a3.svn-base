@@ -1,0 +1,163 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class=''></i> {{$la.resume.confirm}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table' border="1">
+        <tbody>
+          <tr class='text-center' style="background-color:#999999">
+            <th colspan="6">{{$la.resume.basic}}</th>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.name}}</th>
+            <td>
+                {{$name}}
+            </td>
+            <th class="w-100px">
+                {{$la.resume.xingbie}}
+            </th>
+            <td>{{$xingbie}}</td>
+            <th class="w-100px">
+                {{$la.resume.shengri}}
+            </th>
+            <td>{{$shengri}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.shenfenzheng}}</th>
+            <td>
+                {{$shenfenzheng}}
+            </td>
+            <th class="w-100px">
+                {{$la.resume.minzu}}
+            </th>
+            <td>{{$minzu}}</td>
+            <th class="w-100px">
+                {{$la.resume.jiguan}}
+            </th>
+            <td>{{$jiguan}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.hunyin}}</th>
+            <td>
+                {{$hunyin}}
+            </td>
+             <th class="w-100px">{{$la.resume.shengao}}</th>
+            <td>
+                {{$shengao}}CM
+            </td>
+             <th class="w-100px">{{$la.resume.tizhong}}</th>
+            <td>
+                {{$tizhong}}KG
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.yuanxiao}}</th>
+            <td>
+                {{$yuanxiao}}
+            </td>
+             <th class="w-100px">{{$la.resume.xueli}}</th>
+            <td>
+                {{$xueli}}
+            </td>
+             <th class="w-100px">{{$la.resume.zhuanye}}</th>
+            <td>
+                {{$zhuanye}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.jisuanji}}</th>
+            <td>
+                {{$jisuanji}}
+            </td>
+             <th class="w-100px">{{$la.resume.guoyu}}</th>
+            <td>
+                {{$guoyu}}
+            </td>
+             <th class="w-100px">{{$la.resume.waiyu}}</th>
+            <td>
+                {{$waiyu}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.zhengzhi}}</th>
+            <td colspan="3">{{$zhengzhi}}</td>
+            <th class="w-100px">{{$la.resume.jiashi}}</th>
+            <td>
+                {{$jiashi}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.hukou}}</th>
+            <td colspan="5">{{$hukou}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.peixun}}</th>
+            <td colspan="5">{{$ta.peixun}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.gongzuo}}</th>
+            <td colspan="5">{{$ta.gongzuo}}</td>
+          </tr>
+            <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.yeji}}</th>
+            <td colspan="5">{{$ta.yeji}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.techang}}</th>
+            <td colspan="5">{{$ta.techang}}</td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.jiating}}</th>
+            <td colspan="5">{{$ta.jiating}}</td>
+          </tr>
+          <tr class='text-center' style="background-color:#999999">
+            <th colspan="6">{{$la.resume.yingpinzhiwei}}</th>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.bumen}}</th>
+            <td>{{$bumen}}</td>
+            <th class="w-100px">{{$la.resume.zhiwei}}</th>
+            <td colspan="3">
+                {{$zhiwei}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.yaoqiu}}</th>
+            <td colspan="5">{{$ta.yaoqiu}}</td>
+          </tr>
+          <tr class='text-center' style="background-color:#999999">
+            <th colspan="6">{{$la.resume.lianxifangshi}}</th>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.dianhua}}</th>
+            <td>
+                {{$dianhua}}
+            </td>
+             <th class="w-100px">{{$la.resume.youxiang}}</th>
+            <td><a href="mailto:{{$youxiang}}">
+                {{$youxiang}}
+                </a>
+            </td>
+             <th class="w-100px">{{$la.resume.qq}}</th>
+            <td>
+                {{$qq}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.resume.dizhi}}</th>
+            <td colspan="5">{{$dizhi}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+    <div class='modal-footer'>
+        <input type="button" data-loading="{{$la.close}}" value="{{$la.close}}" class="btn btn-primary" id="close">
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

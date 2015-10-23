@@ -1,0 +1,6 @@
+<li {{if $modules == 'waterstop'}}class="cu"{{/if}}><a href="{:U('information/waterstop/list/default.html')}">停水公告<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'notice'}}class="cu"{{/if}}><a href="{:U('information/notice/list/default.html')}">公司公告<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'waterquality'}}class="cu"{{/if}}><a href="{:U('information/waterquality/list/default.html')}">水质公告<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'waterpressure'}}class="cu"{{/if}}><a href="{:U('information/waterpressure/list/default.html')}">水压月报<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'bomb'}}class="cu"{{/if}}><a href="{:U('information/bomb/list/default.html')}">爆管公告<i class="mwIcon">&#xf105;</i></a></li>
+

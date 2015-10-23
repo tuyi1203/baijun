@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+.wxEdit{width:1000px;margin:0 auto; }
+
+/*phone style*/
+.uiPhone{border:1px solid #dadada; border-radius:25px;background:#fff;width:324px;font-size:12px;font-family:'微软雅黑','SimHei';float:left;display:inline;position:relative; z-index:1;}
+.phoneBg{padding:2px;position:relative; z-index:1;}
+.phoneBrd{border:1px solid #dadada; border-radius:25px;background:#f1f1f1;}
+.phoneBrd .hd{height:80px; position:relative; z-index:1; border-radius:25px 25px 0 0;}
+.phoneBrd .hd .hdReceiver{ position:absolute;left:50%;top:30px;margin-left:-50px;}
+.phoneBrd .hd .hdReceiver b{display:inline-block;width:15px;height:15px;margin-right:10px; border-radius:50%;background:#ddd;}
+.phoneBrd .hd .hdReceiver i{display:inline-block;width:70px;height:15px;border-radius:10px;background:#ddd;}
+.phoneBrd .bd{background:#fff;border:1px solid #aaa;margin:0 15px;min-height:440px; position:relative; z-index:1;padding-bottom:35px;}
+.phoneBrd .bt{height:80px;position:relative; z-index:1;}
+.phoneBrd .bt .btnBtn{ position:absolute;left:50%;margin-left:-26px;top:50%;margin-top:-26px;}
+.phoneBrd .bt .btnBtn b{display:block;padding:15px;border:1px solid #ccc; border-radius:50% ;}
+.phoneBrd .bt .btnBtn b i{display:block;width:20px;height:20px;border:1px solid #ccc; border-radius:5px;}
+.phoneBrd .bd .addData{ position:absolute;width:100%;left:0;bottom:0;}
+.phoneBrd .bd .addData a{display:block;height:35px;line-height:35px;background:#fff; text-align:center;font-size:12px;border-top:1px solid #dadada;}
+.phoneBrd .bd .addData a:hover{background:#145ccd;color:#fff; text-decoration:none;}
+.phoneLst{}
+
+/*data list*/
+.phoneLst{}
+.phoneLst .lst{overflow:hidden;border-bottom:1px solid #dadada;cursor:pointer;padding:10px;position:relative; z-index:1;}
+.phoneLst .lst:last-child{border:0;}
+.phoneLst .lst:hover{background:#f1f1f1;}
+.phoneLst .lst .lstBtn{ position:absolute;right:0;bottom:0; opacity:0.8;display:none; z-index:2;}
+.phoneLst .lst:hover .lstBtn{display:block;}
+.phoneLst .lst .lstBtn a{height:22px;line-height:22px;color:#fff;display:inline-block;margin-left:10px;padding:0 10px;background:#bbb;font-size:12px;}
+.phoneLst .lst .phoneTxt{float:left;display:inline;line-height:25px;color:#333;width:200px;}
+.phoneLst .lst .lstPic{width:50px;line-height:50px;height:50px;background:#ddd;float:right;display:inline; text-align:center;color:#999;}
+.phoneLst .lst .lstPic img{width:50px;height:50px;display:block;}
+
+/*first data*/
+.phoneLst .firstLst{}
+.phoneLst .firstLst:hover{background:#f1f1f1;}
+.phoneLst .firstLst .lstBtn{position:absolute;right:0;bottom:0; opacity:0.8;display:none; z-index:2;}
+.phoneLst .firstLst .lstBtn a{height:22px;line-height:22px;color:#fff;display:inline-block;margin-left:10px;padding:0 10px;background:#bbb;font-size:12px;}
+.phoneLst .firstLst:hover .lstBtn{display:block;}
+
+.phoneLst .firstLst .lstPic{background:#eee;height:100px;line-height:120px;text-align:center;color:#666;font-size:14px;float:none;width:100%;display:block;}
+.phoneLst .firstLst .phoneTxt{width:100%;background:#666;color:#fff;line-height:20px;font-size:12px;float:none;display:block;padding:5px 15px;}
+
+
+/*form*/
+.uiForm{float:left;width:635px;}
+.uiFormCon{margin-left:20px; position:relative; z-index:1;border:1px solid #dadada;background:#f1f1f1; border-radius:25px;padding:15px;}
+.uiFormCon .uiFormArr1,.uiFormCon .uiFormArr2{font-style:normal;font-size:30px;position:absolute;left:-16px;top:14px;color:#dadada;}
+.uiFormCon .uiFormArr2{left:-14px;color:#f1f1f1;}
+
+
+/*modal*/
+.modal_del{ text-align:center;padding:50px 0;}
+.modal_del p{margin-bottom:10px;font-size:16px;}

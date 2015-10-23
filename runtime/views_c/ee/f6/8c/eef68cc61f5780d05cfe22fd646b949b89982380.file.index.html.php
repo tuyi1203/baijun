@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 14:07:08
+<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 11:02:45
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\module\first\add\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:104435618ab0cc09de2-99827614%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eef68cc61f5780d05cfe22fd646b949b89982380' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\module\\first\\add\\index.html',
-      1 => 1444456905,
+      1 => 1444457326,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5618ab0ccbb1f',
   'variables' => 
   array (
     'la' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'menuflg_choose' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5618ab0ccbb1f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5618ab0ccbb1f')) {function content_5618ab0ccbb1f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_options')) include 'D:\\xampp\\htdocs\\baijun\\eku\\plugins\\smarty\\plugins\\function.html_options.php';
 ?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -84,7 +84,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </th>
                           <td colspan='2'>
                           <div class="required required-wrapper"></div>
-                          <input type='text' name='data[des_en]' id='des' value='' class="form-control" />
+                          <input type='text' name='data[des_en]' id='des_en' value='' class="form-control" />
                           </td>
                        </tr>
                         <tr>

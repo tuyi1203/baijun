@@ -1,0 +1,4 @@
+<li {{if $modules == 'employ'}}class="cu"{{/if}}><a href="{:U('hr/employ/detail/default.html')}">诚聘英才<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'strategy'}}class="cu"{{/if}}><a href="{:U('hr/strategy/detail/default.html')}">人才战略<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'removals'}}class="cu"{{/if}}><a href="{:U('hr/removals/list/default.html')}">人事任免<i class="mwIcon">&#xf105;</i></a></li>
+<li {{if $modules == 'resume'}}class="cu"{{/if}}><a href="{:U('hr/resume/add/default.html')}">在线简历<i class="mwIcon">&#xf105;</i></a></li>

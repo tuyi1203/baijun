@@ -1,7 +1,7 @@
 <?php
 class Mw_Article extends clsModel{
 
-    CONST INSERT     = "insert into mw_article (title,keyword,summary,content,publishtime,createby,createtime,status,objecttype,public,sort)values (?,?,?,?,?,?,?,?,?,?,?)";
+    CONST INSERT     = "insert into mw_article (title,keyword,summary,content,publishtime,createby,createtime,status,objecttype,public,sort,lawyer)values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
     CONST GETLIST    = "select a.* , b.name createname, c.name updatename from mw_article a left join eku_user_info b on a.createby = b.uid left join eku_user_info c on a.updateby = c.uid where a.objecttype=? ";
 
@@ -40,9 +40,9 @@ class Mw_Article extends clsModel{
 
     CONST QUERY_COUNT_BYPUBLIC = "SELECT COUNT(id) as count FROM mw_article a WHERE objecttype = ? AND public = '0' AND  status = '1'";
 
-    
 
-    public function queryCountByPublish($type) 
+
+    public function queryCountByPublish($type)
     {
         $this->_oMdb->fncPreparedStatement(self::QUERY_COUNT_BYPUBLIC)
                     ->subSetString(1, $type);
@@ -70,6 +70,11 @@ class Mw_Article extends clsModel{
              $this->_oMdb->subSetInteger($i++, $input->sort);
          } else {
              $this->_oMdb->subSetNull($i++);
+         }
+         if (isset($input->lawyer)) {
+         	$this->_oMdb->subSetString($i++, $input->lawyer);
+         } else {
+         	$this->_oMdb->subSetNull($i++);
          }
          $this->_oMdb->fncExecuteUpdate();
 

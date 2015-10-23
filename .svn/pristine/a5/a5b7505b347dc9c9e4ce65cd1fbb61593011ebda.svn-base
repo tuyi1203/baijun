@@ -1,0 +1,48 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.category.common}}</strong>
+					<div class='panel-actions'><a href='example_category-add-default.html' class="btn btn-primary"><i class="icon-plus"></i> {{$la.category.create}}</a>
+				    </div>
+				</div>
+				{{if !empty($list)}}
+				  <table class='table table-hover table-striped tablesorter table-bordered'>
+				    <thead>
+				      <tr>
+                          <th class="text-center w-60px">{{$la.category.id}}</th>
+                          <th class="text-center w-160px">{{$la.category.name}}</th>
+                          <th class="text-center">{{$la.category.desc}}</th>
+                          <th class="text-center w-60px">{{$la.category.createby}}</th>
+                          <th class="text-center w-150px">{{$la.actions}}</th>
+                      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td>{{$kv.name}}</td>
+                        <td class='text-center'>{{$kv.desc}}</td>
+                        <td class='text-center'>{{$kv.createname}}</td>
+                        <td class='text-center'>
+                          <a href='example_category-edit-default-{{$kv.id}}.html' >编辑</a>
+			                <a href='example_category-default-delete-{{$kv.id}}.json' class="deleter">删除</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

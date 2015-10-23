@@ -20,6 +20,8 @@ class clsNewsOfficenewsAddController extends clsAppController implements IAction
             return;
         }
 
+
+
         $input = new stdClass();
         $input->title       = $this->input->title;
         $input->keyword     = $this->input->keyword;
@@ -31,6 +33,7 @@ class clsNewsOfficenewsAddController extends clsAppController implements IAction
         $input->publishtime = !isset($this->input->publishtime)?date("Y-m-d H:i:s") : $this->input->publishtime;
         $input->status      = $this->input->status;
         $input->objecttype  = "officenews";
+        $input->lawyer      = implode(',', $this->input->lawyer);
         $input->public      = "0";
 
         $model  = new clsModModel($this->mdb ,'mw_article');

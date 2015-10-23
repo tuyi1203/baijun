@@ -19,6 +19,7 @@ $lang->dashboard      = '用户中心';
 $lang->register       = '注册';
 $lang->logout         = '退出';
 $lang->login          = '登录';
+$lang->select         = '选中';
 $lang->account        = '帐号';
 $lang->password       = '密码';
 $lang->changePassword = '修改密码';

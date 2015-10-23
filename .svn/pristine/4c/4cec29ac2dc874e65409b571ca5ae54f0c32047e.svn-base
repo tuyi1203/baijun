@@ -1,0 +1,59 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.list.common}}</strong>
+					<div class='panel-actions'><a href='single_add-default-default.html' class="btn btn-primary"><i class="icon-plus"></i> {{$la.list.create}}</a>
+				    </div>
+				</div>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'><div class='{{if $orderby=="id" and $sort=="desc"}}headerSortDown{{elseif $orderby=="id" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='single_list-default-sort-currpage-{{$currpage}}-orderby-id-sort-{{if $orderby == "id"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.id}}</a>
+				</div></th>
+				        <th class='text-center'><div class='{{if $orderby=="title" and $sort=="desc"}}headerSortDown{{elseif $orderby=="title" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='single_list-default-sort-currpage-{{$currpage}}-orderby-title-sort-{{if $orderby == "title"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.title}}</a>
+				</div></th>
+				                <th class='text-center w-160px'><div class='{{if $orderby=="publishtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="publishtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='single_list-default-sort-currpage-{{$currpage}}-orderby-publishtime-sort-{{if $orderby == "publishtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.addedDate}}</a>
+				</div></th>
+				        <th class='text-center w-60px'><div class='{{if $orderby=="views" and $sort=="desc"}}headerSortDown{{elseif $orderby=="views" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='single_list-default-sort-currpage-{{$currpage}}-orderby-views-sort-{{if $orderby == "views"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html' >{{$la.article.views}}</a>
+				</div></th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td>{{$kv.title}}</td>
+                        <td class='text-center'>{{$kv.publishtime}}</td>
+                        <td class='text-center'>{{$kv.views}}</td>
+                        <td class='text-center'>
+                          <a href='single_list-edit-default-id-{{$kv.id}}.html' >编辑</a>
+			                <a href='system_file-default-default-objecttype-single-objectid-{{$kv.id}}.modal' data-toggle='modal'>附件</a>
+			                <a href='single_list-default-delete-id-{{$kv.id}}.json' class="deleter">删除</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='7'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

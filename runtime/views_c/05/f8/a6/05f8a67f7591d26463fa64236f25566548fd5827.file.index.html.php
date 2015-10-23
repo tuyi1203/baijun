@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-20 15:37:29
+<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 09:00:13
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\news\officenews\default\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:135355625ef3955f6c5-07027805%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '05f8a67f7591d26463fa64236f25566548fd5827' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\news\\officenews\\default\\index.html',
-      1 => 1445326478,
+      1 => 1445475611,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5625ef397437a',
   'variables' => 
   array (
     'la' => 0,
@@ -26,12 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sorting' => 0,
     'kv' => 0,
     'publishauth' => 0,
-    'settopauth' => 0,
     'pagelink' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5625ef397437a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5625ef397437a')) {function content_5625ef397437a($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -134,16 +133,6 @@ $_smarty_tpl->tpl_vars["kv"]->_loop = true;
 .json')}' class="publisher"><?php if ($_smarty_tpl->tpl_vars['kv']->value['public']=="0"){?><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['public'];?>
 <?php }else{ ?><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['unpublic'];?>
 <?php }?></a>
-                        <?php }?>
-                        <?php if ($_smarty_tpl->tpl_vars['kv']->value['public']=="1"&&$_smarty_tpl->tpl_vars['kv']->value['status']=="1"&&$_smarty_tpl->tpl_vars['settopauth']->value=='1'&&$_smarty_tpl->tpl_vars['kv']->value['top']!='1'){?>
-                          <a href='{:U('news/officenews/default/settop/objecttype/officenews/id/<?php echo $_smarty_tpl->tpl_vars['kv']->value['id'];?>
-.json')}' class="settoper"><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['settop'];?>
-</a>
-                        <?php }?>
-                        <?php if ($_smarty_tpl->tpl_vars['kv']->value['public']=="1"&&$_smarty_tpl->tpl_vars['kv']->value['status']=="1"&&$_smarty_tpl->tpl_vars['settopauth']->value=='1'&&$_smarty_tpl->tpl_vars['kv']->value['top']=='1'){?>
-                          <a href='{:U('news/officenews/default/settop/objecttype/officenews/id/<?php echo $_smarty_tpl->tpl_vars['kv']->value['id'];?>
-.json')}' class="settoper"><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['unsettop'];?>
-</a>
                         <?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['kv']->value['public']=="0"){?>
                           <a href='{:U('news/officenews/edit/default/id/<?php echo $_smarty_tpl->tpl_vars['kv']->value['id'];?>

@@ -1,0 +1,67 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.custommenu.common}}</strong>
+					<div class='panel-actions'><a href='{:U('weixin/custommenu/add/default.html')}' class="btn btn-primary"><i class="icon-plus"></i> {{$la.custommenu.create}}</a>
+				    </div>
+				</div>
+				{{if !empty($list)}}
+				<form id='publishForm'
+					action='{:U('weixin/custommenu/default/publish.json')}' method='post'>
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+				        <th class='text-center'><div>{{$la.custommenu.title}}</div></th>
+				        <th class='text-center w-160px'><div>{{$la.custommenu.sort}}</div></th>
+				        <th class='text-center w-160px'><div>{{$la.custommenu.replytype}}</div></th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv" key="k"}}
+                        <tr>
+                        <td class='text-left'>{{$kv.ptitle}}</td>
+                        <td class='text-center'>{{$kv.psort}}</td>
+                        <td class='text-center'>{{$kv.preplytypename}}</td>
+                        <td class='text-center w-160px'>
+                         <a href='{:U('weixin/custommenu/edit/default/{{$k}}.html')}'>{{$la.edit}}</a>
+                         <a href='{:U('weixin/custommenu/default/delete/{{$k}}.json')}' class='deleter'>{{$la.delete}}</a></td>
+                        </tr>
+                        {{if isset($kv.sub)}}
+                            {{foreach from=$kv.sub item="ls" key="lsk" name="childmenu"}}
+                            <tr>
+                                <td class='text-left'>&nbsp;{{if $smarty.foreach.childmenu.last}}└──{{else}}├──{{/if}}{{$ls.title}}</td>
+                                <td class='text-center'>{{$ls.sort}}</td>
+                                <td class='text-center'>{{$ls.replytypename}}</td>
+                                <td class='text-center w-160px'>
+		                        <a href='{:U('weixin/custommenu/edit/default/{{$lsk}}.html')}'>{{$la.edit}}</a>
+		                        <a href='{:U('weixin/custommenu/default/delete/{{$lsk}}.json')}' class='deleter'>{{$la.delete}}</a></td>
+                            </tr>
+                            {{/foreach}}
+                        {{/if}}
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot>
+                            <tr>
+                                <td colspan='4'>&nbsp; <input type='submit' id='submit'
+                                    class='btn btn-primary' value='{{$la.custommenu.public}}'
+                                    data-loading='{{$la.loading}}' />
+                                </td>
+                            </tr>
+                        </tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

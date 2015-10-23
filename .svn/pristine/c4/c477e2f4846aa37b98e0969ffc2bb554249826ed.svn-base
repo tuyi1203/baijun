@@ -1,0 +1,12 @@
+<div class="front_part p3">
+    <div class="hd"><h6>{{$la.news}}</h6><div class="more"><a href="article_news-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+    <div class="bd">
+        <div class="lst">
+            <ul>
+			 {{foreach from=$newslist item="list" key="k"}}
+             <li><a href="article_news-detail-default-{{$list.id}}.html"><em>+</em>{{$list.title}}</a></li>
+             {{/foreach}}
+            </ul>
+        </div>
+    </div>
+</div>

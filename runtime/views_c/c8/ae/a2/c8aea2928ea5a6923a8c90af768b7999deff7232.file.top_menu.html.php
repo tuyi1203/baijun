@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:05:45
+<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 10:45:36
          compiled from "D:\xampp\htdocs\baijun\app\views\admin\top_menu.html" */ ?>
 <?php /*%%SmartyHeaderCode:1196556188df1238706-00447756%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8aea2928ea5a6923a8c90af768b7999deff7232' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\views\\admin\\top_menu.html',
-      1 => 1444449931,
+      1 => 1445481935,
       2 => 'file',
     ),
   ),
@@ -61,6 +61,19 @@ $_smarty_tpl->tpl_vars["MENU"]->_loop = true;
             <ul class="nav navbar-nav navbar-right">
                 <li><a href='{:U('site/home/default/default/default.html')}' target='_blank'
                     class='navbar-link'><i class="icon-home icon-large"></i> 前台</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                    data-toggle="dropdown"><i class="icon-columns icon-large"></i> 网站<b class="caret"></b></a>
+                 <?php if (isset($_SESSION['menu_list']['wxadmin'])||isset($_SESSION['menu_list']['wechat'])){?>
+                 <ul class="dropdown-menu">
+                     <?php if (isset($_SESSION['menu_list']['wxadmin'])){?>
+                     <li><a href="{:U('wxadmin/home/default')}">微网站</a></li>
+                     <?php }?>
+                     <?php if (isset($_SESSION['menu_list']['wechat'])){?>
+                     <li><a href="{:U('wechat/weixin/setting')}">微信</a></li>
+                     <?php }?>
+                 </ul>
+                 <?php }?>
+                </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle"
                     data-toggle="dropdown"><i class="icon-user icon-large"></i>
                         <?php echo $_SESSION['_UserName'];?>

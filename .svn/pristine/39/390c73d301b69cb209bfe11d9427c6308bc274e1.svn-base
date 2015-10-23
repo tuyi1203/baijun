@@ -1,0 +1,57 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class=''></i> {{$la.housesubmit.confirm}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table'>
+        <tbody>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.name}}</th>
+            <td>
+                {{$name}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.tel}}</th>
+            <td>
+                {{$tel}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.qq}}</th>
+            <td>
+                {{$qq}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.addr}}</th>
+            <td>
+                {{$addr}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.content}}</th>
+            <td>
+                {{$nofilter.content}}
+            </td>
+          </tr>
+          <tr class='text-middle'>
+            <th class="w-100px">{{$la.housesubmit.createtime}}</th>
+            <td>
+                {{$createtime}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+    <div class='modal-footer'>
+        <input type="button" data-loading="{{$la.close}}" value="{{$la.close}}" class="btn btn-primary" id="close">
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

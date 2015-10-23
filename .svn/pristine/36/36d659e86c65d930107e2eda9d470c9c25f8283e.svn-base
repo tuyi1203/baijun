@@ -1,0 +1,88 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-picture'></i>{{$la.first.common}}</strong>
+
+					<div class='panel-actions'>
+						<a href="{:U('module/first/add/default.html')}"
+							class='btn btn-primary'><i class="icon-plus"></i>{{$la.first.create}}</a>
+					</div>
+				</div>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='sortForm'
+                    action="{:U('module/first/default/update.json')}" method='post'>
+                    <table class="table">
+                          <tfoot>
+                              <tr>
+                                <td class='w-100px'>&nbsp;{{$la.first.modechoose}}
+                                </td>
+                                <td colspan='5'>
+                                    <select name='data[mode]' id='mode' class='selectMode'>
+                                        {{html_options options=$mode_options selected=$mode_choose}}
+                                    </select>
+                                </td>
+                                </tr>
+                            </tfoot>
+                    </table>
+					{{if !empty($list)}}
+					<table class='table table-hover table-bordered'>
+						<thead>
+							<tr class='text-center'>
+								<th>{{$la.first.sort}}</th>
+								<th>{{$la.first.des}}</th>
+								<th>{{$la.first.name}}</th>
+								<th>{{$la.first.status}}</th>
+								<th>{{$la.first.ctrstatus}}</th>
+								<th>{{$la.first.menu}}</th>
+								<th>{{$la.first.createby}}</th>
+								<th>{{$la.actions}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{foreach from=$list item="record"}}
+							<tr class='text-middle'>
+								<td class='text-center'><i class='icon-arrow-up'></i> <i
+									class='icon-arrow-down'></i> <input type='hidden'
+									name='data[sort][{{$record.id}}]' id='data[sort][{{$record.id}}]'
+									value='{{$record.sort}}' /></td>
+    							<td class='text-center'>{{$record.des}}</td>
+								<td class='text-center'>{{$record.name}}</td>
+								<td class='text-center {{if $record.status == "1"}}is-visible{{else}}is-unvisible{{/if}}'>{{if $record.status=="1"}}启用{{else}}停用{{/if}}</td>
+								<td class='text-center {{if $record.ctrflg == "1"}}is-visible{{else}}is-unvisible{{/if}}'>{{if $record.ctrflg=="1"}}可控{{else}}不可控{{/if}}</td>
+								<td class='text-center {{if $record.menuflg == "1"}}is-visible{{else}}is-unvisible{{/if}}'>{{if $record.menuflg=="1"}}显示{{else}}不显示{{/if}}</td>
+								<td class='text-center'>{{$record.username}}</td>
+								<td class='text-center'><a
+									href="{:U('module/first/edit/default.html?id={{$record.id}}')}">{{$la.edit}}</a>
+									<a href="{:U('module/first/default/delete/id/{{$record.id}}.json')}"
+									class='deleter'>{{$la.delete}}</a></td>
+							</tr>
+							{{/foreach}}
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan='6'>&nbsp; <input type='submit' id='submit'
+									class='btn btn-primary' value='{{$la.first.savesort}}'
+									data-loading='{{$la.loading}}' />
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					{{/if}}
+				</form>
+			</div>
+		</div>
+	</div>
+
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

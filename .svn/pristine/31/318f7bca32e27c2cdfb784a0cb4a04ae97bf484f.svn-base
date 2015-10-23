@@ -1,0 +1,66 @@
+﻿{{include file="$WWW_PATH/innerheader.html"}}
+<body>
+{{include file="$WWW_PATH/menu.html"}}
+    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
+    {{include file="$WWW_PATH/rolling.html"}}
+    <div class="wrap">
+    	<div class="wL">
+        	<div class="hd"><h3>栏目导航</h3></div>
+            <div class="bd">
+            	<ul>
+                {{include file="$WWW_PATH/kehufuwu.html"}}
+                </ul>
+            </div>
+        </div>
+        <div class="wR">
+        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<span>网上调查</span></div>
+            <div class="bd">
+            	<div class="inv">
+                	<h2>网上调查</h2>
+                    <div class="lst">
+                    	<ul>
+                    	{{foreach from=$nofilter.list item="ls"}}
+                    	<li>
+                            <dl>
+                            <dt><a href="{:U('service/questionnaire/detail/default/{{$ls.id}}.html')}">{{$ls.title}}</a></dt>
+                            <dd><p>介绍：<em>{{$ls.content}}</em></p><p><span>开始时间：<em>{:substr('{{$ls.starttime}}',0,10)}</em></span><span>结束时间：<em>{:substr('{{$ls.endtime}}',0,10)}</em></span></p></dd>
+                            </dl>
+                        </li>
+                    	{{/foreach}}
+                    	{{*
+                        <li>
+                        	<dl>
+                            <dt><a href="#">手机市场需求调查问卷</a></dt>
+                            <dd><p>介绍：<em>关于用户使用手机的市场调查</em></p><p><span>开始时间：<em>2015-1-15</em></span><span>结束时间：<em>2015-1-15</em></span></p></dd>
+                            </dl>
+                        </li>
+                        <li>
+                        	<dl>
+                            <dt><a href="#">大学生网络游戏调查问卷</a></dt>
+                            <dd><p>介绍：<em>您好，这是一份关于大学生玩网络游戏的调查问卷，希望能占用你两分钟时间帮忙填一下，非常感谢！</em></p><p><span>开始时间：<em>2015-1-15</em></span><span>结束时间：<em>2015-1-15</em></span></p></dd>
+                            </dl>
+                        </li>
+                        <li>
+                        	<dl>
+                            <dt><a href="#">MBTI职业性格测试</a></dt>
+                            <dd><p>介绍：<em>人的性格倾向，就象分别使用自己的两只手写字一样，都可以写出来，但惯用的那只写出的会比另一只更好。每个人都会沿着自己所属的类型发展出个人行为、技巧和态度，而每一种也都存在着自己的潜能和潜在的盲点。本次测试主要探讨各种性格类型与相关职业的匹配程度</em></p><p><span>开始时间：<em>2015-1-15</em></span><span>结束时间：<em>2015-1-15</em></span></p></dd>
+                            </dl>
+                        </li>
+                        *}}
+                        </ul>
+                    </div>
+                    {{$pagelink}}
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    {{include file="$WWW_PATH/footer.html"}}
+</div>
+{{include file="$WWW_PATH/floatdiv.html"}}
+<script>
+
+</script>
+</body>
+</html>

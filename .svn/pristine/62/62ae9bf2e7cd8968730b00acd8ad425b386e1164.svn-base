@@ -1,0 +1,59 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-list-ul'></i>  {{$la.style.common}}</strong>
+                   <div class='panel-actions'><a href='example_style-add-default.html' class="btn btn-primary"><i class="icon-plus"></i> {{$la.style.create}}</a>
+                    </div>
+                </div>
+                    <form id='sortForm'
+                    action='example_style-default-update.json' method='post'>
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <th class="w-120px">{{$la.style.sort}}</th>
+                                <th>{{$la.style.name}}</th>
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'><i class='icon-arrow-up'></i> <i
+                                    class='icon-arrow-down'></i> <input type='hidden'
+                                    name='data[sort][{{$record.id}}]' id='data[sort][{{$record.id}}]'
+                                    value='{{$record.sort}}' /></td>
+                                <td class='text-center'>{{$record.name}}</td>
+                                <td class='text-center'>
+                                <a href='example_style-edit-default-{{$record.id}}.html'>{{$la.edit}}</a>
+                                <a href='example_style-default-delete-{{$record.id}}.json' class="deleter">{{$la.delete}}</a>
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan='6'>&nbsp; <input type='submit' id='submit'
+                                    class='btn btn-primary' value='{{$la.style.savesort}}'
+                                    data-loading='{{$la.loading}}' />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

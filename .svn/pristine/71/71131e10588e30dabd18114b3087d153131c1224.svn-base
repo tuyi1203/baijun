@@ -1,0 +1,51 @@
+﻿{{include file="$WWW_PATH/innerheader.html"}}
+<body>
+{{include file="$WWW_PATH/menu.html"}}
+    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
+    {{include file="$WWW_PATH/rolling.html"}}
+    <div class="wrap">
+    	<div class="wL">
+        	<div class="hd"><h3>栏目导航</h3></div>
+            <div class="bd">
+            	<ul>
+                {{include file="$WWW_PATH/tongzhigonggao.html"}}
+                </ul>
+            </div>
+        </div>
+        <div class="wR">
+        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<a href="{:U('information/waterquality/list/default.html')}">通知公告</a>&gt;<span>水压月报</span></div>
+            <div class="bd">
+            	<div class="pageInfo">
+                	<h1 id="Title">{{$title}}</h1>
+                    <div class="contrl">
+                        <span>发布日期:<em>{:substr('{{$createtime}}',0,10)}</em></span>
+                        <i>|</i>
+                        <span>点击:<em>{{$views}}</em></span>
+                        <i>|</i>
+                        <span id="contrlFont">字体:<a href="javascript:void(0);" class="ctrlFont cu">小</a><a href="javascript:void(0);" class="ctrlFont">中</a><a href="javascript:void(0);" class="ctrlFont">大</a></span>
+                        <i>|</i>
+                        <span><a href="javascript:window.print();">打印</a><a href="javascript:window.close();">关闭</a></span>
+                    </div>
+                    <div class="pageInfoTxt" id="info">
+                        {{$nofilter.content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+</div>
+
+{{include file="$WWW_PATH/floatdiv.html"}}
+<div class="turnPage">
+    {{if isset($previd)}}
+	<a href="{:U('information/waterquality/detail/default/{{$previd}}.html')}" class="mwIcon turnL">&#xf053;</a>
+	{{/if}}
+	{{if isset($nextid)}}
+    <a href="{:U('information/waterquality/detail/default/{{$nextid}}.html')}" class="mwIcon turnR">&#xf054;</a>
+    {{/if}}
+</div>
+</body>
+</html>

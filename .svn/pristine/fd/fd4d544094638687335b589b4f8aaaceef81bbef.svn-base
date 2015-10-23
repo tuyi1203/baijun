@@ -1,0 +1,87 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-list-ul'></i>  {{$la.question.common}}</strong>
+                    <div class='panel-actions'>
+                        <a href='{:U('knowledge/question/add')}'
+                            class='btn btn-primary'><i class="icon-plus"></i>  {{$la.question.create}}</a>
+                    </div>
+                </div>
+                <div class="tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                {{foreach from=$categories item="ca" key="k"}}
+                    {{if $ca == $activecategory}}
+                        <li class="active">
+                            <a href="javascript:void(0);">{{$ca}}</a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a href="{:U('knowledge/question/default/list/category/{{$k}}.html')}" data-toggle="tab" role="tab">
+                            {{$ca}}</a>
+                        </li>
+                    {{/if}}
+                {{/foreach}}
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!--
+                    <form id='sortForm'
+                    action='question_question-default-update.json' method='post'> -->
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <th>{{$la.question.id}}</th>
+                                <th>{{$la.question.title}}</th>
+                                <th>{{$la.article.addedDate}}</th>
+                                <th>{{$la.article.views}}</th>
+                                <th>{{$la.article.status}}</th>
+                                <th>{{$la.article.publicstatus}}</th>
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'>{{$record.id}}</td>
+                                <td class='text-center'>{{$record.title}}</td>
+                                <td class='text-center'>{{$record.createtime}}</td>
+                                <td class='text-center'>{{$record.views}}</td>
+                                <td class='text-center {{if $record.status == "1"}}is-visible{{/if}}'>{{if $record.status == "1"}}{{$la.article.normal}}{{else}}{{$la.article.draft}}{{/if}}</td>
+                                <td class='text-center {{if $record.public == "1"}}is-visible{{/if}}'>{{if $record.public == "1"}}{{$la.question.published}}{{else}}{{$la.question.unpublished}}{{/if}}</td>
+                                <td class='text-center'>
+                                {{if $record.status=="1" and $publishauth == '1'}}
+		                          <a href='{:U('knowledge/question/default/publish/{{$record.id}}.json')}' class="publisher">{{if $record.public == "0"}}{{$la.article.public}}{{else}}{{$la.article.unpublic}}{{/if}}</a>
+		                        {{/if}}
+                                {{if $record.public == "0"}}
+                                <a href='{:U('knowledge/question/edit/default/id/{{$record.id}}.html')}'>{{$la.edit}}</a>
+                                    <a href='{:U('knowledge/question/default/delete/id/{{$record.id}}.json')}'
+                                    class='deleter'>{{$la.delete}}</a></td>
+                                {{/if}}
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                        <tfoot><tr><td colspan='8'>
+	                    <div style='float:right; clear:none;' class='page form-inline'>
+	                    {{$pagelink}}
+	                        </div></td></tr></tfoot>
+                    </table>
+                    {{/if}}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

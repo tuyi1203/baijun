@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-20 15:50:48
+<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 20:28:27
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\news\officenews\add\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:289295625f09bde7648-56386598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '901f7648db26f8e4becaf6c4009be9b8497897ee' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\news\\officenews\\add\\index.html',
-      1 => 1445327447,
+      1 => 1445516626,
       2 => 'file',
     ),
   ),
@@ -73,6 +73,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </th>
                           <td colspan='2'>
                           <textarea name='data[summary]' id='summary' rows='2' class='form-control'></textarea>
+                            </td>
+                       </tr>
+                       <tr>
+                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['lawyer'];?>
+</th>
+                          <td colspan='2' class="lawyerlist">
+                          <a class="btn btn-default" href="{:U('common/lawyer/default/default.modal')}" role="button" data-toggle='modal'><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['addlawyer'];?>
+</a>
                             </td>
                        </tr>
                        <tr>

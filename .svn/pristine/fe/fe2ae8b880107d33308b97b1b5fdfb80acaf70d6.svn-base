@@ -1,0 +1,34 @@
+{{ex fn="exportJsSet"}}
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class=''></i> {{$la.questionnaire.confirm}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table' border="1">
+        <tbody>
+        {{foreach from=$question item="q" name="questionloop" }}
+            <tr class='text-center' style="background-color:#999999">
+            <th colspan="6">{{$la.questionnaire.question}}{{$smarty.foreach.questionloop.index+1}}</th>
+            </tr>
+            {{foreach from=$q.option name="optionloop" item="o"}}
+                <tr class='text-middle'>
+                    <th class="w-100px">{{$la.questionnaire.option}}{{$smarty.foreach.optionloop.index+1}}</th>
+                    <td colspan="3">{{$o.title}}</td>
+                    <th class="w-100px">{{$la.questionnaire.selected}}</th>
+                    <td class="w-50px">{{$o.count}}</td>
+                </tr>
+            {{/foreach}}
+        {{/foreach}}
+        </tbody>
+      </table>
+      </form>
+    </div>
+    <div class='modal-footer'>
+        <input type="button" data-loading="{{$la.close}}" value="{{$la.close}}" class="btn btn-primary" id="close">
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

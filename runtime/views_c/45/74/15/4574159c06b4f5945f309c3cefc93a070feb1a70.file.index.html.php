@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-20 15:38:03
+<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 10:36:40
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\news\officenews\edit\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:95165625ef5bb04304-52338995%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4574159c06b4f5945f309c3cefc93a070feb1a70' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\news\\officenews\\edit\\index.html',
-      1 => 1424054914,
+      1 => 1445481398,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5625ef5bc106c',
   'variables' => 
   array (
     'la' => 0,
@@ -28,13 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'status_choose' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5625ef5bc106c',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5625ef5bc106c')) {function content_5625ef5bc106c($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_radios')) include 'D:\\xampp\\htdocs\\baijun\\eku\\plugins\\smarty\\plugins\\function.html_radios.php';
 ?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <body>
+    <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/datepicker.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 	<?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/kindeditor.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
     <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/top_menu.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -46,17 +48,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class='col-md-10'>
 			<div class='panel'>
 				<div class='panel-heading'>
-					<strong><i class='icon-edit'></i>  <?php echo $_smarty_tpl->tpl_vars['la']->value['company']['edit'];?>
+					<strong><i class='icon-edit'></i>  <?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['edit'];?>
 </strong>
 				</div>
 				<div class='panel-body'>
 				<!-- <form id='sortForm'
 					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
 				<form id='ajaxForm'
-                    action='{:U('news/company/edit/update.json')}' method='post'>
+                    action='{:U('news/officenews/edit/update.json')}' method='post'>
 					<table class='table table-form'>
 					   <tr>
-				          <th class='w-100px'><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['title'];?>
+				          <th class='w-100px'><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['title'];?>
 </th>
 				          <td colspan='2'>
 				          <div class="required required-wrapper"></div>
@@ -67,7 +69,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				          </td>
 				       </tr>
 				       <tr>
-                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['keyword'];?>
+                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['keyword'];?>
 </th>
                           <td colspan='2'>
                           <div class=""></div>
@@ -76,7 +78,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                           </td>
                        </tr>
                         <tr>
-                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['summary'];?>
+                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['summary'];?>
 </th>
                           <td colspan='2'>
                           <textarea name='data[summary]' id='summary' rows='2' class='form-control'><?php echo $_smarty_tpl->tpl_vars['summary']->value;?>
@@ -84,7 +86,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             </td>
                        </tr>
                        <tr>
-				          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['content'];?>
+				          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['content'];?>
 </th>
 				          <td colspan='2'>
 				          <div class="required required-wrapper"></div>
@@ -92,23 +94,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </textarea>
 				           </td>
 					   </tr>
-					   <!--
 					   <tr>
-				          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['publishtime'];?>
+                          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['publishtime'];?>
 </th>
-				          <td>
-				            <div class="input-append date">
-				              <input type='text' name='data[publishtime]' id='publishtime' value='<?php echo $_smarty_tpl->tpl_vars['publishtime']->value;?>
-' class='form-control' />
-				              <span class='add-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span>
-				            </div>
-				          </td>
-				          <td><span class="help-inline"><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['note']['addedDate'];?>
+                          <td>
+                            <div class="input-append">
+                              <input type='text' name='data[publishtime]' id='publishtime' value='<?php echo $_smarty_tpl->tpl_vars['publishtime']->value;?>
+' class='form-control date' style="width:200px;"/>
+                              <!-- <span class='officenews-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span> -->
+                            </div>
+                          </td>
+                          <td><span class="help-inline"><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['note']['addedDate'];?>
 </span></td>
-				        </tr>
-				        -->
+                        </tr>
 				        <tr>
-				          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['company']['status'];?>
+				          <th><?php echo $_smarty_tpl->tpl_vars['la']->value['officenews']['status'];?>
 </th>
 				          <td>
 				          <?php echo smarty_function_html_radios(array('options'=>$_smarty_tpl->tpl_vars['status_options']->value,'name'=>"data[status]",'labels'=>true,'label_ids'=>true,'selected'=>$_smarty_tpl->tpl_vars['status_choose']->value),$_smarty_tpl);?>
@@ -122,7 +122,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ' data-loading='<?php echo $_smarty_tpl->tpl_vars['la']->value['loading'];?>
 ' />
                          &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="<?php echo $_smarty_tpl->tpl_vars['la']->value['goback'];?>
-" onclick="location.href='{:U('news/company')}'">
+" onclick="location.href='{:U('news/officenews')}'">
                          </td>
                         </tr>
 					</table>

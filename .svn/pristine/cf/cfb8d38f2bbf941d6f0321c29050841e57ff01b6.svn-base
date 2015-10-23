@@ -1,0 +1,33 @@
+<div class='modal-dialog w-600px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+    {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title'><i class='icon-edit'></i>  {{$la.local.add}}</h4>
+    </div>
+    <div class='modal-body'>
+      <form method='post' enctype='multipart/form-data' id='fileForm' action='{:U('low/local/add/insert.json')}'>
+        <table class='table table-form'>
+          <tr>
+            <th class='w-80px'>{{$la.local.title}}</th>
+            <td>
+                <input type="text" name="data[title]" value="{{$title}}" id="title" class="form-control">
+            </td>
+          </tr>
+            <tr>
+              <th>{{$la.local.file}}</th>
+              <td>
+                 <input type="file" class="form-control" tabindex="-1" id="upFile" name="upFile">
+               </td>
+            </tr>
+          <tr>
+            <th></th>
+            <td><input type="submit" data-loading="{{$la.loading}}" value="{{$la.save}}" class="btn btn-primary" id="submit"/>
+            <input type="button" class="btn btn-default goback" value="{{$la.close}}">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

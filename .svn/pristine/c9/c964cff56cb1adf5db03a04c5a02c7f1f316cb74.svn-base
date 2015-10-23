@@ -1,0 +1,120 @@
+﻿{{include file="$WWW_PATH/innerheader.html"}}
+<body>
+<script src="{:T('js/all.js')}"></script>
+{{include file="$WWW_PATH/menu.html"}}
+    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
+    {{include file="$WWW_PATH/rolling.html"}}
+    <div class="wrap">
+    	<div class="wL">
+        	<div class="hd"><h3>栏目导航</h3></div>
+            <div class="bd">
+            	<ul>
+                {{include file="$WWW_PATH/kehuhudong.html"}}
+                </ul>
+            </div>
+        </div>
+        <div class="wR">
+        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<span>咨询留言</span></div>
+            <div class="bd">
+                <form action="{:U('customer/message/add/insert.json')}" id="ajaxForm" >
+            	<div class="publicForm">
+                	<h2>网上咨询<a class="btnsFm btn3" href="{:U('customer/message/list/default.html')}"><i class="mwIcon"></i>查看咨询记录</a></h2>
+                    <div class="form">
+                        <div class="mod">
+                            <div class="l">姓名<i>*</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" name="data[name]"></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">用户号<i>&nbsp;</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" name="data[cardno]"></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">联系电话<i>*</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" name="data[tel]"></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">电子邮箱<i>&nbsp;</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" name="data[email]"></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">联系地址<i>*</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" style="width:320px;" name="data[addr]"></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">咨询内容<i>*</i></div>
+                            <div class="r">
+                                <span class="formTextarea">
+                                    <textarea id="txtar1" class="textarea" style="width:455px;" name="data[content]"></textarea>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="mod">
+                            <div class="l">验证码<i>*</i></div>
+                            <div class="r"><span class="formText"><input type="text" class="text" style="width:60px;" name="data[captcha]"></span><span class="formTxt"><img style="width:200px;height:30px;" src="{:U('system/captcha/default/create.html')}" alt="CAPTCHA" border="1" onclick="getCaptcha(this);" style="cursor: pointer;" title="看不清？点击更换另一个验证码。" id="captchaimg" /></span></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="formBtn"><a href="javascript:;" class="btnsFb btn4" onclick="submitForm('ajaxForm')">提交</a><a href="javascript:;" class="btnsFb btn3" onclick="reloadme();">重置</a></div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    {{include file="$WWW_PATH/footer.html"}}
+</div>
+{{include file="$WWW_PATH/floatdiv.html"}}
+<script>
+function submitForm(id)
+{
+    $("#"+id).submit();
+}
+
+function reloadme()
+{
+	location.reload();
+}
+
+$(document).ready(function()
+{
+	$.setAjaxForm('#ajaxForm',function(response)
+    {
+           if(response.result == 'fail') {
+
+               if($.type(response.message) == 'object')
+               {
+                   var str = new Array();
+                   for (ms in response.message)
+                   {
+                       str.push(response.message[ms]);
+                       if (ms == "captcha") {
+                    	   getCaptcha(document.getElementById('captchaimg'));
+                       }
+                   }
+                   alert(str.join('\n'));
+               }
+
+               if($.type(response.message) == 'string')
+               {
+                   alert(response.message);
+               }
+
+           } else {
+               alert(response.message);
+               reloadme();
+           }
+    });
+});
+
+function getCaptcha(imgobj) {
+    imgobj.src="{:U('system/captcha/default/create/t/','',false)}" + parseInt(100000*Math.random()) + ".html";
+}
+</script>
+</body>
+</html>

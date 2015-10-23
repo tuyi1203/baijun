@@ -1,0 +1,37 @@
+{{include file="$WWW_PATH/header.html"}}
+<body class="front_page">
+{{include file="$WWW_PATH/topbanner.html"}}
+{{include file="$WWW_PATH/menu.html"}}
+<link rel="stylesheet" type="text/css" href="css/front.css" />
+<div class="content">
+    <section class="wrap">
+        <div class="page_left">
+            {{include file="$WWW_PATH/yijiazhimei.html"}}
+            {{include file="$WWW_PATH/news.html"}}
+            {{include file="$WWW_PATH/team.html"}}
+            {{include file="$WWW_PATH/case.html"}}
+        </div>
+        <div class="page_right">
+            <div class="bread">{{$la.position}}<a href="./">{{$la.home}}</a><i>&gt;</i>{{$la.mien}}</div>
+            <div class="page_content page_piclist">
+                <h2>{{$la.mien}}</h2>
+                <div class="lst">
+                    <ul id="picList">
+                    {{foreach from=$list item="ls" name="piclist"}}
+                        <li {{if $smarty.foreach.piclist.index % 3 == 0}} class="oth"{{/if}}><a href="./article_mien-detail-default-{{$ls.id}}.html"><img src="{{$ls.url}}"><p>{{$ls.title}}</p></a></li>
+                    {{/foreach}}
+                    <div class="clear"></div>
+                </div>
+                {{$pagelink}}
+            </div>
+        </div>
+        <div class="clear"></div>
+    </section>
+</div>
+
+{{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/consult.html"}}
+{{include file="$WWW_PATH/messagebox.html"}}
+
+</body>
+</html>

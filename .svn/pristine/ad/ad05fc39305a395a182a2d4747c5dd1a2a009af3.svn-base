@@ -1,0 +1,64 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.questionnaire.common}}</strong>
+					<div class='panel-actions'><a href='{:U('service/questionnaire/add/default.html')}' class="btn btn-primary"><i class="icon-plus"></i> {{$la.questionnaire.create}}</a>
+				    </div>
+				</div>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'><div class='{{if $orderby=="id" and $sort=="desc"}}headerSortDown{{elseif $orderby=="id" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('service/questionnaire/default/sort/currpage/{{$currpage}}/orderby/id/sort/{{if $orderby == "id"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.id}}</a>
+				</div></th>
+				        <th class='text-center'><div class='{{if $orderby=="title" and $sort=="desc"}}headerSortDown{{elseif $orderby=="title" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('service/questionnaire/default/sort/currpage/{{$currpage}}/orderby/title/sort/{{if $orderby == "title"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.title}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="starttime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="starttime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('service/questionnaire/default/sort/currpage/{{$currpage}}/orderby/starttime/sort/{{if $orderby == "starttime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.questionnaire.starttime}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="endtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="endtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('service/questionnaire/default/sort/currpage/{{$currpage}}/orderby/endtime/sort/{{if $orderby == "endtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.questionnaire.endtime}}</a>
+                </div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="count" and $sort=="desc"}}headerSortDown{{elseif $orderby=="count" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('service/questionnaire/default/sort/currpage/{{$currpage}}/orderby/count/sort/{{if $orderby == "count"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.questionnaire.join}}</a>
+				</div></th>
+				        <th class='text-center w-160px'>{{$la.article.status}}</th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td>{{if $kv.top == '1'}}<small class="label label-success">{{$la.article.settop}}</small>{{/if}}<a href="{:U('site/service/questionnaire/detail/default/{{$kv.id}}.html')}" target="_blank" style="display:inline;">{{$kv.title}}</a></td>
+                        <td class='text-center'>{{$kv.starttime}}</td>
+                        <td class='text-center'>{{$kv.endtime}}</td>
+                        <td class='text-center'>{{$kv.count}}</td>
+                        <td class='text-center {{if $kv.status == "0"}}is-visible{{/if}}'>{{if $kv.status == "0"}}{{$la.questionnaire.starting}}{{else if $kv.status == "-1"}}{{$la.questionnaire.notyet}}{{else}}{{$la.questionnaire.ended}}{{/if}}</td>
+                        <td class='text-center'>
+                          <a href='{:U('service/questionnaire/edit/default/id/{{$kv.id}}.html')}' >{{$la.article.editor}}</a>
+			                <a href='{:U('service/questionnaire/default/delete/id/{{$kv.id}}.json')}' class="deleter">{{$la.delete}}</a>
+			                <a href='{:U('service/questionnaire/confirm/default/{{$kv.id}}.modal')}' data-toggle='modal'>{{$la.questionnaire.confirm}}</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='8'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

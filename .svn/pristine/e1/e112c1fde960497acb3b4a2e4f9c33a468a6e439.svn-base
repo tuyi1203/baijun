@@ -1,0 +1,65 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.announce.common}}</strong>
+					<div class='panel-actions'><a href='{:U('website/announce/add/default.html')}' class="btn btn-primary"><i class="icon-plus"></i> {{$la.announce.create}}</a>
+				    </div>
+				</div>
+				{{if !empty($list)}}
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'><div class='{{if $orderby=="id" and $sort=="desc"}}headerSortDown{{elseif $orderby=="id" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('website/announce/default/sort/currpage/{{$currpage}}/orderby/id/sort/{{if $orderby == "id"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.id}}</a>
+				</div></th>
+				        <th class='text-center'><div class='{{if $orderby=="title" and $sort=="desc"}}headerSortDown{{elseif $orderby=="title" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('website/announce/default/sort/currpage/{{$currpage}}/orderby/title/sort/{{if $orderby == "title"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.title}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="createby" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createby" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('website/announce/default/sort/currpage/{{$currpage}}/orderby/createby/sort/{{if $orderby == "createby"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.author}}</a>
+                </div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="createtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('website/announce/default/sort/currpage/{{$currpage}}/orderby/createtime/sort/{{if $orderby == "createtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.addedDate}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="status" and $sort=="desc"}}headerSortDown{{elseif $orderby=="status" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('website/announce/default/sort/currpage/{{$currpage}}/orderby/status/sort/{{if $orderby == "status"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.status}}</a>
+                </div></th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td>{{$kv.title}}</td>
+                        <td class='text-center'>{{$kv.createname}}</td>
+                        <td class='text-center'>{{$kv.createtime}}</td>
+                        <td class='text-center {{if $kv.status == "1"}}is-visible{{/if}}'>{{if $kv.status == "1"}}{{$la.announce.stick}}{{/if}}</td>
+                        <td class='text-center'>
+                        {{if $kv.status!="1"}}
+                          <a href="{:U('website/announce/default/stick/{{$kv.id}}.json')}" class="publisher">{{$la.announce.stick}}</a>
+                        {{/if}}
+                          <a href="{:U('website/announce/edit/default/{{$kv.id}}.html')}" >{{$la.article.editor}}</a>
+			                <!-- <a href='system_file-default-default-objecttype-announce-objectid-{{$kv.id}}.modal' data-toggle='modal'>{{$la.article.files}}</a> -->
+			                <a href="{:U('website/announce/default/delete/{{$kv.id}}.json')}" class="deleter">{{$la.delete}}</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='6'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

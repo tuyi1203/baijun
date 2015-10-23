@@ -1,0 +1,65 @@
+{{include file="$WWW_PATH/header.html"}}
+<body class="front_page">
+{{include file="$WWW_PATH/topbanner.html"}}
+{{include file="$WWW_PATH/menu.html"}}
+<link rel="stylesheet" type="text/css" href="css/front.css" />
+<div class="content">
+    <section class="wrap">
+        <div class="page_left">
+            {{include file="$WWW_PATH/menu7.html" }}
+            {{include file="$WWW_PATH/news.html"}}
+            {{include file="$WWW_PATH/team.html"}}
+            {{include file="$WWW_PATH/case.html"}}
+        </div>
+        <div class="page_right">
+            <div class="bread">{{$la.position}}<a href="./">{{$la.home}}</a><i>&gt;</i><span>{{$la.menu.m7_1}}</span></div>
+            <div class="page_content page_submitapa">
+                <h2>{{$la.menu.m7_1}}</h2>
+                <p class="txt">{{$la.notice}}</p>
+                <form method="post" id="myForm" action="./interactive_bookonline-detail-insert.json">
+                <div class="form">
+                    <div class="mod">
+                        <div class="modL">{{$la.bookonline.name}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[name]" class="text" id="uiName"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.bookonline.tel}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[tel]" class="text" id="uiPhone"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.bookonline.content}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[content]" class="text" id="uiAdd"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.bookonline.content2}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formTextarea">
+                                <textarea id="uiMes" class="textarea" name="data[content2]" style="width:500px;"></textarea>
+                            </span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="modBtn"><a class="btnsFb btn1" onclick="submitme('myForm');" href="javascript:void(0);">{{$la.bookonline.submit}}</a></div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </section>
+</div>
+
+{{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/consult.html"}}
+{{include file="$WWW_PATH/messagebox.html"}}
+{{ex fn='exportJs'}}
+</body>
+</html>

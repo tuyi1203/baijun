@@ -1,0 +1,79 @@
+{{include file="$WWW_PATH/header.html"}}
+<body class="front_page">
+{{include file="$WWW_PATH/topbanner.html"}}
+{{include file="$WWW_PATH/menu.html"}}
+<link rel="stylesheet" type="text/css" href="css/front.css" />
+<div class="content">
+    <section class="wrap">
+        <div class="page_left">
+            {{include file="$WWW_PATH/menu1.html"}}
+            {{include file="$WWW_PATH/news.html"}}
+            {{include file="$WWW_PATH/team.html"}}
+            {{include file="$WWW_PATH/case.html"}}
+        </div>
+        <div class="page_right">
+            <div class="bread">{{$la.position}}<a href="./">{{$la.home}}</a><i>&gt;</i><span>{{$la.housesubmit.common}}</span></div>
+            <div class="page_content page_submitapa">
+                <h2>{{$la.housesubmit.title}}</h2>
+                <p class="txt">{{$la.housesubmit.notice}}</p>
+                <form method="post" id="myForm" action="./interactive_housesubmit-detail-insert.json">
+                <div class="form">
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.name}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[name]" value="{{$name}}" class="text" id="uiName"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.tel}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[tel]" value="{{$tel}}" class="text" id="uiPhone"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.qq}}</div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[qq]" value="{{$qq}}" class="text" id="qq"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.addr}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formText"><input type="text" name="data[addr]" value="{{$addr}}" class="text" id="addr"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.map}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formTxt"><a class="btn3 btnsFm btn_file" href="javascript:void(0);"><input type="file" name="files" class="file">{{$la.housesubmit.upload}}</a></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">{{$la.housesubmit.content}}<i>*</i></div>
+                        <div class="modR">
+                            <span class="formTextarea">
+                                <textarea id="uiMes" class="textarea" name="data[content]" style="width:500px;"></textarea>
+                            </span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="modBtn"><a class="btnsFb btn1" onclick="submitme('myForm');" href="javascript:void(0);">{{$la.housesubmit.submit}}</a></div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </section>
+</div>
+
+{{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/consult.html"}}
+{{include file="$WWW_PATH/messagebox.html"}}
+{{ex fn='exportJs'}}
+</body>
+</html>

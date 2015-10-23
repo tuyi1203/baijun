@@ -1,0 +1,28 @@
+<div class="tools_right" style="display:none;">
+    <div class="hd"><a href="javascript:void(0);" class="tools_cnt" id="uiToolsCnt">×</a>{{$la.consult.common}}</div>
+    <div class="bd" id="uiToolsRightBd">
+        <div class="box">
+            <div class="kf_pic"></div>
+            <div class="btn"><a href="javascript:void(0);" class="btnsFm btn3" onclick="setIsinvited();window.open('http://www2.53kf.com/webCompany.php?arg=10077991&amp;style=1&amp;language=cn&amp;lytype=0&amp;charset=gbk&amp;kflist=off&amp;kf=&amp;zdkf_type=1&amp;referer=http%3A%2F%2F192.168.0.2%3A89%2Fyijiamei%2Findex.html%236d&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue', '_blank', 'height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no');">{{$la.consult.cs1}}</a><a href="javascript:void(0);" class="btnsFm btn3" onclick="setIsinvited();window.open('http://www2.53kf.com/webCompany.php?arg=10077991&amp;style=1&amp;language=cn&amp;lytype=0&amp;charset=gbk&amp;kflist=off&amp;kf=&amp;zdkf_type=1&amp;referer=http%3A%2F%2F192.168.0.2%3A89%2Fyijiamei%2Findex.html%236d&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue', '_blank', 'height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no');">{{$la.consult.cs2}}</a><a href="javascript:void(0);" class="btnsFm btn3" onclick="setIsinvited();window.open('http://www2.53kf.com/webCompany.php?arg=10077991&amp;style=1&amp;language=cn&amp;lytype=0&amp;charset=gbk&amp;kflist=off&amp;kf=&amp;zdkf_type=1&amp;referer=http%3A%2F%2F192.168.0.2%3A89%2Fyijiamei%2Findex.html%236d&amp;keyword=&amp;tfrom=1&amp;tpl=crystal_blue', '_blank', 'height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no');">{{$la.consult.cs3}}</a><a href="http://wpa.qq.com/msgrd?v=3&uin={{ex fn="getSiteInfo"  arg1="siteinfo" arg2="6"}}&site=qq&menu=yes" target="_blank" class="btnsFm btn3"><img src="img/qq.jpg" />{{$la.consult.qq}}</a><a href="http://wpa.qq.com/msgrd?v=3&uin={{ex fn="getSiteInfo"  arg1="siteinfo" arg2="7"}}&site=qq&menu=yes" target="_blank" class="btnsFm btn3"><img src="img/qq.jpg" />QQ在线咨询</a><a href="#" class="btnsFm btn3" target="_blank"><img src="img/wb.gif" />{{$la.consult.weibo}}</a></div>
+            <div class="two_code"><img src="img/content/tow_code.jpg" /><p>{{$la.consult.scan}}<br />{{$la.consult.follow}}</p></div>
+        </div>
+        <div class="kf_tel">
+            <p><img src="img/kf_tel_ico.jpg" />{{$la.consult.tel}}</p>
+            <p class="num">{{ex fn="getSiteInfo"  arg1="siteinfo" arg2="1"}}</p>
+            <p class="num">{{ex fn="getSiteInfo"  arg1="siteinfo" arg2="2"}}</p>
+        </div>
+        <div class="backtop" id="uiBoxBackTop"><a href="javascript:void(0);" id="uiBackTop"></a></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$('#uiToolsCnt').toggle(function(){
+    $('#uiToolsRightBd').hide();
+    $(this).html('+');
+},function(){
+    $('#uiToolsRightBd').show();
+    $(this).html('×');
+});
+
+</script>
+<script type='text/javascript' src='http://tb.53kf.com/kf.php?arg=10077991&style=1'></script>

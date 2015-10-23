@@ -1,0 +1,39 @@
+{{ex fn="exportJsSet"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-paper-clip'></i> {{$la.lawyer.common}}</h4>
+    </div>
+    <div class='modal-body'>
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <th class='text-center'>{{$la.lawyer.id}}</th>
+            <th class='text-center'>{{$la.lawyer.name}}</th>
+            <th class='text-center'>{{$la.lawyer.picture}}</th>
+            <th class='text-center'>{{$la.lawyer.department}}</th>
+            <th class='text-center'>{{$la.actions}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{foreach item="lawyer" from=$list}}
+          <tr class='text-middle'>
+            <td>{{$lawyer.id}}</td>
+            <td>{{$lawyer.first_name}} {{$lawyer.last_name}}</td>
+            <td><a target="_blank" href="{:U('admin/system/file/default/download/id/{{$lawyer.id}}.html')}">
+                    <img title="{{$file.title}}" class="image-small" src="{{$lawyer.url}}">
+                </a>
+            </td>
+            <td>{{$lawyer.bumen}}</td>
+            <td>
+            <a class="choose" href="javascript:lawyerselect({{$lawyer.id}},'{{$lawyer.first_name}} {{$lawyer.last_name}}');">{{$la.select}}</a>
+            </td>
+          </tr>
+          {{/foreach}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

@@ -48,12 +48,14 @@
                         {{if $kv.status=="1" and $publishauth == '1'}}
                           <a href='{:U('news/officenews/default/publish/{{$kv.id}}.json')}' class="publisher">{{if $kv.public == "0"}}{{$la.article.public}}{{else}}{{$la.article.unpublic}}{{/if}}</a>
                         {{/if}}
+                        {{*
                         {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.top != '1'}}
                           <a href='{:U('news/officenews/default/settop/objecttype/officenews/id/{{$kv.id}}.json')}' class="settoper">{{$la.article.settop}}</a>
                         {{/if}}
                         {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.top == '1'}}
                           <a href='{:U('news/officenews/default/settop/objecttype/officenews/id/{{$kv.id}}.json')}' class="settoper">{{$la.article.unsettop}}</a>
                         {{/if}}
+                        *}}
                         {{if $kv.public == "0"}}
                           <a href='{:U('news/officenews/edit/default/id/{{$kv.id}}.html')}' >{{$la.article.editor}}</a>
                         {{/if}}

@@ -287,7 +287,8 @@ class pager {
         {
             var pageID ;
             recPerPage = document.getElementById('_recPerPage').value;
-            $.cookie(pageCookie, recPerPage, {expires:config.cookieLife, path:config.webRoot});
+            //alert(config.domain.substr(config.domain.indexOf('/')));
+            $.cookie(pageCookie, recPerPage, {expires:config.cookieLife, path:config.domain.substr(config.domain.indexOf('/'))});
             if(mode == 'changePageID')
             {
                 pageID = document.getElementById('_pageID').value;

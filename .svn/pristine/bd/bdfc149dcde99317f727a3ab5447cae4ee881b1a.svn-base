@@ -1,0 +1,12 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+<header><h1>{{$la.set.detail}}</h1><a href="./example_set-list-default.html" class="back mw-icon">&#xf122;</a><a href="{{$la.breadcrumb.homepage}}" class="index mw-icon">&#xf123;</a></header>
+<section class="content singlepage">
+    <div class="txt">
+      {{$nofilter.wxcontent}}
+    </div>
+</section>
+{{include file="$WWW_PATH/buttomstick.html"}}
+{{include file="$WWW_PATH/footer.html"}}
+</body>
+</html>
