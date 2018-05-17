@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>[!--pagetitle--]</title>
+    <meta name="keywords"  content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <!--<meta name="browsermode" content="application">-->
+    <!-- <link rel="icon" href="images/icon/favicon.ico" type="image/x-icon">-->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/icon/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/icon/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="images/icon/apple-touch-icon-196x196-precomposed.png">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/source/css/css.css" />
+    <script src="/source/js/jquery.js"></script>
+    <script src="/source/js/swiper.min.js"></script>
+    <script>
+        $('html').css('fontSize', ($(window).width()>640?640:$(window).width())/640*100);
+        $(function(){
+            $('html').css('fontSize', $('body').width()/640*100);
+        });
+    </script>
+</head>
+<body>
+<!--头部 S-->
+[e:loop={"select * from phome_ecms_news where classid='$GLOBALS[navclassid]' and id='$navinfor[id]'",2,24,0}]
+<?php
+if ($_SERVER['HTTP_HOST'] <>"app.xtzhsq.com"){
+    ?>
+    <div class="herder bgcolor">
+        <a href="javascript:history.go(-1);" class="back"><i></i></a>
+        <h3 style="font-weight: 100">[!--class.name--]</h3>
+        <!-- <div class="herd_r"><a href="search.html" class="search"><i></i></a></div>-->
+    </div>
+    <div class="t_line"></div>
+    <?
+}
+?>
+<div class="service">
+    <img src="<?=$bqr[titlepic]?>" style="width:100%"/><br/>
+    <h2>[!--title--]</h2>
+    <?
+    switch($GLOBALS[navclassid]){
+        case 396:
+            ?>
+            <table style="text-align: left">
+                <tr>
+                    <td style="width:20%">租金：</td>
+                    <td style="width:80%"><?=$bqr[price]?>元/月&nbsp;&nbsp;&nbsp;&nbsp;<?=$bqr[keyboard]?></td>
+                </tr>
+                <tr>
+                    <td>小区：</td>
+                    <td><?=$bqr[shequ]?></td>
+                </tr>
+                <tr>
+                    <td>房屋：</td>
+                    <td><?=$bqr[smalltext]?></td>
+                </tr>
+                <tr>
+                    <td>地址：</td>
+                    <td><?=$bqr[content]?></td>
+                </tr>
+                <tr>
+                    <td>配置：</td>
+                    <td><?=$bqr[ftitle]?></td>
+                </tr>
+                <tr>
+                    <td>电话：</td>
+                    <td><?=$bqr[phone]?>&nbsp;&nbsp;&nbsp;&nbsp;<?=$bqr[lianxiren]?></td>
+                </tr>
+            </table>
+    <?
+            break;
+        case 397:
+            ?>
+
+    <?
+            break;
+        case 398:
+            ?>
+
+    <?
+            break;
+    }
+    ?>
+</div>
+[/e:loop]
+<div class="b_line"></div>
+<!--底部 E-->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?php
+class clsHumanityMagazineEditController extends clsAppController implements IAction_default , IAction_update{
+
+    /**
+     * 默认初始化页面方法
+     */
+    public function _default() {
+// pr($_SESSION);
+		$this->init();
+        $model  = new clsModModel($this->mdb , array('mw_writing'));
+        $record = $model->mw_writing->getByID($this->input);
+
+        $this->output->id                = $record['id'];
+        $this->output->title             = $record['title'];
+        $this->output->desc              = $record['desc'];
+        $this->output->sort              = $record['sort'];
+        // $this->output->subkey_choose     = $record['subkey'];
+        $this->output->publishyear       = $record['publishyear'];
+//         $this->output->homepage_choose   = $record['homepage'];
+
+    }
+
+    /**
+     * 更新
+     */
+    public function _update() {
+
+        if ($this->form->isError()) {
+            $this->output->result  = 'fail';
+            $this->output->message = $this->form->getError();
+            return;
+        }
+
+        $input = new stdClass();
+        $input->id          = $this->input->id;
+        $input->title       = $this->input->title;
+        $input->desc        = $this->input->desc;
+        $input->sort    	= $this->input->sort;
+        // $input->subkey	    = $this->input->subkey;
+        $input->publishyear = $this->input->publishyear;
+//         $input->homepage    = $this->input->homepage;
+        $input->updateby    = $this->session->getUid();
+        $input->updatetime  = date("Y-m-d H:i:s");
+
+        $model  = new clsModModel($this->mdb ,'mw_writing');
+        if (!$model->mw_writing->update($input)) {
+            $this->output->result  = 'fail';
+            $this->output->message = $this->lang->magazine->failupdate;
+            return;
+        }
+
+        $this->output->result  = 'success';
+        $this->output->message = $this->lang->magazine->successupdate;
+        $this->output->locate  = U("humanity/magazine/default/default.html");
+
+    }
+
+    private function init() {
+    	// $input = new stdClass();
+    	// $input->key    = 'magazine';
+    	// $input->subkey = array('1','2');
+    	// $magazinetype = getSetList($input);
+    	// $this->output->subkey_options = $magazinetype;
+    	// $this->output->homepage_options = getYesOrNoOptions();
+//     	$this->output->homepage_choose  =
+    }
+
+}

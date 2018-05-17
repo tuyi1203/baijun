@@ -1,2 +1,0 @@
-{{* Import css and js for clipboard. *}}
-<script src="{:T('js/clipboard/clipboard.js')}" type='text/javascript'></script>

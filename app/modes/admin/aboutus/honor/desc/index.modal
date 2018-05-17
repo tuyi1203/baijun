@@ -1,0 +1,22 @@
+<div class='modal-dialog w-800px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title'>{{$la.honor.updatedesc}}</h4>
+    </div>
+    <div class='modal-body'>
+      <form method='post' action='{:U('aboutus/honor/desc/update.json')}' id='myForm' class='form'>
+        <table class='table table-form borderless'>
+          <tr>
+            <th>{{$la.honor.content}}</th>
+            <td>
+            <textarea name="data[content]" class="form-control" rows="8" id="content">{{$re.value}}</textarea>
+            </td><td></td>
+          </tr>
+          <tr><td></td><td><input type="submit" data-loading="{{$la.loading}}" value="{{$la.save}}" class="btn btn-primary" id="submit"></td></tr>
+        </table>
+      </form>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+{{ex fn='exportJs'}}

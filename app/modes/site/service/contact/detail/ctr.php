@@ -15,19 +15,10 @@ class clsServiceContactDetailController extends clsAppController
      * 页面初始化
      */
     private function init() {
-
-    	$model = new clsModModel($this->mdb , 'mw_single');
-    	$input = new stdClass();
-    	$input->id = '18';
-    	$output = $model->mw_single->get($input);
-
-    	$this->output->id             = $output['id'];
-    	$this->output->title          = $output['title'];
-    	$this->output->keyword        = $output['keyword'];
-    	$this->output->summary        = $output['summary'];
-
-    	$this->output->nofilter->content        = $output['content'];
-
+    	$branches = $this->model->getBranches();
+    	$this->output->branches = $branches;
+        $bannerurl = $this->model->getBanner();
+        $this->output->bannerurl = $bannerurl;
     }
 
 }

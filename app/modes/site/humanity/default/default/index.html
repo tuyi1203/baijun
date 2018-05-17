@@ -1,0 +1,363 @@
+{{include file="$WWW_PATH/humanity_header.html"}}
+<body>
+{{include file="$WWW_PATH/humanity_menu.html"}}
+<section class="headlines">
+	<a href="{:U('humanity/default/default/detail',array('id'=>{{$bannerid}}))}">
+		<img src="{{$UPLOADURL}}{{$bannerurl}}">
+		<div class="data">
+			<div class="datacon">
+				<p><em>{{$labeltopdata.labelname}}</em><i>/</i><b>{{$labeltopdata.publishtime|substr:0:10}}</b></p><span>{{$labeltopdata.title}}</span>
+			</div>
+		</div>
+	</a>
+</section>
+
+<section class="wrap">
+	{{foreach from=$list item="ls"}}
+	<div class="indpart">
+		<div class="tit">
+			<div class="tit_con">
+				<dl>
+					<dd>
+						{{$ls.entitle}}
+						<!-- <p>EXCEEDON</p>
+						<p>LAW REVIEW</p> -->
+					</dd>
+					<dt>{{$ls.title}}</dt>
+					<!-- <dt>百君法律评论</dt> -->
+				</dl>
+				<div class="tit_btn"><a href="{:U('humanity/default/default/list',array('id'=>{{$ls.id}}))}"></a></div>
+			</div>
+		</div>
+		<ul>
+			<li>
+				<a href="{:U('humanity/default/default/detail',array('id'=>{{$ls.top.id}}))}" target="_blank">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">{{$ls.top.views}}</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="{{$UPLOADURL}}{{$ls.top.url}}" />
+					</div>
+					<div class="txt">
+						<div class="com">{{if ($ls.top.fid != "")}}<em>{{$ls.top.labelname}}</em><i>/</i>{{/if}}<b>{{$ls.top.publishtime}}</b></div>
+						<dl>
+							<dt>{{$ls.top.title}}</dt>
+							<dd>{{$ls.top.summary}}</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			{{foreach from=$ls.sublist item="subls"}}
+			<li>
+				<a href="{:U('humanity/default/default/detail',array('id'=>{{$subls.id}}))}" target="_blank">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">{{$subls.views}}</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="{{$UPLOADURL}}{{$subls.url}}" />
+					</div>
+					<div class="txt">
+						<div class="com">{{if ($subls.fid != "")}}<em>{{$subls.labelname}}</em><i>/</i>{{/if}}<b>{{$subls.publishtime}}</b></div>
+						<dl>
+							<dt>{{$subls.title}}</dt>
+							<dd>{{$subls.summary}}</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			{{/foreach}}
+			<!-- <li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">12</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li> -->
+			<!-- <li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">245</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">4524</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">10000</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">1000</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li> -->
+		</ul>
+	</div>
+	{{/foreach}}
+	<!-- <div class="indpart">
+		<div class="tit">
+			<div class="tit_con">
+				<dl>
+					<dd>
+						<p>EXCEEDON</p>
+						<p>DISCUSION</p>
+					</dd>
+					<dt>百君圆桌</dt>
+				</dl>
+				<div class="tit_btn"><a href="#"></a></div>
+			</div>
+		</div>
+		<ul>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">8888</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">5</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">12</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">245</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">4524</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">10000</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<div class="mask">
+						<div class="stat">
+							<span><i></i></span>
+							<em>阅读</em>
+							<b class="_jumpNum">1000</b>
+						</div>
+					</div>
+					<div class="pic">
+						<img src="../assets/img/wisdom/pic.jpg" />
+					</div>
+					<div class="txt">
+						<div class="com"><b>2017-01-01</b></div>
+						<dl>
+							<dt>在法制界，他们都干了些什么</dt>
+							<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>
+						</dl>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div> -->
+</section>
+<a href="javascript:void(0);" class="_noLoading backtop" id="_back"></a>
+<!-- <footer>
+	<div class="footer_con">
+		<p>法务咨询热线   023-67621818</p>
+		<p>&copy; Copyright 2015 百君律师事务所 All Rights Reserved    渝ICP备13028495号</p>
+	</div>
+</footer> -->
+{{include file="$WWW_PATH/humanity_footer.html"}}
+<script>
+	requirejs( ["jquery","wisdom"],function($){
+		$('body').wisdom({debuge:true});//页面初始化
+	});
+</script>
+</body>
+</html>

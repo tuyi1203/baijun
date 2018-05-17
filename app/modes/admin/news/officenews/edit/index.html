@@ -26,19 +26,35 @@
 				          </td>
 				       </tr>
 				       <tr>
-                          <th>{{$la.officenews.keyword}}</th>
-                          <td colspan='2'>
-                          <div class=""></div>
-                          <input type='text' name='data[keyword]' id='keyword' value='{{$keyword}}' class="form-control" />
-                          </td>
-                       </tr>
-                        <tr>
-                          <th>{{$la.officenews.summary}}</th>
-                          <td colspan='2'>
-                          <textarea name='data[summary]' id='summary' rows='2' class='form-control'>{{$summary}}</textarea>
-                            </td>
-                       </tr>
-                       <tr>
+                <th>{{$la.officenews.keyword}}</th>
+                    <td colspan='2'>
+                    <div class=""></div>
+                    <input type='text' name='data[keyword]' id='keyword' value='{{$keyword}}' class="form-control" />
+                    </td>
+                 </tr>
+                  <tr>
+                    <th>{{$la.officenews.summary}}</th>
+                    <td colspan='2'>
+                    <textarea name='data[summary]' id='summary' rows='2' class='form-control'>{{$summary}}</textarea>
+                      </td>
+                 </tr>
+                 <tr>
+                    <th>{{$la.officenews.lawyer}}</th>
+                    <td colspan='2' class="lawyerlist">
+                    <input type="hidden" id="lawyers" value="{{$lawyers}}" />
+                    <a class="btn btn-default" href="{:U('common/lawyer/default/default.modal')}" role="button" data-toggle='modal'>{{$la.officenews.addlawyer}}</a>
+                     <div class="zc_tags">
+                    {{if !empty($lawyers)}}
+                    {{foreach from=$lawyers item="ls"}}
+                       <label onclick="deletelawyer(this);">{{$ls.fullname}}<span>×</span><input type="hidden" value="{{$ls.id}}" name="data[lawyer][]"></label>
+                    {{/foreach}}
+                    {{else}}
+                       <label class="nolawyer">{{$la.officenews.nolawyer}}</label>
+                    {{/if}}
+                    </div>
+                      </td>
+                 </tr>
+                 <tr>
 				          <th>{{$la.officenews.content}}</th>
 				          <td colspan='2'>
 				          <div class="required required-wrapper"></div>
@@ -46,15 +62,15 @@
 				           </td>
 					   </tr>
 					   <tr>
-                          <th>{{$la.officenews.publishtime}}</th>
-                          <td>
-                            <div class="input-append">
-                              <input type='text' name='data[publishtime]' id='publishtime' value='{{$publishtime}}' class='form-control date' style="width:200px;"/>
-                              <!-- <span class='officenews-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span> -->
-                            </div>
-                          </td>
-                          <td><span class="help-inline">{{$la.article.note.addedDate}}</span></td>
-                        </tr>
+              <th>{{$la.officenews.publishtime}}</th>
+                    <td>
+                      <div class="input-append">
+                        <input type='text' name='data[publishtime]' id='publishtime' value='{{$publishtime}}' class='form-control date' style="width:200px;"/>
+                        <!-- <span class='officenews-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span> -->
+                      </div>
+                    </td>
+                    <td><span class="help-inline">{{$la.article.note.addedDate}}</span></td>
+                  </tr>
 				        <tr>
 				          <th>{{$la.officenews.status}}</th>
 				          <td>
@@ -63,11 +79,11 @@
 				        </tr>
 						<tr>
 						 <th></th>
-                         <td colspan='2'>
-                         <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
-                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('news/officenews')}'">
-                         </td>
-                        </tr>
+               <td colspan='2'>
+               <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+               &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('news/officenews')}'">
+               </td>
+              </tr>
 					</table>
 				</form>
 				</div>
@@ -75,7 +91,7 @@
 		</div>
 	</div>
 	{{include file="$WWW_PATH/footer.html"}}
-
+    <script type="text/javascript">var nolawyer="{{$la.officenews.nolawyer}}";</script>
     {{ex fn='exportJs'}}
 </body>
 </html>

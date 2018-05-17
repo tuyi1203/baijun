@@ -11,6 +11,11 @@ function getActicleStatusOptions() {
     return array('1'=>'正常','0'=>'草稿');
 }
 
+function getAuthorOptions()
+{
+	return array('1'=>'律师','0'=>'非律师');
+}
+
 function getYesOrNoOptions() {
     return array('1'=>'是','0'=>'否');
 }
@@ -33,6 +38,7 @@ function getDepartmentOptions($head = false) {
     $input->key    = 'department';
     $input->subkey = array('1','2','3','4','5');
     $records = $model->get($input);
+    $output = array();
     if ($head) $output[''] = '';
     foreach ($records as $record) {
         $output[$record['subkey']] = $record['value'];
@@ -147,7 +153,8 @@ function getWaterText() {
     return $watertext[0]['value'];
 }
 
-function getYjmSetOptions($head = false) {
+function getYjmSetOptions($head = false) 
+{
     if(!class_exists('Yjm_Set')) require APATH_LIBS_MODELS . DS .'yjm_set.php';
     $model = new Yjm_Set(getMDB(), 'yjm_set');
     $input = new stdClass();
@@ -158,6 +165,33 @@ function getYjmSetOptions($head = false) {
 		$output[$record['id']] = $record['title'];
 	}
 	return $output;
-
 }
+
+function get_domain($url)
+{ 
+    $pattern = "/[\w-]+\.(com|net|org|gov|cc|biz|info|cn)(\.(cn|hk))*/"; 
+    preg_match($pattern, $url, $matches); 
+    if(count($matches) > 0) { 
+        return $matches[0]; 
+    }else{ 
+        $rs = parse_url($url); 
+        $main_url = $rs["host"]; 
+        if(!strcmp(long2ip(sprintf("%u",ip2long($main_url))),$main_url)) { 
+            return $main_url; 
+        }else{ 
+            $arr = explode(".",$main_url); 
+            $count=count($arr); 
+            $endArr = array("com","net","org","3322");//com.cn net.cn 等情况 
+            if (in_array($arr[$count-2],$endArr)){ 
+                $domain = $arr[$count-3].".".$arr[$count-2].".".$arr[$count-1]; 
+            }else{ 
+                $domain = $arr[$count-2].".".$arr[$count-1]; 
+            } 
+            return $domain; 
+        } 
+    } 
+}
+
+
+
 

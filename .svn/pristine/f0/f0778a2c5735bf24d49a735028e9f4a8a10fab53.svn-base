@@ -1,5 +1,0 @@
-<li {{if $modules == 'guide'}}class="cu"{{/if}}><a href="{:U('gov/guide/list/default.html')}">政府信息公开指南<i class="mwIcon">&#xf105;</i></a></li>
-<li><a target="_blank" href="http://www.neijiang.gov.cn/zwgk/department.gsp?code=92337907&organname=%E5%86%85%E6%B1%9F%E5%B8%82%E6%B0%B4%E5%8A%A1%E5%85%AC%E5%8F%B8&categoryId=1">政府信息公开目录<i class="mwIcon">&#xf105;</i></a></li>
-<li><a target="_blank" href="http://61.139.47.245/00851003X/list?id=%E6%94%BF%E5%BA%9C%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%80%E5%88%B6%E5%BA%A6">政府信息公开制度<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'report'}}class="cu"{{/if}}><a href="{:U('gov/report/list/default.html')}">政府信息公开年报<i class="mwIcon">&#xf105;</i></a></li>
-<li><a target="_blank" href="http://www.neijiang.gov.cn/sqgk.gsp">政府信息公开申请<i class="mwIcon">&#xf105;</i></a></li>

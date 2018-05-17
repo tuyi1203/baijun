@@ -11,7 +11,7 @@ class clsSystemLoginDefaultController extends clsAppController{
      * 默认初始化页面方法
      */
     public function _log() {
-
+// pr("hello world");
         if ($this->setCaptcha()) $this->smarty->assign("captcha_enable" , "1");
     }
 
@@ -47,6 +47,7 @@ class clsSystemLoginDefaultController extends clsAppController{
                 //当正常从登陆页登陆时，跳转到登陆后页面
         if ($login_ok) {
             $this->app->doAction('loginOKRedirect' , U(C('ENTRANCEURI')));
+            session('_sysname', C('sysname'));//保存系统名称
         } else if ($this->setCaptcha()) {
             $this->smarty->assign("captcha_enable" , "1");
         }
@@ -65,6 +66,10 @@ class clsSystemLoginDefaultController extends clsAppController{
     }
 
     public function loginOKRedirect($url) {
+        // pr(0);
+        saveActionAuthList(true);
+        saveAdminMenu(true);
+        session('_sysname', C('sysname'));//保存系统名称
         $this->redirect($url);
     }
 

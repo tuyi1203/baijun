@@ -36,6 +36,7 @@ $lang->officenews->lawyer     = '关联律师';
 $lang->officenews->addlawyer  = '添加一个律师';
 $lang->officenews->published  = '已审核';
 $lang->officenews->unpublished= '未审核';
+$lang->officenews->nolawyer   = '无关联律师';
 // $lang->slide->image    = '图片';
 // $lang->slide->url      = '链接';
 // $lang->slide->summary  = '摘要';

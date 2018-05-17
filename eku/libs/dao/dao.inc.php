@@ -141,7 +141,7 @@ class dao
     private function setTable($table)
     {
         $this->table = $table;
-        //多语言对应
+        //多语�?对应
         if (strtolower(getClientLang()) == 'en') {
         	$this->table .= '_en';
         } else if (strtolower(getClientLang()) == 'jp') {
@@ -246,7 +246,7 @@ class dao
         try {
             $this->dbh->beginTransaction();
         } catch (PDOException $e) {
-            clsLogger::subWriteDbError('事务开始失败！'.$e->getMessage());
+            clsLogger::subWriteDbError('事务�?始失败！'.$e->getMessage());
         }
     }
 
@@ -261,7 +261,7 @@ class dao
         try {
             $this->dbh->rollBack();
         } catch (PDOException $e) {
-            clsLogger::subWriteDbError('不存在事务或事务回滚失败！'.$e->getMessage());
+            clsLogger::subWriteDbError('不存在事务或事务回滚失败�?'.$e->getMessage());
         }
     }
 
@@ -287,7 +287,7 @@ class dao
         try {
             $this->dbh->commit();
         } catch (PDOException $e) {
-            clsLogger::subWriteDbError('不存在事务或事务提交失败！'.$e->getMessage());
+            clsLogger::subWriteDbError('不存在事务或事务提交失败�?'.$e->getMessage());
         }
     }
 
@@ -310,7 +310,7 @@ class dao
     public function prepare($sql , array $driver_options = array())
     {
         try {
-    	    $this->dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的仿真效果
+    	    $this->dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //禁用prepared statements的仿真效�?
         } catch(PDOException $e) {
             clsLogger::subWriteDbError('不能禁用prepared statements的仿真效果！'.$e->getMessage());
         }
@@ -1346,6 +1346,32 @@ class sql
         return $this;
     }
 
+     /**
+     * Create the inner join part.
+     *
+     * @param  string $table
+     * @access public
+     * @return object the sql object.
+     */
+    public function innerJoin($table)
+    {
+        $this->sql .= " INNER JOIN $table";
+        return $this;
+    }
+
+     /**
+     * Create the left join part.
+     *
+     * @param  string $table
+     * @access public
+     * @return object the sql object.
+     */
+    public function rightJoin($table)
+    {
+        $this->sql .= " RIGHT JOIN $table";
+        return $this;
+    }
+
     /**
      * Create the on part.
      *
@@ -1405,7 +1431,15 @@ class sql
         }
         else
         {
-            $condition = $arg1;
+            if (is_array($arg1)) {
+                $condition = array();
+                foreach ($arg1 as $key => $value) {
+                    $condition[] =  "`$key`=" . $this->quote($value);
+                }
+                $condition = implode(' and ' , $condition);
+            } else {
+                $condition = $arg1;
+            }
         }
 
         if(!$this->inMark) $this->sql .= ' ' . DAO::WHERE ." $condition ";
@@ -1593,7 +1627,8 @@ class sql
      */
     public function orderBy($order)
     {
-        $order = str_replace(array('|', '', '_'), ' ', $order);
+        //$order = str_replace(array('|', '', '_'), ' ', $order);
+    	$order = str_replace(array('|', ''), ' ', $order);
         $order = str_replace('left', '`left`', $order); // process the left to `left`.
         $this->sql .= ' ' . DAO::ORDERBY . " $order";
         return $this;
@@ -1694,9 +1729,10 @@ class statement {
     public function execute(array $input_parameters)
     {
         $this->stmt->execute($input_parameters);
+        clsLogger::subWriteSql($this->sqlstatement);
         $error = $this->stmt->errorCode();
         if ($error != '00000') {
-            clsLogger::subWriteDbError('sql执行失败！'.join('\n' , $this->stmt->errorInfo()));
+            clsLogger::subWriteDbError('sql执行失败�?'.join('\n' , $this->stmt->errorInfo()));
             if ($this->dao->inTran()) $this->dao->rollBack();
             $this->dao->setFail(true);
             return;

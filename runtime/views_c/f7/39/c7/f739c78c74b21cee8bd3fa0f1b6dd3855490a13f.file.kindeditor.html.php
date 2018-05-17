@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:37:02
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:49:28
          compiled from "D:\xampp\htdocs\baijun\app\views\admin\kindeditor.html" */ ?>
-<?php /*%%SmartyHeaderCode:32640561895eee29871-34486466%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:310625a2a9868eb1872-14778348%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f739c78c74b21cee8bd3fa0f1b6dd3855490a13f' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\views\\admin\\kindeditor.html',
-      1 => 1423722039,
+      1 => 1423670400,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32640561895eee29871-34486466',
+  'nocache_hash' => '310625a2a9868eb1872-14778348',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_561895eeeff71',
+  'unifunc' => 'content_5a2a986902701',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_561895eeeff71')) {function content_561895eeeff71($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5a2a986902701')) {function content_5a2a986902701($_smarty_tpl) {?>
 <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['ex'][0][0]->export(array('class'=>"js",'fn'=>"set",'arg1'=>"editors",'arg2'=>$_smarty_tpl->tpl_vars['editor']->value),$_smarty_tpl);?>
 
 <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['ex'][0][0]->export(array('class'=>"js",'fn'=>"set",'arg1'=>"errorUnwritable",'arg2'=>$_smarty_tpl->tpl_vars['la']->value['file']['errorunwritable']),$_smarty_tpl);?>

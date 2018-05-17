@@ -1,0 +1,44 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/kindeditor.html"}}
+    {{include file="$WWW_PATH/switcher.html"}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-building'></i>  {{$la.humanity.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('website/humanity/default/update.json')}' method='post'>
+					<table class='table table-form'>
+                       {{if !empty($humanity)}}
+                       <tr>
+                          <th rowspan="2">{{$la.humanity.content}}</th>
+                          <td><img class="image" src="{{$humanity}}" style="max-width:800px;"></td>
+                          <td><input type="hidden" name="data[fileids][]" value="{{$fileid}}"/></td>
+                       </tr>
+                       {{/if}}
+                       <tr>
+                          {{if empty($humanity)}}<th >{{$la.humanity.content}}</th>{{/if}}
+                          <td>
+                            <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
+                             <label class="text-info">{{$la.filesize}}{{$la.humanity.filesize}}</label>
+                          </td>
+                          <td></td>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+  {{ex fn='exportJs'}}
+</body>
+</html>

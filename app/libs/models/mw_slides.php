@@ -1,7 +1,7 @@
 <?php
 class Mw_Slides extends clsModel{
 
-    CONST INSERT     = "insert into mw_slides (title,link,label,`desc`,createby,createtime)values (?,?,?,?,?,?)";
+    CONST INSERT     = "insert into mw_slides (title,link,label,`desc`,summary,createby,createtime)values (?,?,?,?,?,?,?)";
 
     CONST GETLIST    = "select a.* , b.url , b.`primary` from mw_slides a left join (select url , objectid ,`primary` from mw_file b where objecttype=? and editor='0') b on a.id = b.objectid order by sort asc";
 
@@ -9,7 +9,7 @@ class Mw_Slides extends clsModel{
 
     CONST GET        = "select a.* , b.url , b.id fileid from mw_slides a left join (select id , url , objectid from mw_file b where objecttype=? and objectid=? and editor='0') b on a.id = b.objectid where a.id=? order by a.sort asc";
 
-    CONST UPDATE     = "update mw_slides set title=? , link=? , label=?,`desc`=?,updateby=?,updatetime=? where id=?";
+    CONST UPDATE     = "update mw_slides set title=? , link=? , label=?,`desc`=?,summary=?,updateby=?,updatetime=? where id=?";
 
     CONST DELETE     = "delete from mw_slides where id = ?";
 
@@ -24,6 +24,7 @@ class Mw_Slides extends clsModel{
                     ->subSetString($i++ , $input->link)
                     ->subSetString($i++ , $input->label)
                     ->subSetString($i++ , $input->desc)
+                    ->subSetString($i++ , $input->summary)
                     ->subSetInteger($i++ , $input->createby)
                     ->subSetString($i++ , $input->createtime)
                     ->fncExecuteUpdate();
@@ -80,6 +81,7 @@ class Mw_Slides extends clsModel{
                     ->subSetString($i++, $input->link)
                     ->subSetString($i++, $input->label)
                     ->subSetString($i++, $input->desc)
+                    ->subSetString($i++, $input->summary)
                     ->subSetInteger($i++, $input->updateby)
                     ->subSetString($i++, $input->updatetime)
                     ->subSetInteger($i++, $input->id)

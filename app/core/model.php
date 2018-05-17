@@ -40,6 +40,11 @@ abstract class clsAppModel{
 
     }
 
+    public function getLastInsertID()
+    {
+    	return $this->dao->lastInsertID();
+    }
+
     // 	public function __call($methodname , $args) {
 
     // 		return call_user_func(array($this->tablemodel , $methodname), array_shift($args));

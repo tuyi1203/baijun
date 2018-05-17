@@ -1,0 +1,49 @@
+{{ex fn="exportJsSet"}}
+<div class='modal-dialog w-1000px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-paper-clip'></i> {{$la.lawyer.common}}</h4>
+    </div>
+    <div class='modal-body'>
+      <form id="searchForm" action="{:U('common/lawyer/select/list.modal')}">
+      <div class="input-group" style="width:200px;padding-bottom:10px;">
+      <input type="text" class="form-control" name="data[name]" id="lawyername" value="{{$lawyername}}" placeholder="{{$la.lawyer.searchfor}}">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="searchBtn" type="button">Go!</button>
+      </span>
+     </div><!-- /input-group -->
+     </form>
+     {{if isset($list)}}
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <!--<th class='text-center'>{{$la.lawyer.id}}</th>-->
+            <th class='text-center'>{{$la.lawyer.name}}</th>
+            <th class='text-center'>{{$la.lawyer.picture}}</th>
+            <th class='text-center'>{{$la.lawyer.department}}</th>
+            <th class='text-center'>{{$la.actions}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{foreach item="lawyer" from=$list}}
+          <tr class='text-middle'>
+            <!--<td>{{$lawyer.id}}</td>-->
+            <td class='text-center'>{{$lawyer.first_name}} {{$lawyer.last_name}}</td>
+            <td class='text-center'><a target="_blank" href="{:U('admin/system/file/default/download/id/{{$lawyer.id}}.html')}">
+                    <img title="{{$file.title}}" class="image-small" src="{{$lawyer.url}}">
+                </a>
+            </td>
+            <td class='text-center'>{{$lawyer.bumen}}</td>
+            <td class='text-center'>
+            <a class="choose" href="javascript:lawyerselectonlyone({{$lawyer.id}},'{{$lawyer.first_name}} {{$lawyer.last_name}}');">{{$la.select}}</a>
+            </td>
+          </tr>
+          {{/foreach}}
+        </tbody>
+      </table>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

@@ -54,12 +54,12 @@ class clsWebsiteInfoDefaultController extends clsAppController implements IActio
             $ok = false;
         }
 
-        $input->value  = $this->input->tel1;
-        $input->key    = 'siteinfo';
-        $input->subkey = "2";
-        if($ok and !$model->mw_set->update($input)) {
-        	$ok = false;
-        }
+//         $input->value  = $this->input->tel1;
+//         $input->key    = 'siteinfo';
+//         $input->subkey = "2";
+//         if($ok and !$model->mw_set->update($input)) {
+//         	$ok = false;
+//         }
 
         $input->value  = $this->input->buttom;
         $input->key    = 'siteinfo';
@@ -68,19 +68,19 @@ class clsWebsiteInfoDefaultController extends clsAppController implements IActio
             $ok = false;
         }
 
-        $input->value  = $this->input->qq1;
-        $input->key    = 'siteinfo';
-        $input->subkey = "6";
-        if($ok and !$model->mw_set->update($input)) {
-            $ok = false;
-        }
+//         $input->value  = $this->input->qq1;
+//         $input->key    = 'siteinfo';
+//         $input->subkey = "6";
+//         if($ok and !$model->mw_set->update($input)) {
+//             $ok = false;
+//         }
 
-        $input->value  = $this->input->qq2;
-        $input->key    = 'siteinfo';
-        $input->subkey = "7";
-        if($ok and !$model->mw_set->update($input)) {
-            $ok = false;
-        }
+//         $input->value  = $this->input->qq2;
+//         $input->key    = 'siteinfo';
+//         $input->subkey = "7";
+//         if($ok and !$model->mw_set->update($input)) {
+//             $ok = false;
+//         }
 
         if($ok and $_FILES) {
             if (isset($this->input->fileids)) {
@@ -109,7 +109,6 @@ class clsWebsiteInfoDefaultController extends clsAppController implements IActio
             $this->output->message = $this->lang->info->failupdate;
         }
         $this->mdb->subSetAutoCommit(true);//打开自动提交
-
     }
 
     /**

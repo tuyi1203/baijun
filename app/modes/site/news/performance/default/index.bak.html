@@ -1,0 +1,60 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap news" id="wrap">
+    <section class="banner" style="background-image:url({:T('img/bn.jpg')});"></section>
+    <div class="container">
+        <section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>资讯中心</span><i>&gt;</i><span>事务所新闻</span>
+        </section>
+        {{include file="$WWW_PATH/news.html"}}
+        <article class="content">
+            <section class="lst">
+                {{if empty($list)}}
+                <div class="nodata">对不起,没有找到任何数据！</div>
+                {{/if}}
+                {{if !empty($list)}}
+                <ul>
+                    {{foreach from=$list item="ls"}}
+                    <li>
+                        <div class="ih-item square effect">
+                            <a href="{:U('news/officenews/detail',array("id"=>{{$ls.id}}))}">
+                                <div class="img"><img src="{{$UPLOADURL}}{{$ls.url}}" alt="img"></div>
+                                <div class="info">
+                                    <b class="filer"></b>
+                                </div>
+                                <div class="txt">
+                                    <dl>
+                                        <dt>{{$ls.title}}</dt>
+                                        <dd>{{$ls.summary}}</dd>
+                                    </dl>
+                                </div>
+                                <div class="o">
+                                    <i>READ MORE</i>
+                                    <em>{{$ls.publishtime|substr:"0":"10"}}</em>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    {{/foreach}}
+                </ul>
+                {{/if}}
+            </section>
+            {{$pagelink}}
+        </article>
+        {{include file="$WWW_PATH/footer.html"}}
+    </div>
+</div>
+
+
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+    requirejs(["jquery", "app", "flexslider"], function ($) {
+        //$('#wrap').pageinit({debuge:true});//页面初始化
+        //$('#_floatcontact').contact({debuge:true});//联系我们
+
+    });
+
+</script>
+</body>
+</html>

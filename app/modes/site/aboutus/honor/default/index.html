@@ -1,0 +1,94 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+<div class="wrap aboutus" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}})"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>关于我们</span><i>&gt;</i><span>百君荣誉</span></section>
+		{{include file="$WWW_PATH/aboutus.html"}}
+		<article class="content">
+			<h6>
+				<i>O</i>
+				<span>
+					<p>百君荣誉</p>
+					<p class="en">ur Honor</p>
+				</span>
+			</h6>
+			<section class="honor">
+				<div class="txt">
+					<p>{{$content|nl2br}}</p>
+				</div>
+				<section id="flexslider" class="flexslider">
+					<ul class="slides">
+						{{foreach from=$pics item="ls" name="list1"}}
+						{{if $smarty.foreach.list1.index == 0}}
+							{{foreach from=$ls item="ls2"}}
+							<li><div class="box"><img src="{{$UPLOADURL}}{{$ls2}}" /></div></li>
+							{{/foreach}}
+						{{/if}}
+						{{/foreach}}
+						<!-- <li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h3.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h1.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h3.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h1.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h3.jpg" /></div></li>
+						<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li> -->
+					</ul>
+				</section>
+				<ul class="hasborder">
+				{{foreach from=$pics item="ls" name="list1"}}
+					{{if $smarty.foreach.list1.index == 1}}
+						{{foreach from=$ls item="ls2"}}
+						<li><div class="box"><img src="{{$UPLOADURL}}{{$ls2}}" /></div></li>
+						{{/foreach}}
+					{{/if}}
+				{{/foreach}}
+					<!-- <li><div class="box"><img src="../assets/img/h1.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h3.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li> -->
+				</ul>
+				<ul>
+				{{foreach from=$pics item="ls" name="list1"}}
+					{{if $smarty.foreach.list1.index == 2}}
+						{{foreach from=$ls item="ls2"}}
+						<li><div class="box"><img src="{{$UPLOADURL}}{{$ls2}}" /></div></li>
+						{{/foreach}}
+					{{/if}}
+				{{/foreach}}
+					<!-- <li><div class="box"><img src="../assets/img/h1.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h3.jpg" /></div></li>
+					<li><div class="box"><img src="../assets/img/h2.jpg" /></div></li> -->
+				</ul>
+			</section>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+requirejs( ["jquery","app","flexslider"],function($){
+	$('#flexslider').flexslider({
+		animation:'slide',
+		slideshowSpeed:5000,
+		slideshow:true,
+		slideshowSpeed:5000,
+		directionNav:true,
+		keyboardNav:true,
+		randomize:true,
+		itemWidth:306,
+		controlNav:false
+
+	});
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+});
+</script>
+</body>
+</html>

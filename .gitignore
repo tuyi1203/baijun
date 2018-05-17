@@ -1,4 +1,4 @@
 #忽略所有svn文件
-/.svn/
+.svn/
 
-/.settings/
+.settings/

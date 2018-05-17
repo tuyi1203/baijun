@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>生活圈</title>
+<meta name="keywords"  content="" />
+<meta name="description" content="" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+ <!--<meta name="browsermode" content="application">-->
+ <link rel="icon" href="images/icon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/icon/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/icon/apple-touch-icon-120x120-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="196x196" href="images/icon/apple-touch-icon-196x196-precomposed.png">
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/assets/mobile/hmpt/source/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/assets/mobile/hmpt/source/css/quan.css" />
+<link rel="stylesheet" type="text/css" href="/assets/mobile/hmpt/source/css/espira.css" />
+<link rel="stylesheet" type="text/css" href="/assets/mobile/hmpt/source/css/helper.css" />
+<script src="/assets/mobile/hmpt/source/js/jquery.js"></script>
+<script src="/assets/mobile/hmpt/source/js/swiper.min.js"></script>
+</head>
+<body>
+<!--header-->
+<header>
+ <a href="javascript:void(0)" class="location"><i class="espira-angle-left espira-4x"></i></a>
+ <h1>[!--class.name--]</h1>
+</header>
+<style>
+ul,li,dl,dt,dd{margin:0;padding:0;}
+	.zc_menulst{}
+	.zc_menulst .zc_menulst_t{text-align:center;padding:5%;border-bottom:1px solid #dadada;}
+	.zc_menulst .zc_menulst_t a{font-size:.3rem;color:#414141;}
+	.zc_menulst .zc_menulst_t i{margin:0 5%;color:#999;font-style: normal;}
+	.zc_menulst .zc_menulst_b{overflow:hidden;}
+	.zc_menulst .zc_menulst_b ul li{float:left;width:33.3%;position:relative;z-index:1;border-bottom:1px solid #dadada;}
+	.zc_menulst .zc_menulst_b ul li:after{position:absolute;z-index:1;display:block;content:'';width:1px;height:100%;right:0;top:0;background:#dadada;}
+	.zc_menulst .zc_menulst_b ul li:nth-child(3n):after{display:none;}
+	.zc_menulst .zc_menulst_b ul li a{display:block;text-align:center;padding:10% 0;}
+	.zc_menulst .zc_menulst_b ul li a dl dt{margin-bottom:5%;}
+	.zc_menulst .zc_menulst_b ul li a dl dt img{margin:0 auto;display:block;border-radius: 50%;width:1rem;height:1rem;}
+	.zc_menulst .zc_menulst_b ul li a dl dd{color:#414141;}
+</style>
+<div class="zc_menulst">
+	<div class="zc_menulst_t">
+		<a href="#">观看记录</a><i>|</i><a href="#">我的收藏</a>
+	</div>
+	<div class="zc_menulst_b">
+		<ul>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<dl>
+						<dt><img src="/d/file/thumbpic/nopic.jpg" /></dt>
+						<dd>职业考试</dd>
+					</dl>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<!--categoryList-->
+<!--<ul class="categoryLiIcon" style="height: 100%;margin: .15rem;">
+	[e:loop={"select * from phome_enewsclass A left join phome_enewsclassadd B on A.classid = B.classid where A.bclassid='$GLOBALS[navclassid]'and A.showclass=0 order by myorder",1,24,0}]
+ <li>
+  <a href="/phoneskin/qiyetiandi.php?classid=<?=$bqr[classid]?>">
+   <img src="<?=CreatThumbPic($bqr[phonetitlepic],51,60,0,0,1,"phone")?>" onerror="javascript:this.src='/d/file/thumbpic/nopic-old.jpg'"/>
+   <em><?=$bqr[classname]?></em>
+  </a>
+ </li>
+ [/e:loop]
+  <li>
+  <a href="javascript:;">
+   <img src="/d/file/thumbpic/nopic.jpg"/>
+   <em>敬请期待</em>
+  </a>
+ </li>
+
+</ul>-->
+
+<!--fixedNav:footer-->
+<div class="footer">
+	<ul>
+		<li style="width:25%"><a href="/e/action/ListInfo/?classid=60"><i class="footer_nav_a"></i><p>首页</p></a></li>
+		<li style="width:25%"><a href="/e/action/ListInfo/?classid=137"><i class="footer_nav_b"></i><p>一键呼叫</p></a></li>
+	 
+		<li style="width:25%"><a href="/e/action/ListInfo/?classid=280"><i class="footer_nav_d"></i><p>便民服务</p></a></li>
+		<li style="width:25%"><a href="/my/my.php"><i class="footer_nav_e"></i><p>我的</p></a></li>
+	</ul>
+</div>
+<div class="b_line"></div>
+<script>
+   $(".location").click(function(){
+         history.back();
+});
+</script>
+</body>
+</html>

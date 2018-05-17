@@ -1,0 +1,71 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+	{{include file="$WWW_PATH/kindeditor.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i> {{$la.branches.add}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('manage/branches/add/insert.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class="col-md-1 col-xs-2">{{$la.branches.name}}</th>
+				          <td class="col-md-5 col-xs-7">
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[name]' id='name' value='' class="form-control" />
+				          </td>
+				          <td></td>
+				       </tr>
+				       <tr>
+				          <th class="col-md-1 col-xs-2">{{$la.branches.keyword}}</th>
+				          <td class="col-md-5 col-xs-7">
+				          <input type='text' name='data[keyword]' id='keyword' value='' class="form-control" />
+				          </td>
+				          <td></td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.branches.summary}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[summary]' id='summary' rows="2" class="form-control" ></textarea>
+                          </td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.branches.picture}}</th>
+                          <td>
+                          <input type="file" name='img' class="form-control" >
+                          </td>
+                          <td></td>
+                       </tr>
+				       <tr>
+                          <th>{{$la.branches.desc}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[desc]' id='desc' rows="6" class="form-control" ></textarea>
+                          </td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.branches.contact}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[contact]' id='contact' rows="6" class="form-control" ></textarea>
+                          </td>
+                       </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('manage/branches')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

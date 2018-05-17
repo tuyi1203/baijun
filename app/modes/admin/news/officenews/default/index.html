@@ -23,7 +23,7 @@
 				</div></th>
 				        <th class='text-center w-160px'><div class='{{if $orderby=="createby" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createby" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('news/officenews/default/sort/currpage/{{$currpage}}/orderby/createby/sort/{{if $orderby == "createby"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.author}}</a>
                 </div></th>
-				        <th class='text-center w-160px'><div class='{{if $orderby=="createtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('news/officenews/default/sort/currpage/{{$currpage}}/orderby/createtime/sort/{{if $orderby == "createtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.addedDate}}</a>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="publishtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="publishtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('news/officenews/default/sort/currpage/{{$currpage}}/orderby/publishtime/sort/{{if $orderby == "publishtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.addedDate}}</a>
 				</div></th>
 				        <th class='text-center w-60px'><div class='{{if $orderby=="views" and $sort=="desc"}}headerSortDown{{elseif $orderby=="views" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('news/officenews/default/sort/currpage/{{$currpage}}/orderby/views/sort/{{if $orderby == "views"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.views}}</a>
 				</div></th>
@@ -40,7 +40,7 @@
                         <td class='text-center'>{{$kv.id}}</td>
                         <td>{{if $kv.top == '1'}}<small class="label label-success">{{$la.article.settop}}</small>{{/if}}<a href="{:U('site/news/officenews/detail/default/{{$kv.id}}.html')}" target="_blank" style="display:inline;">{{$kv.title}}</a></td>
                         <td class='text-center'>{{$kv.createname}}</td>
-                        <td class='text-center'>{{$kv.createtime}}</td>
+                        <td class='text-center'>{{$kv.publishtime}}</td>
                         <td class='text-center'>{{$kv.views}}</td>
                         <td class='text-center {{if $kv.status == "1"}}is-visible{{/if}}'>{{if $kv.status == "1"}}{{$la.article.normal}}{{else}}{{$la.article.draft}}{{/if}}</td>
                         <td class='text-center {{if $kv.public == "1"}}is-visible{{/if}}'>{{if $kv.public == "1"}}{{$la.officenews.published}}{{else}}{{$la.officenews.unpublished}}{{/if}}</td>

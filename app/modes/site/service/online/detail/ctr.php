@@ -11,23 +11,32 @@ class clsServiceOnlineDetailController extends clsAppController
         $this->init();
     }
 
+    public function _add()
+    {
+    	//前台JS验证
+    	if ($this->form->isError()) {
+    		$this->output->result  = 'fail';
+    		$this->output->message = $this->form->getError();
+    		return;
+    	}
+
+    	if (!$this->model->insert($this->input)) {
+    		$this->output->result  = 'fail';
+    		$this->output->message = $this->lang->online->failinsert;
+    		return;
+    	}
+
+    	$this->output->result  = 'success';
+    	$this->output->message = $this->lang->online->successinsert;
+    }
+
     /**
      * 页面初始化
      */
-    private function init() {
-
-    	$model = new clsModModel($this->mdb , 'mw_single');
-    	$input = new stdClass();
-    	$input->id = '16';
-    	$output = $model->mw_single->get($input);
-
-    	$this->output->id             = $output['id'];
-    	$this->output->title          = $output['title'];
-    	$this->output->keyword        = $output['keyword'];
-    	$this->output->summary        = $output['summary'];
-
-    	$this->output->nofilter->content        = $output['content'];
-
+    private function init() 
+    {
+        $bannerurl = $this->model->getBanner();
+        $this->output->bannerurl = $bannerurl;
     }
 
 }

@@ -1,0 +1,309 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+<div class="wrap pnllst" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>专业团队</span></section>
+		<article class="content">
+			<section class="search">
+				<div class="lettersearch">
+					<p>按姓氏拼音首字母搜索</p>
+					<div class="letters">
+						{{foreach from=$alphas item="ls"}}
+						<a href="{:U('core/person/default/search',array('alpha'=>{{$ls.value}}))}"{{if (strtolower($ls.value) == strtolower($alpha))}}class="cu"{{/if}}>{{$ls.value}}</a>
+						{{/foreach}}
+						<!--<a href="#">A</a>-->
+						<!--<a href="#">B</a>-->
+						<!--<a href="#">C</a>-->
+						<!--<a href="#">D</a>-->
+						<!--<a href="#">E</a>-->
+						<!--<a href="#">F</a>-->
+						<!--<a href="#">G</a>-->
+						<!--<a href="#">H</a>-->
+						<!--<a href="#">I</a>-->
+						<!--<a href="#">J</a>-->
+						<!--<a href="#">K</a>-->
+						<!--<a href="#">L</a>-->
+						<!--<a href="#">M</a>-->
+						<!--<a href="#">N</a>-->
+						<!--<a href="#">O</a>-->
+						<!--<a href="#">P</a>-->
+						<!--<a href="#">Q</a>-->
+						<!--<a href="#">R</a>-->
+						<!--<a href="#">S</a>-->
+						<!--<a href="#">T</a>-->
+						<!--<a href="#">W</a>-->
+						<!--<a href="#">X</a>-->
+						<!--<a href="#">Y</a>-->
+
+					</div>
+				</div>
+				<div class="branchsearch">
+					<p>按办公机构搜索</p>
+					<div class="lst">
+						{{foreach from=$dics item="ls"}}
+						<a href="{:U('core/person/default/searchbydic',array('dic'=>{{$ls.id}}))}"{{if $dic == $ls.id}}class="cu"{{/if}}>{{$ls.name}}</a>
+						{{/foreach}}
+						<!--<a href="#">成都分所</a>-->
+						<!--<a href="#">合川分所</a>-->
+					</div>
+				</div>
+
+				<div class="form">
+					<form action="{:U('core/person/default/search')}" method="post" >
+					<div class="mod">
+						<span class="mod_select">
+							<select name="data[jigou]">
+								{{html_options options=$jigou_options selected=$sess.jigou}}
+							</select>
+						</span>
+						<span class="mod_select">
+							<select name="data[zhiwei]">
+								{{html_options options=$zhiwei_options selected=$sess.zhiwei}}
+							</select>
+						</span>
+						<span class="mod_select">
+							<select name="data[zhuanye]">
+								{{html_options options=$zhuanye_options selected=$sess.zhuanye}}
+							</select>
+						</span>
+						<span class="mod_text"><input type="text" name="data[keyword]" value="{{$sess.keyword}}" placeholder="输入律师姓名或关键词进行搜索" class="text" style="width:460px;" /></span>
+						<span class="mod_search_btn"><a href="javascript:void(0);" onclick="document.forms[0].submit();"><button class="submit">搜&nbsp;&nbsp;索</button></span></a>
+					</div>
+					<div class="mod">
+						<!--<span class="mod_text"><input type="text" name="data[name]" value="{{$sess.name}}" placeholder="请填写律师姓名" class="text" style="width:280px;" /></span>-->
+					</div>
+					</form>
+				</div>
+			</section>
+			<div class="searchnum">{{$searchtype}}，已找到律师<b>{{$all}}</b>人</div>
+			<div class="searchrst">
+				{{if $all > 0}}
+				<ul>
+					{{foreach from=$lawyers item="ls"}}
+					<li>
+						<div class="lawyer" id="lawyer">
+							<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank">
+								<div class="t">
+									<img src="{{$UPLOADURL}}{{$ls.url}}" />
+									<div class="txt">{{$ls.zhiyelinian}}</div>
+								</div>
+								<div class="user">
+									<dl>
+										<dt><b>{{$ls.fullname}}</b><em>{{$ls.positionname}}</em></dt>
+										<dd>执业领域：{{$ls.zhiyelingyu}}</dd>
+									</dl>
+								</div>
+							</a>
+						</div>
+					</li>
+					{{/foreach}}
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="lawyer" id="lawyer">-->
+							<!--<a href="#">-->
+								<!--<div class="t">-->
+									<!--<img src="../assets/img/lawyer.jpg" />-->
+									<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+								<!--</div>-->
+								<!--<div class="user">-->
+									<!--<dl>-->
+										<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+										<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+									<!--</dl>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</li>-->
+				</ul>
+				{{else}}
+				<div class="nodata">对不起，没有找到符合要求的律师，请更换条件搜索</div>
+				{{/if}}
+			</div>
+			<!--<div class="page">-->
+				<!--<a href="#">首页</a>-->
+				<!--<a href="#">&lt;</a>-->
+				<!--<a href="#" class="cu">1</a>-->
+				<!--<a href="#">234</a>-->
+				<!--<a href="#">3</a>-->
+				<!--<a href="#">4</a>-->
+				<!--<a href="#">5</a>-->
+				<!--<a href="#">6</a>-->
+				<!--<a href="#">&gt;</a>-->
+				<!--<a href="#">尾页</a>-->
+			<!--</div>-->
+			{{$pagelink}}
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+	requirejs( ["jquery","app","fancybox","fancyboxthumbs"],function($){
+//		$('#wrap').pageinit({debuge:true});//页面初始化
+//		$('#_floatcontact').contact({debuge:true});//联系我们
+	});
+</script>
+</body>
+</html>

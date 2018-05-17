@@ -1,0 +1,146 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap pnldetail" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><a href="{:U('core/person/default')}">专业团队</a><i>&gt;</i><span>律师详情</span></section>
+		<article class="content">
+			<section class="lawyer_detail">
+				<table cellpadding="0" cellspacing="0" width="100%" border="0">
+					<tbody>
+					<tr>
+						<td valign="center" width="20%"><div class="pic"><img src="{{$UPLOADURL}}{{$detail.url}}" /></div></td>
+						<td valign="center" width="50%">
+							<figure>
+								<h1>{{$detail.fullname}}</h1>
+								<p>{{$detail.touxian}}</p>
+								<!--<p>联系电话：{{$detail.tel}}</p>-->
+								<p>电子邮箱：{{$detail.email}}</p>
+								<p>办公机构：{{$detail.jigouname}}</p>
+								<p>执业领域：{{$detail.zhiyelingyu}}</p>
+							</figure>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</section>
+			<div class="data">
+				<div class="l">
+					<section class="basic">
+						<p>{{$detail.desc}}</p>
+					</section>
+					<section class="shrink" id="_shrink">
+						<dl>
+							<dt><b>代表业绩</b><a href="javascript:void(0)" class="_noLoading">-</a></dt>
+							<dd>
+								{{$detail.daibiaoyeji|htmlspecialchars_decode}}
+							</dd>
+						</dl>
+						<dl>
+							<dt><b>代表客户</b><a href="javascript:void(0)" class="_noLoading">-</a></dt>
+							<dd>
+								{{$detail.daibiaokehu|htmlspecialchars_decode}}
+							</dd>
+						</dl>
+						<dl>
+							<dt><b>学术成果</b><a href="javascript:void(0)" class="_noLoading">-</a></dt>
+							<dd>
+								{{$detail.xueshuchengguo|htmlspecialchars_decode}}
+							</dd>
+						</dl>
+						<dl>
+							<dt><b>其他</b><a href="javascript:void(0)" class="_noLoading">-</a></dt>
+							<dd>
+								{{$detail.qita|htmlspecialchars_decode}}
+							</dd>
+						</dl>
+					</section>
+				</div>
+				<div class="r">
+					<figure class="major">
+						<figcaption><b>所属专业部</b></figcaption>
+						<div class="bd">
+							<p>{{$detail.bumenname}}</p>
+						</div>
+					</figure>
+					<figure class="qualifications">
+						<figcaption><b>专业资格</b></figcaption>
+						<div class="bd">
+							{{foreach from=$detail.zhuanyezige item="value"}}
+							<p>{{$value}}</p>
+							{{/foreach}}
+						</div>
+					</figure>
+					<figure class="lang">
+						<figcaption><b>工作语言</b></figcaption>
+						<div class="bd">
+							{{foreach from=$detail.gongzuoyuyan item="value"}}
+							<em>{{$value}}</em><i>|</i>
+							{{/foreach}}
+						</div>
+					</figure>
+					<div class="othlist">
+						<section class="oth">
+							<div class="hd"><b>最新业绩</b><a href="{:U('news/performance/default/list',array('lawyer'=>{{$detail.id}}))}" class="more" target="_blank">&gt;&gt;</a></div>
+							<div class="bd">
+								<ul>
+									{{foreach from=$performance item="ls"}}
+									<li><a href="{:U('news/performance/detail',array('id'=>{{$ls.id}}))}" target="_blank">{{$ls.title}}</a></li>
+									{{/foreach}}
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a></li>-->
+									<!--<li><a href="#">重庆市北碚区法院从事审判工作</a></li>-->
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a></li>-->
+								</ul>
+							</div>
+						</section>
+						<section>
+							<div class="hd"><b>相关新闻</b><a href="{:U('news/officenews/default/list',array('lawyer'=>{{$detail.id}}))}" class="more" target="_blank">&gt;&gt;</a></div>
+							<div class="bd">
+								<ul>
+									{{foreach from=$news item="ls"}}
+									<li><a href="{:U('news/officenews/detail',array('id'=>{{$ls.id}}))}">{{$ls.title}}</a><i>{{$ls.publishtime|substr:0:10}}</i></li>
+									{{/foreach}}
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a><i>2015-08-08</i></li>-->
+									<!--<li><a href="#">重庆市北碚区法院从事审判工作</a><i>2015-08-08</i></li>-->
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a><i>2015-08-08</i></li>-->
+								</ul>
+							</div>
+						</section>
+						<!--<section>-->
+							<!--<div class="hd"><b>相关描述</b><a href="#" class="more">&gt;&gt;</a></div>-->
+							<!--<div class="bd">-->
+								<!--<ul>-->
+									<!--<li><a href="#">重庆市北碚区法院从事审判工作</a><i>2015-08-08</i></li>-->
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a><i>2015-08-08</i></li>-->
+									<!--<li><a href="#">重庆市北碚区法院从事审判工作</a><i>2015-08-08</i></li>-->
+									<!--<li><a href="#">大型外资企业正大集团从事人力资源和法务管理工作</a><i>2015-08-08</i></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</section>-->
+					</div>
+				</div>
+			</div>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+	requirejs( ["jquery","app","fancybox","fancyboxthumbs"],function($){
+//		$('#wrap').pageinit({debuge:true});//页面初始化
+//		$('#_floatcontact').contact({debuge:true});//联系我们
+		$('#_shrink dl dt a').bind('click',function(){
+			if($(this).parent('dt').siblings('dd').is(":hidden")){
+				$(this).parent('dt').siblings('dd').show();
+				$(this).html('-');
+			}else{
+				$(this).parent('dt').siblings('dd').hide();
+				$(this).html('+');
+			}
+		})
+	});
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@ class Eku_User extends clsModel{
     const LOCKED_USER_CHECK = "select count(*) cnt from `eku_user` where accout = ? and lock_status = '1'";
     const LOGIN_SUCCESS_CHECK = "select count(*) cnt from `eku_user` where accout = ? and password = ?";
     const LOCK_USER = "update `eku_user` set lock_status = '1' , lock_time = current_timestamp() where accout = ?";
-    const GET_USER = "select a.id , a.roleid , b.name from `eku_user` a left join `eku_user_info` b on a.id = b.uid where a.accout = ?";
+    const GET_USER = "select a.id , a.roleid , b.name from ( select * from  `eku_user` where delflg <> '1') a left join `eku_user_info` b on a.id = b.uid where a.accout = ? ";
     const UPDATE_PASSWORD = "update `eku_user` set password = ? where id = ?";
     const GET_ACCOUT = "select accout from `eku_user` where id = ?";
     const INSERT    = "insert into eku_user (accout , password , roleid ,createtime) values (?,?,?,?)";
@@ -67,8 +67,8 @@ class Eku_User extends clsModel{
     {
         //echo "hello";
         $this->_oMdb->fncPreparedStatement(self::GET_USER)
-        ->subSetString(1, $a_stUser)
-        ->fncExcuteQuery();
+                    ->subSetString(1, $a_stUser)
+                    ->fncExcuteQuery();
 
         if ($row = $this->_oMdb->fncGetRecordSet()) {
             return $row;

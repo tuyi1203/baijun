@@ -46,6 +46,7 @@ class clsWebsiteSlidesEditController extends clsAppController implements IAction
         $input->link        = $this->input->link;
         $input->label       = $this->input->label;
         $input->desc        = $this->input->desc;
+        $input->summary     = $this->input->summary;
         $input->updateby    = $this->session->getUid();
         $input->updatetime  = date("Y-m-d H:i:s");
         $input->id          = $this->input->id;

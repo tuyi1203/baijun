@@ -1,0 +1,34 @@
+{{include file="$WWW_PATH/humanity_header.html"}}
+<body>
+{{include file="$WWW_PATH/humanity_menu.html"}}
+<div class="infowrap">
+	<div class="bread">
+		<b>当前位置：</b><a href="{:U('humanity/default/default/default')}">智识与人文首页</a><i>&gt;</i><em>百君著述</em>
+	</div>
+	<div class="infopic">
+		<img src="{{$UPLOADURL}}{{$data.banner}}" />
+		<div class="mask">
+			<dl>
+				<dt>{{$data.title}}</dt>
+			</dl>
+		</div>
+	</div>
+
+	<div class="oth"><span><i>作者</i>{{foreach from=$data.author item="ls" name="author"}}{{if ($smarty.foreach.author.index != 0)}}、{{/if}}<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank"><b>
+	{{$ls.name}}<em>（律师）</em></b></a>{{/foreach}}</span></div>
+	<div class="abstract">
+		{{$data.summary|nl2br}}
+	</div>
+	<div class="info">
+	{{$nofilter.data.content}}
+	</div>
+</div>
+<a href="javascript:void(0);" class="_noLoading backtop" id="_back"></a>
+{{include file="$WWW_PATH/humanity_footer.html"}}
+<script>
+requirejs( ["jquery","wisdom"],function($){
+	$('body').wisdom({debuge:true});//页面初始化
+});
+</script>
+</body>
+</html>

@@ -31,6 +31,9 @@
                 {{if $file.primary == "1"}}
                     <small class="label label-success">{{$la.file.primary}}</small>
                 {{/if}}
+                {{if $file.banner == "1"}}
+                    <small class="label label-success">{{$la.file.banner}}</small>
+                {{/if}}
               {{else}}
               <a target="_blank" href="{:U('admin/system/file/default/download-id/{{$file.id}}.html')}">
                 {{$file.title}}
@@ -47,6 +50,7 @@
             <a class="deleter" href="{:U('admin/system/file/default/delete/id/{{$file.id}}.json')}">{{$la.delete}}</a>
             {{if $file.isimage == '1'}}
                 <a class="option"  href="{:U('admin/system/file/default/primary/id/{{$file.id}}/objecttype/{{$file.objecttype}}/objectid/{{$file.objectid}}.json')}">{{$la.file.setprimary}}</a>
+                <a class="option"  href="{:U('admin/system/file/default/banner/id/{{$file.id}}/objecttype/{{$file.objecttype}}/objectid/{{$file.objectid}}.json')}">{{$la.file.setbanner}}</a>
             {{/if}}
             </td>
           </tr>
@@ -54,47 +58,55 @@
         </tbody>
 
       </table>
-      <form id="fileForm" method='post' enctype='multipart/form-data' action='{:U('admin/system/file/default/upload/objectid/{{$objectid}}/objecttype/{{$objecttype}}.json')}">
+      <form id="fileForm" method='post' enctype='multipart/form-data' action="{:U('system/file/default/upload/objectid/{{$objectid}}/objecttype/{{$objecttype}}.json')}">
         <table class='table table-form'>
           {{if $writeable == '1'}}
           <tr>
-            <td class='text-middle'>{{$la.file.upload}}{{$la.file.limit}}</td>
+            <td class='text-middle'>{{$la.file.upload}}{{$la.file.limit}}<br>{{$la.file.filesize}}{{$filesize}}
+            {{if isset($bannersize)}}<br>{{$la.file.bannersize}}{{$bannersize}}{{/if}}</td>
             <td>
             <div class="file-form">
 			    <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file0" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label0"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file0" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label0"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label0"></div>
 			 </div>
 			    <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file1" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label1"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file1" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label1"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label1"></div>
 			 </div>
 			 <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file2" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label2"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file2" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label2"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label2"></div>
 			 </div>
 			 <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file3" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label3"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file3" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label3"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label3"></div>
 			 </div>
 			 <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file4" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label4"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file4" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label4"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label4"></div>
 			 </div>
 			 <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file5" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label5"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file5" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label5"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label5"></div>
 			 </div>
 			 <div class="form-group clearfix">
-			    <div class="col-sm-5"><input type="file" tabindex="-1" id="file6" name="files[]" class="form-control"></div>
-			    <div class="col-sm-7"><input type="text" placeholder="{{$la.file.label}}" tabindex="-1" class="form-control" name="data[filetitles][]" id="label6"></div>
+			    <div class="col-sm-3"><input type="file" tabindex="-1" id="file6" name="files[]" class="form-control"></div>
+			    <div class="col-sm-2"><input type="text" placeholder="{{$la.file.label}}" class="form-control" name="data[filetitles][]" id="label6"></div>
+          <div class="col-sm-7"><input type="text" placeholder="{{$la.file.desc}}" class="form-control" name="data[filedescs][]" id="label6"></div>
 			 </div>
 			 </div>
             </td>
           </tr>
-          <tr><td colspan='2' class='text-center'><input type="submit" data-loading="{{$la.loading}}" value="{{$la.save}}" class="btn btn-primary" id="submit"></td></tr>
+          <tr><td colspan='5' class='text-center'><input type="submit" data-loading="{{$la.loading}}" value="{{$la.save}}" class="btn btn-primary" id="submit"></td></tr>
           {{else}}
-          <tr><td colspan='2'><h5 class='text-danger'>{{$la.file.unwritable}}</h5></td></tr>
+          <tr><td colspan='5'><h5 class='text-danger'>{{$la.file.unwritable}}</h5></td></tr>
           {{/if}}
           <input type="hidden" name="data[objecttype]" value={{$objecttype}} />
           <input type="hidden" name="data[objectid]" value={{$objectid}} />

@@ -159,7 +159,7 @@ class clsUpload {
      * @return int
      */
     public function fncGetFileSize() {
-        return $$this->__file['size'];
+        return $this->__file['size'];
     }
     /**
      * 取得上传文件的可使用的真实路径
@@ -192,7 +192,7 @@ class clsUpload {
      * @return boolean
      */
     public function fncCheckFileSize($a_iMaxLimitedSize) {
-        if (fncGetFileSize()/1024 > $a_iMaxLimitedSize) {
+        if ($this->fncGetFileSize()/1024 > $a_iMaxLimitedSize) {
             return false;
         }
         return true;

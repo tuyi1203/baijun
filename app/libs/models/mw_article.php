@@ -41,7 +41,6 @@ class Mw_Article extends clsModel{
     CONST QUERY_COUNT_BYPUBLIC = "SELECT COUNT(id) as count FROM mw_article a WHERE objecttype = ? AND public = '0' AND  status = '1'";
 
 
-
     public function queryCountByPublish($type)
     {
         $this->_oMdb->fncPreparedStatement(self::QUERY_COUNT_BYPUBLIC)
@@ -58,9 +57,14 @@ class Mw_Article extends clsModel{
          $this->_oMdb->fncPreparedStatement(self::INSERT)
                     ->subSetString($i++ , $input->title)
                     ->subSetString($i++ , $input->keyword)
-                    ->subSetString($i++ , $input->summary)
-                    ->subSetString($i++ , $input->content)
-                    ->subSetString($i++ , $input->publishtime)
+                    ->subSetString($i++ , $input->summary);
+         if (isset($input->content)) {
+         	$this->_oMdb->subSetString($i++, $input->content);
+         } else {
+         	$this->_oMdb->subSetNull($i++);
+         }
+
+        $this->_oMdb->subSetString($i++ , $input->publishtime)
                     ->subSetInteger($i++ , $input->createby)
                     ->subSetString($i++ , $input->createtime)
                     ->subSetString($i++ , $input->status)
@@ -76,6 +80,7 @@ class Mw_Article extends clsModel{
          } else {
          	$this->_oMdb->subSetNull($i++);
          }
+
          $this->_oMdb->fncExecuteUpdate();
 
        return !$this->_oMdb->isError();
@@ -303,6 +308,12 @@ class Mw_Article extends clsModel{
         if (isset($input->sort)) {
             $set[] = 'sort=?';
         }
+        if (isset($input->lawyer)) {
+        	$set[] = 'lawyer=?';
+        }
+        if (isset($input->labelid)) {
+        	$set[] = 'labelid=?';
+        }
 
         $this->_oMdb->fncPreparedStatement(self::UPDATE.implode(',', $set).$where);
 
@@ -338,6 +349,12 @@ class Mw_Article extends clsModel{
         }
         if (isset($input->sort)) {
             $this->_oMdb->subSetInteger($i++, $input->sort);
+        }
+        if (isset($input->lawyer)) {
+        	$this->_oMdb->subSetString($i++, $input->lawyer);
+        }
+        if (isset($input->labelid)) {
+        	$this->_oMdb->subSetString($i++, $input->labelid);
         }
         $this->_oMdb->subSetInteger($i++, $input->id)
                     ->fncExecuteUpdate();

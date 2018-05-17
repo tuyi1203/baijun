@@ -41,6 +41,9 @@
                           <th>{{$la.officenews.lawyer}}</th>
                           <td colspan='2' class="lawyerlist">
                           <a class="btn btn-default" href="{:U('common/lawyer/default/default.modal')}" role="button" data-toggle='modal'>{{$la.officenews.addlawyer}}</a>
+                          <div class="zc_tags">
+                               <label class="nolawyer">{{$la.officenews.nolawyer}}</label>
+                          </div>
                             </td>
                        </tr>
                        <tr>
@@ -79,7 +82,7 @@
 		</div>
 	</div>
 	{{include file="$WWW_PATH/footer.html"}}
-
+    <script type="text/javascript">var nolawyer="{{$la.officenews.nolawyer}}";</script>
     {{ex fn='exportJs'}}
 </body>
 </html>

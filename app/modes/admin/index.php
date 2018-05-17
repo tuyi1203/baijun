@@ -24,6 +24,7 @@ if (version_compare(PHP_VERSION, '5.4.0', '<'))
 defined('MODES') or require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'eku' . DIRECTORY_SEPARATOR . 'includes'. DIRECTORY_SEPARATOR . 'framework.php';
 
 // Instantiate the application.
+// phpinfo();
 $app = clsFactory::getApplication('admin');
 // clsLogger::subWriteSysError(__FILE__);
 // Execute the application.

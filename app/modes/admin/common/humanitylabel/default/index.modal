@@ -1,0 +1,28 @@
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-600px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-paper-clip'></i> {{$la.label.common}}</h4>
+    </div>
+    <div class='modal-body'>
+      <form id="saveForm" action="{:U('common/label/default/insert.json')}">
+      <div class="input-group" style="width:400px;padding-bottom:10px;">
+      <input type="text" class="form-control" name="data[labelname]" id="labelname" value="{{$labelname}}" placeholder="{{$la.label.addlabel}}" maxlength="20">
+      <span class="input-group-btn">
+        <input class="btn btn-default" id="submit" type="submit" value="{{$la.label.add}}">
+      </span>
+     </div><!-- /input-group -->
+        <input type="hidden" name="data[fieldid]" value="{{$fieldid}}"/>
+     </form>
+     {{if isset($list)}}
+        <div class="zc_tags">
+          {{foreach item="label" from=$list}}
+             <label>{{$label.desc}}<span act="{:U('common/label/default/delete/id/{{$label.id}}.json')}" onclick="deleteLabel(this);">×</span></label>
+          {{/foreach}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

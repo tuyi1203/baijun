@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>重庆百君律师事务所移动端</title>
+    <script>
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                        "SymbianOS", "Windows Phone",
+                        "iPad", "iPod"];
+            var windowFlag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    windowFlag = false;
+                    break;
+                }
+            }
+            return windowFlag;
+        }
+        var pcCss = '';
+        pcCss += 'html{-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background:#f1f1f1;}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block;margin:0;padding:0;}audio,canvas,video{display: inline-block;}audio:not([controls]){display: none;height: 0;}[hidden]{display: none;}body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,select,textarea,th,td,div{margin:0;padding:0;}body,button,input,select,textarea{font:1rem "Microsoft Yahei",Arial,Verdana,Helvetica,sans-serif;line-height:1.5;}h1,h2,h3,h4,h5,h6{font-weight:400;}address,cite,dfn,em,var,caption,code,dfn,th{font-style:normal;font-weight:400;}i{font-style:normal;}ul,ol{list-style:none}a{text-decoration:none;color:#424242;}a:hover{text-decoration:none;color:#b52f2f;}a:focus{outline:none; text-decoration:none;}a:active,a:hover{outline:0; text-decoration:none;}b,strong{font-weight: bold;}.page{width:80%;margin:0 auto;}.page dl{text-align:center;margin-bottom:30px;padding-top:200px;}.page dl dt{font-size:25px;margin-bottom:10px;}.page dl dd{font-size:16px;}.page ul{padding-bottom:20px;margin-bottom:20px;}.page ul:after{clear:both;content:"";display:block;}.page ul li{float:left;width:33.3%;margin-bottom:10px;}.page ul li a{margin:5px;border:1px solid #dadada;border-radius: 5px;display:block;text-align:center;padding:10px 0;}.page ul li a:hover{color:#fff;background:#b52f2f;border-color:#b52f2f;}.page .info{background:#fff;padding:15px;color:#414141;}.page .info .red{color:#b52f2f;}';
+        var mCss = '';
+        mCss += 'body,html{width:100%;overflow-x:hidden}a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}body,html{font-family:sans-serif,"Microsoft YaHei","微软雅黑",Tahoma,Helvetica;font-size:10px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}table{border-collapse:collapse;border-spacing:0}img{border:0； max-width: 100%!important;vertical-align:middle}address,caption,cite,code,dfn,em,i,strong,th,var{font-weight:400;font-style:normal}ol,ul{list-style:none}a{text-decoration:none;color:#414141}a:focus,a:hover{outline:0;text-decoration:none}caption,th{text-align:left;font-weight:400}h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}@media screen and (min-width:100px){html{font-size:10px}}@media screen and (min-width:320px){html{font-size:10px}}@media screen and (min-width:375px){html{font-size:12px}}@media screen and (min-width:414px){html{font-size:12px}}@media screen and (min-width:600px){html{font-size:14px}}::-webkit-input-placeholder{color:#999}:-moz-placeholder{color:#999}::-moz-placeholder{color:#999}:-ms-input-placeholder{color:#999}html{-webkit-overflow-scrolling:touch;height:100%;width:100%}body{font-size:.3rem;overflow-x:hidden;height:100%;width:100%;background:#f1f1f1;text-align:center;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center}.page{width:90%;height:90%;overflow-y:scroll;margin:0 auto}.page dl{text-align:center;margin-bottom:.5rem}.page dl dt{font-size:.4rem;margin-bottom:.3rem}.page dl dd{font-size:.3rem}; .page ul{padding-bottom:.5rem;margin-bottom:.5rem}.page ul li{width:100%;margin-bottom:.3rem}.page ul li a{border:1px solid #dadada;border-radius:.1rem;display:block;text-align:center;padding:.3rem 0}.page ul li a:hover{color:#fff;background:#b52f2f;border-color:#b52f2f}.page .info{background:#fff;padding:.3rem;color:#414141;text-align:left;border-radius:.1rem;font-size:.35rem}.page .info .red{color:#b52f2f}';
+        var windowFlag = IsPC();//true为PC端，false为手机端
+        if(windowFlag){
+            //alert('PC端');
+            var t = '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />';
+            t += '<meta name="keywords" content="" />';
+            t += '<meta name="description" content="" />';
+            t += '<meta name="author" content="http://www.mingwon.com" />';
+            t += '<meta name="renderer" content="webkit">';
+            t += '<meta name="viewport" content="width=device-width, initial-scale=1">';
+            t += '<style>';
+            t += pcCss;
+            t += '</style>';
+            document.write(t);
+        }else{
+            //alert('移动端');
+            var remJs = 'assets/js/rem.js';
+            document.write('<script src="' + remJs +'"><\/script>');
+            var t = '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">';
+            t +='<meta name="format-detection" content="telephone=no, address=no">';
+            t += '<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->';
+            t += '<meta name="apple-touch-fullscreen" content="yes"/>';
+            t += '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />';
+            t += '<meta http-equiv="pragma" content="no-cache">';
+            t += '<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">';
+            t += '<meta http-equiv="expires" content="0">';
+            t += '<style>';
+            t += mCss;
+            t += '</style>';
+            document.write(t);
+
+        }
+    </script>
+
+
+</head>
+<body>
+    <div class="page">
+        <dl>
+            <dt>重庆百君律师事务所移动端</dt>
+            <dd>静态页面引导</dd>
+        </dl>
+        <ul>
+            <li><a href="首页.html">首页</a></li>
+        </ul>
+        <div class="info"><p>备注：该项目含有首页、新闻列表、新闻详情、产品列表、产品详情、公司简介、公司资质、联系我们这几个页面</p></div>
+    </div>
+</body>
+</html>

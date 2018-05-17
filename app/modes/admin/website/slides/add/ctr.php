@@ -50,6 +50,7 @@ class clsWebsiteSlidesAddController extends clsAppController implements IAction_
         $input->title       = $this->input->title;
         $input->link        = $this->input->link;
         $input->label       = $this->input->label;
+        $input->summary     = $this->input->summary;
         $input->desc        = $this->input->desc;
         $input->createby    = $this->session->getUid();
         $input->createtime  = date("Y-m-d H:i:s");

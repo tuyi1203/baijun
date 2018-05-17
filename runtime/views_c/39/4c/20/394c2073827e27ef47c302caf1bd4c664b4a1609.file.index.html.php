@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:02:47
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:51:21
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\system\login\default\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:2264156188de7c25ca2-29847863%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:73065a2a98d92b4a43-39714971%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '394c2073827e27ef47c302caf1bd4c664b4a1609' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\system\\login\\default\\index.html',
-      1 => 1425189735,
+      1 => 1425139200,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2264156188de7c25ca2-29847863',
+  'nocache_hash' => '73065a2a98d92b4a43-39714971',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_56188de7ca3c7',
+  'unifunc' => 'content_5a2a98d933488',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_56188de7ca3c7')) {function content_56188de7ca3c7($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a2a98d933488')) {function content_5a2a98d933488($_smarty_tpl) {?><!DOCTYPE html>
 <!--[if IE 8]>
     <html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="zh-CN">
 <![endif]-->

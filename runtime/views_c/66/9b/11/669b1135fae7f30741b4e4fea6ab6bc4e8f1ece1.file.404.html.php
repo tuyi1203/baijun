@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:37:03
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:49:29
          compiled from "D:\xampp\htdocs\baijun\app\views\admin\404.html" */ ?>
-<?php /*%%SmartyHeaderCode:18006561895efc2e6d7-18642663%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:35435a2a9869340fb2-18724011%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '669b1135fae7f30741b4e4fea6ab6bc4e8f1ece1' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\views\\admin\\404.html',
-      1 => 1425262405,
+      1 => 1425225600,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '18006561895efc2e6d7-18642663',
+  'nocache_hash' => '35435a2a9869340fb2-18724011',
   'function' => 
   array (
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_561895efc6ea2',
+  'unifunc' => 'content_5a2a98693840d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_561895efc6ea2')) {function content_561895efc6ea2($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if ($_valid && !is_callable('content_5a2a98693840d')) {function content_5a2a98693840d($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0027)http://www.kugou.com/dfdfdf -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 

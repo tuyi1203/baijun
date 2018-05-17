@@ -1,49 +1,120 @@
-﻿{{include file="$WWW_PATH/innerheader.html"}}
+{{include file="$WWW_PATH/header.html"}}
 <body>
-{{include file="$WWW_PATH/menu.html"}}
-    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
-    {{include file="$WWW_PATH/rolling.html"}}
-    <div class="wrap">
-    	<div class="wL">
-        	<div class="hd"><h3>栏目导航</h3></div>
-            <div class="bd">
-            	<ul>
-                {{include file="$WWW_PATH/kehufuwu.html"}}
-                </ul>
-            </div>
-        </div>
-        <div class="wR">
-        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<a href="{:U('service/usernotice/detail/default.html')}">客户服务</a>&gt;<span>联系我们</span></div>
-            <div class="bd">
-            	<div class="pageInfo">
-                	<h1 id="Title">{{$title}}</h1>
-                    <div class="contrl">
-                        <span>发布日期:<em>{:substr('{{$createtime}}',0,10)}</em></span>
-                        <i>|</i>
-                        <span>点击:<em>{{$views}}</em></span>
-                        <i>|</i>
-                        <span id="contrlFont">字体:<a href="javascript:void(0);" class="ctrlFont cu">小</a><a href="javascript:void(0);" class="ctrlFont">中</a><a href="javascript:void(0);" class="ctrlFont">大</a></span>
-                        <i>|</i>
-                        <span><a href="javascript:window.print();">打印</a><a href="javascript:window.close();">关闭</a></span>
-                    </div>
-                    <div class="pageInfoTxt" id="info">
-                        {{$nofilter.content}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-    {{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/leftbar.html"}}
+<div class="wrap contact" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>沟通与服务</span><i>&gt;</i><span>联系方式</span></section>
+		<div class="subnav">
+			<a href="javascript:void(0);" class="cu">联系方式</a><a href="{:U('service/join')}">加入我们</a><a href="{:U('service/online/detail')}">在线咨询</a>
+		</div>
+		<article class="content">
+			<div class="tab">
+				<div class="tab_t" id="_tabt">
+					<ul>
+						{{foreach from=$branches item="ls" key="k"}}
+							<li {{if $k == 0}}class="cu"{{/if}}>{{$ls.name}}</li>
+						{{/foreach}}
+						<!-- <li>成都分所</li>
+						<li>合川分所</li> -->
+					</ul>
+				</div>
+				<div class="tab_c" id="_tabc">
+					{{foreach from=$branches item="ls"}}
+					<div class="tab_con">
+						{{$ls.contact|htmlspecialchars_decode}}
+					</div>
+					{{/foreach}}
+					<!--<div class="tab_con" style="display:none;">-->
+						<!--<figure class="lst">-->
+							<!--<p>联系电话：023-62833080</p>-->
+							<!--<p>公司地址：重庆市渝北区财富大道2号财富大厦7楼</p>-->
+						<!--</figure>-->
+						<!--<div class="map" id="allmap2"></div>-->
+					<!--</div>-->
+					<!--<div class="tab_con" style="display:none;">-->
+						<!--<figure class="lst">-->
+							<!--<p>联系电话：023-62833080</p>-->
+							<!--<p>公司地址：重庆市渝北区财富大道2号财富大厦7楼</p>-->
+						<!--</figure>-->
+						<!--<div class="map" id="allmap3"></div>-->
+					<!--</div>-->
+				</div>
+			</div>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
 </div>
 
-{{include file="$WWW_PATH/floatdiv.html"}}
-{{*
-<div class="turnPage">
-	<a href="javascript:void(0);" class="mwIcon turnL">&#xf053;</a>
-    <a href="javascript:void(0);" class="mwIcon turnR">&#xf054;</a>
-</div>
-*}}
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+
+
+	//地图1
+//	var map1 = new BMap.Map("allmap1");
+//	var point1 = new BMap.Point(106.51553,29.615533);
+//	map1.centerAndZoom(point1, 18);
+//	var marker1 = new BMap.Marker(point1);  // 创建标注
+//	map1.addOverlay(marker1);               // 将标注添加到地图中
+//	marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+//	map1.setMapStyle({style:'grayscale'});
+//	var map1opts = {
+//	  width : 200,     // 信息窗口宽度
+//	  height: 80,     // 信息窗口高度
+//	  title : "百君律师事务所重庆总部" , // 信息窗口标题
+//	  enableMessage:true,//设置允许信息窗发送短息
+//	}
+//	var infoWindow1 = new BMap.InfoWindow("地址：重庆市渝北区财富大道2号财富大厦7楼", map1opts);  // 创建信息窗口对象
+//	marker1.addEventListener("click", function(){
+//		map1.openInfoWindow(infoWindow1,point1); //开启信息窗口
+//	});
+//
+//	//地图2
+//	var map2 = new BMap.Map("allmap2");
+//	var point2 = new BMap.Point(104.07189,30.657069);
+//	map2.centerAndZoom(point2, 18);
+//	var marker2 = new BMap.Marker(point2);  // 创建标注
+//	map2.addOverlay(marker2);               // 将标注添加到地图中
+//	marker2.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+//	map2.setMapStyle({style:'grayscale'});
+//	var map2opts = {
+//	  width : 200,     // 信息窗口宽度
+//	  height: 80,     // 信息窗口高度
+//	  title : "百君律师事务所成都分所" , // 信息窗口标题
+//	  enableMessage:true,//设置允许信息窗发送短息
+//	}
+//	var infoWindow2 = new BMap.InfoWindow("地址：重庆市渝北区财富大道2号财富大厦7楼", map2opts);  // 创建信息窗口对象
+//	marker2.addEventListener("click", function(){
+//		map2.openInfoWindow(infoWindow2,point2); //开启信息窗口
+//	});
+//
+//	//地图3
+//	var map3 = new BMap.Map("allmap3");
+//	var point3 = new BMap.Point(104.07189,30.657069);
+//	map3.centerAndZoom(point3, 18);
+//	var marker3 = new BMap.Marker(point3);  // 创建标注
+//	map3.addOverlay(marker3);               // 将标注添加到地图中
+//	marker3.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+//	map3.setMapStyle({style:'grayscale'});
+//	var map3opts = {
+//	  width : 200,     // 信息窗口宽度
+//	  height: 80,     // 信息窗口高度
+//	  title : "百君律师事务所成都分所" , // 信息窗口标题
+//	  enableMessage:true,//设置允许信息窗发送短息
+//	}
+//	var infoWindow3 = new BMap.InfoWindow("地址：重庆市渝北区财富大道2号财富大厦7楼", map3opts);  // 创建信息窗口对象
+//	marker3.addEventListener("click", function(){
+//		map3.openInfoWindow(infoWindow3,point3); //开启信息窗口
+//	});
+
+</script>
+<script>
+requirejs( ["jquery","app"],function($){
+	$.tab('#_tabt','#_tabc');
+	$('#_tabc div:gt(0)').hide();
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+});
+</script>
 </body>
 </html>

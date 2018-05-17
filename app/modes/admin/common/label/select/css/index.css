@@ -1,0 +1,4 @@
+.zc_tags{}
+.zc_tags label{display:inline-block;margin：0 10px 10px 0;background:#f8f8f8;border-radius:5px;height:30px;line-height:30px;
+position:relative; z-index:1;padding:0 40px 0 10px;}
+.zc_label_tags label span{position:absolute;right:0;top:0;padding:0 10px;background:#e8e8e8; border-radius:0 5px 5px 0;cursor:pointer;}

@@ -1,0 +1,79 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+    {{include file="$WWW_PATH/kindeditor.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i>  {{$la.label.create}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('humanity/label/add/insert.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='col-md-1 col-xs-2'>{{$la.label.title}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='' class="form-control" />
+				          </td>
+				          <td>
+				          </td>
+				       </tr>
+				       <tr>
+				          <th class='col-md-1 col-xs-2'>{{$la.label.entitle}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[entitle]' id='entitle' value='' class="form-control" />
+				          </td>
+				          <td>
+				          </td>
+				       </tr>
+				       <tr style="display:none;">
+                          <th>{{$la.label.link}}</th>
+                          <td>
+                            <input type='text' name='data[link]' id='link' value='' class="form-control" />
+                          </td>
+                          <td>  </td>
+                        </tr>
+				       <!-- <tr>
+                          <th>{{$la.label.picture}}</th>
+                          <td>
+                            <div class="required required-wrapper"></div>
+                            <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
+                          </td>
+                          <td>
+                            <label class="text-info">{{$la.file.slideinfo}}</label>
+                          </td>
+                       </tr> -->
+                       <!--  <tr>
+                          <th>{{$la.label.label}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[label]' id='label' rows='2' class='form-control'></textarea>
+                            </td>
+                       </tr>
+                       <tr>
+				          <th>{{$la.label.desc}}</th>
+				          <td colspan='2'>
+				          <textarea name='data[desc]' id='desc' rows='15' class='form-control'></textarea>
+				           </td>
+					   </tr> -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('humanity/label')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

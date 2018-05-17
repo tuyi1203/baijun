@@ -1,0 +1,74 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap achlist" id="wrap">
+    <section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+    <div class="container">
+        <section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>资讯中心</span><i>&gt;</i><span>最新业绩</span>
+        </section>
+        {{include file="$WWW_PATH/news.html"}}
+        <article class="content">
+            <section class="lst">
+                {{if empty($list)}}
+                <div class="nodata">对不起,没有找到任何数据！</div>
+                {{/if}}
+                {{if !empty($list)}}
+                <ul>
+                    {{foreach from=$list item="ls"}}
+                    <li>
+                        <a href="{:U('news/performance/detail',array("id"=>{{$ls.id}}))}">
+                            <figure>
+                                <figcaption>{{$ls.title}}<b>{{$ls.labelname}}</b></figcaption>
+                                <em>{{$ls.publishtime|substr:"0":"10"}}</em>
+                                <article>{{$ls.summary}}</article>
+                            </figure>
+                        </a>
+                    </li>
+                    {{/foreach}}
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<figure>-->
+                                <!--<figcaption>陈昱律师参加渝北区第14届第三次政协会议<b>自定义标签</b></figcaption>-->
+                                <!--<em>2015-08-08</em>-->
+                                <!--<article>当前，以企业集团为组织结构设计的方式较为流行，然而在企业家们享受企业集团化带来的经营优势和控制便利时，常常忽略了企业集团中母子公司关系所暗藏的巨大法律责任风险。仅从立法上看，母子公司关系在我国现行公司法中规定得非常简略，仅有《中华人民共和国公司法》第十三条规定“公司可以设立子公司，子公司具有企业法人资格，依法独立承担民事责任。”该规定显然无法最终确...</article>-->
+                            <!--</figure>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<figure>-->
+                                <!--<figcaption>陈昱律师参加渝北区第14届第三次政协会议<b>自定义标签</b></figcaption>-->
+                                <!--<em>2015-08-08</em>-->
+                                <!--<article>当前，以企业集团为组织结构设计的方式较为流行，然而在企业家们享受企业集团化带来的经营优势和控制便利时，常常忽略了企业集团中母子公司关系所暗藏的巨大法律责任风险。仅从立法上看，母子公司关系在我国现行公司法中规定得非常简略，仅有《中华人民共和国公司法》第十三条规定“公司可以设立子公司，子公司具有企业法人资格，依法独立承担民事责任。”该规定显然无法最终确...</article>-->
+                            <!--</figure>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<figure>-->
+                                <!--<figcaption>陈昱律师参加渝北区第14届第三次政协会议<b>自定义标签</b></figcaption>-->
+                                <!--<em>2015-08-08</em>-->
+                                <!--<article>当前，以企业集团为组织结构设计的方式较为流行，然而在企业家们享受企业集团化带来的经营优势和控制便利时，常常忽略了企业集团中母子公司关系所暗藏的巨大法律责任风险。仅从立法上看，母子公司关系在我国现行公司法中规定得非常简略，仅有《中华人民共和国公司法》第十三条规定“公司可以设立子公司，子公司具有企业法人资格，依法独立承担民事责任。”该规定显然无法最终确...</article>-->
+                            <!--</figure>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+                {{/if}}
+            </section>
+            {{$pagelink}}
+        </article>
+        {{include file="$WWW_PATH/footer.html"}}
+    </div>
+</div>
+
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+    requirejs( ["jquery","app","flexslider"],function($){
+        //$('#wrap').pageinit({debuge:true});//页面初始化
+        //$('#_floatcontact').contact({debuge:true});//联系我们
+    });
+
+</script>
+</body>
+</html>

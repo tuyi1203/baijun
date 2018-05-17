@@ -1,0 +1,712 @@
+﻿{{include file="$WWW_PATH\header.html"}}
+<body class="index">
+{{include file="$WWW_PATH/topbanner.html"}}
+{{include file="$WWW_PATH/menu.html"}}
+<script type="text/javascript" language="javascript" src="js/fancybox.js"></script>
+<script type="text/javascript" language="javascript" src="js/fancybox-thumbs.js"></script>
+<div class="banner">
+    <div id="uiBnSlider" class="flexslider">
+        <ul class="slides">
+            {{foreach from=$slideslist item="list" key="k"}}
+            <li><div class="img" style="background-image:url({{$list.url}});"><a href="./single_slides-detail-default-{{$list.id}}.html" title="{{$list.title}}"></a></div></li>
+            {{/foreach}}
+        </ul>
+    </div>
+</div>
+
+<!--<section class="free_des_and_video" style="display:none;">
+	<div class="bd">
+    	<div class="l"><embed src="{{$video}}" allowFullScreen="true" quality="high" width="489" height="317" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></div>
+        <div class="r">
+        	<div class="pd10 pdLR20">
+            	<h6>{{$la.housedesign}}</h6>
+                <div class="txt">{{$la.homepage.notice}}<span class="orange strong">不会上传? 请致电{{ex fn="getSiteInfo"  arg1="siteinfo" arg2="1"}}联系客服！</span></div>
+                <form action="./interactive_housesubmit-detail-default.html" name="housesubmitform" method="post">
+                <div class="form">
+                	<div class="mod">
+                    	<div class="modL">{{$la.homepage.name}}</div>
+                        <div class="modR"><span class="formText"><input name="data[name]" type="text" class="text" /></span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                    	<div class="modL">{{$la.homepage.tel}}</div>
+                        <div class="modR"><span class="formText"><input name="data[tel]" type="text" class="text" /></span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="mod">
+                    	<div class="modL">{{$la.homepage.addr}}</div>
+                        <div class="modR"><span class="formText"><input name="data[addr]" type="text" class="text add" /></span></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="modBtn"><a href="javascript:document.housesubmitform.submit();" class="btnsFb btn2">{{$la.homepage.confirm}}</a></div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>-->
+
+
+<section class="wrap">
+    <div class="joint_and_pack">
+    	<div class="ind_joint">
+        	<div class="bd">
+            	<ul>
+            	{{foreach from=$setlist name="setlist" item="list"}}
+            	   {{if $smarty.foreach.setlist.index == 0}}
+            	       <li class="col_1"><a href="{{$list.link}}"><img src="{{$list.url}}" /></a></li>
+            	   {{/if}}
+            	   {{if $smarty.foreach.setlist.index == 1}}
+            	       <li class="col_2">
+            	       <a class="pic_1" href="{{$list.link}}"><img src="{{$list.url}}" /></a>
+            	   {{/if}}
+            	   {{if $smarty.foreach.setlist.index == 2}}
+                       <a class="pic_2" href="{{$list.link}}"><img src="{{$list.url}}" /></a>
+                   {{/if}}
+                   {{if $smarty.foreach.setlist.index == 3}}
+                       <a class="pic_3" href="{{$list.link}}"><img src="{{$list.url}}" /></a>
+                       </li>
+                   {{/if}}
+            	   {{if $smarty.foreach.setlist.index == 4}}
+                       <li class="col_3"><a class="pic_1" href="{{$list.link}}"><img src="{{$list.url}}" /></a>
+                       </li>
+                   {{/if}}
+            	{{/foreach}}
+                </ul>
+            </div>
+        </div>
+        <div class="ind_pack">
+        	<div class="hd"><h2><b>{{$la.joint}}</b><em>JOINT</em></h2><div class="more"><a href="./article_joint-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+            <div class="bd" id="packScroll">
+            	<ul>
+            	{{foreach from=$jointlist item="list"}}
+            	   <li><img src="{{$list.url}}" title="{{$list.title}}" /><!--<a href="{{$list.link}}" target="_blank"></a>--></li>
+            	{{/foreach}}
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+	<div class="ind_case part">
+    	<div class="hd">
+        	<h2><i></i><b>{{$la.homepage.case}}</b><em>Decoration Style</em></h2>
+            <div class="tab" id="tabList">
+                <ul>
+                {{foreach key="style" from=$topcaselist name="topcasetablist" item="outer"}}
+                    <li {{if $smarty.foreach.topcasetablist.index == 0}}class="cu"{{/if}}><i></i><a href="javascript:void(0);">{{$style}}</a></li>
+                {{/foreach}}
+                </ul>
+            </div>
+            <div class="more"><a href="./design_case-list-default.html">{{$la.more}}&gt;&gt;</a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="bd">
+        	<div class="tab_box" id="tabBox">
+        	{{foreach key="style" from=$topcaselist name="topcaselist" item="outer"}}
+        	   {{if $smarty.foreach.topcaselist.index == 0}}
+        	       <div class="tab_con"><ul>
+        	   {{else}}
+        	       <div class="tab_con" style="display:none;"><ul>
+        	   {{/if}}
+        	   {{foreach from=$outer item="inner" name="caseinner" key="id"}}
+                    {{if $smarty.foreach.caseinner.index == 0}}
+                        <li class="col_1"><a href="{{$inner.link}}"><img src="{{$inner.url}}" /><p>{{$inner.style}}-{{$inner.title}}</p><div class="mask"></div></a></li>
+                    {{/if}}
+                    {{if $smarty.foreach.caseinner.index == 1 or $smarty.foreach.caseinner.index == 3}}
+                        <li class="col_2"><a href="{{$inner.link}}"><img src="{{$inner.url}}" /><p>{{$inner.style}}-{{$inner.title}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.caseinner.index == 2 or $smarty.foreach.caseinner.index == 4 or $smarty.foreach.caseinner.index == 6}}
+                        <a href="{{$inner.link}}"><img src="{{$inner.url}}" /><p>{{$inner.style}}-{{$inner.title}}</p><div class="mask"></div></a></li>
+                    {{/if}}
+                    {{if $smarty.foreach.caseinner.index == 5 }}
+                        <li class="col_3"><a href="{{$inner.link}}"><img src="{{$inner.url}}" /><p>{{$inner.style}}-{{$inner.title}}</p><div class="mask"></div></a>
+                    {{/if}}
+        	   {{/foreach}}
+        	   </ul>
+                </div>
+        	{{/foreach}}
+            </div>
+        </div>
+    </div>
+
+    <form method="post" id="priceForm" action="./interactive_pricelog-add-insert.json">
+    <div class="part ind_budget">
+        <div class="bd">
+            <div class="l"><em></em><p class="tit">快速预测家装费用</p><p>一键获取精装解决方案</p><div class="txt">已有<b class="red">{{$pricecount}}</b>位业主获得精准报价</div></div>
+            <div class="c">
+                <div class="form">
+                    <div class="btn"><a href="javascript:void(0);" onclick="checkPriceForm();" class="btnsFm btn1">智能系统报价</a></div>
+                    <div class="mod">
+                        <div class="modL">房屋户型</div>
+                        <div class="modR"><span class="formSel"><select name="data[huxing]"><option value="一房一厅">一房一厅</option><option value="二房一厅">二房一厅</option><option value="三房一厅">三房一厅</option><option value="二房二厅">二房二厅</option><option value="三房二厅">三房二厅</option><option value="四房二厅">四房二厅</option><option value="五房二厅">五房二厅</option></select></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">房屋面积</div>
+                        <div class="modR"><span class="formText"><input type="text" class="text area" name="data[mianji]"/><b class="m2">㎡</b></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">装修种类</div>
+                        <div class="modR"><span class="formSel"><select name="data[zhonglei]"><option>新房</option><option>二手房</option></select></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">装修用途</div>
+                        <div class="modR"><span class="formSel"><select name="data[yongtu]"><option>自住</option><option>出租</option><option>婚房</option></select></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">您的称呼</div>
+                        <div class="modR"><span class="formText"><input type="text" name="data[name]" class="text" /></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">联系电话</div>
+                        <div class="modR"><span class="formText"><input type="text" name="data[tel]" class="text" /></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">楼盘信息</div>
+                        <div class="modR"><span class="formSel"><select name="data[loupan]"><option>重庆主城</option><option>重庆周边</option></select></span></div>
+                    </div>
+                    <div class="mod lpMod">
+                        <div class="modR"><span class="formText"><label class="txtLabel" for="xq">请输入小区名称或地址</label><input type="text" class="text" name="data[loupan2]" id="xq" /></span></div>
+                    </div>
+                    <div class="mod">
+                        <div class="modL">是否交房</div>
+                        <div class="modR"><span class="formRad"><input type="radio" class="radio" name="data[jiaofang]" id="a1" value="已交房"/><label for="a1">已交</label><input type="radio" class="radio" name="data[jiaofang]" id="a2" value="未交房"/><label for="a2">未交</label></span></div>
+                    </div>
+                    <div class="mod tlMod">
+                        <div class="modL">整装套餐</div>
+                        <div class="modR"><span class="formRad"><input type="radio" class="radio" name="data[taocan]" id="b1" value="498"/><label for="b1">498套餐</label><input type="radio" class="radio" name="data[taocan]" id="b2" value="598"/><label for="b2">598套餐</label><input type="radio" class="radio" name="data[taocan]" id="b3" value="698"/><label for="b3">698套餐</label><input type="radio" class="radio" name="data[taocan]" id="b4" value="898"/><label for="b4">898套餐</label></span></div>
+                    </div>
+                    <div class="mod tlMod">
+                        <div class="modL">装修风格</div>
+                       <div class="modR"><span class="formRad"><input type="radio" class="radio" name="data[fengge]" id="c1" value="中式"/><label for="b1">中式</label><input type="radio" class="radio" name="data[fengge]" id="c2" value="欧式"/><label for="c2">欧式</label><input type="radio" class="radio" name="data[fengge]" id="c3" value="地中海"/><label for="c3">地中海</label><input type="radio" class="radio" name="data[fengge]" id="c4" value="田园"/><label for="c4">田园</label><input type="radio" class="radio" name="data[fengge]" id="c5" value="现代简约"/><label for="c5">现代简约</label><input type="radio" class="radio" name="data[fengge]" id="c6" value="美式"/><label for="c6">美式</label></span></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="r">
+                <h6>您的家装预算为</h6>
+                <em id="price">0元</em>
+                <div class="txt">
+                    <p>以上价格仅供参考</p>
+                    <p>不包含个性化造型</p>
+                </div>
+                <div class="btn"><a href="http://tb.53kf.com/webCompany.php?arg=10077991&style=1" target="_blank" class="btnsFm btn5">人工精准报价</a></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        priceflg = true;
+        function checkPriceForm() {
+        	var form = $("#priceForm");
+        	//面积
+        	var mianji_val = form.find("input[name*=mianji]").val();
+        	if (!mianji_val) {
+        		return alert("请输入面积");
+        	} else if (mianji_val.length > 4 || !(mianji_val % 1 === 0)) {
+        		return alert("请输入正确的面积");
+        	}
+
+        	var name_val = form.find("input[name*=name]").val();
+            if (!name_val) {
+            	return alert("请输入您的称呼");
+            } else if (name_val.length > 4) {
+            	return alert("请输入正确的称呼");
+            }
+
+            var regPartton=/1[3-8]+\d{9}/;
+            var tel_val = form.find("input[name*=tel]").val();
+            if(!tel_val){
+                return alert("联系电话不能为空！");
+            }else if(!regPartton.test(tel_val)){
+                return alert("联系电话格式不正确！");
+            }
+
+            var loupan2_val = form.find("input[name*=loupan2]").val();
+            if (!loupan2_val) {
+            	return alert("请输入小区名称或地址");
+            } else if (loupan2_val.length > 500){
+            	return alert("请输入正确的小区名称或地址");
+            }
+
+            if(!form.find("input[name*=jiaofang]").val()) {
+            	return alert("请选择是否已交房");
+            }
+
+            var taocan_val = form.find("input[name*=taocan]:checked").val();
+            if(!taocan_val) {
+                return alert("请选择整装套餐类型");
+            }
+
+            if(!form.find("input[name*=fengge]:checked").val()) {
+                return alert("请选择装修风格");
+            }
+
+            $("#price").text(mianji_val * taocan_val + "元");
+            if (priceflg) {
+            	submitme('priceForm');
+            }
+            priceflg = false;
+        }
+    </script>
+    </form>
+
+    <div class="part ind_design">
+        <div class="hd"><h2><i></i><b>{{$la.homepage.designer}}</b><em>Our Designers</em></h2><div class="more"><a href="./design_person-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+        <div class="bd" id="designBox">
+        	<ul>
+            {{foreach from=$personlist name="personlist" item="ls"}}
+               {{if $smarty.foreach.personlist.index == "0"}}
+                   <li class="a1"><a href="{{$ls.link}}"><!--<p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p>--><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "1"}}
+                   <li class="a2"><a href="{{$ls.link}}"><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "2"}}
+                   <li class="a3"><a href="{{$ls.link}}"><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+
+               {{if $smarty.foreach.personlist.index == "3"}}
+                   <li class="a4"><a href="{{$ls.link}}"><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "4"}}
+                   <li class="a5"><a href="{{$ls.link}}"><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "5"}}
+                   <li class="none"><a href="{{$ls.link}}"><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+            {{/foreach}}
+            </ul>
+            <div class="clear"></div>
+<!--            <ul>
+            {{foreach from=$personlist name="personlist" item="ls"}}
+               {{if $smarty.foreach.personlist.index == "0"}}
+                   <li class="col_1"><a href="{{$ls.link}}"><p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "1"}}
+                   <li class="col_2"><a class="pic_1" href="{{$ls.link}}"><p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p><img src="{{$ls.url}}" /></a>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "3"}}
+                   <li class="col_3"><a class="pic_1" href="{{$ls.link}}"><p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p><img src="{{$ls.url}}" /></a>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "5"}}
+                   <li class="col_4"><a href="{{$ls.link}}"><p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+               {{if $smarty.foreach.personlist.index == "2" or $smarty.foreach.personlist.index == "4" }}
+                   <a class="pic_2" href="{{$ls.link}}"><p class="tit">{{$ls.title}}<em>{{$ls.desc}}</em></p><p>{{$ls.label}}</p><img src="{{$ls.url}}" /></a></li>
+               {{/if}}
+            {{/foreach}}
+            </ul>-->
+        </div>
+    </div>
+
+    {{if !empty($banner)}}
+    <div class="div_banner"><a href="./single_banner-detail-default.html"><img src="{{$banner}}" /></a></div>
+    {{/if}}
+
+    <div class="part ind_learn">
+    	<div class="hd"><h2><i></i><b>{{$la.sign}}</b><em>EARN DECORATION</em></h2><div class="more"><a href="article_sign-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+        <div class="bd">
+        	<div class="l"><img src="img/content/learn_pic.jpg" /></div>
+            <div class="r">
+            	<div class="hdLines">
+            	   {{foreach from=$signlist item="list" key="k" name="slist"}}
+            	    {{if $smarty.foreach.slist.index == 0}}
+                	<h6><a href="./article_sign-detail-default-{{$list.id}}.html">{{$list.title}}</a></h6>
+                    <div class="txt">{{$list.summary}}</div>
+                    {{/if}}
+                    {{/foreach}}
+                </div>
+                <div class="lst">
+                	<ul>
+                    {{foreach from=$signlist item="list" key="k" name="signlist"}}
+                    {{if $smarty.foreach.signlist.index != 0}}
+				    <li><a href="article_sign-detail-default-{{$list.id}}.html"><p class="lst_l"><em>[家装热点]</em>{{$list.title}}</p><i>了解详情</i></a></li>
+				    {{/if}}
+                    {{/foreach}}
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="art_pack">
+    	<div class="part ind_art1">
+        	<div class="hd"><h2><i></i><b>{{$la.news}}</b></h2></div>
+            <div class="bd">
+            	<div class="pic"><img src="img/art_1.jpg" /></div>
+                <div class="lst">
+                    <ul>
+                    {{foreach from=$newslist item="list" key="k"}}
+                    <li><a href="article_news-detail-default-{{$list.id}}.html"><em>+</em>{{$list.title}}</a></li>
+                    {{/foreach}}
+                    </ul>
+                </div>
+                <div class="more"><a href="article_news-list-default.html">{{$la.more}}&gt;&gt;</a></div>
+            </div>
+        </div>
+        <div class="part ind_art2">
+        	<div class="hd"><h2><i></i><b>{{$la.renovation}}</b></h2></div>
+            <div class="bd">
+            	<div class="pic"><img src="img/art_2.jpg" /></div>
+                <div class="lst">
+                    <ul>
+                    {{foreach from=$renovationlist item="list" key="k"}}
+                    <li><a href="article_renovation-detail-default-{{$list.id}}.html"><em>+</em>{{$list.title}}</a><!--<p class="lst_r">{{$list.createtime}}</p>--></li>
+                    {{/foreach}}
+                    </ul>
+                </div>
+                <div class="more"><a href="article_renovation-list-default.html">{{$la.more}}&gt;&gt;</a></div>
+            </div>
+        </div>
+        <div class="part ind_art3">
+        	<div class="hd"><h2><i></i><b>{{$la.review}}</b></h2></div>
+            <div class="bd">
+            	<div class="pic"><img src="img/art_3.jpg" /></div>
+                <div class="lst">
+                    <ul>
+                     {{foreach from=$reviewlist item="list" key="k"}}
+                    <li><a href="article_review-detail-default-{{$list.id}}.html"><em>+</em>{{$list.title}}</a></li>
+                    {{/foreach}}
+                    </ul>
+                </div>
+                <div class="more"><a href="article_review-list-default.html">{{$la.more}}&gt;&gt;</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="part ind_stor">
+        <div class="hd"><h2><i></i><b>{{$la.model}}</b><em>MODEL</em></h2><div class="more" style="display:none;"><a href="./album_store-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+        <div class="bd">
+            <ul>
+            {{foreach from=$storelist name="storelist" item="ls"}}
+            {{if $smarty.foreach.storelist.index == "0"}}
+               <li class="col_1"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.storelist.index == "2"}}
+               <li class="col_2"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.storelist.index == "4"}}
+               <li class="col_3"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.storelist.index == "6"}}
+               <li class="col_4"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.storelist.index != "0" and $smarty.foreach.storelist.index != "2" and $smarty.foreach.storelist.index != "4" and $smarty.foreach.storelist.index != "6"}}
+               {{if $smarty.foreach.storelist.index == "8"}}
+                    <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_3" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+               {{else}}
+                    <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_2" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+               {{/if}}
+            {{/if}}
+            <div style="display:none;" class="pics">
+                {{foreach from=$ls.images item="inner"}}
+                    <a title="{{$ls.albumtitle}}-{{$inner.imagetitle}}" data-fancybox-group="{{$ls.group}}" class="fancybox-thumbs" href="{{$inner.imageurl}}"><img src="{{$inner.imageurl}}"></a>
+                {{/foreach}}
+            </div>
+            {{if $smarty.foreach.storelist.index == "1" or $smarty.foreach.storelist.index == "3" or $smarty.foreach.storelist.index == "5" or $smarty.foreach.storelist.index == "8"}}
+            </li>
+            {{/if}}
+            {{/foreach}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="part ind_scheme">
+    	<div class="bd">
+        	<div class="l">
+            	<ul>
+                <li class="lst1">
+                	<dl>
+                    <dt><img src="img/sch_lst1.jpg" /></dt>
+                    <dd><div class="txt"><p class="tit">免费上门量房</p><p>设计师全程陪同</p><p>现场设计规划</p></div><div class="btn"><a href="http://tb.53kf.com/webCompany.php?arg=10077991&style=1" target="_blank"></a></div></dd>
+                    </dl>
+                </li>
+                <li class="lst2">
+                	<dl>
+                    <dt><img src="img/sch_lst2.jpg" /></dt>
+                    <dd><div class="txt"><p class="tit">免费设计方案</p><p>方案设计至客户</p><p>满意再开工</p></div><div class="btn"><a href="http://tb.53kf.com/webCompany.php?arg=10077991&style=1" target="_blank"></a></div></dd>
+                    </dl>
+                </li>
+                <li class="lst3">
+                	<dl>
+                    <dt><img src="img/sch_lst3.jpg" /></dt>
+                    <dd><div class="txt"><p class="tit">免费预算报价</p><p>获取预算模板</p><p>避免价格陷阱</p></div><div class="btn"><a href="http://tb.53kf.com/webCompany.php?arg=10077991&style=1" target="_blank"></a></div></dd>
+                    </dl>
+                </li>
+                <li class="lst4">
+                	<dl>
+                    <dt><img src="img/sch_lst4.jpg" /></dt>
+                    <dd><div class="txt"><p class="tit">免费监理服务</p><p>权威监理全程监督</p><p>检验各项施工环节</p></div><div class="btn"><a href="http://tb.53kf.com/webCompany.php?arg=10077991&style=1" target="_blank"></a></div></dd>
+                    </dl>
+                </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="r">
+            	<h5>如果您不了解家装,只需输入手机即可咨询<b></b></h5>
+            	<form method="post" id="phoneForm" action="./interactive_cellphone-add-insert.json">
+                <div class="phoneForm"><label for="phone">请输入您的手机号</label><input type="text" id="phone" name="data[tel]"/><a onclick="checkTel();" href="javascript:void(0);">免费申请</a></div>
+                <script type="text/javascript">
+                    function checkTel() {
+                    	var tel = $("#phone");
+                    	var telval = tel.val();
+                    	var regPartton=/1[3-8]+\d{9}/;
+                    	if(!telval || telval==null){
+                            alert("手机号码不能为空！");
+                            tel.focus();
+                            return false;
+                        }else if(!regPartton.test(telval)){
+                        	alert("手机号码格式不正确！");
+                        	tel.focus();
+                            return false;
+                        }
+                       	submitme('phoneForm');
+                    }
+                </script>
+                </form>
+                <div class="bot">
+                    <div class="lst" id="lstScroll">
+                        <ul>
+                           <li><em>鲜于斌</em><b>132****1116</b><i>11-15</i></li>
+                           <li><em>张军</em><b>188****9981</b><i>11-15</i></li>
+                           <li><em>刘梅</em><b>186****7951</b><i>11-15</i></li>
+                           <li><em>张淑兰</em><b>136****0032</b><i>11-15</i></li>
+                           <li><em>王芳华</em><b>139****1680</b><i>11-15</i></li>
+                           <li><em>李国栋</em><b>139****2202</b><i>11-15</i></li>
+                           <li><em>李磊</em><b>139****8848</b><i>11-15</i></li>
+                           <li><em>刘涵</em><b>135****7277</b><i>11-15</i></li>
+                           <li><em>李晋</em><b>131****6689</b><i>11-15</i></li>
+                           <li><em>鲁蜜</em><b>135****3236</b><i>11-15</i></li>
+                           <li><em>张鑫心</em><b>135****4816</b><i>11-15</i></li>
+                           <li><em>赵中华</em><b>186****7792</b><i>11-15</i></li>
+                           <li><em>祁远方</em><b>135****1519</b><i>11-15</i></li>
+                           <li><em>珑斌</em><b>133****3186</b><i>11-15</i></li>
+                           <li><em>贾莱</em><b>135****1544</b><i>11-15</i></li>
+                           <li><em>陈伟</em><b>138****7678</b><i>11-15</i></li>
+                        </ul>
+                    </div>
+                    <div class="num"><p>已免费服务业主</p><em>{{$applycount}}</em></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="part ind_work">
+        <div class="hd"><h2><i></i><b>{{$la.build}}</b><em>WORKING</em></h2><div class="more"><a href="./album_build-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+        <div class="bd">
+            <ul>
+            {{foreach from=$buildlist name="buildlist" item="ls"}}
+            {{if $smarty.foreach.buildlist.index == "0"}}
+               <li class="col_1"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.buildlist.index == "3"}}
+               <li class="col_2"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.buildlist.index == "5"}}
+               <li class="col_3"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.buildlist.index == "7"}}
+               <li class="col_4"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+            {{/if}}
+            {{if $smarty.foreach.buildlist.index != "0" and $smarty.foreach.buildlist.index != "3" and $smarty.foreach.buildlist.index != "5" and $smarty.foreach.buildlist.index != "7"}}
+               {{if $smarty.foreach.buildlist.index == "2"}}
+                    <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_3" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+               {{else}}
+                    <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_2" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+               {{/if}}
+            {{/if}}
+            <div style="display:none;" class="pics">
+                {{foreach from=$ls.images item="inner"}}
+                    <a title="{{$ls.albumtitle}}-{{$inner.imagetitle}}" data-fancybox-group="{{$ls.group}}" class="fancybox-thumbs" href="{{$inner.imageurl}}"><img src="{{$inner.imageurl}}"></a>
+                {{/foreach}}
+            </div>
+            {{if $smarty.foreach.buildlist.index == "2" or $smarty.foreach.buildlist.index == "4" or $smarty.foreach.buildlist.index == "6" or $smarty.foreach.buildlist.index == "8"}}
+            </li>
+            {{/if}}
+            {{/foreach}}
+            </ul>
+        </div>
+    </div>
+
+	<!--以下的模块可以去掉-->
+    <div class="ind_oth"  style="display:none;">
+    	<div class="left">
+
+            <div class="part ind_stor">
+            	<div class="hd"><h2><i></i><b>{{$la.model}}</b><em>MODEL</em></h2><div class="more" style="display:none;"><a href="./album_store-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                <div class="bd">
+                	<ul>
+                	{{foreach from=$storelist name="storelist" item="ls"}}
+                	{{if $smarty.foreach.storelist.index == "0"}}
+                	   <li class="col_1"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                	{{/if}}
+                    {{if $smarty.foreach.storelist.index == "2"}}
+                       <li class="col_2"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.storelist.index == "4"}}
+                       <li class="col_3"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.storelist.index == "6"}}
+                       <li class="col_4"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.storelist.index != "0" and $smarty.foreach.storelist.index != "2" and $smarty.foreach.storelist.index != "4" and $smarty.foreach.storelist.index != "6"}}
+                       {{if $smarty.foreach.storelist.index == "8"}}
+                            <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_3" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                       {{else}}
+                            <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_2" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                       {{/if}}
+                    {{/if}}
+                    <div style="display:none;" class="pics">
+                        {{foreach from=$ls.images item="inner"}}
+                            <a title="{{$ls.albumtitle}}-{{$inner.imagetitle}}" data-fancybox-group="{{$ls.group}}" class="fancybox-thumbs" href="{{$inner.imageurl}}"><img src="{{$inner.imageurl}}"></a>
+                        {{/foreach}}
+                    </div>
+                    {{if $smarty.foreach.storelist.index == "1" or $smarty.foreach.storelist.index == "3" or $smarty.foreach.storelist.index == "5" or $smarty.foreach.storelist.index == "8"}}
+                    </li>
+                    {{/if}}
+                    {{/foreach}}
+                    </ul>
+                </div>
+            </div>
+            <div class="ind_mouth">
+            	<div class="hd"><h2><b>{{$la.evaluation}}</b><em>EVALUATION</em></h2><div class="more"><a href="article_evaluation-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                <div class="bd">
+                	<ul>
+                	{{foreach from=$nofilter.evaluationlist item="list"}}
+                	<li>
+                        <dl>
+                        <dt>{{$list.title}}</dt>
+                        <dd><p>{{$list.content}}</p></dd>
+                        </dl>
+                    </li>
+                	{{/foreach}}
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="part ind_work">
+            	<div class="hd"><h2><i></i><b>{{$la.build}}</b><em>WORKING</em></h2><div class="more"><a href="./album_build-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                <div class="bd">
+                	<ul>
+                	<ul>
+                    {{foreach from=$buildlist name="buildlist" item="ls"}}
+                    {{if $smarty.foreach.buildlist.index == "0"}}
+                       <li class="col_1"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.buildlist.index == "3"}}
+                       <li class="col_2"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.buildlist.index == "5"}}
+                       <li class="col_3"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.buildlist.index == "7"}}
+                       <li class="col_4"><a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_1" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                    {{/if}}
+                    {{if $smarty.foreach.buildlist.index != "0" and $smarty.foreach.buildlist.index != "3" and $smarty.foreach.buildlist.index != "5" and $smarty.foreach.buildlist.index != "7"}}
+                       {{if $smarty.foreach.buildlist.index == "2"}}
+                            <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_3" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                       {{else}}
+                            <a title="{{$ls.albumtitle}}-{{$ls.covertitle}}" class="fancybox-thumbs-btn pic_2" href="javascript:void(0);"><img src="{{$ls.coverurl}}"><p>{{$ls.albumtitle}}</p><div class="mask"></div></a>
+                       {{/if}}
+                    {{/if}}
+                    <div style="display:none;" class="pics">
+                        {{foreach from=$ls.images item="inner"}}
+                            <a title="{{$ls.albumtitle}}-{{$inner.imagetitle}}" data-fancybox-group="{{$ls.group}}" class="fancybox-thumbs" href="{{$inner.imageurl}}"><img src="{{$inner.imageurl}}"></a>
+                        {{/foreach}}
+                    </div>
+                    {{if $smarty.foreach.buildlist.index == "2" or $smarty.foreach.buildlist.index == "4" or $smarty.foreach.buildlist.index == "6" or $smarty.foreach.buildlist.index == "8"}}
+                    </li>
+                    {{/if}}
+                    {{/foreach}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+        	<div class="right_box">
+            	<div class="sm_part ind_sig">
+                	<div class="hd"><h2><b>{{$la.sign}}</b><em>SIGNING</em></h2><div class="more"><a href="article_sign-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                    <div class="bd">
+                    	<div class="lst">
+                        	<ul>{{foreach from=$signlist item="list" key="k"}}
+				            <li><p class="lst_l"><em>+</em><a href="article_sign-detail-default-{{$list.id}}.html">{{$list.title}}</a></p></li>{{/foreach}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sm_part ind_news">
+                	<div class="hd"><h2><b>{{$la.news}}</b><em>NEWS</em></h2><div class="more"><a href="article_news-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                    <div class="bd">
+                    	<div class="lst">
+                        	<ul>
+                            {{foreach from=$newslist item="list" key="k"}}
+                            <li><p class="lst_l"><em>+</em><a href="article_news-detail-default-{{$list.id}}.html">{{$list.title}}</a></li>
+                            {{/foreach}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            	<div class="sm_part ind_infom">
+                	<div class="hd"><h2><b>{{$la.renovation}}</b><em>INFORMATION</em></h2><div class="more"><a href="article_renovation-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                    <div class="bd">
+                    	<div class="lst">
+                        	<ul>
+                            {{foreach from=$renovationlist item="list" key="k"}}
+                            <li><p class="lst_l"><em>+</em><a href="article_renovation-detail-default-{{$list.id}}.html">{{$list.title}}</a></p><p class="lst_r">{{$list.createtime}}</p></li>
+                            {{/foreach}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sm_part ind_review">
+                	<div class="hd"><h2><b>{{$la.review}}</b><em>REVIEW</em></h2><div class="more"><a href="article_review-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                    <div class="bd">
+                    	<div class="lst">
+                        	<ul>
+                        	 {{foreach from=$reviewlist item="list" key="k"}}
+                            <li><p class="lst_l"><em>+</em><a href="article_review-detail-default-{{$list.id}}.html">{{$list.title}}</a></p></li>
+                            {{/foreach}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sm_part ind_cnt">
+                	<div class="hd"><h2><b>{{$la.booking}}</b><em>CONVENTION</em></h2><div class="more"><a href="article_booking-list-default.html">{{$la.more}}&gt;&gt;</a></div></div>
+                    <div class="bd">
+                    	<div class="lst" id="cntScroll">
+                        	<ul>
+                        	{{foreach from=$nofilter.bookinglist item="list" key="k"}}
+                            <li>
+                            	<p><span class="red strong fnt14">{{$list.name}}</span>{{$la.booked}}<!-- <span class="mgl10">装修面积:90平米</span>--></p>
+                                <p class="add">{{$list.content}}</p>
+                                <p class="txt">{{$list.content2}}</p>
+                            </li>
+                            {{/foreach}}
+                            </ul>
+                        </div>
+                        <div class="btn"><a href="/interactive_bookonline-detail-default.html">我要预约</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+
+
+</section>
+
+
+{{include file="$WWW_PATH/footer.html"}}
+{{include file="$WWW_PATH/consult.html"}}
+{{include file="$WWW_PATH/messagebox.html"}}
+{{ex fn='exportJs'}}
+</body>
+</html>

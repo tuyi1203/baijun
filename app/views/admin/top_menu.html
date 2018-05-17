@@ -19,13 +19,13 @@
                 <li><a href='###'><i
                         class='icon-chevron-sign-right icon-large'></i></a></li>
             </ul>
-            <ul class='nav navbar-nav navbar-right'>
+          <!--   <ul class='nav navbar-nav navbar-right'>
                 <li class='dropdown'>{{cl}}</li>
-            </ul>
+            </ul> -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href='{:U('site/home/default/default/default.html')}' target='_blank'
+              <li><a href='{:U('site/home/default/default/default.html')}' target='_blank'
                     class='navbar-link'><i class="icon-home icon-large"></i> 前台</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                <!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
                     data-toggle="dropdown"><i class="icon-columns icon-large"></i> 网站<b class="caret"></b></a>
                  {{if isset($smarty.session.menu_list.wxadmin) or isset($smarty.session.menu_list.wechat)}}
                  <ul class="dropdown-menu">
@@ -37,7 +37,7 @@
                      {{/if}}
                  </ul>
                  {{/if}}
-                </li>
+                </li> -->
                 <li class="dropdown"><a href="#" class="dropdown-toggle"
                     data-toggle="dropdown"><i class="icon-user icon-large"></i>
                         {{$smarty.session._UserName}} <b class="caret"></b></a>
@@ -47,6 +47,8 @@
                             data-toggle='modal'>修改密码</a></li>
                         <li><a href="{:U('admin/system/login/default/logout.html')}">退出</a></li>
                     </ul></li>
+                     <li><a href='{:C('en-domain')}' 
+                    class='navbar-link'><i class="icon-circle-arrow-right icon-large"></i> 去英文站后台</a></li>
                <li><a href='javascript:;' data-href="{:U('system/cache/default/clear.json')}"
                     class='navbar-link chacheclear' text-normal="清除缓存"><i class="icon-large"></i> 清除缓存</a></li>
                     <script type="text/javascript">

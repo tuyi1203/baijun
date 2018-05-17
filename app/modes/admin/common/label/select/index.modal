@@ -1,0 +1,32 @@
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-700px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-paper-clip'></i> {{$la.label.labelselect}}</h4>
+    </div>
+    <div class='modal-body'>
+     {{if isset($list)}}
+     <!-- Single button -->
+        {{foreach from=$list item="field" name="fieldlist"}}
+        <button type="button" fieldid="{{$field.id}}" onclick="changeField(this)" class="fieldbtn btn {{if $smarty.foreach.fieldlist.index == 0}}btn-info{{else}}btn-link{{/if}}" >{{$field.title}}</button>
+        {{/foreach}}
+
+        {{foreach from=$list item="field" name="labellist"}}
+             <div class="zc_label_tags" fieldid="{{$field.id}}" style='padding-top:10px;border-top:1px solid #dadada;{{if $smarty.foreach.labellist.index != 0}}display:none;{{/if}}' >
+
+            {{foreach from=$field.labels item="label"}}
+                {{if empty($label.id)}}
+                    {{$la.label.nodata}}
+                {{else}}
+                    <a href="javascript:void(0);" onclick="selectLabel('{{$label.id}}','{{$label.desc}}')" class='btn btn-default' style="margin:0 10px 10px 0;">{{$label.desc}}</a>
+                {{/if}}
+            {{/foreach}}
+            </div>
+        {{/foreach}}
+      {{/if}}
+
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

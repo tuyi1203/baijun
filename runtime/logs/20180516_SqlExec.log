@@ -1,0 +1,10 @@
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT * FROM mw_single wHeRe id  = '3'
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype  = 'aboutus' AND objectid  = '1'
+2018-05-16 12:31:17  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-16 13:28:30  REMOTE_IP:127.0.0.1  SELECT `key`,subkey,value FROM mw_set wHeRe `key`  = 'config'
+2018-05-16 13:28:31  REMOTE_IP:127.0.0.1  SELECT `key`,subkey,value FROM mw_set wHeRe `key`  = 'config'
+2018-05-16 13:28:31  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='captcha' and `subkey` in ('1') 

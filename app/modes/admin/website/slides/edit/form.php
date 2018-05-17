@@ -15,6 +15,10 @@ class clsModForm extends clsAppForm {
                         "required" => false ,
                         "maxlength" => 100
                 ) ,
+        		"summary" => array(
+        				"required" => false ,
+        				"maxlength" => 50
+        		) ,
         );
 
         $this->messages = array (
@@ -27,6 +31,9 @@ class clsModForm extends clsAppForm {
                 "label" => array(
                         "maxlength"  => $this->lang->error->maxlength
                 ),
+        		"summary" => array(
+        				"maxlength"  => $this->lang->error->maxlength
+        		),
         );
     }
 }

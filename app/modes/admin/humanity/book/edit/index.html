@@ -1,0 +1,109 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+    {{include file="$WWW_PATH/kindeditor.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-edit'></i> {{$la.book.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U("humanity/book/edit/update.json")}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='w-200px'>{{$la.book.title}}</th>
+				          <td>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='{{$title}}' class="form-control" />
+				          </td>
+				          <td><input type="hidden" value="{{$id}}" name="data[id]" /></td>
+				       </tr>
+				       <tr>
+                          <th>{{$la.book.desc}}</th>
+                          <td>
+                          <input type='text' name='data[desc]' id='desc' value='{{$desc}}' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.book.publishyear}}</th>
+                          <td>
+                          <div class="required required-wrapper"></div>
+                          <input type='text' style="width:100px;" name='data[publishyear]' id='publishyear' value='{{$publishyear}}' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+                        <tr>
+                          <th>{{$la.book.summary}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[summary]' id='summary' rows='2' class='form-control'>{{$summary}}</textarea>
+                            </td>
+                       </tr>
+                          <tr>
+                            <th>{{$la.book.author}}</th>
+                          <td colspan='2' class="lawyerlist">
+                          <input type="hidden" id="author" value="{{$author}}" />
+                          <a class="btn btn-default" href="{:U('common/lawyer/default/default.modal')}" role="button" data-toggle='modal'>{{$la.book.addauthor}}</a>
+                           <div class="zc_tags">
+                          {{if !empty($lawyers)}}
+                          {{foreach from=$lawyers item="ls"}}
+                             <label onclick="deletelawyer(this);">{{$ls.fullname}}<span>×</span><input type="hidden" value="{{$ls.id}}" name="data[author][]"></label>
+                          {{/foreach}}
+                          {{else}}
+                             <label class="nolawyer">{{$la.book.noauthor}}</label>
+                          {{/if}}
+                          </div>
+                            </td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.book.content}}</th>
+                          <td colspan='2'>
+                          <div class="required required-wrapper"></div>
+                          <textarea name='data[content]' id='content' rows='10' class='form-control'>{{$content}}</textarea>
+                           </td>
+                     </tr>
+                    <!--    <tr>
+                       <th>{{$la.book.booktype}}</th>
+                       <td>
+                          <select style="width:150px;" name='data[subkey]' id='subkey' class='form-control chosen selectMode'>
+                            {{html_options options=$subkey_options selected=$subkey_choose}}
+                          </select>
+                          </td>
+                          <td></td>
+                       </tr> -->
+                       <tr>
+                        <th>{{$la.book.sort}}</th>
+                       <td>
+                       <input type='text' style="width:100px;" name='data[sort]' id='sort' value='{{$sort}}' class="form-control" />
+                          </td>
+                          <td></td>
+                       </tr>
+                      <!--  <tr>
+                        <th>{{$la.book.homepage}}</th>
+                       <td>
+                       {{html_radios options=$homepage_options name="data[homepage]" labels=true label_ids=true selected=$homepage_choose}}
+                          </td>
+                          <td></td>
+                       </tr> -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('humanity/book')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{include file="$WWW_PATH/footer.html"}}
+  <script type="text/javascript">var noauthor="{{$la.book.noauthor}}";</script>
+  {{ex fn='exportJs'}}
+
+</body>
+</html>

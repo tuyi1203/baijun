@@ -1,0 +1,307 @@
+{{include file="$WWW_PATH/humanity_header.html"}}
+<body>
+{{include file="$WWW_PATH/humanity_menu.html"}}
+<section class="wrap">
+	<div class="bread">
+		<b>当前位置：</b><a href="{:U('humanity/default/default/default')}">智识与人文首页</a><i>&gt;</i><em>栏目</em><i>&gt;</i><em>{{$list.labelname}}</em>
+	</div>
+	<h1>{{$list.labelname}}</h1>
+	{{if (count($list.sub) > 0)}}
+	{{foreach from=$list.sub item="ls"}}
+	
+	<div class="pagelist">
+		<div class="title">{{$ls.labelname}}</div>
+		{{if (count($ls.list) > 0 )}}
+		<div class="lst">
+			<ul>
+				{{foreach from=$ls.list item="subls"}}
+				<li>
+					<a href="{:U('humanity/default/default/detail',array('id'=>{{$subls.id}}))}" target="_blank" class="_jumplnk">
+						<div class="mask">
+							<div class="stat">
+								<span><i></i></span>
+								<em>阅读</em>
+								<b class="_jumpNum">{{$subls.views}}</b>
+							</div>
+						</div>
+						<div class="pic">
+							<img src="{{$UPLOADURL}}{{$subls.picurl}}" />
+						</div>
+						<div class="txt">
+							<div class="com"><em>{{$ls.labelname}}</em><i>/</i><b>{{$subls.publishtime|substr:0:10}}</b></div>
+							<dl>
+								<dt>{{$subls.title}}</dt>
+								<dd>{{$subls.summary}}</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+				{{/foreach}}
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">45747456</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">111185</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">785727827</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+			<div class="more"><a href="javascript:void(0)" onclick="goPaging(this);return false;" page="1" labelid="{{$ls.labelid}}" class="_noLoading">加载更多</a></div>
+		</div>
+		{{/if}}
+	</div>
+	{{/foreach}}
+	{{else}}
+	<div class="pagelist">
+		{{if (count($list.list) > 0 )}}
+		<div class="lst">
+			<ul>
+				{{foreach from=$list.list item="ls"}}
+				<li>
+					<a href="{:U('humanity/default/default/detail',array('id'=>{{$ls.id}}))}" target="_blank" class="_jumplnk">
+						<div class="mask">
+							<div class="stat">
+								<span><i></i></span>
+								<em>阅读</em>
+								<b class="_jumpNum">{{$ls.views}}</b>
+							</div>
+						</div>
+						<div class="pic">
+							<img src="{{$UPLOADURL}}{{$ls.picurl}}" />
+						</div>
+						<div class="txt">
+							<div class="com"><!-- <em>{{$ls.labelname}}</em><i>/</i> --><b>{{$ls.publishtime|substr:0:10}}</b></div>
+							<dl>
+								<dt>{{$ls.title}}</dt>
+								<dd>{{$ls.summary}}</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+				{{/foreach}}
+				</ul>
+			<div class="more"><a href="javascript:void(0)" onclick="goPaging(this);return false;" page="1" labelid="{{$ls.labelid}}" class="_noLoading">加载更多</a></div>
+		</div>
+		{{/if}}
+	</div>
+	{{/if}}
+	<!--<div class="pagelist">-->
+		<!--<div class="title">解读</div>-->
+		<!--<div class="lst">-->
+			<!--<ul>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">45678</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">45747456</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">111185</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<a href="#" class="_jumplnk">-->
+						<!--<div class="mask">-->
+							<!--<div class="stat">-->
+								<!--<span><i></i></span>-->
+								<!--<em>阅读</em>-->
+								<!--<b class="_jumpNum">785727827</b>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="pic">-->
+							<!--<img src="../assets/img/wisdom/pic.jpg" />-->
+						<!--</div>-->
+						<!--<div class="txt">-->
+							<!--<div class="com"><em>解读</em><i>/</i><b>2017-01-01</b></div>-->
+							<!--<dl>-->
+								<!--<dt>在法制界，他们都干了些什么</dt>-->
+								<!--<dd>美国新总统一再极力贬低新闻媒体和情报部门。这种过激姿态的结果是，两个相互争吵的机构被逼到同一个墙角。</dd>-->
+							<!--</dl>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			<!--</ul>-->
+			<!--<div class="more"><a href="javascript:void(0);" class="_noLoading">加载更多</a></div>-->
+		<!--</div>-->
+	<!--</div>-->
+	
+</section>
+<a href="javascript:void(0);" class="_noLoading backtop" id="_back"></a>
+<!--<footer>-->
+	<!--<div class="footer_con">-->
+		<!--<p>法务咨询热线   023-67621818</p>-->
+		<!--<p>&copy; Copyright 2015 百君律师事务所 All Rights Reserved    渝ICP备13028495号</p>-->
+	<!--</div>-->
+<!--</footer>-->
+{{include file="$WWW_PATH/humanity_footer.html"}}
+<script>
+requirejs( ["jquery","wisdom"],function($){
+	$('body').wisdom({debuge:true});//页面初始化
+});
+	function goPaging(obj)
+	{
+		 // alert($(obj).parent().parent().find("ul").append("hello world"));
+        $.getJSON("{:U('humanity/default/default/paging/pageid/','',false)}" + $(obj).attr("page") + '/labelid/' + $(obj).attr("labelid") + '.json',
+        		function(data){
+        	if (data.result == 'success') {
+        		if (data.list != null) {
+        			var arr_html = new Array();
+	        		for (index in data.list) {
+	        			arr_html.push('<li>');
+	        			var a = '<a href="{:U('humanity/default/default/detail/id/','',false)}' +  data.list[index].id + '.html" target="_blank" class="_jumplnk">';
+	        			arr_html.push(a);
+	        			arr_html.push('<div class="mask">');
+	        			arr_html.push('<div class="stat">');
+	        			arr_html.push('<span><i></i></span>');
+	        			arr_html.push('<em>阅读</em>');
+	        			arr_html.push('<b class="_jumpNum">'+ data.list[index].views +'</b>');
+	        			arr_html.push('</div>');
+	        			arr_html.push('</div>');
+	        			arr_html.push('<div class="pic">');
+	        			arr_html.push('<img src="{{$UPLOADURL}}'+ data.list[index].picurl +'" />');
+	        			arr_html.push('</div>');
+	        			arr_html.push('<div class="txt">');
+	        			if ($(obj).parent().parent().parent().find('div[class="title"]').length > 0) {
+						 	arr_html.push('<div class="com"><em>' + data.list[index].labelname + '</em><i>/</i><b>'+ data.list[index].publishtime +'</b></div>');
+						} else {
+							arr_html.push('<div class="com"><b>'+ data.list[index].publishtime +'</b></div>');
+						}
+	        			// arr_html.push('<div class="com"><!-- <em>{{$ls.labelname}}</em><i>/</i> --><b>{{$ls.publishtime|substr:0:10}}</b></div>');
+	        			arr_html.push('<dl>');
+	        			arr_html.push('<dt>'+ data.list[index].title +'</dt>');
+	        			arr_html.push('<dd>'+ data.list[index].summary +'</dd>');
+	        			arr_html.push('</dl>');
+	        			arr_html.push('</div>');
+	        			arr_html.push('</a>');
+	        			arr_html.push('</li>');
+	        		}
+	        		var html = arr_html.join('');
+	        		$(obj).parent().parent().find("ul").append(html);
+        		} else {
+        			$(obj).html('没有了');
+        		}
+        		if (data.nextpage != '') {
+        			$(obj).attr("page" , data.nextpage);
+        		} else {
+        			$(obj).html('没有了');
+        		}
+        		// var a = $("a[openmodal='1']");
+        		// a.text($return.groupname);
+          //       var href = a.attr('href');
+          //       a.attr('href',href.substr(0,href.lastIndexOf('/')) + '/' +  $return.groupid + '.modal');
+        	} else {
+        		alert(data.message);
+        	}
+        });
+	}
+</script>
+</body>
+</html>

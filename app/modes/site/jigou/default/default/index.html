@@ -1,0 +1,166 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+<div class="wrap offices" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$detail.img}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>办公机构</span><i>&gt;</i><span>{{$detail.name}}</span></section>
+		<div class="subnav">
+			{{foreach from=$branches item="ls"}}<a href="{:U('jigou/default/default/default' , array('id'=>{{$ls.id}}))}" {{if $ls.id == $detail.id}}class="cu"{{/if}}>{{$ls.name}}</a>{{/foreach}}
+		</div>
+		<article class="content">
+			<div class="info">
+				{{$detail.desc|htmlspecialchars_decode}}
+			</div>
+			<section class="othlawyer">
+				<h2 class="hd">{{$detail.name}}律师推荐</h2>
+				<div class="bd">
+					<section id="flexslider" class="flexslider">
+						<ul class="slides">
+						{{foreach from=$lawyers item="ls"}}
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}">
+										<div class="t">
+											<img src="{{$UPLOADURL}}{{$ls.url}}" />
+											<div class="txt">{{$ls.zhiyelinian}}</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>{{$ls.fullname}}</b><em>{{$ls.zhiweiming}}</em></dt>
+												<dd>执业领域：{{$ls.zhiyelingyu}}</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							{{/foreach}}
+							<!-- <li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="lawyer" id="lawyer">
+									<a href="#">
+										<div class="t">
+											<img src="../assets/img/lawyer.jpg" />
+											<div class="txt">我要吃得更多，才能飞得更高！</div>
+										</div>
+										<div class="user">
+											<dl>
+												<dt><b>李巧林</b><em>高级合伙人</em></dt>
+												<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>
+											</dl>
+										</div>
+									</a>
+								</div>
+							</li> -->
+						</ul>
+					</section>
+				</div>
+			</section>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+
+<script>
+
+requirejs( ["jquery","flexslider"],function($){
+	$('#flexslider').flexslider({
+		animation:'slide',
+		slideshow:true,
+		slideshowSpeed:5000,
+		directionNav:true,
+		keyboardNav:true,
+		randomize:true,
+		itemWidth:222,
+		controlNav:false
+
+	});
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+
+});
+
+
+</script>
+</body>
+</html>

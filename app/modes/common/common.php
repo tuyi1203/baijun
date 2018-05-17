@@ -62,7 +62,7 @@ function getForm() {
 
 function getAuthIns()
 {
-
+    // pr(5);
     if (!class_exists('auth')) {
         require APATH_SYS_PATH . DS . 'auth' . DS . 'auth.php';
     }

@@ -108,6 +108,11 @@ class clsAppSmarty extends clsSmarty
         echo U($args['p']);
     }
 
+    public function cutText($args)
+    {
+        echo cutText($args['p']);
+    }
+
     public function export($args) {
 
         if ($args['fn'] == 'exportJs') js::execute($this->app->js);
@@ -150,11 +155,11 @@ class clsAppSmarty extends clsSmarty
     public function createLangMenu() {
     	$langs = C('LANGS');
         $html[] = "<a href='###' class='dropdown-toggle' data-toggle='dropdown'>
-                    <i class='icon-globe icon-large'></i> &nbsp;". $langs[$this->clientlang] .
+                    <i class='icon-globe icon-large'></i> &nbsp;". array_shift($langs) .
                     "<span class='caret'></span></a> <ul class='dropdown-menu'>";
 
 
-        unset($langs[$this->clientlang]);
+        // unset($langs[$this->clientlang]);
         foreach($langs as $langKey => $currentLang) {
             $html[] =  "<li><a rel='nofollow' href='javascript:selectLang(\"{$langKey}\")'>{$currentLang}</a></li>";
         }

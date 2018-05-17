@@ -1,0 +1,143 @@
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:37:04  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:37:05  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:37:05  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:37:05  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:48:41  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:48:46  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:48:47  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:48:57  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:48:58  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:48:59  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:52:56  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:52:57  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:52:57  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:53:06  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:53:06  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:53:06  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:53:07  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:53:11  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:56:23  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:56:54  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 14:57:12  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 14:57:12  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 14:57:12  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 14:57:12  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 14:57:13  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 
+2018-05-10 15:00:26  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_field AS a  LEFT JOIN mw_file AS b  ON b.objecttype='field'  AND a.id = b.objectid  AND b.editor='0'  wHeRe a.pid is null  oRdEr bY a.sort
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='qcode'  AND objectid=1 
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_set wHeRe `key`='siteinfo'  AND subkey='3' 
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_branches oRdEr bY sort
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='officenews'  AND public='1'  oRdEr bY publishtime desc lImiT 0 , 3
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_article wHeRe objecttype='performance'  AND public='1'  oRdEr bY createtime desc lImiT 3 
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_file wHeRe objecttype='more'  AND objectid='1'  oRdEr bY createtime desc
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT a.* , b.url FROM mw_slides AS a  LEFT JOIN mw_file AS b  ON a.id=b.objectid  AND b.objecttype='slides'  oRdEr bY a.sort
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_humanity_label wHeRe fid  = '1' oRdEr bY sort
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  SELECT * FROM mw_world wHeRe labelid IN ('8','6','11','14','7','13') AND public  = '1' oRdEr bY catetop desc , top desc , updatetime desc , createtime desc lImiT 1 
+2018-05-10 15:00:27  REMOTE_IP:127.0.0.1  select * from mw_set where `key`='config' and `subkey` in ('keywords') 

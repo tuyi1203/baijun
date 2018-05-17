@@ -21,13 +21,16 @@ return array (
      'LINK_RANGE'                 => '5',//分页链接显示的页码个数
      'DF_NUM'                     => '4',
      'ACCESS'                     => '1',
+     'SYSNAME'                    => 'baijun-zh',
+     'EN-DOMAIN'                  => "http://enbaijun.ty.com/index.php/admin/",
       //调试状态
      'DEBUG'                      => true,
 
 
      //应用相关设置
      'LANG'                       => "ZH-CN",//客户端语言
-     'LANGS'                      => array("ZH-CN" =>'简体',"JP"=>'日本語' ,"EN"=>'ENGLISH' , "ZH-TW"=>"繁体"),//备选语言一览
+     //'LANGS'                      => array("ZH-CN" =>'简体',"JP"=>'日本語' ,"EN"=>'ENGLISH' , "ZH-TW"=>"繁体"),//备选语言一览
+     'LANGS'                      => array("ZH-CN" =>'中文站',"EN"=>'英文站'),//备选语言一览
 
       //域名相关设置
      'APP_SUB_DOMAIN_DEPLOY'      => false,// 是否开启子域名部署
@@ -41,7 +44,8 @@ return array (
      'DEFAULT_SCRIPT'             => "default",//默认脚本名称
      'DEFAULT_ACTION'             => "default",//默认动作名称
      'URL_PATHINFO_DEPR'          => "/",
-     'SITE_ROOT'                  => "baijun"  ,//网站根目录
+     //'SITE_ROOT'                  => "baijun"  ,//网站根目录
+	 'SITE_ROOT'                  => ""  ,//网站根目录
      'SITE_ENTRANCE_FILE'         => "index.php",//网站入口文件名
      'SITE_PUBLIC'                => "public"   ,//网站公开路径名
      'SITE_UPLOAD'                => "upload"   ,//网站上传文件夹
@@ -49,11 +53,11 @@ return array (
     //数据库设置项
      'PDO'                        => true,
      'DRIVER'                     => 'mysql',
-     'HOST'                       => 'localhost',
-     'USERNAME'                   => 'root',
+     'HOST'                       => '211.149.151.120',
+     'USERNAME'                   => 'remote',
 //      'PROTOCOL'                   => "tcp",
-     'PASSWORD'                   => '',
-     'DATABASE'                   => 'baijun',
+     'PASSWORD'                   => 'dd111!!!',
+     'DATABASE'                   => 'cqbaijun',
      'PORT'                       => '3306',
      'CHARSET'                    => 'UTF8',
 //      'SOCKET'                     => false,
@@ -75,7 +79,7 @@ return array (
 
      'COOKIELIFE'                 => 3600 ,//cookie生命时间设置为一个小时
      'PATH'                       => '/',//COOKIE 的作用有效路径
-     'DOMAIN'                     => 'localhost/baijun',//COOKIE 的作用域
+     'DOMAIN'                     => 'ty.com',//COOKIE 的作用域
      'SITE_DOMAIN'                => '',
     // 	 DBPREFIX '=> 'V8FW5_',
     // 	 LIVE_SITE '=> '',
@@ -84,10 +88,10 @@ return array (
      'MD5SALT'                    => 'UNIQUE_SALT',
     // 	 'GZIP'=> '0',
      'ERROR_REPORTING'=> 'default',
-// 	 'ERROR_REPORTING'            => 'maximum',
+	 // 'ERROR_REPORTING'            => 'maximum',
      'SLIDE_IMAGES'               => 5 ,//设置大图幻灯片的张数
-     'LIFE_TIME'                  => 3600,   //SESSION时间设置为1个小时
-     'UPLOADFILEMAXSIZE'          => 10240 ,//上传文件大小限制设定为10MB
+     'LIFE_TIME'                  => 0,   //SESSION时间设置为1个小时,设置成0则意味着关闭浏览器时过期
+     'UPLOADFILEMAXSIZE'          => 200 ,//上传文件大小限制设定为200KB
      'UPLOADABLE'                 => true,
      'SYSTEMLANGUAGE'             => 'GB2312',
      'PERIOD'                     => '7',//判断是否为信息的标准是7天

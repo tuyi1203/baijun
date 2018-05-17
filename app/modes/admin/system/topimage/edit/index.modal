@@ -1,4 +1,4 @@
-<div class='modal-dialog w-800px'>
+<div class='modal-dialog w-700px'>
   <div class='modal-content'>
     <div class='modal-header'>
     {{ex class="html" fn="closeButton"}}
@@ -16,7 +16,7 @@
           {{if isset($url)}}
           <tr>
             <th rowspan="2">{{$la.topimage.picture}}</th>
-               <td><img class="image" src="{{$url}}"></td>
+               <td><img class="image" src="{{$url}}" style="max-width:580px;"></td>
            </tr>
           {{/if}}
             <tr>
@@ -25,6 +25,7 @@
              {{/if}}
               <td>
                  <input type="file" class="form-control" tabindex="-1" id="upFile" name="upFile">
+                 {{if isset($size)}}<label class="text-info">{{$la.filesize}}{{$size}}</label>{{/if}}
                </td>
             </tr>
           <tr>

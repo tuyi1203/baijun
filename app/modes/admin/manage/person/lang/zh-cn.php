@@ -35,13 +35,7 @@ $lang->person->lock     = '锁定';
 $lang->person->createtime = '创建时间';
 $lang->person->department = '科室';
 
-$lang->person->roleinfo     = '企业管理部：公司简介-发展规划<br/>
-                                                                                            人力资源部：人力资源<br/>
-                                                                                             办公室：公司简介、政务公开、新闻动态、法律法规、文化建设 及所有发布在网站上的内容的后台审核<br/>
-                                                                                             管网规划部：通知公告-水压月报<br/>
-                                                                                            管网运行部：通知公告-停水公告、爆管公告<br/>
-                                                                                            生产技术部：通知公告-水质公告、用水知识、后台管理<br/>
-                                                                                            客户服务部：客户服务、客户互动、在线QQ';
+$lang->person->roleinfo     = '';
 
 $lang->person->sort         = '排序';
 $lang->person->savesort     = '保存排序';

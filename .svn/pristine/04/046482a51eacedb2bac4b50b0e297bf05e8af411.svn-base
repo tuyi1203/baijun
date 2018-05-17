@@ -1,2 +1,0 @@
-<li {{if $modules == 'country'}}class="cu"{{/if}}><a href="{:U('low/country/list/default.html')}">国家法律法规<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'local'}}class="cu"{{/if}}><a href="{:U('low/local/list/default.html')}">地方法律法规<i class="mwIcon">&#xf105;</i></a></li>

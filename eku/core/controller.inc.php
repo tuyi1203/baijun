@@ -56,6 +56,8 @@ abstract class clsController{
         //     	$this->router = $a_oApp->router;
 
         //         $this->_aBreadcrumbList = array();
+        //pr("controller");exit;
+
         $this->app 		= getAppIns();
         $this->dao      = getDAO();
         $this->mode     = MODE;
@@ -99,6 +101,7 @@ abstract class clsController{
      */
     public function redirect($url) {
         //     	echo $uri;exit;
+        // prdie($url);
         header("location:".$url);
         exit;
 

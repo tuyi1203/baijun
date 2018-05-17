@@ -111,12 +111,7 @@ class auth extends clsAuth {
     {
         if ($this->fncGetLoginStatus() == self::LOGIN_SUCCESS) {
             $this->_oSession->subNewSessionId($a_stUser);
-            $l_aUserInfo = $this->__oUserModel->fncGetUser($a_stUser);
-
             $this->_oSession->subSetValue('_Account', $a_stUser);//保存用户账户
-            $this->_oSession->subSetValue('_UserId', $l_aUserInfo['ID']);//保存用户ID
-            $this->_oSession->subSetValue('_RoleId', $l_aUserInfo['ROLEID']);//保存用户角色ID
-            $this->_oSession->subSetValue('_UserName', $l_aUserInfo['NAME']);//保存用户名字
             $this->_oSession->subSetLifeTime();
 
             //删除登陆错误统计次数
@@ -170,8 +165,11 @@ class auth extends clsAuth {
      */
     public function fncPassThrough()
     {
-        if ($this->_oSession->fncGetValue('_LifeTime') == null) {
+        // prdie($this->_oSession->fncGetValue('_LifeTime'));
+        if ($this->_oSession->fncGetValue('_LifeTime') === null) {
             $this->_oSession->subAddErrMsg("GLOBAL", "請先登録");
+        } else if ($this->_oSession->fncGetValue('_LifeTime') === 0) {
+            return true;
         } else if ($this->_oSession->fncGetValue('_LifeTime') < time()) {
             $this->_oSession->subUnsetValue('_LifeTime');
             $this->_oSession->subAddErrMsg("GLOBAL", "請重新登録");
@@ -200,21 +198,18 @@ class auth extends clsAuth {
     public function subLogout()
     {
         $this->_oSession->subUnsetValue('_LifeTime');
-
+        $this->_oSession->subSessionClear();
         $this->_oSession->subAddNotice( "GLOBAL", "謝謝使用");
-        //         $this->_oSession->subSetErrMsg(clsAppXml::fncGetErrorMsg('2008'));
     }
 
     public function subDeny()
     {
         $this->_oSession->subAddErrMsg( "GLOBAL", "請先登録");
-        //         $this->_oSession->subSetErrMsg(clsAppXml::fncGetErrorMsg('2007'));
     }
 
     public function subTimeOut()
     {
         $this->_oSession->subAddErrMsg( "GLOBAL", "請重新登録");
-        //         $this->_oSession->subSetErrMsg(clsAppXml::fncGetErrorMsg('2006'));
     }
 }
 

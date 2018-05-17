@@ -1,0 +1,103 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.life.common}}</strong>
+					<div class='panel-actions'><a href='{:U('humanity/life/add/default.html')}' class="btn btn-primary"><i class="icon-plus"></i> {{$la.life.create}}</a>
+				    </div>
+				</div>
+				 <form id='sortForm'
+					action='{:U('humanity/life/default/search.html')}' method='post'>
+				<table class="table">
+                      <tfoot>
+                          <tr>
+                            <th class='w-100px'>&nbsp;{{$la.life.condition}}</th>
+                            <td colspan='5'>
+                            	{{$la.life.label}}&nbsp; <a class="btn btn-default label-btn" href="{:U('common/humanitylabel/select/default.modal')}" role="button" data-toggle='modal'>{{$la.life.labelselect}}</a><input type="hidden" name="data[labelid]" value="{{$labelid}}" id="labelid"/>
+                            	<input type="hidden" name="data[labelname]" value="{{$labelname}}" id="labelname"/>&nbsp;&nbsp;&nbsp;<a href='javascript:document.forms[0].submit();' class="btn btn-primary">{{$la.life.search}}</a>
+                            </td>
+                            </tr>
+                        </tfoot>
+                </table>
+                </form>
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'><div class='{{if $orderby=="id" and $sort=="desc"}}headerSortDown{{elseif $orderby=="id" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('humanity/life/default/sort/currpage/{{$currpage}}/orderby/id/sort/{{if $orderby == "id"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.id}}</a>
+				</div></th>
+				        <th class='text-center'>{{$la.article.title}}</th>
+				        <th class='text-center w-160px'>{{$la.article.author}}</th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="createtime" and $sort=="desc"}}headerSortDown{{elseif $orderby=="createtime" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('humanity/life/default/sort/currpage/{{$currpage}}/orderby/createtime/sort/{{if $orderby == "createtime"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.addedDate}}</a>
+				</div></th>
+				        <th class='text-center w-60px'><div class='{{if $orderby=="views" and $sort=="desc"}}headerSortDown{{elseif $orderby=="views" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('humanity/life/default/sort/currpage/{{$currpage}}/orderby/views/sort/{{if $orderby == "views"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.views}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="status" and $sort=="desc"}}headerSortDown{{elseif $orderby=="status" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('humanity/life/default/sort/currpage/{{$currpage}}/orderby/status/sort/{{if $orderby == "status"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.status}}</a>
+                </div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="public" and $sort=="desc"}}headerSortDown{{elseif $orderby=="public" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('humanity/life/default/sort/currpage/{{$currpage}}/orderby/public/sort/{{if $orderby == "public"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.publicstatus}}</a>
+                </div></th>
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    {{if !empty($list)}}
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td>{{if $kv.labeltop == '1'}}<small class="label label-success">{{$la.life.setlabeltop}}</small>{{/if}}{{if $kv.catetop == '1'}}<small class="label label-success">{{$la.life.setcatetop}}</small>{{/if}}{{if $kv.top == '1'}}<small class="label label-success">{{$la.life.settop}}</small>{{/if}}<a href="{:U('site/humanity/default/default/detail/id/{{$kv.id}}.html')}" target="_blank" style="display:inline;">{{$kv.title}}</a></td>
+                        <td class='text-center'>{{$kv.author}}</td>
+                        <td class='text-center'>{{$kv.createtime}}</td>
+                        <td class='text-center'>{{$kv.views}}</td>
+                        <td class='text-center {{if $kv.status == "1"}}is-visible{{/if}}'>{{if $kv.status == "1"}}{{$la.article.normal}}{{else}}{{$la.article.draft}}{{/if}}</td>
+                        <td class='text-center {{if $kv.public == "1"}}is-visible{{/if}}'>{{if $kv.public == "1"}}{{$la.life.published}}{{else}}{{$la.life.unpublished}}{{/if}}</td>
+                        <td class='text-center'>
+                        {{if $kv.status=="1" and $publishauth == '1'}}
+                          <a href='{:U('humanity/life/default/publish/{{$kv.id}}.json')}' class="publisher">{{if $kv.public == "0"}}{{$la.article.public}}{{else}}{{$la.article.unpublic}}{{/if}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.top != '1'}}
+                          <a href='{:U('humanity/life/default/settop/labelid/{{$kv.labelid}}/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.settop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.top == '1'}}
+                          <a href='{:U('humanity/life/default/settop/labelid/{{$kv.labelid}}/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.unsettop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.catetop != '1'}}
+                          <a href='{:U('humanity/life/default/setcatetop/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.setcatetop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.catetop == '1'}}
+                          <a href='{:U('humanity/life/default/setcatetop/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.unsetcatetop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.labeltop != '1'}}
+                          <a href='{:U('humanity/life/default/setlabeltop/labelid/{{$kv.labelid}}/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.setlabeltop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "1" and $kv.status=="1" and $settopauth == '1' and $kv.labeltop == '1'}}
+                          <a href='{:U('humanity/life/default/setlabeltop/labelid/{{$kv.labelid}}/id/{{$kv.id}}.json')}' class="settoper">{{$la.life.unsetlabeltop}}</a>
+                        {{/if}}
+                        {{if $kv.public == "0"}}
+                          <a href='{:U('humanity/life/edit/default/id/{{$kv.id}}.html')}' >{{$la.article.editor}}</a>
+                        {{/if}}
+			                <a href='{:U('system/topimage/edit/default/objecttype/life/objectid/{{$kv.id}}/filesize/735X291.modal')}' data-toggle='modal'>{{$la.article.cover}}</a>
+			            {{if $kv.public == "0"}}
+			                <a href='{:U('humanity/life/default/delete/id/{{$kv.id}}.json')}' class="deleter">{{$la.delete}}</a>
+			            {{/if}}
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='8'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

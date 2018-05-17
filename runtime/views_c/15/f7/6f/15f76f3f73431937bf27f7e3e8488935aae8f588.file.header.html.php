@@ -1,30 +1,31 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:02:57
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:49:21
          compiled from "D:\xampp\htdocs\baijun\app\views\admin\header.html" */ ?>
-<?php /*%%SmartyHeaderCode:565256188df11efe80-26813374%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:118205a2a9375cb76b3-55389581%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '15f76f3f73431937bf27f7e3e8488935aae8f588' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\views\\admin\\header.html',
-      1 => 1427198096,
+      1 => 1512740039,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '565256188df11efe80-26813374',
+  'nocache_hash' => '118205a2a9375cb76b3-55389581',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_56188df122a04',
+  'unifunc' => 'content_5a2a9375d48c9',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_56188df122a04')) {function content_56188df122a04($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a2a9375d48c9')) {function content_5a2a9375d48c9($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="cache-control" content="no-cache">  
 <title>{:C('SITENAME')}-管理后台</title>
 <meta name='description' content=''>
 <!--

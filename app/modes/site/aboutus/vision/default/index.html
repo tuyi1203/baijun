@@ -1,0 +1,33 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap aboutus" id="wrap">
+	<<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}})"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>关于我们</span><i>&gt;</i><span>愿景及理念</span></section>
+		{{include file="$WWW_PATH/aboutus.html"}}
+		<article class="content">
+			<h6>
+				<i>v</i>
+				<span>
+					<p>愿景及理念</p>
+					<p class="en">ision And Ideas</p>
+				</span>
+			</h6>
+			<section class="single">
+				{{$vision.content|htmlspecialchars_decode}}
+			</section>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+requirejs( ["jquery","app"],function($){
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+});
+</script>
+</body>
+</html>

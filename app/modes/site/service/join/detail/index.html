@@ -1,0 +1,55 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap joinus" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>沟通与服务</span><i>&gt;</i><span>加入我们</span></section>
+		<div class="subnav">
+			<a href="{:U('service/contact/detail')}">联系方式</a><a href="{:U('service/join/default')}" class="cu">加入我们</a><a href="{:U('service/online/detail')}">在线咨询</a>
+		</div>
+		<article class="content">
+			<figure class="info">
+				<figcaption><b>{{$job.title}}</b><i>/</i><em>{{$job.groupname}}</em><a href="{:U('service/join/default')}" class="backlst">返回列表</a></figcaption>
+				<div class="bd">
+					<div class="base">
+						<span>发布时间：{{$job.createtime|substr:0:10}}</span>
+						<span>工作经验：{{$job.experience}}</span>
+						<span>最低学历：{{$job.education}}</span>
+						<span>工作地点：{{$job.placename}}</span>
+						<span>工作性质：{{if $job.status == "1"}}全职{{elseif $job.status=="2"}}兼职{{/if}}</span>
+						<span>招聘人数：{{$job.num}}人</span>
+					</div>
+					<dl>
+						<dt>职位描述</dt>
+						<dd>
+							{{$job.content1|htmlspecialchars_decode|nl2br}}
+						</dd>
+					</dl>
+					<dl>
+						<dt>联系方式</dt>
+						<dd>
+							{{$job.content2|htmlspecialchars_decode|nl2br}}
+						</dd>
+					</dl>
+				</div>
+			</figure>
+
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+
+<script>
+requirejs( ["jquery","app"],function($){
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+
+});
+
+</script>
+</body>
+</html>

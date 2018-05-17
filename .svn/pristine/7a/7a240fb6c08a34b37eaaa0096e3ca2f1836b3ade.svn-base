@@ -1,7 +1,0 @@
-<header>
-    <div class="bd">
-        <div class="logo"><h1><a href="./">{{$la.head.common}}</a></h1></div>
-        <div class="slogan"></div>
-        <div class="tel"><p class="fnt16">{{ex fn="getSiteInfo"  arg1="siteinfo" arg2="1"}}</p><p class="fnt16">{{ex fn="getSiteInfo"  arg1="siteinfo" arg2="2"}}</p></div>
-    </div>
-</header>

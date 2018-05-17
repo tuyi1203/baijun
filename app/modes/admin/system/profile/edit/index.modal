@@ -5,7 +5,7 @@
       <h4 class='modal-title'><i class='icon-key'></i>{{$la.profile.common}}</h4>
     </div>
     <div class='modal-body'>
-      <form method='post' action='system_profile-edit-update.json' id='passwordForm' class='form'>
+      <form method='post' action="{:U('system/profile/edit/update.json')}" id='passwordForm' class='form'>
         <table class='table table-form borderless'>
           <tr>
             <th class="col-xs-4">{{$la.profile.account}}</th>

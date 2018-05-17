@@ -126,13 +126,13 @@ class clsNewsOfficenewsDefaultController extends clsAppController
     private function init() {
 
         if (!isset($this->input->orderby)) {
-            $this->input->orderby         = "id";
+            $this->input->orderby         = "publishtime";
             $this->input->sort            = "desc";
-            $this->output->orderby        = "id";
+            $this->output->orderby        = "publishtime";
             $this->output->sort           = "desc";
             $this->output->activesorting  = "asc";
         } else {
-            $this->input->orderby = in_array($this->input->orderby , array('id','title','createtime','views','public','createby','status'))?$this->input->orderby:"id";
+            $this->input->orderby = in_array($this->input->orderby , array('id','title','publishtime','views','public','createby','status'))?$this->input->orderby:"id";
             $this->input->sort    = in_array($this->input->sort , array('asc','desc'))?$this->input->sort:"desc";
 
             $this->output->orderby  = $this->input->orderby;

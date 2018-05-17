@@ -104,6 +104,12 @@ class frontpager {
      */
     public $sort;
 
+    /**
+     * params
+     * @var array
+     */
+    public $params;
+
 
     const LINKRANGE = 9;
 
@@ -132,6 +138,12 @@ class frontpager {
 
     public function getRecStart() {
         return $this->recStart;
+    }
+
+    public function setParams($params)
+    {
+        $this->params = $params;
+        $this->smarty->assign('pagelink' , $this->createPageLink());
     }
 
     public function getRecEnd() {
@@ -209,20 +221,33 @@ class frontpager {
 
     private function createLink($label , $pageid = 0 , $current = false) {
 //         echo $label;
-//         if (!$pageid) return $label;
+         if (!$pageid) return $label;
 //         if (!empty($this->sort) and !empty($this->orderby))
 //             return '<a href="' . $this->modulef . '_' . $this->modules . '-' . $this->script . '-paging-currpage-'. $pageid .'-orderby-'.$this->orderby.'-sort-'. $this->sort .'.html">'.$label.'</a>';
         if ($current) {
             return '<a class="cu" href="javascript:void(0);">'.$label.'</a>';
         }
-        return '<a href="' . U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging/currpage/'. $pageid .'.html') . '">'.$label.'</a>';
+        if (empty($this->params)) {
+            return '<a href="' . U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging/currpage/'. $pageid .'.html') . '">'.$label.'</a>';
+        }
+        $this->params = array_merge($this->params , array('currpage'=>$pageid)) ;
+//        pr(U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging' , $this->params));exit;
+        return '<a href="' . U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging' , $this->params) . '">'.$label.'</a>';
+
     }
 
     private function createSpecLink($label , $pageid = 1 , $current = false) {
     	if ($current) {
     		return '<a href="javascript:void(0);">'.$label.'</a>';
     	}
-    	return '<a href="' . U( $this->modulef . '/' . $this->modules . '/' . $this->script . '/paging/currpage/'. $pageid .'.html').'" class="mwIcon">'.$label.'</a>';
+        if (empty($this->params)) {
+            return '<a href="' . U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging/currpage/'. $pageid .'.html') . '">'.$label.'</a>';
+        }
+        $this->params = array_merge($this->params , array('currpage'=>$pageid)) ;
+        return '<a href="' . U($this->modulef . '/' . $this->modules . '/' . $this->script . '/paging' , $this->params) . '">'.$label.'</a>';
+
+
+        return '<a href="' . U( $this->modulef . '/' . $this->modules . '/' . $this->script . '/paging/currpage/'. $pageid .'.html').'">'.$label.'</a>';
     }
 
     public function createPageLink() {
@@ -231,8 +256,12 @@ class frontpager {
 
         $l_aHtml = array();
         $l_aHtml[] = '<div class="page">';
-        $l_aHtml[] = $this->createTotal();
+        // $l_aHtml[] = $this->createTotal();
+        $l_aHtml[] = $this->createFirstPage();
+        $l_aHtml[] = $this->createPrevPage();
         $l_aHtml[] = $this->createRange();
+        $l_aHtml[] = $this->createNextPage();
+        $l_aHtml[] = $this->createLastPage();
 //         $l_aHtml[] = $this->createRecPerPageList();
 //         $l_aHtml[] = $this->current();
 //         $l_aHtml[] = $this->createFirstPage();
@@ -241,7 +270,7 @@ class frontpager {
 //         $l_aHtml[] = $this->createLastPage();
 //         $l_aHtml[] = $this->createGoTo();
 //         $l_aHtml[] = $this->createRecPerPageJS();
-        $l_aHtml[] = '<div class="clear"></div></div>';
+        $l_aHtml[] = '</div>';
 
         return implode('&nbsp;' , $l_aHtml);
 
@@ -320,8 +349,8 @@ EOT;
 
     private function createRange() {
         $html = array();
-        $html[] = '<div class="r">';
-        $html[] = $this->createPrevPage();
+        //$html[] = '<div class="r">';
+        //$html[] = $this->createPrevPage();
         $l_aStackFont = array();
         $l_aStackBack = array();
         for ($i = 1 ; $i < $this->currPage; $i ++) {
@@ -363,8 +392,8 @@ EOT;
         foreach ($l_aStackBack as $value) {
             $html[] = $value;
         }
-        $html[] = $this->createNextPage();
-        $html[] = '</div>';
+        //$html[] = $this->createNextPage();
+        //$html[] = '</div>';
 
         return implode(' ', $html);
     }

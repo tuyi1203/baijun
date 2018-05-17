@@ -27,9 +27,14 @@ class Mw_Album extends clsModel{
                     ->subSetInteger($i++ , $input->sort)
                     ->subSetString($i++ , $input->subkey)
                     ->subSetInteger($i++ , $input->createby)
-                    ->subSetString($i++ , $input->createtime)
-                    ->subSetString($i++ , $input->homepage)
-                    ->fncExecuteUpdate();
+                    ->subSetString($i++ , $input->createtime);
+		if (isset($input->homepage)) {
+			$this->_oMdb->subSetString($i++ , $input->homepage);
+		} else {
+			$this->_oMdb->subSetNull($i++);
+		}
+
+        $this->_oMdb->fncExecuteUpdate();
 
        return !$this->_oMdb->isError();
     }
@@ -135,9 +140,13 @@ class Mw_Album extends clsModel{
                     ->subSetString($i++, $input->subkey)
                     ->subSetInteger($i++, $input->sort)
                     ->subSetString($i++, $input->updateby)
-                    ->subSetString($i++, $input->updatetime)
-                    ->subSetString($i++, $input->homepage)
-                    ->subSetInteger($i++, $input->id)
+                    ->subSetString($i++, $input->updatetime);
+       if (isset($input->homepage)) {
+             	$this->_oMdb->subSetString($i++ , $input->homepage);
+       } else {
+           	$this->_oMdb->subSetNull($i++);
+       }
+       $this->_oMdb->subSetInteger($i++, $input->id)
                     ->fncExecuteUpdate();
 
         return !$this->_oMdb->isError();

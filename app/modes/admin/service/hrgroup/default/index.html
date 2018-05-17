@@ -1,0 +1,73 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-picture'></i>  {{$la.hrgroup.common}}</strong>
+                    {{if count($list) < 5}}
+                    <div class='panel-actions'>
+                        <a href='{:U('service/hrgroup/add/default.html')}'
+                            class='btn btn-primary'><i class="icon-plus"></i>  {{$la.hrgroup.create}}</a>
+                    </div>
+                    {{/if}}
+                </div>
+                    <form id='sortForm'
+                    action='{:U('service/hrgroup/default/update.json')}' method='post'>
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <th>{{$la.hrgroup.sort}}</th>
+                                <th>{{$la.hrgroup.title}}</th>
+                                <th>{{$la.hrgroup.picture}}</th>
+                                <th style="display:none;">{{$la.hrgroup.desc}}</th>
+                                <th>{{$la.hrgroup.label}}</th>
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'><i class='icon-arrow-up'></i> <i
+                                    class='icon-arrow-down'></i> <input type='hidden'
+                                    name='data[sort][{{$record.id}}]' id='data[sort][{{$record.id}}]'
+                                    value='{{$record.sort}}' /></td>
+                                <td class='text-center'>{{$record.title}}</td>
+                                <td class='text-center'>
+                                <a target="_blank" href="{{$record.url}}"><img class="image-small" src="{{$record.url}}"></a></td>
+                                <td class='text-center' style="display:none;">{{$record.desc}}</td>
+                                <td class='text-center'>{{$record.label}}</td>
+                                <td class='text-center'><a
+                                    href='{:U('service/hrgroup/edit/default/id/{{$record.id}}.html')}'>{{$la.edit}}</a>
+                                    <a href='{:U('service/hrgroup/default/delete/id/{{$record.id}}.json')}'
+                                    class='deleter'>{{$la.delete}}</a>
+                                    <!-- <a href="{:U('common/label/default/default/hrgroupid/{{$record.id}}.modal')}" data-toggle='modal'>{{$la.label}}</a> -->
+                                    </td>
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan='6'>&nbsp; <input type='submit' id='submit'
+                                    class='btn btn-primary' value='{{$la.hrgroup.savesort}}'
+                                    data-loading='{{$la.loading}}' />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

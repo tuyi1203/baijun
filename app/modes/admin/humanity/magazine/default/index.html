@@ -1,0 +1,83 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+    <div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+        <div class='col-md-10'>
+            <div class='panel'>
+                <div class='panel-heading'>
+                    <strong><i class='icon-picture'></i>  {{$la.magazine.common}}</strong>
+                    <div class='panel-actions'>
+                        <a href='{:U("humanity/magazine/add/default.html")}'
+                            class='btn btn-primary'><i class="icon-plus"></i>  {{$la.magazine.create}}</a>
+                    </div>
+                </div>
+                <div class="tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                {{foreach from=$magazinetype item="al" key="k"}}
+                    {{if $k == $activemagazinetype}}
+                        <li class="active">
+                            <a href="javascript:void(0);">{{$al}}</a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a href="{:U("humanity/magazine/default/subkey/{{$k}}.html")}" data-toggle="tab" role="tab">
+                            {{$al}}</a>
+                        </li>
+                    {{/if}}
+                {{/foreach}}
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!--
+                    <form id='sortForm'
+                    action='magazine_magazine-default-update.json' method='post'> -->
+                    {{if !empty($list)}}
+                    <table class='table table-hover table-bordered'>
+                        <thead>
+                            <tr class='text-center'>
+                                <!-- <th>{{$la.magazine.no}}</th> -->
+                                <th>{{$la.magazine.publishyear}}</th>
+                                <th>{{$la.magazine.sort}}</th>
+                                <th>{{$la.magazine.title}}</th>
+                                <th>{{$la.magazine.desc}}</th>
+                                <!-- <th>{{$la.magazine.homepage}}</th> -->
+                                <th>{{$la.actions}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{foreach from=$list item="record"}}
+                            <tr class='text-middle'>
+                                <td class='text-center'>{{$record.publishyear}}</td>
+                                <td class='text-center'>{{$record.sort}}</td>
+                                <td class='text-center'>{{$record.title}}</td>
+                                <td class='text-center'>{{$record.desc}}</a></td>
+
+                                <!-- <td class='text-center {{if $record.homepage == "1"}}is-visible{{/if}}'>{{if $record.homepage=="1"}}<a href="{:U('system/topimage/edit/default/objecttype/magazine/objectid/{{$record.id}}.modal')}" data-toggle='modal'>{{$la.yes}}</a>{{/if}}</td> -->
+                                <td class='text-center w-160px'>
+                                <a href='{:U("system/file/default/default/objecttype/magazine/objectid/{{$record.id}}/filesize/160X220.modal")}' data-toggle='modal'>{{$la.magazine.photoes}}</a>
+                                <a href='{:U("humanity/magazine/edit/default/id/{{$record.id}}.html")}'>{{$la.edit}}</a>
+                                    <a href='{:U("humanity/magazine/default/delete/id/{{$record.id}}.json")}'
+                                    class='deleter'>{{$la.delete}}</a></td>
+                            </tr>
+                            {{/foreach}}
+                        </tbody>
+                        <tfoot><tr><td colspan='5'>
+	                    <div style='float:right; clear:none;' class='page form-inline'>
+	                    {{$pagelink}}
+	                        </div></td></tr></tfoot>
+                    </table>
+                    {{/if}}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+
+</body>
+</html>

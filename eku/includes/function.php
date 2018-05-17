@@ -55,7 +55,9 @@ function session($key , $val=null)
         return;
     }
     //取值
-    if (is_null($val))  return $session->fncGetValue($key);
+    if (is_null($val)) {
+      return $session->fncGetValue($key);  
+    } 
     //设置单个值
     return $session->subSetValue($key , $val);
 }
@@ -320,6 +322,22 @@ function pr($a)
         echo "</pre>";
     }
 }
+
+/**
+ * 调试用输出到前台函数
+ * @param mixed $value 配置值
+ * @return mixed
+ */
+function prdie($a)
+{
+    if (C('debug')) {
+        echo "<pre>";
+        print_r($a);
+        echo "</pre>";
+    }
+    exit;
+}
+
 
 /**
  * 调试用输出trace到前台函数

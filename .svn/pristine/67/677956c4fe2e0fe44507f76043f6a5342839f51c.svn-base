@@ -1,2 +1,0 @@
-<li {{if $modules == 'company'}}class="cu"{{/if}}><a href="{:U('news/company/list/default.html')}">公司动态<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'brotherhood'}}class="cu"{{/if}}><a href="{:U('news/brotherhood/list/default.html')}">行业动态<i class="mwIcon">&#xf105;</i></a></li>

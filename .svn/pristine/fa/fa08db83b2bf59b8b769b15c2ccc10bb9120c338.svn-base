@@ -1,2 +1,0 @@
-<li {{if $modules == 'question'}}class="cu"{{/if}}><a href="{:U('knowledge/question/list/default.html')}">常见问题<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'technology'}}class="cu"{{/if}}><a href="{:U('knowledge/technology/detail/default.html')}">供排水生产工艺流程<i class="mwIcon">&#xf105;</i></a></li>

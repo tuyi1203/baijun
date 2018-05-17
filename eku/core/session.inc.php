@@ -26,7 +26,7 @@ abstract class clsSession{
         if(!is_null($a_iLifeTime)){
             $this->_iLifeTime = $a_iLifeTime ;
         }
-        if(!is_null($a_iLifeTime) && !is_null($a_stPath) && !is_null($a_stPath)){
+        if(!is_null($a_iLifeTime) && !is_null($a_stPath) && !is_null($a_stDomain)){
             session_set_cookie_params($a_iLifeTime , $a_stPath , $a_stDomain) ;
         }
         //2014.2.11
@@ -41,7 +41,12 @@ abstract class clsSession{
         //2014.2.11
         session_start() ;
         if(array_key_exists('_LifeTime' , $_SESSION)){
-            if($_SESSION['_LifeTime'] > time()){
+            if ($_SESSION['_LifeTime'] === 0 ) {
+
+                $this->_stSessionId = session_id() ;
+                setcookie(session_name() , $this->_stSessionId , 0 , $a_stPath , $a_stDomain);
+
+            } else if($_SESSION['_LifeTime'] > time()){
                 $this->_stSessionId = session_id() ;
                 //2014.6.6 页面只进行异步操作时无法更新session有效时间问题对应
                 //------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -151,6 +156,18 @@ abstract class clsSession{
     }
 
     /**
+     * 削除Session中的所有数据
+     * @name   subUnsetValue
+     * @param  String $key Index名
+     * @author tuyi
+     * @since  2017/12/08
+     */
+    function subSessionClear()
+    {
+        session_unset();
+    }
+
+    /**
      * 発行新的SessionId
      * @name   subNewSessionId
      * @author tuyi
@@ -172,7 +189,12 @@ abstract class clsSession{
      */
     public function subSetLifeTime()
     {
-        $_SESSION['_LifeTime'] = time() + C('LIFE_TIME');
+        if (C('LIFE_TIME') === 0) {
+            $_SESSION['_LifeTime'] = 0;
+        } else {
+            $_SESSION['_LifeTime'] = time() + C('LIFE_TIME');
+        }
+        
     }
 
     /**

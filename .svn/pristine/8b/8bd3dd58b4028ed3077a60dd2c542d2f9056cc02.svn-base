@@ -1,8 +1,0 @@
-<nav class="navbar navbar-default navbar-fixed-bottom hidden-sm hidden-xs" role="navigation">
-	<div class="collapse navbar-collapse navbar-ex6-collapse">
-	    <div class='navbar-text pull-right'>
-	        <span id='poweredBy'><a href='http://www.mingwon.com/'
-	            target='_blank' title='重庆铭望科技有限责任公司'>铭望科技</a></span>
-	    </div>
-	</div>
-</nav>

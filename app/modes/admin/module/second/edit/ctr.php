@@ -10,12 +10,13 @@ class clsModuleSecondEditController extends clsAppController implements IAction_
 
         $model  = new clsModModel($this->mdb , array('eku_module'));
         $record = $model->eku_module->getSByID($this->input);
+        
         $this->output->mode          = $record['mode'];
         $this->output->pdes          = $record['pdes'];
         $this->output->name          = $record['name'];
         $this->output->pname         = $record['pname'];
         $this->output->des           = $record['des'];
-        $this->output->des           = $record['des_en'];
+        $this->output->des_en        = $record['des_en'];
         $this->output->pid			 = $record['pid'];
         $this->output->status_choose = $record['status'];
         $this->output->ctrflg_choose = $record['ctrflg'];

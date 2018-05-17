@@ -22,16 +22,15 @@
 				          <input type="hidden" name="data[id]" value="{{$id}}" />
 				          </td>
 				       </tr>
-				       <tr style="display:none;">
+				       <tr>
                           <th>{{$la.slides.link}}</th>
-                          <td>
+                          <td colspan="2">
                             <input type='text' name='data[link]' id='link' value='{{$link}}' class="form-control" />
                           </td>
-                          <td>  </td>
                         </tr>
 				       <tr>
                           <th rowspan="2">{{$la.slides.picture}}</th>
-                          <td><img class="image" src="{{$url}}"></td>
+                          <td><img class="image" src="{{$url}}" style="width:500px;"></td>
                           <td><input type="hidden" name="data[fileids][]" value="{{$fileid}}"/></td>
                        </tr>
                        <tr>
@@ -39,7 +38,7 @@
                             <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
                           </td>
                           <td>
-                            <label class="text-info">{{$la.file.slideinfo}}</label>
+                            <label class="text-info">{{$la.slides.slideinfo}}</label>
                           </td>
                        </tr>
                         <tr>
@@ -51,6 +50,12 @@
                             </td>
                        </tr>
                        <tr>
+				          <th>{{$la.slides.summary}}</th>
+				          <td colspan='2'>
+				          <textarea name='data[summary]' id='summary' rows='3' class='form-control'>{{$summary}}</textarea>
+				           </td>
+					   </tr>
+                       <tr>
 				          <th>{{$la.slides.desc}}</th>
 				          <td colspan='2'>
 				          <textarea name='data[desc]' id='desc' rows='15' class='form-control'>{{$desc}}</textarea>
@@ -58,7 +63,9 @@
 					   </tr>
 						<tr>
 						 <th></th>
-                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' /> </td>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('website/slides')}'">
+                         </td>
                         </tr>
 					</table>
 				</form>

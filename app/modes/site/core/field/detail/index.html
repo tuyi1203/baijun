@@ -1,0 +1,303 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap field" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>专业领域</span><i>&gt;</i><span>{{$detail.title}}</span></section>
+		<article class="content">
+			<div class="l">
+				<div class="box">
+					{{if !isset($parentdetail)}}
+					<h1>{{$detail.title}}</h1>
+					{{else}}
+					<h1>{{$detail.title}}<i>-</i><em>{{$parentdetail.title}}</em></h1>
+					{{/if}}
+					<div class="info">
+						<p>{{$detail.desc|htmlspecialchars_decode}}</p>
+					</div>
+					{{if !empty($subfield)}}
+					<div class="childmenu">
+						<ul>
+							{{foreach from=$subfield item="ls"}}
+								<li><a href="{:U('core/field/detail/default',array('id'=>{{$ls.id}}))}">{{$ls.title}}</a></li>
+							{{/foreach}}
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+							<!--<li><a href="#">专业领域二级</a></li>-->
+						</ul>
+					</div>
+					{{/if}}
+					<section class="othlawyer">
+						<h2 class="hd">推荐律师</h2>
+						<div class="bd">
+							<section id="flexslider" class="flexslider">
+								<ul class="slides">
+									{{foreach from=$lawyers item="ls"}}
+									<li>
+										<div class="lawyer" id="lawyer">
+											<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank">
+												<div class="t">
+													<img src="{{$UPLOADURL}}{{$ls.url}}" />
+													<div class="txt">{{$ls.zhiyelinian}}</div>
+												</div>
+												<div class="user">
+													<dl>
+														<dt><b>{{$ls.fullname}}</b><em>{{$ls.positionname}}</em></dt>
+														<dd>执业领域：{{$ls.zhiyelingyu}}</dd>
+													</dl>
+												</div>
+											</a>
+										</div>
+									</li>
+									{{/foreach}}
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li>-->
+										<!--<div class="lawyer" id="lawyer">-->
+											<!--<a href="#" target="_blank">-->
+												<!--<div class="t">-->
+													<!--<img src="../assets/img/lawyer.jpg" />-->
+													<!--<div class="txt">我要吃得更多，才能飞得更高！</div>-->
+												<!--</div>-->
+												<!--<div class="user">-->
+													<!--<dl>-->
+														<!--<dt><b>李巧林</b><em>高级合伙人</em></dt>-->
+														<!--<dd>服务领域：公司企业法律服务、涉外业务法律服务、刑事辩护法律服务...</dd>-->
+													<!--</dl>-->
+												<!--</div>-->
+											<!--</a>-->
+										<!--</div>-->
+									<!--</li>-->
+								</ul>
+							</section>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="r">
+				<div class="tab">
+					<div class="tab_t" id="_tabt">
+						<ul>
+							<li class="cu">最新业绩</li>
+							<!--<li>典型案例</li>-->
+							<!--<li>法律研究</li>-->
+						</ul>
+					</div>
+					<div class="tab_c" id="_tabc">
+						<div class="tab_con">
+							<div class="lst">
+								<ul>
+									{{foreach from=$performance item="ls"}}
+									<li><a href="{:U('news/performance/detail',array('id'=>{{$ls.id}}))}"><em>{{$ls.labelname}}</em>{{$ls.title}}</a></li>
+									{{/foreach}}
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+								</ul>
+								<div class="more"><a href="{:U('news/performance/default')}">查看更多</a></div>
+							</div>
+						</div>
+						<!--<div class="tab_con" style="display:none;">-->
+							<!--<div class="lst">-->
+								<!--<ul>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="tab_con" style="display:none;">-->
+							<!--<div class="lst">-->
+								<!--<ul>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+									<!--<li><a href="#"><em>自定义标签显示</em>代表业绩标题代表业绩标题</a></li>-->
+								<!--</ul>-->
+							<!--</div>-->
+						<!--</div>-->
+					</div>
+				</div>
+				<section class="othnews">
+					<div class="hd">事务所新闻</div>
+					<div class="bd">
+						<div class="lst">
+						<ul>
+							{{foreach from=$news item="ls"}}
+							<li>
+								<a href="{:U('news/officenews/detail',array('id'=>{{$ls.id}}))}" target="_blank">
+									<dl>
+										<dt><img src="{{$UPLOADURL}}{{$ls.url}}" /></dt>
+										<dd>
+											<figure>
+												<figcaption>{{$ls.title}}</figcaption>
+												<hgroup>{{$ls.summary}}</hgroup>
+												<p>{{$ls.publishtime|substr:0:10}}</p>
+											</figure>
+										</dd>
+									</dl>
+								</a>
+							</li>
+							{{/foreach}}
+							<!--<li>-->
+								<!--<a href="#" target="_blank">-->
+									<!--<dl>-->
+										<!--<dt><img src="../assets/img/cul.jpg" /></dt>-->
+										<!--<dd>-->
+											<!--<figure>-->
+												<!--<figcaption>百君律师获评律协2013年度十佳大壮百君律师获评律协2013年度十佳大壮</figcaption>-->
+												<!--<hgroup>2014年1月16日，重庆市律师协会第五届理事会第26次会长办公</hgroup>-->
+												<!--<p>2016-05-05</p>-->
+											<!--</figure>-->
+										<!--</dd>-->
+									<!--</dl>-->
+								<!--</a>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a href="#" target="_blank">-->
+									<!--<dl>-->
+										<!--<dt><img src="../assets/img/cul.jpg" /></dt>-->
+										<!--<dd>-->
+											<!--<figure>-->
+												<!--<figcaption>百君律师获评律协2013年度十佳大壮百君律师获评律协2013年度十佳大壮</figcaption>-->
+												<!--<hgroup>2014年1月16日，重庆市律师协会第五届理事会第26次会长办公</hgroup>-->
+												<!--<p>2016-05-05</p>-->
+											<!--</figure>-->
+										<!--</dd>-->
+									<!--</dl>-->
+								<!--</a>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a href="#" target="_blank">-->
+									<!--<dl>-->
+										<!--<dt><img src="../assets/img/cul.jpg" /></dt>-->
+										<!--<dd>-->
+											<!--<figure>-->
+												<!--<figcaption>百君律师获评律协2013年度十佳大壮百君律师获评律协2013年度十佳大壮</figcaption>-->
+												<!--<hgroup>2014年1月16日，重庆市律师协会第五届理事会第26次会长办公</hgroup>-->
+												<!--<p>2016-05-05</p>-->
+											<!--</figure>-->
+										<!--</dd>-->
+									<!--</dl>-->
+								<!--</a>-->
+							<!--</li>-->
+						</ul>
+						<div class="more"><a href="{:U('news/officenews/default/default')}">查看更多</a></div>
+					</div>
+					</div>
+				</section>
+			</div>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+
+
+</div>
+
+<script>
+	requirejs( ["jquery","app","flexslider"],function($){
+//		$('#wrap').pageinit({debuge:true});//页面初始化
+//		$('#_floatcontact').contact({debuge:true});//联系我们
+		$('#flexslider').flexslider({
+			animation:'slide',
+			slideshow:true,
+			slideshowSpeed:5000,
+			directionNav:true,
+			keyboardNav:true,
+			randomize:true,
+			itemWidth:222,
+			controlNav:false
+
+		});
+		$.tab('#_tabt','#_tabc');
+
+	});
+
+</script>
+</body>
+</html>

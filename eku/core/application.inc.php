@@ -67,9 +67,9 @@ abstract class clsApplication {
 
     public function __construct(clsRouter $router) {
 
-        $this->router     = $router;
         $this->apptype    = APPTYPE;
         $this->mode       = MODE;
+        $this->router     = $router;
         $this->comroot    = $router->comroot;
         $this->moduleroot = $router->moduleroot;
         $this->scriptroot = $router->scriptroot;
@@ -505,6 +505,7 @@ abstract class clsApplication {
      * @param url $url
      */
     public function redirect($url) {
+        prdie(1);
     	header("location:".$url);
     	exit;
 

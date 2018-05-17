@@ -5,11 +5,11 @@
 	<div class="clearfix">
     {{*include file="$WWW_PATH/left_menu.html"*}}
     {{if !empty($models)}}
-    	<div class='col-md-12'>
+<!--     	<div class='col-md-12'>
 	    	<div class='panel'>
 					<div class='panel-heading'>
 						<strong><i class='icon-list-ul'></i>&nbsp;待审核事项</strong>
-					</div>	
+					</div>
 					<table class='table table-hover table-striped tablesorter'>
 					    <thead>
 					      <tr>
@@ -18,16 +18,16 @@
 					      </tr>
 					    </thead>
 					    <tbody>
-					    	{{foreach from=$models item="kv"}}	
+					    	{{foreach from=$models item="kv"}}
 		                    <tr>
 		                    <td class='text-center'>{{$kv.title}}</td>
 		                    <td class='text-center'><a href="{{$kv.url}}">{{$kv.count}}</a></td>
 		                    </tr>
 		                    {{/foreach}}
 					    </tbody>
-					</table>					
+					</table>
 			</div>
-    	</div>
+    	</div> -->
     	{{/if}}
 		<div class='col-md-12'>
 			<div class='panel'>

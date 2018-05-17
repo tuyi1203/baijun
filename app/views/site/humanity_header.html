@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{:C('SITENAME')}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="kmoon" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!–[if lt IE9]> 
+    <script src="{:T('js/html5.js')}"></script>
+    <![endif]–>
+    <link rel="stylesheet" href="{:T('css/reset.css')}" type="text/css" />
+    <link rel="stylesheet" href="{:T('css/contrls.css')}" type="text/css" />
+    <link rel="stylesheet" href="{:T('css/wisdom.css')}" type="text/css" />
+    <script>
+        var require = {
+            urlArgs: "mw=" +  (new Date()).getTime()
+        };
+    </script>
+    <script src="{:T('js/require.js')}" data-main="{:T('js/main.js')}"></script>
+</head>
+<body>

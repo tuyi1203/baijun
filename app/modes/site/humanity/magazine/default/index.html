@@ -1,0 +1,106 @@
+{{include file="$WWW_PATH/humanity_header.html"}}
+<body>
+{{include file="$WWW_PATH/humanity_menu.html"}}
+
+<section class="wrap">
+	<div class="bread">
+		<b>当前位置：</b><a href="{:U('humanity/default/default/default')}">智识与人文首页</a><i>&gt;</i><em>百君杂志</em>
+	</div>
+	<h1>百君杂志</h1>
+	<div class="maglist">
+	{{foreach from=$list item="ls"}}
+		<dl>
+			<dt>{{$ls.publishyear}}</dt>
+			<dd>
+				<ul>
+				{{foreach from=$ls.magazines item="ma"}}
+					<li>
+						<a href="javascript:void(0);" class="_noLoading fancybox-thumbs-btn" data-fancybox-group="lst{{$ma.groupid}}" title="{{$ma.pictitle}}">
+							<div class="pic">
+								<img src='{{$UPLOADURL}}{{$ma.picurl}}' />
+							</div>
+							<h5>{{$ma.title}}</h5>
+							<h6>{{$ma.desc}}</h6>
+						</a>
+						<div class="listpics">
+						{{foreach from=$ma.photoes item="ph"}}
+							<a href="{{$UPLOADURL}}{{$ph.url}}" data-fancybox-group="lst{{$ph.groupid}}" title="{{$ph.title}}" class="fancybox-thumbs _noLoading"><img src="{{$UPLOADURL}}{{$ph.url}}" /></a>
+						<!-- 	<a href="../assets/img/wisdom/pic.jpg" data-fancybox-group="lst1" title="相册一标题二" class="fancybox-thumbs _noLoading"><img src="../assets/img/wisdom/pic.jpg" /></a>
+							<a href="../assets/img/wisdom/zz.jpg" data-fancybox-group="lst1" title="相册一标题三" class="fancybox-thumbs _noLoading"><img src="../assets/img/wisdom/zz.jpg" /></a> -->
+						{{/foreach}}
+						</div>
+					</li>
+					{{/foreach}}
+					<!-- <li>
+						<a href="javascript:void(0);" class="_noLoading fancybox-thumbs-btn" data-fancybox-group="lst2" title="相册二标题一">
+							<div class="pic">
+								<img src='../assets/img/wisdom/zz.jpg' />
+							</div>
+							<h5>百君月读法规报告</h5>
+							<h6>第23期，总第105期</h6>
+						</a>
+						<div class="listpics">
+							<a href="../assets/img/wisdom/bn.jpg" data-fancybox-group="lst2" title="相册二标题一" class="fancybox-thumbs _noLoading"><img src="../assets/img/wisdom/bn.jpg" /></a>
+							<a href="../assets/img/wisdom/pic.jpg" data-fancybox-group="lst2" title="相册二标题二" class="fancybox-thumbs _noLoading"><img src="../assets/img/wisdom/pic.jpg" /></a>
+							<a href="../assets/img/wisdom/zz.jpg" data-fancybox-group="lst2" title="相册二标题三" class="fancybox-thumbs _noLoading"><img src="../assets/img/wisdom/zz.jpg" /></a>
+						</div>
+					</li> -->
+				</ul>
+			</dd>
+		</dl>
+		{{/foreach}}
+		<!-- <dl>
+			<dt>2016</dt>
+			<dd>
+				<ul>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+				</ul>
+			</dd>
+		</dl> -->
+		<!-- <dl>
+			<dt>2015</dt>
+			<dd>
+				<ul>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+					<li><a href="#" class="_noLoading"><div class="pic"><img src='../assets/img/wisdom/zz.jpg' /></div><h5>百君月读法规报告</h5><h6>第23期，总第105期</h6></a></li>
+				</ul>
+			</dd>
+		</dl> -->
+	</div>
+	
+</section>
+
+<a href="javascript:void(0);" class="_noLoading backtop" id="_back"></a>
+{{include file="$WWW_PATH/humanity_footer.html"}}
+<script>
+requirejs( ["jquery","wisdom","fancybox"],function($){
+	$('body').wisdom({debuge:true});//页面初始化
+	$('.fancybox-thumbs').fancybox({
+		titleShow:true,
+		closeBtn  : true,
+		arrows    : true,
+		helpers : {
+			thumbs : {
+				width  : 100,
+				height : 100,
+			}
+		}
+	});
+	
+	$('.fancybox-thumbs-btn').click(function(){
+		$(this).siblings('.listpics').find('a').eq(0).click();
+		return false;
+	});
+});
+</script>
+</body>
+</html>

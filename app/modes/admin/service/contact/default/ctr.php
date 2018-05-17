@@ -27,6 +27,7 @@ class clsServiceContactDefaultController extends clsAppController implements IAc
         $input->keyword     = $this->input->keyword;
         $input->summary     = $this->input->summary;
         $input->content     = $this->input->content;
+//         $input->content2    = $this->input->content2;
         $input->updateby    = $this->session->getUid();
         $input->updatetime  = date("Y-m-d H:i:s");
 
@@ -40,13 +41,14 @@ class clsServiceContactDefaultController extends clsAppController implements IAc
         if(!$this->loadController('admin.system.file.default')
                  ->updateObjectID($this->input->uid, $this->input->id, 'news')) {
             $this->output->result  = 'fail';
-            $this->output->message = $this->lang->service->failupdate;
+            $this->output->message = $this->lang->contact->failupdate;
             return;
         }
 
         $this->output->result  = 'success';
         $this->output->message = $this->lang->contact->successupdate;
-        $this->output->locate  = U('service/contact');
+        $this->output->locate  = U('service/contact/default/default.html');
+
     }
 
     /**
@@ -55,7 +57,7 @@ class clsServiceContactDefaultController extends clsAppController implements IAc
     private function init() {
         $model = new clsModModel($this->mdb , 'mw_single');
         $input = new stdClass();
-        $input->id = '18';
+        $input->id = '2';
         $output = $model->mw_single->get($input);
 
         $this->output->id             = $output['id'];
@@ -63,6 +65,8 @@ class clsServiceContactDefaultController extends clsAppController implements IAc
         $this->output->keyword        = $output['keyword'];
         $this->output->summary        = $output['summary'];
         $this->output->content        = $output['content'];
+//         $this->output->content2       = $output['content2'];
+        //$this->output->editor         = array('id' => array('content','content2'), 'tools' => 'full');
         $this->output->editor         = array('id' => array('content'), 'tools' => 'full');
     }
 

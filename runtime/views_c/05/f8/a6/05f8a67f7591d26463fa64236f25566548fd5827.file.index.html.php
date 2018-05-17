@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 09:00:13
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:49:27
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\news\officenews\default\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:135355625ef3955f6c5-07027805%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:74195a2a9867afd6a6-50470382%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '05f8a67f7591d26463fa64236f25566548fd5827' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\news\\officenews\\default\\index.html',
-      1 => 1445475611,
+      1 => 1462118400,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '135355625ef3955f6c5-07027805',
+  'nocache_hash' => '74195a2a9867afd6a6-50470382',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5625ef397437a',
   'variables' => 
   array (
     'la' => 0,
@@ -31,8 +29,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pagelink' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a2a9867cd9e8',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5625ef397437a')) {function content_5625ef397437a($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5a2a9867cd9e8')) {function content_5a2a9867cd9e8($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <body>
     <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/top_menu.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -74,8 +74,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php }?>.html')}' ><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['author'];?>
 </a>
                 </div></th>
-				        <th class='text-center w-160px'><div class='<?php if ($_smarty_tpl->tpl_vars['orderby']->value=="createtime"&&$_smarty_tpl->tpl_vars['sort']->value=="desc"){?>headerSortDown<?php }elseif($_smarty_tpl->tpl_vars['orderby']->value=="createtime"&&$_smarty_tpl->tpl_vars['sort']->value=="asc"){?>headerSortUp<?php }else{ ?>header<?php }?>'><a href='{:U('news/officenews/default/sort/currpage/<?php echo $_smarty_tpl->tpl_vars['currpage']->value;?>
-/orderby/createtime/sort/<?php if ($_smarty_tpl->tpl_vars['orderby']->value=="createtime"){?><?php echo $_smarty_tpl->tpl_vars['activesorting']->value;?>
+				        <th class='text-center w-160px'><div class='<?php if ($_smarty_tpl->tpl_vars['orderby']->value=="publishtime"&&$_smarty_tpl->tpl_vars['sort']->value=="desc"){?>headerSortDown<?php }elseif($_smarty_tpl->tpl_vars['orderby']->value=="publishtime"&&$_smarty_tpl->tpl_vars['sort']->value=="asc"){?>headerSortUp<?php }else{ ?>header<?php }?>'><a href='{:U('news/officenews/default/sort/currpage/<?php echo $_smarty_tpl->tpl_vars['currpage']->value;?>
+/orderby/publishtime/sort/<?php if ($_smarty_tpl->tpl_vars['orderby']->value=="publishtime"){?><?php echo $_smarty_tpl->tpl_vars['activesorting']->value;?>
 <?php }else{ ?><?php echo $_smarty_tpl->tpl_vars['sorting']->value;?>
 <?php }?>.html')}' ><?php echo $_smarty_tpl->tpl_vars['la']->value['article']['addedDate'];?>
 </a>
@@ -117,7 +117,7 @@ $_smarty_tpl->tpl_vars["kv"]->_loop = true;
 </a></td>
                         <td class='text-center'><?php echo $_smarty_tpl->tpl_vars['kv']->value['createname'];?>
 </td>
-                        <td class='text-center'><?php echo $_smarty_tpl->tpl_vars['kv']->value['createtime'];?>
+                        <td class='text-center'><?php echo $_smarty_tpl->tpl_vars['kv']->value['publishtime'];?>
 </td>
                         <td class='text-center'><?php echo $_smarty_tpl->tpl_vars['kv']->value['views'];?>
 </td>

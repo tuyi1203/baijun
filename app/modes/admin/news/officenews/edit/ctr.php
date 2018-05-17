@@ -33,6 +33,7 @@ class clsNewsOfficenewsEditController extends clsAppController implements IActio
 //         $input->publishtime = $this->input->publishtime == "0000-00-00 00:00:00" ? date("Y-m-d H:i:s") : $this->input->publishtime;
         $input->status      = $this->input->status;
         $input->public      = "0";
+        if(isset($this->input->lawyer)) $input->lawyer      = implode(',', $this->input->lawyer);
 
         $model  = new clsModModel($this->mdb ,'mw_article');
         if (!$model->mw_article->update($input)) {
@@ -64,6 +65,11 @@ class clsNewsOfficenewsEditController extends clsAppController implements IActio
             $this->output->$k = $v;
             if ($k == "status") $this->output->status_choose = $v;
         }
+
+//      取得律师信息
+
+		if (!empty($this->output->lawyer)) $this->output->lawyers = $this->model->getLawyerList($this->output->lawyer);
+// 		pr($this->output->lawyers);
 //         $this->output->id             = $output['id'];
 //         $this->output->title          = $output['title'];
 //         $this->output->keyword        = $output['keyword'];
@@ -74,6 +80,7 @@ class clsNewsOfficenewsEditController extends clsAppController implements IActio
         $this->output->status_options = getActicleStatusOptions();
         $this->output->editor         = array('id' => array('content'), 'tools' => 'full');
         $this->output->datepicker     = array("option"=>'right');
+
     }
 
 

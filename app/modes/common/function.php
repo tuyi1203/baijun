@@ -12,8 +12,6 @@ function checkLogin()
     // echo getMode();exit;
     $auth     = getAuthIns();
     $apptype  = APPTYPE;
-
-
     if (!$auth ->fncPassThrough()) {
 
         if (APPTYPE == ".json") {
@@ -21,8 +19,12 @@ function checkLogin()
             $ctr->send(array("result"=>"success" , "locate"=>$loginurl));
         }
         redirect($loginurl);
-
         return;
+    } else { //当通过登陆验证时，生成动作权限和菜单
+        // prdie(2);
+        saveActionAuthList();
+        saveAdminMenu();
+        session('_sysname', C('sysname'));//保存系统名称
     }
 }
 
@@ -33,6 +35,7 @@ function checkLogin()
  */
 function checkAuth()
 {
+    // prdie($_SESSION);
     $loginurl  = U ("admin/system/login/default/log.html");
     $signinurl = U ("admin/system/login/default/login.html");
     $action_auth_list = session('action_auth_list');
@@ -56,26 +59,32 @@ function checkAuth()
         }
 
         //判断回到前页还是回到首页
-        $preuri = getPreUri();
-        // echo $preuri;
-        if ($preuri and $preuri != $uri) {
-            $sentence = $lang->prepage;
-        } else {
-            $sentence = $lang->home;
-            $preuri = C('ENTRANCEURI');
-        }
+        // $preuri = getPreUri();
+        // // echo $preuri;
+        // if ($preuri and $preuri != $uri) {
+        //     $sentence = $lang->prepage;
+        // } else {
+        //     $sentence = $lang->home;
+        //     $preuri = U(C('ENTRANCEURI'));
+        // }
 
 
-        if ($preuri == $signinurl )
-            $preuri = $loginurl;
+        // if ($preuri == $signinurl )
+        //     $preuri = $loginurl;
         // echo $preuri;exit;
         //             if (in_array($apptype, array('html','modal')) ) $ctr->loadController($mode.'.system.error.default')
         //                                         ->pageDeny('auth', 5 , $preuri, $sentence);
 
         //2014.9.16 修改为无权限时一律回到首页
-        $preuri = U(C('ENTRANCEURI'));
+        //2017.12.8 修改为当从其他系统跳转过来时无权限，则回到登陆页
+        if (get_domain(U(C('ENTRANCEURI'))) == $_SERVER['HTTP_HOST']) {
+            $preuri = U(C('ENTRANCEURI'));
+        } else {
+            $preuri = $loginurl;
+        }
+        
         if (in_array(APPTYPE, array('.html','.modal')) ) $ctr->loadController('admin.system.error.default')
-                        ->pageDeny('auth', 5 , $preuri, $sentence);
+                        ->pageDeny('auth', 5 , $preuri, $lang->home);
         if (APPTYPE == '.json') {
             $output = new stdClass();
             $output->result  = 'fail';
@@ -90,31 +99,44 @@ function checkAuth()
  * @author tuyi
  * @date 2014.5.15
  */
-function saveActionAuthList() {
-    //         $mode = getMode();
-    //     if (!class_exists('Eku_Role_Action')) require APATH_LIBS_MODELS . DS . 'eku_role_action.php';
-    $model = new Eku_Role_Action( getMDB(), 'eku_role_action');
-    $l_aOutput = $model->fncGetList(array('roleid'=>getRid()));
-    //         pr($l_aOutput);
-    $l_aList = array();
-    // pr($l_aOutput);
-    foreach ($l_aOutput as $record) {
+function saveActionAuthList($run = false)
+{
+    //根据用户名取得用户角色等信息
+    //当从本系统登陆或者从其他系统跳转到本系统时，取得相应的权限信息
+    if ($run || (session('_sysname') == '') || (session('_sysname') != C('sysname'))) 
+    {
+        // prdie(4);
+        $model = new Eku_User(getMDB(), 'eku_user');
+        $l_aUserInfo = $model->fncGetUser(session('_Account'));
+        if (count($l_aUserInfo) > 0 ) 
+        {
+            session('_UserId', $l_aUserInfo['id']);//保存用户ID
+            session('_RoleId', $l_aUserInfo['roleid']);//保存用户角色ID
+            session('_UserName', $l_aUserInfo['name']);//保存用户名字
 
-        $l_aList[$record['mode']][$record['url']]['pid'] = $record['pid'];
-        $l_aList[$record['mode']][$record['url']]['cid'] = $record['cid'];
-        $l_aList[$record['mode']][$record['url']]['sid'] = $record['sid'];
-        $l_aList[$record['mode']][$record['url']]['aid'] = $record['aid'];
-        $l_aList[$record['mode']][$record['url']]['pname'] = $record['pname'];
-        $l_aList[$record['mode']][$record['url']]['cname'] = $record['cname'];
-        $l_aList[$record['mode']][$record['url']]['sname'] = $record['sname'];
-        $l_aList[$record['mode']][$record['url']]['aname'] = $record['aname'];
-        $l_aList[$record['mode']][$record['url']]['roleid'] = $record['roleid'];
-        $l_aList[$record['mode']][$record['url']]['operauth'] = $record['operauth'];
+            $model = new Eku_Role_Action( getMDB(), 'eku_role_action');
+            $l_aOutput = $model->fncGetList(array('roleid'=>getRid()));
+            $l_aList = array();
+            foreach ($l_aOutput as $record) 
+            {
+                $l_aList[$record['mode']][$record['url']]['pid'] = $record['pid'];
+                $l_aList[$record['mode']][$record['url']]['cid'] = $record['cid'];
+                $l_aList[$record['mode']][$record['url']]['sid'] = $record['sid'];
+                $l_aList[$record['mode']][$record['url']]['aid'] = $record['aid'];
+                $l_aList[$record['mode']][$record['url']]['pname'] = $record['pname'];
+                $l_aList[$record['mode']][$record['url']]['cname'] = $record['cname'];
+                $l_aList[$record['mode']][$record['url']]['sname'] = $record['sname'];
+                $l_aList[$record['mode']][$record['url']]['aname'] = $record['aname'];
+                $l_aList[$record['mode']][$record['url']]['roleid'] = $record['roleid'];
+                $l_aList[$record['mode']][$record['url']]['operauth'] = $record['operauth'];
 
+            }
+            //设置menulist到session
+            session('action_auth_list' , $l_aList);
+        } else{
+            session('action_auth_list' , []);
+        }
     }
-    //设置menulist到session
-    session('action_auth_list' , $l_aList);
-    //         		pr($l_aList);exit;
 }
 
 /**
@@ -123,73 +145,120 @@ function saveActionAuthList() {
  * @date 2014.5.9
  *
  */
-function saveAdminMenu()
+function saveAdminMenu($run = false)
 {
-    // echo getMode();exit;
-    // 		$l_oAuth = getAuthIns();
+    //当从本系统登陆或者从其他系统跳转到本系统时，取得相应的菜单信息
+    if ($run || (session('_sysname') == '') || (session('_sysname') != C('sysname'))) {
+         if (!class_exists('Eku_Role_Action')) require APATH_LIBS_MODELS . DS . 'eku_role_action.php';
+        $l_oModel = new Eku_Role_Action(getMDB(), 'eku_role_action');
 
-    //         if ($l_oAuth ->fncPassThrough()) {
+        //          $l_aOutput = $l_oModel->fncGetList(array('roleid'=>getRid()));
+        // pr($l_aOutput);exit;
+        $l_aOutput = $l_oModel->fncGetMenuList(array('roleid'=>getRid()));
+        $l_aMenulist = array();
 
-    //         	$rid = getRid();
+        $moduleid = null;
+        $url1 = null;
 
-    // 			$l_oModel = new Eku_Role_Menu(getMDB(), 'eku_role_menu');
-    if (!class_exists('Eku_Role_Action')) require APATH_LIBS_MODELS . DS . 'eku_role_action.php';
-    $l_oModel = new Eku_Role_Action(getMDB(), 'eku_role_action');
+        foreach ($l_aOutput as $record) {
 
-    // 			$l_aOutput = $l_oModel->fncGetList(array('roleid'=>getRid()));
-    // pr($l_aOutput);exit;
-    $l_aOutput = $l_oModel->fncGetMenuList(array('roleid'=>getRid()));
-    $l_aMenulist = array();
-    // pr($l_aOutput);exit;
-    // 			foreach ($l_aOutput as $record) {
+            if ($record['pid'] != $moduleid) {
 
-    // 				$l_aMenulist[$record['PARENTID']]['url'] = $record['URL'];
-    // 				$l_aMenulist[$record['PARENTID']]['des'] = $record['DES'];
-    // 				$l_aMenulist[$record['PARENTID']]['name'] = $record['NAME'];
+                $url1 = $record['url'];
+                $moduleid = $record['pid'];
+            }
 
-    // 				if ($record['CHILDID'] != null) {
+            //多语言对应
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['url']    = U($record['mode']. '/' . $url1);
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['des']    = $record['des1'];
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['des_en'] = $record['des1_en'];
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['name']   = $record['fname'];
 
-    // 					$l_aMenulist[$record['PARENTID']]['child'][$record['CHILDID']]['des'] = $record['DES2'];
-    // 					$l_aMenulist[$record['PARENTID']]['child'][$record['CHILDID']]['url'] = $record['URL2'];
-    // 					$l_aMenulist[$record['PARENTID']]['child'][$record['CHILDID']]['name'] = $record['NAME2'];
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['des']    = $record['des2'];
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['des_en'] = $record['des2_en'];
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['url']    = U($record['mode']. '/' . $record['url']);
+            $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['name']   = $record['sname'];
 
-    // 				}
+        }
+        //设置menulist到session
+        session('menu_list' , $l_aMenulist);
+        $smarty = getSmarty();
+        $smarty->assign("MENUOUTER",      fncGetMenuList('outer', $l_aMenulist , MODE));
+        $smarty->assign("MENUINNER",      fncGetMenuList('inner', $l_aMenulist , MODE));
+    }
+    
+}
 
-    // 			}
+/**
+     * 生成一二级菜单List
+     * @param string $a_stScope
+     * @param array $list
+     * @param string $mode
+     * @return multitype:unknown
+     * @author tuyi
+     * @date 2014.5.19
+     */
+    function fncGetMenuList($a_stScope , $a_aList , $a_stMode)
+    {
+        if (empty($a_aList) or !array_key_exists($a_stMode , $a_aList)) return;
 
-    $moduleid = null;
-    $url1 = null;
+        $menulist = array();
 
-    foreach ($l_aOutput as $record) {
+        if ($a_stScope == "outer") {
 
-        if ($record['pid'] != $moduleid) {
+            foreach ($a_aList[$a_stMode] as $sort => $menus) {
 
-            $url1 = $record['url'];
-            $moduleid = $record['pid'];
+                foreach ($menus as $id => $f) {
+
+                    $tmp['url'] = $f['url'];
+                    //多语言对应
+                    if (strtolower(getClientLang()) == "en") {
+                        $tmp['des'] = $f['des_en'];
+                    } else {
+                        $tmp['des'] = $f['des'];
+                    }
+
+                    $tmp['name'] = $f['name'];
+                    $menulist[] = $tmp;
+
+                }
+
+            }
+
         }
 
-        //多语言对应
+        if ($a_stScope == "inner") {
 
+            foreach ($a_aList[$a_stMode] as $sort => $menus) {
 
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['url']    = U($record['mode']. '/' . $url1);
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['des']    = $record['des1'];
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['des_en'] = $record['des1_en'];
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['name']   = $record['fname'];
+                foreach ($menus as $id => $f) {
+                    // echo getSessVal('module_f');
+                    if (session('module_f') == $f['name']) {
 
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['des']    = $record['des2'];
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['des_en'] = $record['des2_en'];
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['url']    = U($record['mode']. '/' . $record['url']);
-        $l_aMenulist[$record['mode']][$record['sort1']][$record['pid']]['child'][$record['cid']]['name']   = $record['sname'];
+                        foreach ($f['child'] as $cid => $c) {
+
+                            $tmp['url'] = $c['url'];
+                            //多语言对应
+                            if (strtolower(getClientLang()) == "en") {
+                                $tmp['des'] = $c['des_en'];
+                            } else {
+                                $tmp['des'] = $c['des'];
+                            }
+                            $tmp['name'] = $c['name'];
+                            $menulist[] = $tmp;
+
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+// pr($menulist);
+        return $menulist;
 
     }
-
-    //设置menulist到session
-
-    session('menu_list' , $l_aMenulist);
-    // 			setSessVal('menu_outer', $this->fncGetMenuList('outer' , $l_aMenulist));
-    // 			setSessVal('menu_inner', $this->fncGetMenuList('inner' , $l_aMenulist));
-    // pr($this->fncGetMenuList('inner', $l_aMenulist));
-}
 
 
 function logging() {

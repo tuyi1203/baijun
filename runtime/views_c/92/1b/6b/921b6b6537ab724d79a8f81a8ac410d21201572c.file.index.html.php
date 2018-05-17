@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-10 12:02:57
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 21:28:21
          compiled from "D:\xampp\htdocs\baijun\app\modes\admin\home\default\default\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:1443956188df10ba869-70034799%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:168635a2a9375b7b888-70753692%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '921b6b6537ab724d79a8f81a8ac410d21201572c' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\modes\\admin\\home\\default\\default\\index.html',
-      1 => 1439808243,
+      1 => 1447171200,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1443956188df10ba869-70034799',
+  'nocache_hash' => '168635a2a9375b7b888-70753692',
   'function' => 
   array (
   ),
@@ -31,9 +31,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_56188df11c54b',
+  'unifunc' => 'content_5a2a9375ca162',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_56188df11c54b')) {function content_56188df11c54b($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5a2a9375ca162')) {function content_5a2a9375ca162($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 <body>
     <?php echo $_smarty_tpl->getSubTemplate (($_smarty_tpl->tpl_vars['WWW_PATH']->value)."/top_menu.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
@@ -41,11 +41,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<div class="clearfix">
     <?php if (!empty($_smarty_tpl->tpl_vars['models']->value)){?>
-    	<div class='col-md-12'>
+<!--     	<div class='col-md-12'>
 	    	<div class='panel'>
 					<div class='panel-heading'>
 						<strong><i class='icon-list-ul'></i>&nbsp;待审核事项</strong>
-					</div>	
+					</div>
 					<table class='table table-hover table-striped tablesorter'>
 					    <thead>
 					      <tr>
@@ -58,7 +58,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  $_from = $_smarty_tpl->tpl_vars['models']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars["kv"]->key => $_smarty_tpl->tpl_vars["kv"]->value){
 $_smarty_tpl->tpl_vars["kv"]->_loop = true;
-?>	
+?>
 		                    <tr>
 		                    <td class='text-center'><?php echo $_smarty_tpl->tpl_vars['kv']->value['title'];?>
 </td>
@@ -68,9 +68,9 @@ $_smarty_tpl->tpl_vars["kv"]->_loop = true;
 		                    </tr>
 		                    <?php } ?>
 					    </tbody>
-					</table>					
+					</table>
 			</div>
-    	</div>
+    	</div> -->
     	<?php }?>
 		<div class='col-md-12'>
 			<div class='panel'>

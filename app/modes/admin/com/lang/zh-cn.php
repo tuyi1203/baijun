@@ -26,6 +26,8 @@ $lang->changePassword = '修改密码';
 $lang->forgotPassword = '忘记密码?';
 $lang->currentPos     = '当前位置';
 $lang->categoryMenu   = '分类导航';
+$lang->photoes        = '相册图片';
+$lang->filesize       = '文件尺寸为：';
 
 
 $lang->yes            = '是';
@@ -45,6 +47,7 @@ $lang->goback         = '返回';
 $lang->search         = '搜索';
 $lang->more           = '更多';
 $lang->actions        = '操作';
+$lang->label          = '标签';
 $lang->feature        = '未来';
 $lang->year           = '年';
 $lang->loading        = '稍候...';
@@ -56,6 +59,7 @@ $lang->sendsuccess    = '发送成功';
 $lang->deletesuccess  = '删除成功';
 $lang->deletefail     = '删除失败';
 $lang->noresultsmatch = '没有匹配的选项';
+
 
 
 $lang->forbidden = new stdClass();
@@ -183,8 +187,10 @@ $lang->article->note->addedDate = '可以延迟到选定的时间发布。';
 
 $lang->file = new stdClass();
 $lang->file->errorunwritable = '上传目录不可写，无法上传附件。';
+$lang->file->errorovermaxsize = '上传的文件大小超过了最大值!';
 $lang->file->unwritable      = '不可上传附件。';
 $lang->file->slideinfo       = '同一幻灯片中的所有图片尺寸应该保持一致，最佳图片尺寸：1440px X 489px(宽 X 高)';
+$lang->file->honorinfo       = '同一事务所荣誉所有图片尺寸应该保持一致，最佳图片尺寸：1440px X 489px(宽 X 高)';
 $lang->file->eventinfo       = '同一活动中所有图片尺寸应该保持一致，最佳图片尺寸：1140px X 270px(宽 X 高)';
 $lang->file->teaminfo        = '同一团队中所有图片尺寸应该保持一致，最佳图片尺寸：1140px X 270px(宽 X 高)';
 $lang->file->personinfo      = '人物图片尺寸应该保持一致，最佳图片尺寸：1140px X 270px(宽 X 高)';

@@ -1,2 +1,0 @@
-{{* Import css and js for chosen. *}}
-{{ex class="js"  fn="import"  arg1="js/clipboard/clipboard.js"}}

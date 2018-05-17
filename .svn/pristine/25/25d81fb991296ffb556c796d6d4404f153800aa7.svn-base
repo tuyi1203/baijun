@@ -1,3 +1,0 @@
-<li {{if $modules == 'party'}}class="cu"{{/if}}><a href="{:U('culture/party/list/default.html')}">党团风采<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'metropolitan'}}class="cu"{{/if}}><a href="{:U('culture/metropolitan/list/default.html')}">水司文化<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'drink'}}class="cu"{{/if}}><a href="{:U('culture/drink/list/default.html')}">水务之星<i class="mwIcon">&#xf105;</i></a></li>

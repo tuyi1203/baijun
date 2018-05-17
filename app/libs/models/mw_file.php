@@ -1,7 +1,7 @@
 <?php
 class Mw_File extends clsModel{
 
-    CONST INSERT = "insert into mw_file (title , filename , filemd5name , filepath , url , ext , mimetype , size , width , height , createby , createtime , public , `primary` , editor , objecttype , objectid) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    CONST INSERT = "insert into mw_file (title , filename , filemd5name , filepath , url , ext , mimetype , size , width , height , createby , createtime , public , `primary` , editor , objecttype , objectid , `desc`) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     CONST UPDATEOBJECT = "update mw_file set objectid = ? , objecttype=? where id in(?)";
 
@@ -11,13 +11,15 @@ class Mw_File extends clsModel{
 
     CONST DELETE = "delete from mw_file where id in (?)";
 
+    CONST SETBANNER = "update mw_file set `banner`=?";
+
     CONST DELETEBYOBJECT = 'delete from mw_file where objecttype=? and objectid=?';
 
     CONST GETBYID = "select * from mw_file where id=?";
 
-    CONST UPDATETITLE = "update mw_file set title=? where id=?";
+    CONST UPDATETITLE = "update mw_file set title=? , `desc` = ?  where id=?";
 
-    CONST UPDATEFILE = "update mw_file set title=? ,filename =?,filemd5name =?,filepath =?,url =?,ext =?,mimetype =?,size =?,width =?,height =?,updateby =?,updatetime =? where id=?";
+    CONST UPDATEFILE = "update mw_file set title=? , `desc`=? , filename =?,filemd5name =?,filepath =?,url =?,ext =?,mimetype =?,size =?,width =?,height =?,updateby =?,updatetime =? where id=?";
 
     CONST GETLISTBYOBJECTTYPE = "select a.* , b.name from mw_file a left join eku_user_info b on a.createby = b.uid where a.objecttype=? and a.editor <> '1' order by a.id desc";
 
@@ -41,6 +43,7 @@ class Mw_File extends clsModel{
                      ->subSetString($i++ , $input->public)
                      ->subSetString($i++ , $input->primary)
                      ->subSetString($i++ , $input->editor);
+                     
 
          if (isset($input->objecttype)) {
              $this->_oMdb->subSetString($i++, $input->objecttype);
@@ -53,6 +56,8 @@ class Mw_File extends clsModel{
          } else {
              $this->_oMdb->subSetNull($i++);
          }
+
+         $this->_oMdb->subSetString($i++ , $input->desc);
 
          $this->_oMdb->fncExecuteUpdate();
 
@@ -134,7 +139,8 @@ class Mw_File extends clsModel{
 
         $this->_oMdb->fncPreparedStatement($sql);
 
-        $this->_oMdb->subSetString($i++, $input->title);
+        $this->_oMdb->subSetString($i++, $input->title)
+                    ->subSetString($i++, $input->desc);
 
         if (isset($input->filename)) {
             $this->_oMdb->subSetString($i++, $input->filename)
@@ -175,6 +181,34 @@ class Mw_File extends clsModel{
 
         if (isset($input->objecttype)) {
             $this->_oMdb->subSetString($i++,  $input->primary);
+            $this->_oMdb->subSetString($i++,  $input->objecttype);
+            $this->_oMdb->subSetInteger($i++, $input->objectid);
+        }
+
+        $this->_oMdb->fncExecuteUpdate();
+        return !$this->_oMdb->isError();
+    }
+
+     public function setBanner($input) {
+
+        if (isset($input->id)) {
+            $where = ' where id = ?';
+        }
+
+        if (isset($input->objecttype)) {
+            $where = ' where objecttype=? and objectid = ?';
+        }
+
+        $this->_oMdb->fncPreparedStatement(self::SETBANNER . $where);
+
+        $i = 1;
+        if (isset($input->id)) {
+            $this->_oMdb->subSetString($i++, $input->banner);
+            $this->_oMdb->subSetInteger($i++, $input->id);
+        }
+
+        if (isset($input->objecttype)) {
+            $this->_oMdb->subSetString($i++,  $input->banner);
             $this->_oMdb->subSetString($i++,  $input->objecttype);
             $this->_oMdb->subSetInteger($i++, $input->objectid);
         }

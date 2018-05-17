@@ -305,8 +305,8 @@ $lang->file->requireimage    = '没有选择图片';
 
 $lang->link = new stdClass();
 $lang->link->first = "首页";
-$lang->link->prevpage = '&#xf104;';
-$lang->link->nextpage = '&#xf105;';
+$lang->link->prevpage = '&lt;';
+$lang->link->nextpage = '&gt;';
 $lang->link->lastpage = "末页";
 $lang->link->total    = '<div class="l"><em class="green">%s</em>/%s</div>';
 $lang->link->current  = "页面：<strong>%s/%s</strong>";

@@ -24,6 +24,9 @@ class clsSystemTopimageEditController extends clsAppController
         }
         $this->output->objecttype = $this->input->objecttype;
         $this->output->objectid   = $this->input->objectid;
+        if (isset($this->input->filesize)) {
+             $this->output->size  = $this->input->filesize;
+        }
     }
 
     public function insert() {
@@ -177,6 +180,10 @@ class clsSystemTopimageEditController extends clsAppController
         $upload = new clsUpload($htmlTagName, $this->savePath);
         if (!$upload->isError()) {
             $file = $upload->getFile();
+        }
+
+        if(!($upload->fncCheckFileSize(C('UPLOADFILEMAXSIZE')))) {
+            $file['errmsg'] = $this->lang->file->errorovermaxsize;
         }
         return $file;
     }

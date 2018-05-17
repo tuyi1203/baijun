@@ -4,12 +4,18 @@
       <h4 class='modal-title'><i class='icon-edit'></i>  {{$la.file.edit}}</h4>
     </div>
     <div class='modal-body'>
-      <form method='post' enctype='multipart/form-data' id='fileForm' action="{:U('admin/system_file-edit-update.json')}>
+      <form method='post' enctype='multipart/form-data' id='fileForm' action="{:U('system/file/edit/update.json')}">
         <table class='table table-form'>
           <tr>
             <th class='w-80px'>{{$la.file.title}}</th>
             <td>
                 <input type="text" name="data[title]" value="{{$title}}" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <th class='w-80px'>{{$la.file.desc}}</th>
+            <td>
+                <textarea name="data[desc]" class="form-control">{{$desc}}</textarea>
             </td>
           </tr>
           <tr>

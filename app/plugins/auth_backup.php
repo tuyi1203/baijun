@@ -24,7 +24,7 @@ class PI_Auth {
     }
 
     public function checkLogin() {
-        // echo getMode();exit;
+        echo getMode();exit;
         $auth     = getAuthIns();
         $apptype  = APPTYPE;
 

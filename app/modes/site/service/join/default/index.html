@@ -1,0 +1,154 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+<div class="wrap joinus" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>沟通与服务</span><i>&gt;</i><span>加入我们</span></section>
+		<div class="subnav">
+			<a href="{:U('service/contact/detail')}">联系方式</a><a href="javascript:void(0);" class="cu">加入我们</a><a href="{:U('service/online/detail')}">在线咨询</a>
+		</div>
+		<article class="content">
+			<div class="tab">
+				<div class="tab_t" id="_tabt">
+					<ul>
+						{{foreach from=$jobs item="ls" name="head"}}
+							<li {{if $smarty.foreach.head.index == 0}}class="cu"{{/if}}>{{$ls.groupname}}</li>
+						{{/foreach}}
+						<!-- <li>校园招聘</li> -->
+					</ul>
+				</div>
+				<div class="tab_c" id="_tabc">
+				{{foreach from=$jobs item="ls" name="body"}}
+					<div class="tab_con" {{if $smarty.foreach.body.index != 0}}style="display:none;"{{/if}}>
+						<figure class="lst">
+							<figcaption>
+								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+									<tr>
+										<td valign="center" width="40%"><img src="{{$UPLOADURL}}{{$ls.url}}"/></td>
+										<td valign="center" width="60%">
+											<div class="txt">
+												{{$ls.desc}}
+											</div>
+										</td>
+									</tr>
+								</table>
+							</figcaption>
+							<div class="data">
+								<ul>
+									<li class="h">
+										<span>工作机会</span>
+										<span>工作地点</span>
+										<span>招聘人数</span>
+										<span>工作性质</span>
+										<span>发布时间</span>
+									</li>
+									{{foreach from=$ls.jobs item="bs"}}
+									<li>
+										<span><a href="{:U('service/join/detail/default',array('id'=>{{$bs.id}}))}">{{$bs.title}}</a></span>
+										<span>{{$bs.place}}</span>
+										<span>{{$bs.num}}人</span>
+										<span>{{$bs.status}}</span>
+										<span>{{$bs.createtime|substr:0:10}}</span>
+									</li>
+									{{/foreach}}
+									<!-- <li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li> -->
+								</ul>
+							</div>
+						</figure>
+					</div>
+					{{/foreach}}
+					<!-- <div class="tab_con" style="display:none;">
+						<figure class="lst">
+							<figcaption>
+								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+									<tr>
+										<td valign="center" width="40%"><img src="../assets/img/joinus.jpg"/></td>
+										<td valign="center" width="60%">
+											<div class="txt">
+												<p>尊奉"百树成林,百君成业"的人文理念,事务所汇集了六十余名法界精英.良好的教育背景、长期的务实磨砺、以及对中国法制现状与社会运行机制的深刻把握，使得百君律师兼具超凡脱俗的眼界和务实练达的手段，能够理性处理各种棘手的法律问题达成客户最大愿望。</p>
+												<p>众多律师的海外留学经历、部分律师的境外法律工作经验、加之与境外律师的频繁合作与交往，使得百君律师事务所在业务形态、管理模式、个案运作技能、执业规范化、服务广深度等方面均能按照“国际标准”要求自己。</p>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</figcaption>
+							<div class="data">
+								<ul>
+									<li class="h">
+										<span>工作机会</span>
+										<span>工作地点</span>
+										<span>招聘人数</span>
+										<span>工作性质</span>
+										<span>发布时间</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+									<li>
+										<span><a href="#">房地产金融业务</a></span>
+										<span>重庆</span>
+										<span>10人</span>
+										<span>全职</span>
+										<span>2015-08-08</span>
+									</li>
+								</ul>
+							</div>
+						</figure>
+					</div> -->
+				</div>
+			</div>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+</div>
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+requirejs( ["jquery","app"],function($){
+	$.tab('#_tabt','#_tabc');
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+
+});
+
+</script>
+</body>
+</html>

@@ -1,8 +1,0 @@
-<div class='col-md-2'>
-    <ul class='nav nav-primary nav-stacked leftmenu affix'>
-        {{foreach from=$MENUINNER item="MENU"}}
-        <li {{if $MODULE_S== $MENU.name}}class='active'{{/if}}><a
-            href='{{$MENU.url}}'>{{$MENU.des}}<i class="icon-chevron-right"></i></a>
-        </li> {{/foreach}}
-    </ul>
-</div>

@@ -1,7 +1,0 @@
-<li {{if $modules == 'intro'}}class="cu"{{/if}}><a href="{:U('single/intro/detail/default.html')}">公司简介<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'honour'}}class="cu"{{/if}}><a href="{:U('single/honour/list/default.html')}">公司荣誉<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'organization'}}class="cu"{{/if}}><a href="{:U('single/organization/detail/default.html')}">组织机构<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'ceo'}}class="cu"{{/if}}><a href="{:U('single/ceo/detail/default.html')}">领导致辞<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'event'}}class="cu"{{/if}}><a href="{:U('single/event/list/default.html')}">公司大事记<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'planning'}}class="cu"{{/if}}><a href="{:U('single/planning/list/default.html')}">发展规划<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'cfo'}}class="cu"{{/if}}><a href="{:U('single/cfo/list/default.html')}">财务工作<i class="mwIcon">&#xf105;</i></a></li>

@@ -19,7 +19,7 @@ class clsAppSession extends clsSession{
      * @author 		tuyi
      * @since 		2011/12/07
      */
-    public function __construct($a_stPath = null ){
+    public function __construct($a_stPath = null , $a_stDomain = null){
 
         if (C('life_time')) {
 
@@ -31,7 +31,7 @@ class clsAppSession extends clsSession{
 
         }
         //         echo $this->_iLifeTime;
-        parent::__construct($this->_iLifeTime , $a_stPath);
+        parent::__construct($this->_iLifeTime , $a_stPath , $a_stDomain);
     }
 
 

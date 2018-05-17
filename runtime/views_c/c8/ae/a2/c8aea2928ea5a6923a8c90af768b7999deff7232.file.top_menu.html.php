@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2015-10-22 10:45:36
+<?php /* Smarty version Smarty-3.1.6, created on 2017-12-08 23:54:43
          compiled from "D:\xampp\htdocs\baijun\app\views\admin\top_menu.html" */ ?>
-<?php /*%%SmartyHeaderCode:1196556188df1238706-00447756%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:166295a2a9375d64f32-59198055%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c8aea2928ea5a6923a8c90af768b7999deff7232' => 
     array (
       0 => 'D:\\xampp\\htdocs\\baijun\\app\\views\\admin\\top_menu.html',
-      1 => 1445481935,
+      1 => 1512748480,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1196556188df1238706-00447756',
+  'nocache_hash' => '166295a2a9375d64f32-59198055',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_56188df127bdb',
+  'unifunc' => 'content_5a2a9375e552b',
   'variables' => 
   array (
     'MENUOUTER' => 0,
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_56188df127bdb')) {function content_56188df127bdb($_smarty_tpl) {?>    <nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'
+<?php if ($_valid && !is_callable('content_5a2a9375e552b')) {function content_5a2a9375e552b($_smarty_tpl) {?>    <nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'
         id='mainNavbar'>
         <div class='navbar-header'>
             <button type='button' class='navbar-toggle' data-toggle='collapse'
@@ -54,14 +54,14 @@ $_smarty_tpl->tpl_vars["MENU"]->_loop = true;
                 <li><a href='###'><i
                         class='icon-chevron-sign-right icon-large'></i></a></li>
             </ul>
-            <ul class='nav navbar-nav navbar-right'>
+          <!--   <ul class='nav navbar-nav navbar-right'>
                 <li class='dropdown'><?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['cl'][0][0]->createLangMenu(array(),$_smarty_tpl);?>
 </li>
-            </ul>
+            </ul> -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href='{:U('site/home/default/default/default.html')}' target='_blank'
+              <li><a href='{:U('site/home/default/default/default.html')}' target='_blank'
                     class='navbar-link'><i class="icon-home icon-large"></i> 前台</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                <!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
                     data-toggle="dropdown"><i class="icon-columns icon-large"></i> 网站<b class="caret"></b></a>
                  <?php if (isset($_SESSION['menu_list']['wxadmin'])||isset($_SESSION['menu_list']['wechat'])){?>
                  <ul class="dropdown-menu">
@@ -73,7 +73,7 @@ $_smarty_tpl->tpl_vars["MENU"]->_loop = true;
                      <?php }?>
                  </ul>
                  <?php }?>
-                </li>
+                </li> -->
                 <li class="dropdown"><a href="#" class="dropdown-toggle"
                     data-toggle="dropdown"><i class="icon-user icon-large"></i>
                         <?php echo $_SESSION['_UserName'];?>
@@ -84,6 +84,8 @@ $_smarty_tpl->tpl_vars["MENU"]->_loop = true;
                             data-toggle='modal'>修改密码</a></li>
                         <li><a href="{:U('admin/system/login/default/logout.html')}">退出</a></li>
                     </ul></li>
+                     <li><a href='{:C('en-domain')}' 
+                    class='navbar-link'><i class="icon-circle-arrow-right icon-large"></i> 去英文站后台</a></li>
                <li><a href='javascript:;' data-href="{:U('system/cache/default/clear.json')}"
                     class='navbar-link chacheclear' text-normal="清除缓存"><i class="icon-large"></i> 清除缓存</a></li>
                     <script type="text/javascript">

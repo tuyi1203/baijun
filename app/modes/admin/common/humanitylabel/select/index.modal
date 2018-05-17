@@ -1,0 +1,20 @@
+{{ex fn="exportCss"}}
+<div class='modal-dialog w-700px'>
+  <div class='modal-content'>
+    <div class='modal-header'>
+      {{ex class="html" fn="closeButton"}}
+      <h4 class='modal-title' id='ajaxModalTitle'><i class='icon-paper-clip'></i> {{$la.label.labelselect}}</h4>
+    </div>
+    <div class='modal-body'>
+     {{if isset($list)}}
+     <!-- Single button -->
+            {{foreach from=$list item="label"}}
+              <a href="javascript:void(0);" onclick="selectLabel('{{$label.id}}','{{$label.title}}')" class='btn btn-default' style="margin:0 10px 10px 0;">{{$label.descr}}</a>
+            {{/foreach}}
+            </div>
+      {{/if}}
+
+    </div>
+  </div>
+</div>
+{{ex fn='exportJs'}}

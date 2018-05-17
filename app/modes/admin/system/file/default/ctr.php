@@ -30,6 +30,12 @@ class clsSystemFileDefaultController extends clsAppController
         $this->output->list      = $list;
         $this->output->objectid  = $this->input->objectid;
         $this->output->objecttype= $this->input->objecttype;
+        if (isset($this->input->filesize)) {
+            $this->output->filesize = $this->input->filesize;
+        }
+         if (isset($this->input->bannersize)) {
+            $this->output->bannersize = $this->input->bannersize;
+        }
     }
 
     public function _upload() {
@@ -136,6 +142,32 @@ class clsSystemFileDefaultController extends clsAppController
 
     }
 
+    public function _banner() {
+        $model = new clsModModel($this->mdb , 'mw_file') ;
+        $this->output->result  = 'success';
+        $this->output->message = $this->lang->setsuccess;
+
+        $input = new stdClass();
+        $input->objecttype = $this->input->objecttype;
+        $input->objectid   = $this->input->objectid;
+        $input->banner    = '0';
+        if(!$model->mw_file->setBanner($input)) {
+            $this->output->result  = 'fail';
+            $this->output->message = $this->lang->setfail;
+            return;
+        }
+
+        $input = new stdClass();
+        $input->id         = $this->input->id;
+        $input->banner    = '1';
+
+        if(!$model->mw_file->setBanner($input)) {
+            $this->output->result  = 'fail';
+            $this->output->message = $this->lang->setfail;
+        }
+
+    }
+
     /**
      * Send the download header to the client.
      *
@@ -195,9 +227,9 @@ class clsSystemFileDefaultController extends clsAppController
 //         pr($file);
         if(!isset($file['errmsg'])) {
 
-
             $input = new stdClass();
             $input->title           = $file['title'];
+            $input->desc            = empty($this->input->desc)?'':$this->input->desc;
             $input->filename        = $file['name'];
             $input->filemd5name     = $file['uname'];
             $input->filepath        = $file['realpath'];
@@ -339,9 +371,17 @@ class clsSystemFileDefaultController extends clsAppController
                 $upload = new clsUpload($htmlTagName, $this->savePath , $id);
                 if (!$upload->isError())
                 {
-                    $file = $upload->getFile();
-                    if (!empty($this->input->filetitles[$id]))
-                        $file['title'] = htmlspecialchars($this->input->filetitles[$id]);
+                    //检查文件大小是否超过设置
+                    if($upload->fncCheckFileSize(C('UPLOADFILEMAXSIZE'))) {
+                         $file = $upload->getFile();
+                        if (!empty($this->input->filetitles[$id]))//标题
+                            $file['title'] = htmlspecialchars($this->input->filetitles[$id]);
+                        if (!empty($this->input->filedescs[$id]))//描述
+                            $file['desc'] = htmlspecialchars($this->input->filedescs[$id]);
+                    } else {
+                        $file['errmsg'] = $this->lang->file->errorovermaxsize;
+                    }
+                   
                 } else {
                     $file['errmsg'] = $upload->getError();
                 }
@@ -353,9 +393,15 @@ class clsSystemFileDefaultController extends clsAppController
         {
             $upload = new clsUpload($htmlTagName, $this->savePath);
             if (!$upload->isError()) {
-                $file = $upload->getFile();
-                if (!empty($this->input->filetitles[0]))
-                    $file['title'] = htmlspecialchars($this->input->filetitles[0]);
+                 if($upload->fncCheckFileSize(C('UPLOADFILEMAXSIZE'))) {
+                    $file = $upload->getFile();
+                    if (!empty($this->input->filetitles[0]))//标题
+                        $file['title'] = htmlspecialchars($this->input->filetitles[0]);
+                    if (!empty($this->input->filedescs[0]))//描述
+                            $file['desc'] = htmlspecialchars($this->input->filedescs[0]);
+                } else {
+                    $file['errmsg'] = $this->lang->file->errorovermaxsize;
+                }
             }else {
                     $file['errmsg'] = $upload->getError();
             }
@@ -393,6 +439,7 @@ class clsSystemFileDefaultController extends clsAppController
 
             $input = new stdClass();
             $input->title           = $file['title'];
+            $input->desc            = empty($file['desc'])?'':$file['desc'];
             $input->filename        = $file['name'];
             $input->filemd5name     = $file['uname'];
             $input->filepath        = $file['realpath'];

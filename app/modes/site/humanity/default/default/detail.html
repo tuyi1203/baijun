@@ -1,0 +1,60 @@
+{{include file="$WWW_PATH/humanity_header.html"}}
+<body>
+{{include file="$WWW_PATH/humanity_menu.html"}}
+<div class="infowrap">
+	<div class="bread">
+		<b>当前位置：</b><a href="{:U('humanity/default/default/default')}">智识与人文首页</a><i>&gt;</i><em>栏目</em><i>&gt;</i><em>{{if isset($data.fatherlabelname)}}{{$data.fatherlabelname}}{{else}}{{$data.labelname}}{{/if}}</em>
+	</div>
+	<div class="infopic">
+		<img src="{{$UPLOADURL}}{{$data.bannerurl}}" />
+		<div class="mask">
+			<dl>
+				<dd><b>{{$data.labelname}}</b></dd>
+				<dt>{{$data.title}}</dt>
+			</dl>
+		</div>
+	</div>
+
+	<div class="oth"><span>{{$data.publishtime}}</span><span><i>阅读</i><b>{{$data.views}}</b></span></div>
+	<div class="oth"><span><i>撰文</i><b>{{$data.authorname}}<em>{{if ($data.lawyerflg == '1')}}（律师）{{/if}}</em></b></span></div>
+	<div class="abstract">
+		{{$data.summary}}
+	</div>
+	<div class="info">
+	{{$nofilter.data.content}}
+	</div>
+	{{if ($data.lawyerflg == '1')}}
+	<div class="author">
+		<a href="{:U('core/person/detail/default',array('id'=>{{$data.authorid}}))}" target="_blank">
+			<dl>
+				<dt><img src="{{$UPLOADURL}}{{$data.authorurl}}" /></dt>
+				<dd>
+					<p class="name">{{$data.authorname}}</p>
+					<p>{{$data.authorposition}}</p>
+				</dd>
+			</dl>
+		</a>
+	</div>
+	<div class="othpage">
+		<h6>作者相关文章</h6>
+		<ul>
+		{{foreach from=$data.articles item="ls"}}
+			<li><a href="{:U('humanity/default/default/detail',array('id'=>{{$ls.id}}))}" target="_blank"><p>{{$ls.title}}</p><i>{{$ls.publishtime|substr:0:10}}</i></a></li>
+			<!-- <li><a href="#"><p>2016全球收入最高的10位音乐人 泰勒·斯威夫特最吸金</p><i>2017-01-01</i></a></li>
+			<li><a href="#"><p>2016全球收入最高的10位音乐人 泰勒·斯威夫特最吸金</p><i>2017-01-01</i></a></li> -->
+		{{/foreach}}
+		</ul>
+	</div>
+	{{/if}}
+</div>
+<a href="javascript:void(0);" class="_noLoading backtop" id="_back"></a>
+{{include file="$WWW_PATH/humanity_footer.html"}}
+<script>
+requirejs( ["jquery","wisdom"],function($){
+	$('body').wisdom({debuge:true});//页面初始化
+	
+	
+});
+</script>
+</body>
+</html>

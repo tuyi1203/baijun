@@ -1,0 +1,80 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap information" id="wrap">
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><a href="{:U('news/officenews')}">资讯中心</a><i>&gt;</i><span>事务所新闻</span></section>
+		{{include file="$WWW_PATH/news.html"}}
+		<article class="content">
+			<h1>{{$detail.title}}<div class="bdsharebuttonbox"><a href="#" class="bds_more _noLoading" data-cmd="more"></a><a href="#" class="bds_qzone _noLoading" data-cmd="qzone"></a><a href="#" class="bds_tsina _noLoading" data-cmd="tsina"></a><a href="#" class="bds_tqq _noLoading" data-cmd="tqq"></a><a href="#" class="bds_renren _noLoading" data-cmd="renren"></a><a href="#" class="bds_weixin _noLoading" data-cmd="weixin"></a></div>
+			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></h1>
+			<div class="com">
+				<p class="time">{{$detail.publishtime|substr:"0":"10"}}</p>
+				<div class="contrls"><a href="javascript:print();" class="print _noLoading">打印</a></div>
+			</div>
+			<section class="detail newsdetail">
+				<div class="l">
+					<figure>
+						{{$nofilter.content}}
+					</figure>
+					<div class="othlst">
+						<ul>
+							{{if !empty($predata)}}<li><a href="{:U('news/officenews/detail/default',array('id'=>{{$predata.id}}))}">{{$predata.title}}</a></li>
+							{{else}}
+							<li><a href="javascript:void(0);" class="_noLoading">无</a></li>
+							{{/if}}
+							{{if !empty($nextdata)}}<li><a href="{:U('news/officenews/detail/default',array('id'=>{{$nextdata.id}}))}">{{$nextdata.title}}</a></li>
+							{{else}}
+							<li><a href="javascript:void(0);" class="_noLoading">无</a></li>
+							{{/if}}
+						</ul>
+					</div>
+				</div>
+				<div class="r">
+					<!--
+					<figure class="rfields">
+						<figcaption>相关领域</figcaption>
+						<div class="data">
+							{{foreach from=$labels item="ls"}}
+							<b>{{$ls.desc}}</b>
+							{{/foreach}}
+						</div>
+					</figure>-->
+					<figure class="rlawyer">
+						<figcaption>相关律师</figcaption>
+						<div class="data">
+							<ul>
+								{{foreach from=$lawyers item="ls"}}
+								<li>
+									<div class="pic"><img src="{{$UPLOADURL}}{{$ls.url}}" /></div>
+									<div class="txt">
+										<p><b>{{$ls.fullname}}</b><i>{{$ls.positionname}}</i><i>{{$ls.jigouname}}</i></p>
+										<p>{{$ls.email}}</p>
+									</div>
+									<div class="lnk"><a target="_blank" href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}">了解更多</a></div>
+								</li>
+								{{/foreach}}
+							</ul>
+						</div>
+					</figure>
+				</div>
+			</section>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
+	
+	
+</div>
+
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+requirejs( ["jquery","app","flexslider"],function($){
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+	//$('#_floatcontact').contact({debuge:true});//联系我们
+	
+});
+	
+</script>
+</body>
+</html>

@@ -18,6 +18,7 @@ class clsSystemFileEditController extends clsAppController
         $model = new clsModModel($this->mdb , 'mw_file') ;
         $file = $model->mw_file->getByID($this->input);
         $this->output->title = $file['title'];
+        $this->output->desc = $file['desc'];
         $this->output->id    = $file['id'];
     }
 
@@ -27,6 +28,8 @@ class clsSystemFileEditController extends clsAppController
 
         $input->id          = $this->input->id;
         $input->title       = htmlspecialchars($this->input->title);
+        $input->desc        = htmlspecialchars($this->input->desc);
+
 
         if ($_FILES) {
 
@@ -38,11 +41,17 @@ class clsSystemFileEditController extends clsAppController
 
             $file = $this->getUpload('upFile');
 
+            if (!empty($file['errmsg'])) {
+                $this->output->result  = "fail";
+                $this->output->message = $file['errmsg'];
+                return;
+            }
+
             if($file) {
                 if (empty($this->input->title)) {
                     $input->title       = $file['title'];
                 }
-
+                $input->desc            = empty($file['desc'])?'':$file['desc'];
                 $input->filename        = $file['name'];
                 $input->filemd5name     = $file['uname'];
                 $input->filepath        = $file['realpath'];
@@ -86,6 +95,7 @@ class clsSystemFileEditController extends clsAppController
 
             //更新为新文件数据
             $input->title           = $file['title'];
+            $input->desc            = empty($file['desc'])?'':$file['desc'];
             $input->filename        = $file['name'];
             $input->filemd5name     = $file['uname'];
             $input->filepath        = $file['realpath'];
@@ -113,6 +123,9 @@ class clsSystemFileEditController extends clsAppController
         $upload = new clsUpload($htmlTagName, $this->savePath);
         if (!$upload->isError()) {
             $file = $upload->getFile();
+        }
+        if(!($upload->fncCheckFileSize(C('UPLOADFILEMAXSIZE')))) {
+            $file['errmsg'] = $this->lang->file->errorovermaxsize;
         }
         return $file;
     }

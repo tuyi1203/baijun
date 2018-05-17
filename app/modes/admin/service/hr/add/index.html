@@ -1,0 +1,135 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+    {{*include file="$WWW_PATH/kindeditor.html"*}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i>  {{$la.hr.create}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('service/hr/add/insert.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.group}}</th>
+                  <td>
+                   <select class="form-control chosen"  id="group" name="data[group]" >
+                    {{html_options options=$group_options selected=$group_choose}}
+                   </select>
+                    </td>
+               </tr>
+					   <tr>
+				          <th class='col-md-1 col-xs-2'>{{$la.hr.title}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='{{$title}}' class="form-control" />
+				          </td>
+				          <td>
+				          <input type="hidden" name="data[id]" value="{{$id}}" />
+				          </td>
+				       </tr>
+				       <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.place}}</th>
+                  <td class='col-md-5 col-xs-7'>
+                  <div class="required required-wrapper"></div>
+                  <!-- <input type='text' name='data[place]' id='place' value='{{$place}}' class="form-control" /> -->
+                   <select class="form-control chosen"  id="group" name="data[place]" >
+                    {{html_options options=$place_options selected=$place_choose}}
+                   </select>
+                  </td>
+                  <td>
+                  </td>
+               </tr>
+                <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.status}}</th>
+                  <td class='col-md-5 col-xs-7'>
+                  <div class="required required-wrapper"></div>
+                   <select class="form-control chosen"  id="group" name="data[status]" >
+                    {{html_options options=$status_options selected=$status_choose}}
+                   </select>
+                  </td>
+                  <td>
+                  </td>
+               </tr>
+               <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.experience}}</th>
+                  <td class='col-md-5 col-xs-7'>
+                  <input type='text' name='data[experience]' id='title' value='{{$experience}}' class="form-control" />
+                  </td>
+                  <td>
+                  </td>
+               </tr>
+                <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.education}}</th>
+                  <td class='col-md-5 col-xs-7'>
+                  <input type='text' name='data[education]' id='title' value='{{$education}}' class="form-control" />
+                  </td>
+                  <td>
+                  </td>
+               </tr>
+               <tr>
+                  <th class='col-md-1 col-xs-2'>{{$la.hr.num}}</th>
+                  <td class='col-md-5 col-xs-7'>
+                  <input type='text' name='data[num]' id='place' value='{{$num}}' class="form-control" />
+                  </td>
+                  <td>
+                  </td>
+               </tr>
+				       <!-- <tr style="display:none;">
+                          <th>{{$la.hr.link}}</th>
+                          <td>
+                            <input type='text' name='data[link]' id='link' value='{{$link}}' class="form-control" />
+                          </td>
+                          <td>  </td>
+                        </tr> -->
+				       <!-- <tr>
+                          <th rowspan="2">{{$la.hr.picture}}</th>
+                          <td><img class="image" src="{{$url}}" style="max-width:600px;"></td>
+                          <td><input type="hidden" name="data[fileids][]" value="{{$fileid}}"/></td>
+                       </tr> -->
+                       <!-- <tr>
+                         <td>
+                            <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
+                          </td>
+                          <td>
+                            <label class="text-info">{{*$la.file.slideinfo*}}</label>
+                          </td>
+                       </tr> -->
+                        <tr>
+                          <th>{{$la.hr.content1}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[content1]' id='content1' rows='5' class='form-control'>{{$content1}}</textarea>
+                            </td>
+                       </tr>
+                       <tr>
+                          <th>{{$la.hr.content2}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[content2]' id='content2' rows='5' class='form-control'>{{$content2}}</textarea>
+                            </td>
+                       </tr>
+                       <!-- <tr>
+				          <th>{{$la.hr.desc}}</th>
+				          <td colspan='2'>
+				          <textarea name='data[desc]' id='desc' rows='15' class='form-control'>{{$desc}}</textarea>
+				           </td>
+					   </tr> -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('service/hr')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

@@ -1,0 +1,101 @@
+<body>
+<header>
+    <nav class="l">
+        <ul>
+            <li class="droplnk">
+                <a href="javascript:void(0);" class="_noLoading lnk">百君杂志</a>
+                <div class="droplist drop_zazhi">
+                    <div class="dropcon">
+                        <ul>
+                        {{foreach from=$magazinelist item="ls"}}
+                            <li>
+                                <a href="{:U('humanity/magazine/default/default')}">
+                                    <div class="pic"><img src="{{$UPLOADURL}}{{$ls.url}}" /></div>
+                                    <div class="txt">
+                                        <dl>
+                                            <dt>{{$ls.title}}</dt>
+                                            <dd>{{$ls.desc}}</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li>
+                        {{/foreach}}
+                           <!--  <li>
+                                <a href="#">
+                                    <div class="pic"><img src="../assets/img/wisdom/zz.jpg" /></div>
+                                    <div class="txt">
+                                        <dl>
+                                            <dt>百君月度法规报告</dt>
+                                            <dd>第17期，总第35期</dd>
+                                        </dl>
+                                    </div>
+                                </a>
+                            </li> -->
+                        </ul>
+                        <div class="more"><a href="{:U('humanity/magazine/default/default')}">查看更多</a></div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="{:U('humanity/book/default/default')}" class="lnk">百君著述</a></li>
+            <li class="droplnk">
+                <a href="javascript:void(0);" class="_noLoading lnk">栏目</a>
+                <div class="droplist drop_lanmu">
+                    <div class="dropcon">
+                    {{foreach from=$menulist item="ls"}}
+                        {{if $ls.dlflg == "1"}}
+                        <dl>
+                        {{/if}}
+                        <dt><a href="{:U('humanity/default/default/list',array('id'=>{{$ls.id}}))}">{{$ls.title}}</a></dt>
+                        {{if !empty($ls.sublist)}}
+                            {{foreach from=$ls.sublist item="subls"}}
+                            <dd><a href="{:U('humanity/default/default/list',array('id'=>{{$subls.id}}))}">{{$subls.title}}</a></dd>
+                            {{/foreach}}
+                            <!--<dt><a href="#">百君法律评论</a></dt> 
+                            <dd><a href="#">解读</a></dd>
+                            <dd><a href="#">评论</a></dd>
+                            <dd><a href="#">法律法规</a></dd> -->
+                        {{/if}}
+                        {{if $ls.enddlflg == "1"}}    
+                        </dl>
+                        {{/if}}
+                        <!-- <dl>
+                            <dt><a href="#">百君圆桌</a></dt>
+                            <dt><a href="#">刑辩茶谭</a></dt>
+                            <dt><a href="#">专栏</a></dt>
+                            <dt><a href="#">其他</a></dt>
+                        </dl> -->
+                    {{/foreach}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="logo"><a href="javascript:location.reload();">智识与人文</a></div>
+    <nav class="r">
+        <ul>
+            <li><a href="{:U('home/default')}" class="lnk">首页</a></li>
+            <li><a href="{:U('news/officenews')}" class="lnk">资讯中心</a></li>
+            <li><a href="{:U('core/person/default/default')}" class="lnk">专业团队</a></li>
+            <li class="droplnk">
+                <a href="javascript:void(0);" class="_noLoading lnk">专业领域</a>
+                <div class="droplist drop_lingyu">
+                    <div class="dropcon">
+                        <ul>
+                            {{foreach from=$leftbarlist item="ls"}}
+                            <li><a href="{:U('core/field/detail/default',array('id'=>{{$ls.id}}))}">{{$ls.title}}</a></li>
+                            <!-- <li><a href="#">金融法律事务</a></li>
+                            <li><a href="#">房地产与建设工程法律事务</a></li>
+                            <li><a href="#">财税法律事务</a></li>
+                            <li><a href="#">行政法律事务</a></li>
+                            <li><a href="#">劳动与社会保障法律事务</a></li>
+                            <li><a href="#">知识产权法律事务</a></li>
+                            <li><a href="#">刑事辩护与代理</a></li> -->
+                            {{/foreach}}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li><a href="{:U('service/contact/detail/default')}" class="lnk">沟通与服务</a></li>
+        </ul>
+    </nav>
+</header>

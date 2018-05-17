@@ -1,49 +1,82 @@
-﻿{{include file="$WWW_PATH/innerheader.html"}}
+{{include file="$WWW_PATH/header.html"}}
 <body>
-{{include file="$WWW_PATH/menu.html"}}
-    <div class="fBn"><img src="{:T('img/fbn.jpg')}" /></div>
-    {{include file="$WWW_PATH/rolling.html"}}
-    <div class="wrap">
-    	<div class="wL">
-        	<div class="hd"><h3>栏目导航</h3></div>
-            <div class="bd">
-            	<ul>
-                {{include file="$WWW_PATH/kehufuwu.html"}}
-                </ul>
-            </div>
-        </div>
-        <div class="wR">
-        	<div class="bread">当前位置:<a href="{:U('home/default')}">首页</a>&gt;<a href="{:U('service/usernotice/detail/default.html')}">客户服务</a>&gt;<span>网上缴费</span></div>
-            <div class="bd">
-            	<div class="pageInfo">
-                	<h1 id="Title">{{$title}}</h1>
-                    <div class="contrl">
-                        <span>发布日期:<em>{:substr('{{$createtime}}',0,10)}</em></span>
-                        <i>|</i>
-                        <span>点击:<em>{{$views}}</em></span>
-                        <i>|</i>
-                        <span id="contrlFont">字体:<a href="javascript:void(0);" class="ctrlFont cu">小</a><a href="javascript:void(0);" class="ctrlFont">中</a><a href="javascript:void(0);" class="ctrlFont">大</a></span>
-                        <i>|</i>
-                        <span><a href="javascript:window.print();">打印</a><a href="javascript:window.close();">关闭</a></span>
-                    </div>
-                    <div class="pageInfoTxt" id="info">
-                        {{$nofilter.content}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
+{{include file="$WWW_PATH/leftbar.html"}}
+<!-- <script src="{:T('js/all.js')}"></script> -->
+<div class="wrap consultation" id="wrap">
+	<section class="banner" style="background-image:url({{$UPLOADURL}}{{$bannerurl}});"></section>
+	<div class="container">
+		<section class="crumbs">当前位置：<a href="{:U('home/default')}">首页</a><i>&gt;</i><span>沟通与服务</span><i>&gt;</i><span>联系方式</span></section>
+		<div class="subnav">
+			<a href="{:U('service/contact/detail')}">联系方式</a><a href="{:U('service/join')}">加入我们</a><a href="{:U('service/online/detail')}" class="cu">在线咨询</a>
+		</div>
+		<article class="content">
+			<section class="l">
+				<p>您好：</p>
+				<p>感谢您信任并选择百君，您的法律服务需求可以在此留言，我们会及时安排具备相关领域专长的律师为您回复。鉴于法律实务难易程度不同，多数问题无法简单处断，且与您切身权益关涉重大，我们建议您致电预约律师或直接前往百君总部及分所，以获取更全面、专业的建议与服务。</p>
+				<div class="code">
+					<img src="{{$UPLOADURL}}{{$qcode.url}}" />
+					<i></i>
+				</div>
+			</section>
+			<section class="r">
+			<form action="{:U('service/online/detail/add.json')}" id="ajaxForm" >
+				<div class="form">
+					<div class="mod">
+						<span class="mod_text"><input type="text" placeholder="姓名" name="data[name]" class="text" style="width:305px;" /></span>
+						<span class="mod_text" style="margin:0;"><input type="text" placeholder="电话" name="data[tel]" class="text" style="width:305px;" /></span>
+					</div>
+					<div class="mod">
+						<span class="mod_textarea"><textarea placeholder="咨询信息" class="textarea" style="width:632px" name="data[message]"></textarea></span>
+					</div>
+					<div class="mod_btn" style="text-align:right;"><button class="submit" onclick="submitForm('ajaxForm');return false;">提&nbsp;&nbsp;交</button></div>
+				</div>
+				</form>
+			</section>
+		</article>
+		{{include file="$WWW_PATH/footer.html"}}
+	</div>
 
-    {{include file="$WWW_PATH/footer.html"}}
-</div>
 
-{{include file="$WWW_PATH/floatdiv.html"}}
-{{*
-<div class="turnPage">
-	<a href="javascript:void(0);" class="mwIcon turnL">&#xf053;</a>
-    <a href="javascript:void(0);" class="mwIcon turnR">&#xf054;</a>
 </div>
-*}}
+{{include file="$WWW_PATH/floatbar.html"}}
+<script>
+requirejs( ["jquery","app","form" ,"submit"],function($){
+
+	$.setAjaxForm('#ajaxForm',function(response)
+	{
+	       if(response.result == 'fail') {
+
+	           if($.type(response.message) == 'object')
+	           {
+	               var str = new Array();
+	               for (ms in response.message)
+	               {
+	                   str.push(response.message[ms]);
+	               }
+	               alert(str.join('\n'));
+	           }
+
+	           if($.type(response.message) == 'string')
+	           {
+	               alert(response.message);
+	           }
+
+	       } else {
+	           alert(response.message);
+	           reloadme();
+	       }
+	});
+});
+
+function reloadme()
+{
+    location.reload();
+}
+
+function submitForm(id)
+{
+    $("#"+id).submit();
+}
+</script>
 </body>
 </html>

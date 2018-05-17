@@ -1,3 +1,0 @@
-<li {{if $modules == 'message'}}class="cu"{{/if}}><a href="{:U('customer/message/add/default.html')}">咨询留言<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'claim'}}class="cu"{{/if}}><a href="{:U('customer/claim/add/default.html')}">意见投诉<i class="mwIcon">&#xf105;</i></a></li>
-<li {{if $modules == 'accusation'}}class="cu"{{/if}}><a href="{:U('customer/accusation/add/default.html')}">网上举报<i class="mwIcon">&#xf105;</i></a></li>

@@ -6,7 +6,7 @@ class clsModForm extends clsAppForm {
           $this->rules = array (
                             "title" => array(
                                     "required" => true ,
-                                    "maxlength" => 40
+                                    "maxlength" => 200
                              ) ,
                             "content" => array(
                                     "required" => true ,
@@ -15,7 +15,7 @@ class clsModForm extends clsAppForm {
                                     "datetime" => true
                             ),
                             'keyword' => array(
-                                    "maxlength" => 40
+                                    "maxlength" => 200
                              )
                         );
 

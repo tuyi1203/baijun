@@ -1,0 +1,101 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+    <script src="{:T('js/jquery.imagePreview.1.0.js')}" type='text/javascript'></script>
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-list-ul'></i>&nbsp;{{$la.lawyer.common}}</strong>
+					<div class='panel-actions'><a href='{:U('core/lawyer/add/default.html')}' class="btn btn-primary"><i class="icon-plus"></i> {{$la.lawyer.create}}</a>
+				    </div>
+				</div>
+				<form id='listForm'
+                    action='{:U('core/lawyer/default/list.html')}' method='post'>
+				 <table class="table">
+                          <tfoot>
+                              <tr>
+                                <td class='w-100px'>&nbsp;{{$la.lawyer.department}}
+                                </td>
+                                <td colspan='5'>
+                                    <select name='data[department]' id='department' class='selectMode'>
+                                        {{html_options options=$department_options selected=$department_choose}}
+                                    </select>
+                                </td>
+                                </tr>
+                              <tr>
+                                <td class='w-100px'>&nbsp;{{$la.lawyer.name}}
+                                </td>
+                                <td colspan='5'>
+                                    <input type="text" name="data[name]" value="{{$name}}" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan='2'>&nbsp; <input type='submit' id='submit'
+                                    class='btn btn-primary' value='{{$la.lawyer.search}}'
+                                    data-loading='{{$la.lawyer.searching}}' />
+                                </td>
+                              </tr>
+                            </tfoot>
+                    </table>
+				{{if !empty($list)}}
+				  <table class='table table-hover table-striped tablesorter'>
+				    <thead>
+				      <tr>
+		                <th class='text-center w-60px'><div class='{{if $orderby=="id" and $sort=="desc"}}headerSortDown{{elseif $orderby=="id" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/id/sort/{{if $orderby == "id"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.article.id}}</a>
+				</div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="pinyin" and $sort=="desc"}}headerSortDown{{elseif $orderby=="pinyin" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/pinyin/sort/{{if $orderby == "pinyin"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.lawyer.pinyin}}</a>
+                </div></th>
+				        <th class='text-center'>{{$la.lawyer.name}}</th>
+				        <th class='text-center'>{{$la.lawyer.picture}}</th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="zhiwei" and $sort=="desc"}}headerSortDown{{elseif $orderby=="zhiwei" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/zhiwei/sort/{{if $orderby == "zhiwei"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.lawyer.zhiwei}}</a>
+                </div></th>
+				        <th class='text-center w-160px'><div class='{{if $orderby=="zhuanye" and $sort=="desc"}}headerSortDown{{elseif $orderby=="zhuanye" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/zhuanye/sort/{{if $orderby == "zhuanye"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.lawyer.zhanye}}</a>
+                </div></th>
+                       <th class='text-center w-160px'><div class='{{if $orderby=="jigou" and $sort=="desc"}}headerSortDown{{elseif $orderby=="jigou" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/jigou/sort/{{if $orderby == "jigou"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.lawyer.jigou}}</a>
+                </div></th>
+                        <th class='text-center w-160px'><div class='{{if $orderby=="department" and $sort=="desc"}}headerSortDown{{elseif $orderby=="department" and $sort=="asc"}}headerSortUp{{else}}header{{/if}}'><a href='{:U('core/lawyer/default/sort/currpage/{{$currpage}}/orderby/department/sort/{{if $orderby == "department"}}{{$activesorting}}{{else}}{{$sorting}}{{/if}}.html')}' >{{$la.lawyer.department}}</a>
+                </div></th>
+				        <!-- <th class='text-center w-160px'>{{$la.lawyer.createtime}}</a>
+				</div></th> -->
+				        <th class='text-center w-150px'>{{$la.actions}}</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    {{foreach from=$list item="kv"}}
+                        <tr>
+                        <td class='text-center'>{{$kv.id}}</td>
+                        <td class='text-center'>{{$kv.first_name_alpha|upper}}</td>
+                        <td class='text-center'>{{$kv.fullname}}</td>
+                        <td class='text-center'>
+                            <a target="_blank" class="preview" href="{{$kv.url}}"><img src="{{$kv.url}}"></a>
+                        </td>
+                        <td class='text-center'>{{$kv.zhiweiname}}</td>
+                        <td class='text-center'>{{$kv.zhuanyename}}</td>
+                        <td class='text-center'>{{$kv.branchname}}</td>
+                        <td class='text-center'>{{$kv.name}}</td>
+                        <!-- <td class='text-center'>{{$kv.createtime}}</td> -->
+                        <td class='text-center'>
+                          <a href='{:U('core/lawyer/edit/default/{{$kv.id}}.html')}' >{{$la.article.editor}}</a>
+			                <a href='{:U('core/lawyer/default/delete/{{$kv.id}}.json')}' class="deleter">{{$la.delete}}</a>
+                        </td>
+                        </tr>
+				    {{/foreach}}
+				          </tbody>
+				    <tfoot><tr><td colspan='9'>
+				    <div style='float:right; clear:none;' class='page form-inline'>
+				    {{$pagelink}}
+				        </div></td></tr></tfoot>
+				  </table>
+				  {{/if}}
+				  </form>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+</body>
+</html>

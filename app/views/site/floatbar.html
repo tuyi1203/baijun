@@ -1,0 +1,17 @@
+<figure class="floatcontact" id="_floatcontact">
+	<div class="contactbox" id="_contactBox">
+		<a href="javascript:void(0);" class="boxarr _noLoading {{if !($ishome)}}boxarr_close{{/if}}" id="_contactContrl"></a>
+		<div class="contact_branch">{{foreach from=$branches item="ls"}}<a href="{:U('jigou/default/default/default',array('id'=>{{$ls.id}}))}">{{$ls.name}}</a>{{/foreach}}
+		</div>
+		<div class="partion">
+			<dl><dt>咨询电话/Tel</dt><dd>86 23-6762 1818</dd></dl>
+			<dl>
+				<dt>语言/Language</dt>
+				<dd>
+					<a href="#" id="_languageLnk" class="language_link _noLoading">中文/Chinese</a>
+					<div class="hidelst" id="_hidelst"><a href="http://www.exceedon.net">中文/Chinese</a><a href="http://en.exceedon.net">英文/English</a><!-- <a href="#">德文/German</a> --></div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</figure>

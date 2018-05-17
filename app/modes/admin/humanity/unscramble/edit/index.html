@@ -1,0 +1,118 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/datepicker.html"}}
+	{{include file="$WWW_PATH/kindeditor.html"}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-edit'></i>&nbsp;{{$la.unscramble.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<!-- <form id='sortForm'
+					action='/chanzhieps/www/admin.php?m=slide&f=sort' method='post'>-->
+				<form id='ajaxForm'
+                    action='{:U('humanity/unscramble/edit/update.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+                          <th class='w-100px'>{{$la.unscramble.label}}</th>
+                          <td colspan='2'>
+                          <input type="text" name="data[label]" value="{{$label}}" id="label" class="form-control"/>
+                          </td>
+                       </tr>
+					   <tr>
+				          <th class='w-100px'>{{$la.unscramble.title}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='{{$title}}' class="form-control" />
+				          </td>
+				       </tr>
+				       <tr>
+                            <th>{{$la.unscramble.author}}</th>
+                          <td colspan='2' class="lawyerlist">
+                          <input type="hidden" id="authorid" value="{{$authorid}}" name="data[authorid]"/>
+                          {{html_radios options=$author_options name="data[authorflg]" labels=true label_ids=true selected=$author_choose class="authorflg"}}
+                          <input type="text" id="authorname" value="{{$authorname}}" name="data[authorname]" class='form-control' style="width:200px;display: inline-block;">
+                          <a class="btn btn-default" id="selectAuthBtn" href="{:U('common/lawyer/select/default.modal')}" role="button" data-toggle='modal'>{{if !empty($lawyerauthorname)}}{{$lawyerauthorname}}{{else}}{{$la.unscramble.selectlawyer}}{{/if}}</a>
+                            </td>
+                       </tr>
+				       <tr>
+                          <th>{{$la.unscramble.keyword}}</th>
+                          <td colspan='2'>
+                          <div class=""></div>
+                          <input type='text' name='data[keyword]' id='keyword' value='{{$keyword}}' class="form-control" />
+                          </td>
+                       </tr>
+                        <tr>
+                          <th>{{$la.unscramble.summary}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[summary]' id='summary' rows='2' class='form-control'>{{$summary}}</textarea>
+                            </td>
+                       </tr>
+                       <tr>
+                          <th class='w-100px'>{{$la.unscramble.lingyulabel}}</th>
+                          <td colspan='2'>
+                          <a class="btn btn-default label-btn" href="{:U('common/label/select/default.modal')}" role="button" data-toggle='modal'>{{if empty($desc)}}{{$la.unscramble.labelselect}}{{else}}{{$desc}}{{/if}}</a>
+                          <input type="hidden" name="data[id]" value="{{$id}}" />
+                          <input type="hidden" name="data[labelid]" value="{{$labelid}}" id="labelid"/>
+                          </td>
+                       </tr>
+                       <tr>
+                            <th>{{$la.unscramble.lawyer}}</th>
+                          <td colspan='2' class="lawyerlist">
+                          <input type="hidden" id="lawyers" value="{{$lawyers}}" />
+                          <a class="btn btn-default" href="{:U('common/lawyer/default/default.modal')}" role="button" data-toggle='modal'>{{$la.unscramble.addlawyer}}</a>
+                           <div class="zc_tags">
+                          {{if !empty($lawyers)}}
+                          {{foreach from=$lawyers item="ls"}}
+                             <label onclick="deletelawyer(this);">{{$ls.fullname}}<span>×</span><input type="hidden" value="{{$ls.id}}" name="data[lawyer][]"></label>
+                          {{/foreach}}
+                          {{else}}
+                             <label class="nolawyer">{{$la.unscramble.nolawyer}}</label>
+                          {{/if}}
+                          </div>
+                            </td>
+                       </tr>
+                       <tr>
+				          <th>{{$la.unscramble.content}}</th>
+				          <td colspan='2'>
+				          <div class="required required-wrapper"></div>
+				          <textarea name='data[content]' id='content' rows='10' class='form-control'>{{$content}}</textarea>
+				           </td>
+					   </tr>
+					   <tr>
+				          <th>{{$la.unscramble.publishtime}}</th>
+				          <td>
+				            <div class="input-append">
+				              <input type='text' name='data[publishtime]' id='publishtime' value='{{$publishtime}}' class='form-control date' style="width:200px;"/>
+				              <!-- <span class='unscramble-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span> -->
+				            </div>
+				          </td>
+				          <td><span class="help-inline">{{*$la.article.note.addedDate*}}</span></td>
+				        </tr>
+				        <tr>
+				          <th>{{$la.unscramble.status}}</th>
+				          <td>
+				          {{html_radios options=$status_options name="data[status]" labels=true label_ids=true selected=$status_choose}}
+						</td>
+				        </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'><input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('humanity/unscramble')}'">
+                          </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    <script type="text/javascript">var nolawyer="{{$la.unscramble.nolawyer}}";</script>
+    {{ex fn='exportJs'}}
+</body>
+</html>

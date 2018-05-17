@@ -1,0 +1,73 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+    {{include file="$WWW_PATH/kindeditor.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-edit'></i>  {{$la.subfield.edit}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('core/subfield/edit/update.json')}' method='post'>
+					<table class='table table-form'>
+						<tr>
+                          <th class='w-300px'>&nbsp;{{$la.subfield.pidchoose}}
+                          </td>
+                          <td class='col-md-5 col-xs-7'>
+                              <select name='data[pid]' id='pid' class="form-control" disabled="disabled">
+                                  {{html_options options=$pid_options selected=$pid_choose}}
+                              </select>
+                              <input type="hidden" name="data[id]" value="{{$id}}" />
+                          </td>
+                          <td>
+                          </td>
+                          </tr>
+					    <tr>
+				          <th class='col-md-2 col-xs-2'>{{$la.subfield.title}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[title]' id='title' value='{{$title}}' class="form-control" />
+				          </td>
+				          <td>
+				          </td>
+				       </tr>
+				       <tr>
+				          <th class='col-md-2 col-xs-2'>{{$la.subfield.entitle}}</th>
+				          <td class='col-md-5 col-xs-7'>
+				          <!--<div class="required required-wrapper"></div>-->
+				          <input type='text' name='data[entitle]' id='entitle' value='{{$entitle}}' class="form-control" />
+				          </td>
+				          <td>
+				          </td>
+				       </tr>
+                        <tr>
+                          <th>{{$la.subfield.label}}</th>
+                          <td colspan='2'>
+                          <textarea name='data[label]' id='label' rows='2' class='form-control'>{{$label}}</textarea>
+                            </td>
+                       </tr>
+                       <tr>
+				          <th>{{$la.subfield.desc}}</th>
+				          <td colspan='2'>
+				          <textarea name='data[desc]' id='desc' rows='15' class='form-control'>{{$desc}}</textarea>
+				           </td>
+					   </tr>
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default goback" value="{{$la.goback}}" onclick="location.href='{:U('core/subfield')}'">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+    {{ex fn='exportJs'}}
+</body>
+</html>

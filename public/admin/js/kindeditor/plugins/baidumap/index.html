@@ -16,7 +16,8 @@
 
 <body onload="initMap();">
   <!--百度地图容器-->
-  <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+  <!-- <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div> -->
+  <div style="height:550px;border:#ccc solid 1px;" id="dituContent"></div>
 </body>
 <script type="text/javascript">
 	function getParam(name) {
@@ -36,7 +37,7 @@
 			return;
 		}
 		var dituContent = document.getElementById('dituContent');
-		dituContent.style.width = widthParam + 'px';
+		//dituContent.style.width = widthParam + 'px';
 		dituContent.style.height = heightParam + 'px';
 
 		createMap();//创建地图

@@ -1,0 +1,249 @@
+{{include file="$WWW_PATH/header.html"}}
+<body>
+    {{include file="$WWW_PATH/datepicker.html"}}
+    {{include file="$WWW_PATH/kindeditor.html"}}
+    {{include file="$WWW_PATH/chosen.html"}}
+    {{include file="$WWW_PATH/top_menu.html"}}
+	<div class="clearfix">
+    {{include file="$WWW_PATH/left_menu.html"}}
+		<div class='col-md-10'>
+			<div class='panel'>
+				<div class='panel-heading'>
+					<strong><i class='icon-plus'></i>  {{$la.lawyer.create}}</strong>
+				</div>
+				<div class='panel-body'>
+				<form id='ajaxForm'
+                    action='{:U('core/lawyer/add/insert.json')}' method='post'>
+					<table class='table table-form'>
+					   <tr>
+				          <th class='col-md-1 col-xs-2 w-100px'>{{$la.lawyer.firstname}}</th>
+				          <td colspan="2">
+				          <div class="required required-wrapper"></div>
+				          <input type='text' name='data[firstname]' id='firstname' value='' onblur="changeName();" onkeypress="changeName();" class="form-control" />
+				          </td>
+				          <th class='col-md-1 col-xs-2'>{{$la.lawyer.lastname}}</th>
+                          <td colspan="2">
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[lastname]' id='lastname' value='' onblur="changeName();" onkeypress="changeName();" class="form-control" />
+                          </td>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.fullname}}</th>
+                          <td colspan="2">
+                          <input type='text' name='data[fullname]' id='fullname' value='' readonly="readonly" class="form-control" />
+                          </td>
+				       </tr>
+				       <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.pinyinfirst}}</th>
+                          <td colspan="2">
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[pinyinfirst]' id='pinyinfirst' value='' class="form-control" onkeyup="value=value.replace(/[^A-Za-z]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^A-Za-z]/g,''))" />
+                          </td>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.pinyinlast}}</th>
+                          <td colspan="2">
+                          <div class="required required-wrapper"></div>
+                          <input type='text' name='data[pinyinlast]' id='pinyinlast' value='' class="form-control"  onkeyup="value=value.replace(/[^A-Za-z]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^A-Za-z]/g,''))"/>
+                          </td>
+                       </tr>
+				      <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.picture}}</th>
+                          <td colspan="8">
+                            <div class="required required-wrapper"></div>
+                            <input type="file" class="form-control" tabindex="-1" id="files[]" name="files[]">
+                          </td>
+                          <td colspan="1">
+                            <label class="text-info">{{$la.lawyer.pictureinfo}}</label>
+                          </td>
+                       </tr>
+                       <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.worklanguage}}</th>
+                          <td colspan="9">
+                          <div class="required required-wrapper"></div>
+                           <select class="form-control chosen" multiple="multiple" id="worklanguage" name="data[worklanguage][]" style="display: none;">
+                            {{html_options options=$worklanguage_options selected=$worklanguage_choose}}
+                           </select>
+                            </td>
+                       </tr>
+				       <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.touxian}}</th>
+                          <td colspan="9">
+                            <input type='text' name='data[touxian]' id='touxian' value='' class="form-control"/>
+                          </td>
+                        </tr>
+                        <tr>
+                            <th class='col-md-1 col-xs-2'>{{$la.lawyer.desc}}</th>
+                            <td colspan="9">
+                                <div class="required required-wrapper"></div>
+                                <textarea  name='data[desc]' id='desc' value='' class="form-control" rows="4"/></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.zhiyelinian}}</th>
+                          <td colspan="9">
+                          <div class="required required-wrapper"></div>
+                            <textarea  name='data[zhiyelinian]' id='zhiyelinian' value='' class="form-control" rows="4"/></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                            <th class='col-md-1 col-xs-2'>{{$la.lawyer.jigou}}</th>
+                            <td colspan="2">
+                            <select name='data[branches]' id='department' class='selectMode form-control'>
+                                {{html_options options=$branches_options selected=$branches_choose}}
+                            </select>
+                            </td>
+                            <th>{{$la.lawyer.zhiwei}}</th>
+	                          <td colspan="2">
+	                            <select name='data[position]' id='position' class='selectMode form-control' >
+	                                {{html_options options=$position_options selected=$position_choose}}
+	                            </select>
+	                          </td>
+	                        <th class='col-md-1 col-xs-2'>{{$la.lawyer.zhuanye}}</th>
+                            <td colspan="3">
+                            <select name='data[field]' id='field' class='selectMode form-control' >
+                                {{html_options options=$field_options selected=$field_choose}}
+                            </select>
+                          </td>
+                          <tr>
+                          <th>{{$la.lawyer.department}}</th>
+                          <td colspan="2">
+                            <select name='data[department]' id='department' class='selectMode form-control' >
+                                {{html_options options=$department_options selected=$department_choose}}
+                            </select>
+                          </td>
+                           <th>{{$la.lawyer.rusheshijian}}</th>
+                          <td colspan="2">
+                            <div class="input-append">
+                              <input type='text' name='data[rusheshijian]' id='rusheshijian' value='{{$rusheshijian}}' class='form-control date' style="width:200px;"/>
+                              <!-- <span class='officenews-on'><button class="btn btn-default" type="button"><i class="icon-calendar"></i></button></span> -->
+                            </div>
+                          </td>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.erjizhuanye}}</th>
+                            <td colspan="3">
+                            <div class="required required-wrapper"></div>
+                            <select name='data[subfield]' id='subfield' class='selectMode form-control' >
+                                {{html_options options=$subfield_options selected=$subfield_choose}}
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.zhiyelingyu}}</th>
+                          <td colspan="9">
+                          <div class="required required-wrapper"></div>
+                            <input type='text' name='data[zhiyelingyu]' id='zhiyelingyu' value='' class="form-control"/>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.zhuanyezige}}</th>
+                          <td colspan="8">
+                          <div class="required required-wrapper"></div>
+                            <textarea  name='data[zhuanyezige]' id='zhuanyezige' value='' class="form-control" rows="4"/></textarea>
+                          </td>
+                          <td>
+                            <label class="text-info">{{$la.lawyer.zhuanyezigeinfo}}</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.daibiaoyeji}}</th>
+                          <td colspan="9">
+                            <textarea  name='data[daibiaoyeji]' id='daibiaoyeji' class="form-control" rows="12"/></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.daibiaokehu}}</th>
+                          <td colspan="9">
+                            <textarea  name='data[daibiaokehu]' id='daibiaokehu' class="form-control" rows="12"/></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.xueshuchengguo}}</th>
+                          <td colspan="9">
+                            <textarea  name='data[xueshuchengguo]' id='xueshuchengguo' class="form-control" rows="12"/></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class='col-md-1 col-xs-2'>{{$la.lawyer.qita}}</th>
+                          <td colspan="9">
+                            <textarea  name='data[qita]' id='qita' class="form-control" rows="12"/></textarea>
+                          </td>
+                        </tr>
+                        <tr>
+                            <th class='col-md-1 col-xs-2'>{{$la.lawyer.tel}}</th>
+                            <td colspan='2'>
+                            <input type='text' name='data[tel]' id='tel' value='' class="form-control" />
+                            </td>
+                            <th class='col-md-1 col-xs-2'>{{$la.lawyer.email}}</th>
+                            <td colspan='2'>
+                            <div class="required required-wrapper"></div>
+                            <input type='text' name='data[email]' id='email' value='' class="form-control" /></td>
+                            <th>{{$la.lawyer.sort}}</th>
+                            <td>
+                                <input type='text' name='data[sort]' id='sort' value='' class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class='col-md-1 col-xs-2 w-100px' >{{$la.lawyer.yuanshi}}</th>
+                            <td colspan='2'>
+                                {{html_radios options=$yuanshi_options name="data[yuanshi]" labels=true label_ids=true selected=$yuanshi_choose}}
+                            </td>
+                            <th class='col-md-1 col-xs-2'>{{$la.lawyer.suozhuren}}</th>
+                            <td colspan='2'>
+                                {{html_radios options=$suozhuren_options name="data[suozhuren]"  labels=true label_ids=true selected=$suozhuren_choose}}
+                            </td>
+                        </tr>
+                        <!--
+                        <tr>
+                          <th class='w-100px'>{{$la.lawyer.lock}}</th>
+                          <td class='w-p40'>
+                          {{html_radios options=$lock_options name="data[lock]" labels=true label_ids=true selected=$lock_choose}}
+                            </td><td></td>
+                       </tr>
+                        -->
+                       <!--
+                       <tr>
+                          <th class='w-100px'>{{$la.lawyer.status}}</th>
+                          <td class='w-p40'>
+                          <select name='data[status]' id='status' class='form-control chosen'>
+                            {{html_options options=$status_options selected=$status_choose}}
+                          </select>
+                            </td><td></td>
+                       </tr>
+                        -->
+						<tr>
+						 <th></th>
+                         <td colspan='2'> <input type='submit' id='submit' class='btn btn-primary' value='{{$la.save}}' data-loading='{{$la.loading}}' />
+                         &nbsp;&nbsp;&nbsp;<input type="button" onclick="location.href='{:U('core/lawyer')}'" value="{{$la.goback}}" class="btn btn-default goback">
+                         </td>
+                        </tr>
+					</table>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{include file="$WWW_PATH/footer.html"}}
+
+    {{ex fn='exportJs'}}
+    <script type="text/javascript">
+      $(function()
+      {
+        $(':radio').parent().addClass("radio-inline");
+      //  $(':checkbox').parent().addClass("checkbox-i  nline");
+
+        $('#field').change(function(){
+          $.get("{:U('admin/core/lawyer/add/getsubfieldlist/pid/','',false)}" + $('#field').val() + '.json' , null , function(result){
+              var result = eval('('+ result +')');
+                  console.log(result);
+                  if (result != '') {
+                    $('#subfield').find('option').remove();
+                    var option , data;
+                    data = result.data;
+                    // eval('var data = result.data');
+                    for (index in data) {
+                       option += '<option value="'+ index +'">' + data[index] + '</option>';
+                    }
+                    $('#subfield').append(option);
+                  }
+                });
+          });
+      });
+    </script>
+</body>
+</html>

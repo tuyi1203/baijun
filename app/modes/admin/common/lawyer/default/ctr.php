@@ -1,34 +1,27 @@
 <?php
 class clsCommonLawyerDefaultController extends clsAppController
-            implements IAction_default , IAction_delete , IAction_download , IAction_upload{
+            implements IAction_default , IAction_list , IAction_download , IAction_upload{
 
-    public $savePath = null;
-    public $webPath  = null;
-    public $now      = 0;
+//     public $savePath = null;
+//     public $webPath  = null;
+//     public $now      = 0;
 
-    public function __construct() {
-        parent::__construct();
-        $this->now = time();
-        $this->setSavePath(APATH_DATA_UPLOAD);
-        $this->setWebPath();
+//     public function __construct() {
+//         parent::__construct();
+//         $this->now = time();
+//         $this->setSavePath(APATH_DATA_UPLOAD);
+//         $this->setWebPath();
+//     }
+
+    //初始化
+    public function _default() {
     }
 
-    public function _default() {
-    	   $this->output->list = $this->model->getLawyerList();
-//         $model = new clsModModel($this->mdb , 'wc_file') ;
-//         $input = new stdClass();
-//         $input->objectid    = $this->input->objectid;
-//         $input->objecttype  = $this->input->objecttype;
-//         $list = $model->wc_file->getList($input);
-//         foreach ($list as $key => $value) {
-//             if(in_array(strtolower($value['ext']) , C('IMAGEEXTENSIONS'))) $list[$key]['isimage'] = '1';
-//             $list[$key]['url'] = $this->webPath . $value['url'];
-//         }
-
-//         $this->output->writeable = $this->checkSavePath();
-//         $this->output->list      = $list;
-//         $this->output->objectid  = $this->input->objectid;
-//         $this->output->objecttype= $this->input->objecttype;
+    //搜索律师
+    public function _list()
+    {
+    	$this->output->list = $this->model->getLawyerList($this->input->name);
+    	$this->output->lawyername = $this->input->name;
     }
 
     public function _upload() {
@@ -42,7 +35,6 @@ class clsCommonLawyerDefaultController extends clsAppController
         $files = $this->getUpload('files');
 
         if($files) {
-//             pr($files);
             if (! $this->saveUpload($this->input->objecttype, $this->input->objectid , $files)) {
                 $this->output->result  = "fail";
                 $this->output->message = $this->lang->savefail;

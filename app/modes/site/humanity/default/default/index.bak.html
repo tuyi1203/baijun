@@ -1,0 +1,165 @@
+{{include file="$WWW_PATH/header.html"}}
+<body id="index">
+{{include file="$WWW_PATH/leftbar.html"}}
+
+<div class="wrap" id="wrap">
+	<div class="index">
+		<section class="swiper-container">
+			<div class="swiper-wrapper">
+				{{foreach from=$slides item="ls"}}
+				<div class="swiper-slide" style="background-image:url({{$UPLOADURL}}{{$ls.url}});">
+					<div class="box">
+						<h6>{{$ls.title}}</h6>
+						<div class="txt">{{$ls.summary}}</div>
+						<div class="btn"><a href="{{$ls.link}}">+{{$ls.label}}</a></div>
+					</div>
+				</div>
+				{{/foreach}}
+				<!-- <div class="swiper-slide" style="background-image:url(../assets/img/swiper2.jpg);">
+					<div class="box">
+						<h6>投资德国研讨会</h6>
+						<div class="txt">百君律师事务所 德国Helf Pesch律师事务所</div>
+						<div class="btn"><a href="#">+浏览详情</a></div>
+					</div>
+				</div>
+				<div class="swiper-slide" style="background-image:url(../assets/img/swiper3.jpg);">
+					<div class="box">
+						<h6>投资德国研讨会</h6>
+						<div class="txt">百君律师事务所 德国Helf Pesch律师事务所</div>
+						<div class="btn"><a href="#">+浏览详情</a></div>
+					</div>
+				</div> -->
+			</div>
+			<div class="pagination"></div>
+		</section>
+		<div class="mask_bot"></div>
+		<div class="index_bot">
+			<div class="botdata clear">
+				<figcaption class="ldata_tit"><p><b><a href="{:U('news/officenews/default')}" class="link">事务所新闻</a></b></p><a href="javascript:void(0);" class="_noLoading"><i onclick="refresh();return false;"></i></a></figcaption>
+					<figure class="ldata">
+					<div class="ldata_lst">
+						<ul>
+						{{foreach from=$officenews item="ls"}}
+							<li>
+								<dl>
+									<dt><a href="{:U('news/officenews/detail/default',array('id'=>{{$ls.id}}))}"><h6>{{$ls.title}}</h6><em>{{$ls.publishtime|substr:0:10}}</em></a></dt>
+									<dd>{{$ls.summary}}</dd>
+								</dl>
+							</li>
+						{{/foreach}}
+							<!-- <li>
+								<dl>
+									<dt><a href="#"><h6>彭园景律师:越努力,越幸运</h6><em>2016-08-08</em></a></dt>
+									<dd>西南政法大学法学学士、刑法学硕士,2011年加入百君,现为百君刑事辩护中心律师。 彭园景律师具有扎实的法学理论功底,曾在中文期刊(含核心期刊)上发表法学论文多篇</dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt><a href="#"><h6>彭园景律师:越努力,越幸运</h6><em>2016-08-08</em></a></dt>
+									<dd>西南政法大学法学学士、刑法学硕士,2011年加入百君,现为百君刑事辩护中心律师。 彭园景律师具有扎实的法学理论功底,曾在中文期刊(含核心期刊)上发表法学论文多篇</dd>
+								</dl>
+							</li> -->
+						</ul>
+					</div>
+				</figure>
+				<figure class="rdata">
+					<figcaption class="tit"><p><a href="{:U('news/performance/default')}" class="link">最新业绩</a></p></figcaption>
+					<ul>
+					{{foreach from=$yeji item="ls"}}
+						<li><a href="{:U('news/performance/detail/default',array('id'=>{{$ls.id}}))}">{{$ls.title}}</a></li>
+					{{/foreach}}
+						<!-- <li><a href="#">百君律师参与并圆满完成市人大委托规范性文百君律师参与并圆满完</a></li>
+						<li><a href="#">百君律师参与并圆满完成市人大委托规范性文百君律师参与并圆满完</a></li> -->
+					</ul>
+				<figure>
+			</div>
+			<div class="botmenu"><!--<a href="javascript:void(0);" class="_noLoading" id="_underlnk">了解更多</a>--><a href="javascript:void(0);" class="_noLoading">百君法律评论</a></div>
+		</div>
+
+	</div>
+</div>
+
+{{include file="$WWW_PATH/floatbar.html"}}
+
+<figure class="under" id="_under">
+	<div class="underbox">
+		<div class="underparent">
+			<a href="javascript:void(0);" class="_noLoading close" id="_closeunder">
+				<span>
+					<b></b>
+					<b></b>
+				</span>
+			</a>
+			<div class="bd">
+				<!--<div class="con">
+					<img src="{{$UPLOADURL}}{{$more.url}}" />
+				</div>-->
+				{{include file="$WWW_PATH/footer.html"}}
+			</div>
+		</div>
+	</div>
+</figure>
+
+<script>
+requirejs( ["jquery","swiper","app","cookie"],function($){
+	var mySwiper = new Swiper('.swiper-container',{
+		pagination: '.pagination',
+		height:window.innerHeight,
+		paginationClickable: true,
+		autoplay : 5000,
+		autoplayDisableOnInteraction : false,
+		height:'100%',
+		autoResize:true,
+		onlyExternal : true,
+		loop : true
+	});
+
+	//$('#wrap').pageinit({debuge:true});//页面初始化
+
+
+	$('#_underlnk').on('click',function(){
+		$('#_under').animate({'bottom':'0%'});
+	});
+	$('#_closeunder').on('click',function(){
+		$('#_under').animate({'bottom':'-110%'});
+	});
+
+	//something
+
+});
+
+function refresh()
+{
+	var times = $.cookie("baijun_news_refresh");
+	if ( isNaN(times)) {
+		times = 2 ;
+	} else {
+		times++;
+	}
+
+	$.get("{:U('home/default/default/news.json')}" , {time:times} , function(data){
+		var ul = $('.ldata_lst ul');
+		var dataobj = eval('('+ data +');');
+		var officenews = dataobj.officenews;
+		//alert(dataobj);
+		console.log(officenews);
+		ul.html('');
+		for (x in officenews) {
+			var html = "<li><dl>";
+			var link = '{:U('news/officenews/detail/default','',false)}' + '/id/' + officenews[x].id + '.html';
+			html += '<dt><a href="'+ link +'"><h6>'+officenews[x].title+'</h6><em>'+officenews[x].publishtime.substring(0,10)+'</em></a></dt><dd>'+officenews[x].summary+'</dd>';
+			html += "</dl></li>";
+			ul.append(html);
+		}
+		//console.log(data);
+	});
+
+	if (times == 5) {
+		times = 0;
+	}
+	$.cookie("baijun_news_refresh", times, { path: "/"});
+	//console.log()
+}
+</script>
+</body>
+</html>
