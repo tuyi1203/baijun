@@ -1,6 +1,6 @@
 
 requirejs.config({
-    baseUrl: "/public/site/mobile/js/",
+    baseUrl: "/public/site/mobile/js",
     urlArgs: 'bust=' + (new Date()).getTime(),
     waitSeconds: 0,
     paths: {
@@ -21,7 +21,7 @@ requirejs.config({
         },
         mmenu:{
             deps:['jquery'],
-            exports:'js/mmenu'
+            exports:'mmenu'
         }
     }
 });

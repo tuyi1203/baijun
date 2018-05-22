@@ -1,8 +1,8 @@
 /*
-	jQuery.mmenu CSS
+  jQuery.mmenu CSS
 */
 /*
-	jQuery.mmenu oncanvas CSS
+  jQuery.mmenu oncanvas CSS
 */
 .mm-hidden {
   display: none !important; }
@@ -70,7 +70,7 @@
   box-sizing: border-box;
   padding: 0 20px; }
   .mm-panels > .mm-panel.mm-hasnavbar {
-    padding-top: 40px; }
+   /* padding-top: 40px;*/ }
   .mm-panels > .mm-panel:before, .mm-panels > .mm-panel:after {
     content: '';
     display: block;
@@ -151,7 +151,7 @@ li.mm-vertical.mm-opened > .mm-panel {
 .mm-panel .mm-navbar {
   display: none; }
 .mm-panel.mm-hasnavbar .mm-navbar {
-  display: block; }
+  display: none; }
 
 .mm-listview,
 .mm-listview > li {
@@ -313,7 +313,7 @@ li.mm-vertical.mm-opened > .mm-panel {
     background: rgba(0, 0, 0, 0.05); }
 
 /*
-	jQuery.mmenu offcanvas addon CSS
+  jQuery.mmenu offcanvas addon CSS
 */
 .mm-page {
   box-sizing: border-box;
@@ -382,7 +382,7 @@ html.mm-opening .mm-slideout {
     -o-transform: translate(440px, 0);
     transform: translate(440px, 0); } }
 /*
-	jQuery.mmenu autoHeight addon CSS
+  jQuery.mmenu autoHeight addon CSS
 */
 .mm-menu.mm-autoheight {
   max-height: 80%; }
@@ -393,7 +393,7 @@ html.mm-opening .mm-slideout {
   height: auto !important; }
 
 /*
-	jQuery.mmenu counters addon CSS
+  jQuery.mmenu counters addon CSS
 */
 em.mm-counter {
   font: inherit;
@@ -427,7 +427,7 @@ em.mm-counter {
   color: rgba(0, 0, 0, 0.3); }
 
 /*
-	jQuery.mmenu dividers addon CSS
+  jQuery.mmenu dividers addon CSS
 */
 .mm-divider > span {
   text-overflow: ellipsis;
@@ -469,7 +469,7 @@ em.mm-counter {
   background: rgba(0, 0, 0, 0.05); }
 
 /*
-	jQuery.mmenu dragOpen addon CSS
+  jQuery.mmenu dragOpen addon CSS
 */
 html.mm-opened.mm-dragging .mm-menu,
 html.mm-opened.mm-dragging .mm-slideout {
@@ -480,7 +480,7 @@ html.mm-opened.mm-dragging .mm-slideout {
   transition-duration: 0s; }
 
 /*
-	jQuery.mmenu iconpanels addon CSS
+  jQuery.mmenu iconpanels addon CSS
 */
 .mm-iconpanel .mm-panel {
   -webkit-transition-property: -webkit-transform, left;
@@ -541,7 +541,7 @@ html.mm-opened.mm-dragging .mm-slideout {
   z-index: 3; }
 
 /*
-	jQuery.mmenu navbars addon CSS
+  jQuery.mmenu navbars addon CSS
 */
 .mm-menu > .mm-navbar {
   background: inherit;
@@ -669,7 +669,7 @@ html.mm-opened.mm-dragging .mm-slideout {
   width: 16.67%; }
 
 /*
-	jQuery.mmenu searchfield addon CSS
+  jQuery.mmenu searchfield addon CSS
 */
 .mm-search,
 .mm-search input {
@@ -729,7 +729,7 @@ li.mm-nosubresults > a.mm-next {
   color: rgba(0, 0, 0, 0.3); }
 
 /*
-	jQuery.mmenu sectionIndexer addon CSS
+  jQuery.mmenu sectionIndexer addon CSS
 */
 .mm-indexer {
   background: inherit;
@@ -768,7 +768,7 @@ li.mm-nosubresults > a.mm-next {
   color: rgba(0, 0, 0, 0.3); }
 
 /*
-	jQuery.mmenu toggles addon CSS
+  jQuery.mmenu toggles addon CSS
 */
 input.mm-toggle,
 input.mm-check {
@@ -868,7 +868,7 @@ em.mm-counter + a.mm-next + label.mm-toggle, em.mm-counter + a.mm-next + label.m
   border-color: rgba(0, 0, 0, 0.7); }
 
 /*
-	jQuery.mmenu borderstyle extension CSS
+  jQuery.mmenu borderstyle extension CSS
 */
 .mm-menu.mm-border-none .mm-listview > li:after,
 .mm-listview.mm-border-none > li:after {
@@ -883,7 +883,7 @@ em.mm-counter + a.mm-next + label.mm-toggle, em.mm-counter + a.mm-next + label.m
   right: 20px; }
 
 /*
-	jQuery.mmenu effects extension CSS
+  jQuery.mmenu effects extension CSS
 */
 .mm-menu.mm-effect-menu-zoom {
   -webkit-transition: -webkit-transform 0.4s ease;
@@ -1150,7 +1150,7 @@ html.mm-opening .mm-menu.mm-effect-listitems-drop .mm-panel.mm-opened .mm-listvi
   top: 0; }
 
 /*
-	jQuery.mmenu fullscreen extension CSS
+  jQuery.mmenu fullscreen extension CSS
 */
 .mm-menu.mm-fullscreen {
   width: 100%;
@@ -1208,7 +1208,7 @@ html.mm-opened.mm-fullscreen .mm-page {
   box-shadow: none !important; }
 
 /*
-	jQuery.mmenu multiline extension CSS
+  jQuery.mmenu multiline extension CSS
 */
 .mm-menu.mm-multiline .mm-listview > li > a,
 .mm-menu.mm-multiline .mm-listview > li > span,
@@ -1220,7 +1220,7 @@ html.mm-opened.mm-fullscreen .mm-page {
   white-space: normal; }
 
 /*
-	jQuery.mmenu pagedim extension CSS
+  jQuery.mmenu pagedim extension CSS
 */
 html.mm-pagedim #mm-blocker, html.mm-pagedim-white #mm-blocker, html.mm-pagedim-black #mm-blocker {
   opacity: 0; }
@@ -1235,7 +1235,7 @@ html.mm-pagedim-black #mm-blocker {
   background: #000; }
 
 /*
-	jQuery.mmenu pageshadow extension CSS
+  jQuery.mmenu pageshadow extension CSS
 */
 .mm-menu.mm-pageshadow:after {
   content: "";
@@ -1257,7 +1257,7 @@ html.mm-pagedim-black #mm-blocker {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
 
 /*
-	jQuery.mmenu position extension CSS
+  jQuery.mmenu position extension CSS
 */
 .mm-menu.mm-top,
 .mm-menu.mm-bottom {
@@ -1295,7 +1295,7 @@ html.mm-right.mm-opening .mm-slideout {
     -o-transform: translate(-440px, 0);
     transform: translate(-440px, 0); } }
 /*
-	jQuery.mmenu z-position extension CSS
+  jQuery.mmenu z-position extension CSS
 */
 html.mm-front .mm-slideout {
   -webkit-transform: none !important;
@@ -1349,7 +1349,7 @@ html.mm-opening .mm-menu.mm-front, html.mm-opening .mm-menu.mm-next {
   max-height: 880px; }
 
 /*
-	jQuery.mmenu themes extension CSS
+  jQuery.mmenu themes extension CSS
 */
 .mm-menu.mm-theme-dark {
   background: #333333;
@@ -1521,7 +1521,7 @@ html.mm-opening .mm-menu.mm-front, html.mm-opening .mm-menu.mm-next {
   background: #4bd963; }
 
 /*
-	jQuery.mmenu tileview extension CSS
+  jQuery.mmenu tileview extension CSS
 */
 .mm-menu.mm-tileview .mm-listview:after,
 .mm-menu .mm-tileview.mm-listview:after {

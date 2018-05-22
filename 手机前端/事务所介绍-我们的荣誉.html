@@ -19,29 +19,9 @@
 	<script src="assets/js/require.js"></script>
 	<script src="assets/js/main.js"></script>
 </head>
-<body class="ind">
-<div class="indexBn displayCenter">
-	<div class="indBox">
-		<div class="indLogo"><a href="javascript:void(0);"><img src="assets/img/ind_logo.png" /></a></div>
-		<div class="indSearch">
-			<a href="javascript:void(0);" id="_schBtn1"><span>查找律师</span></a>
-		</div>
-		<div class="indNav">
-			<ul>
-				<li><a href="javascript:void(0);">事务所介绍</a></li>
-				<li><a href="javascript:void(0);">专业领域</a></li>
-				<li><a href="javascript:void(0);">专业团队</a></li>
-				<li><a href="javascript:void(0);">百君微讯</a></li>
-				<li><a href="javascript:void(0);">英文版</a></li>
-			</ul>
-		</div>
-		<div class="indBtn"><a href="javascript:void(0);">百君分所</a></div>
-
-	</div>
-	<div class="downPageBtn"><a href="javascript:void(0);" class="icon">&#xe627;</a></div>
-</div>
-<div id="page" class="indPage">
-	<header class="indHeader ">
+<body>
+<div id="page" class="frontPage">
+	<header class="frontHeader">
 		<div class="headerBox displayCenter">
 			<div class="l"><a href="#menu" class="icon">&#xe613;</a></div>
 			<div class="c"><a href="首页.html"><img src="assets/img/head-logo.png"></a></div>
@@ -49,15 +29,24 @@
 		</div>
 	</header>
 	<div class="content">
-		<section class="indAbout">
-			<div class="hd"><h6>关于我们</h6></div>
-			<div class="bd">
-				<div class="part">
-					<div class="bn"><img src="assets/img/about-bn.jpg" /></div>
-					<div class="txt">
-						<p>重庆百君律师事务所是以曾执教于西南政法大学的孙渝先生和杨泽延先生为主要发起人的合伙制律师事务所，自一九九八年十二月创立以来，已取得骄人的业绩，是中国西部发展最为迅速和最具发展前景的综合性律师事务所之一。</p>
-						<div class="readMore"><a href="javascript:void(0);">了解更多</a></div>
-					</div>
+		<div class="banner" style="background-image:url(assets/img/bn-honor.jpg)">
+			<h6>百君荣誉</h6>
+		</div>
+		<section class="honor">
+			<div class="part">
+				<div class="txt">
+					<p>我们坚持专业理想，以卓越的法律服务赢得广泛信赖；我们以法律为信仰，日积月累，致力推动法治进步，收获众多荣誉。</p>
+				</div>
+				<div class="lst">
+					<ul class="clear">
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+					</ul>
 				</div>
 			</div>
 		</section>
@@ -88,7 +77,6 @@
 	<div class="layout displayCenter">
 		<div class="box">
 			<h6>查找律师</h6>
-
 			<div class="form">
 				<div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" /></div>
 				<div class="mod modSel"><span class="tips">办公地址不限</span><select><option>办公地址不限</option><option>重庆总部</option><option>合川分部</option><option>成都分部</option></select></div>
@@ -101,15 +89,12 @@
 				</div>
 				<div class="btns"><button class="redBtn">查找律师</button><button class="reset">重置条件</button></div>
 			</div>
-			
 		</div>
 	</div>
 </div>
 <script>
 require(["jquery","script","mmenu"], function($,script,mmenu){
 	script.fullPage('.indexBn');
-	script.indTouch('.indexBn','.indPage','.downPageBtn');
-	script.sch('#_schBtn1','#_sch','#_closeSch');
 	script.sch('#_schBtn2','#_sch','#_closeSch');
 	$('select').bind('change',function(){
 		var val = $(this).val();
