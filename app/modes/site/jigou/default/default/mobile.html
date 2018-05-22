@@ -1,0 +1,26 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url({:T('mobile/img/bn-fs.jpg')})">
+			<h6>百君分所</h6>
+		</div>
+		<section class="division">
+			<div class="part">
+				<div class="txt">
+					{{$detail.desc|htmlspecialchars_decode}}
+				</div>
+			</div>
+			<div class="botnav">
+				{{foreach from=$branches item="ls"}}<a href="{:U('jigou/default/default/default' , array('id'=>{{$ls.id}}))}" {{if $ls.id == $detail.id}}class="cu"{{/if}}><b>{{$ls.name}}</b></a>{{/foreach}}
+				</ul>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+    {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>

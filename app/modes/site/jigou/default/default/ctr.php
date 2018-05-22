@@ -15,9 +15,13 @@ class clsJigouDefaultDefaultController extends clsAppController
 
     private function _init()
     {
-		$data = $this->model->getDetail($this->input->id);
+        $branches = $this->model->getBranches();
+        if (!isset($this->input->id))
+        {
+            $this->input->id = $branches[0]->id;
+        }
+        $data = $this->model->getDetail($this->input->id);
 		$this->output->detail = $data;
-		$branches = $this->model->getBranches();
 		$this->output->branches = $branches;
 		$lawyers = $this->model->getRelationLawyer($this->input->id);
 		$this->output->lawyers = $lawyers;

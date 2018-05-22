@@ -15,7 +15,7 @@
 				<li><a href="javascript:void(0);">英文版</a></li>
 			</ul>
 		</div>
-		<div class="indBtn"><a href="javascript:void(0);">百君分所</a></div>
+		<div class="indBtn"><a href="{:U('jigou/default')}">百君分所</a></div>
 
 	</div>
 	<div class="downPageBtn"><a href="javascript:void(0);" class="icon">&#xe627;</a></div>
@@ -45,48 +45,6 @@
 	</div>
 {{include file="$WWW_PATH/mobile/menu.html"}}
 </div>
-<div class="schLayout" id="_sch">
-    <a href="javascript:void(0);" class="icon closeSch" id="_closeSch">&#xe6b9;</a>
-    <div class="layout displayCenter">
-        <div class="box">
-            <h6>查找律师</h6>
-
-            <div class="form">
-                <div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" /></div>
-                <div class="mod modSel"><span class="tips">办公地址不限</span><select><option>办公地址不限</option><option>重庆总部</option><option>合川分部</option><option>成都分部</option></select></div>
-                <div class="mod modSel"><span class="tips">部门不限</span><select><option>部门不限</option><option>刑辨中心</option><option>房地产事业部</option><option>刑辨中心</option></select></div>
-                <div class="modLetter mod">
-                    <h4>按律师姓名首字母查找</h4>
-                    <div class="lst">
-                        <a href="javascript:void(0);">A</a><a href="javascript:void(0);">B</a><a href="javascript:void(0);">C</a><a href="javascript:void(0);">D</a><a href="javascript:void(0);">E</a><a href="javascript:void(0);">F</a><a href="javascript:void(0);">G</a><a href="javascript:void(0);">H</a><a href="javascript:void(0);">J</a><a href="javascript:void(0);">K</a><a href="javascript:void(0);">L</a><a href="javascript:void(0);">M</a><a href="javascript:void(0);">N</a><a href="javascript:void(0);">O</a><a href="javascript:void(0);">P</a><a href="javascript:void(0);">Q</a><a href="javascript:void(0);">R</a><a href="javascript:void(0);">S</a><a href="javascript:void(0);">T</a><a href="javascript:void(0);">W</a><a href="javascript:void(0);">X</a><a href="javascript:void(0);">Y</a><a href="javascript:void(0);">Z</a>
-                    </div>
-                </div>
-                <div class="btns"><button class="redBtn">查找律师</button><button class="reset">重置条件</button></div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-<script>
-require(["jquery","script","mmenu"], function($,script,mmenu){
-	script.fullPage('.indexBn');
-
-    script.indTouch('.indexBn','.indPage','.downPageBtn');
-    script.sch('#_schBtn1','#_sch','#_closeSch');
-    script.sch('#_schBtn2','#_sch','#_closeSch');
-    $('select').bind('change',function(){
-        var val = $(this).val();
-        $(this).siblings('span.tips').text(val);
-    });
-
-    $('nav#menu').mmenu({
-        navbar: {
-            title: "导航"
-        }
-    }, {
-        //configuration
-    });//头部调用
-});
-</script>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
 </body>
 </html>
