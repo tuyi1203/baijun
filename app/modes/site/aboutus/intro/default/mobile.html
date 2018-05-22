@@ -1,0 +1,22 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url({:T('mobile/img/bn-about.jpg')})">
+			<h6>关于百君</h6>
+		</div>
+		<section class="about">
+			<div class="part">
+				<div class="txt">
+					{{$intro.content|htmlspecialchars_decode}}
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+   {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>
