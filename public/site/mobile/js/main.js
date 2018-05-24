@@ -1,6 +1,6 @@
 
 requirejs.config({
-    baseUrl: "/public/site/mobile/js",
+    baseUrl: "/public/site/mobile/js/",
     urlArgs: 'bust=' + (new Date()).getTime(),
     waitSeconds: 0,
     paths: {
@@ -8,6 +8,9 @@ requirejs.config({
         $: "jquery",
         script:'script',
         swiper:'swiper-3.4.2.jquery.min',
+        form:'form',
+        submit:'submit',
+        app:'app',
         mmenu:"mmenu"
     },
     shim: {
@@ -19,7 +22,19 @@ requirejs.config({
         	deps:['jquery'],
         	exports:'script'
         },
-        mmenu:{
+        form: {
+            deps:['jquery'],
+            exports:'form'
+        },
+        submit: {
+            deps:['jquery'],
+            exports:'submit'
+        },
+        app: {
+            deps:['jquery'],
+            exports:'app'
+        },
+         mmenu:{
             deps:['jquery'],
             exports:'mmenu'
         }

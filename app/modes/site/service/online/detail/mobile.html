@@ -1,0 +1,70 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url(assets/img/bn-contact.jpg)">
+			<h6>在线咨询</h6>
+		</div>
+		<section class="contact">
+			<div class="part">
+				<div class="txt">
+					<p>感谢您信任并选择百君，您的法律服务需求可以在此留言，我们会及时安排具备相关领域专长的律师为您回复。鉴于法律实务难易程度不同，多数问题无法简单处断，且与您切身权益关涉重大，我们建议您致电预约律师或直接前往百君总部及分所，以获取更全面、专业的建议与服务</p>
+				</div>
+				<div class="form">
+					<form action="{:U('service/online/detail/add.json')}" id="ajaxForm" >
+					<div class="tit">请留下您的联系方式，以便我们能联系上您</div>
+					<div class="mod"><input type="text" class="text" placeholder="您的姓名" name="data[name]"/></div>
+					<div class="mod"><input type="tel" class="text" placeholder="联系电话" name="data[tel]"/></div>
+					<div class="mod"><textarea class="textarea" placeholder="咨询信息" name="data[message]"></textarea></div>
+					<div class="btns"><button class="redBtn submit" onclick="submitForm('ajaxForm');return false;">提交</button></div>
+					</form>
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+   {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+<script>
+requirejs( ["jquery","app","form" ,"submit"],function($){
+
+	$.setAjaxForm('#ajaxForm',function(response)
+	{
+	       if(response.result == 'fail') {
+
+	           if($.type(response.message) == 'object')
+	           {
+	               var str = new Array();
+	               for (ms in response.message)
+	               {
+	                   str.push(response.message[ms]);
+	               }
+	               alert(str.join('\n'));
+	           }
+
+	           if($.type(response.message) == 'string')
+	           {
+	               alert(response.message);
+	           }
+
+	       } else {
+	           alert(response.message);
+	           reloadme();
+	       }
+	});
+});
+
+function reloadme()
+{
+    location.reload();
+}
+
+function submitForm(id)
+{
+    $("#"+id).submit();
+}
+</script>
+</body>
+</html>

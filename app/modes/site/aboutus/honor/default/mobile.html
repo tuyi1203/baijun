@@ -1,0 +1,37 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url(assets/img/bn-honor.jpg)">
+			<h6>百君荣誉</h6>
+		</div>
+		<section class="honor">
+			<div class="part">
+				<div class="txt">
+					<p>{{$content|nl2br}}</p>
+				</div>
+				<div class="lst">
+					<ul class="clear">
+						{{foreach from=$pics item="ls" name="list1"}}
+						{{foreach from=$ls item="ls2"}}
+						<li><img src="{{$UPLOADURL}}{{$ls2}}" /></li>
+						{{/foreach}}
+						{{/foreach}}
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+						<li><img src="assets/img/honor.jpg" /></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+    {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>
