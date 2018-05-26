@@ -14,7 +14,15 @@ class clsNewsOfficenewsDefaultController extends clsAppController
         $input->public     = "1";
         $recTotal = $this->model->getCount($input);
         if ($recTotal > 0) {
-            $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+            if ($this->isMobile())
+            {
+                $pager = new verticalpager($recTotal , self::recperpage , $currPage = 1);
+            }
+            else
+            {
+                $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+            }
+            // $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
             $input->objecttype = MODULES;
             $input->start = $pager->getRecStart();
             $input->end = $pager->getRecEnd();
@@ -24,6 +32,11 @@ class clsNewsOfficenewsDefaultController extends clsAppController
         $this->output->currpage = $currPage;
         $bannerurl = $this->model->getBanner();
         $this->output->bannerurl = $bannerurl;
+
+        if ($this->isMobile())
+        {
+            $this->saveCurrpage($currPage);
+        }
     }
 
     /**
@@ -58,7 +71,15 @@ class clsNewsOfficenewsDefaultController extends clsAppController
         $this->input->public = "1";
         $recTotal = $this->model->getCount($this->input);
         if ($recTotal > 0) {
-            $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
+            if ($this->isMobile())
+            {
+                $pager = new verticalpager($recTotal , self::recperpage , $this->input->currpage);
+            }
+            else
+            {
+                $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
+            }
+            // $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
             if (isset($this->input->lawyer)) {
                 $pager->setParams(array('lawyer'=>$this->input->lawyer));
             }
@@ -70,6 +91,22 @@ class clsNewsOfficenewsDefaultController extends clsAppController
 
         $this->output->list = $list ;   
         $this->output->currpage = $this->input->currpage;
+
+        if ($this->isMobile())
+        {
+            $this->smarty->setTpl('pagelink.parts.html') ;
+            $this->saveCurrpage($this->input->currpage);
+        }
+    }
+
+    private function saveCurrpage($page)
+    {
+        $this->session->subSetValue( __FILE__.'currpage' , $page);
+    }
+
+    private function loadCurrpage()
+    {
+        return $this->session->fncGetValue(__FILE__.'currpage');
     }
 
 }

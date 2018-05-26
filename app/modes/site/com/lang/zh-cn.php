@@ -312,6 +312,8 @@ $lang->link->total    = '<div class="l"><em class="green">%s</em>/%s</div>';
 $lang->link->current  = "页面：<strong>%s/%s</strong>";
 $lang->link->recperpagelist ="，每页 <strong>%s</strong>条";
 $lang->link->locate = "GO!";
+$lang->link->loadmore = "加载更多";
+$lang->link->nomore = "没有了";
 
 
 //messagebox 留言框

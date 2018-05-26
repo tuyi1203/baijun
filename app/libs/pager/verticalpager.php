@@ -225,7 +225,7 @@ class verticalpager {
         $this->calc($this->recTotal , $this->currPage);
 
         $l_aHtml = array();
-        $l_aHtml[] = '<div class="loadMore">';
+        $l_aHtml[] = '<div class="more">';
 //         $l_aHtml[] = $this->createTotal();
 //         $l_aHtml[] = $this->createPrevPage();
 //         $l_aHtml[] = $this->createRange();
@@ -290,16 +290,40 @@ class verticalpager {
      * @access private
      * @return string
      */
+//     private function createRecPerPageJS()
+//     {
+//         $js  = <<<EOT
+//         <script language='Javascript'>
+//         function loadPage(link)
+//         {
+//         	$.get(link , null , function(data){
+//         		$('table tbody').append($(data).find('tbody').html()) ;
+// 				$('tfoot td').html($(data).find('.loadMore').html());
+//     		});
+//         }
+
+//         </script>
+// EOT;
+//         return $js;
+//     }
+
+        /**
+     * Create the select object of record perpage.
+     *
+     * @access private
+     * @return string
+     */
     private function createRecPerPageJS()
     {
         $js  = <<<EOT
-        <script language='Javascript'>
+        <script>
         function loadPage(link)
         {
-        	$.get(link , null , function(data){
-        		$('table tbody').append($(data).find('tbody').html()) ;
-				$('tfoot td').html($(data).find('.loadMore').html());
-    		});
+            $.get(link , null , function(data){
+                $('.more').remove();
+                $('ul').append($(data).find('data').html()) ;
+                $(data).find('.more').insertAfter('ul');
+            });
         }
 
         </script>

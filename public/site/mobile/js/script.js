@@ -99,9 +99,24 @@ define(["jquery"],function (){
 		})
 	}
 
+	var personLst = function(ele){
+		var $ele = $(ele);
+		$ele.find('dt').bind('click',function(){
+			var $dl = $(this).parents('dl');
+			if($dl.hasClass('open')){
+				$dl.removeClass('open');
+				$dl.find('dd').slideUp();
+			}else{
+				$dl.siblings('dl').removeClass('open').find('dd').slideUp();
+				$dl.addClass('open').find('dd').slideDown();
+			}
+		})
+	}
+
 	//script.nav = nav;
 	script.fullPage = fullPage;
 	script.indTouch = indTouch;
 	script.sch = sch;
+	script.personLst = personLst;
 	return script;
 });

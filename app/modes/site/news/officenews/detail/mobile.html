@@ -1,0 +1,24 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url({:T('mobile/img/bn-news.jpg')});">
+			<h6>百君微讯</h6>
+		</div>
+		<section class="newsinfo">
+			<div class="part">
+				<h1>{{$detail.title}}</h1>
+				<div class="date">{{$detail.publishtime|substr:"0":"10"}}</div>
+				<div class="info">
+					{{$nofilter.content}}
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+    {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>

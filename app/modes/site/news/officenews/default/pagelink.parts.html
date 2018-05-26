@@ -1,0 +1,20 @@
+<root>
+ <data>
+     {{foreach from=$list item="ls"}}
+	    <li>
+			<a href="{:U('news/officenews/detail',array("id"=>{{$ls.id}}))}" target="_blank">
+				<dl>
+					<dt><img src="{{$UPLOADURL}}{{$ls.url}}" /></dt>
+					<dd>
+						<p class="tit">{{$ls.title}}</p>
+						<p class="date">{{$ls.publishtime|substr:"0":"10"}}</p>
+					</dd>
+				</dl>
+			</a>
+		</li>
+    {{/foreach}}
+ </data>
+ <pagelink>
+    {{$pagelink}}
+ </pagelink>
+</root>

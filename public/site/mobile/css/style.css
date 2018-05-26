@@ -120,7 +120,7 @@ section .hd h6:before{position:absolute;content:'';height:.1rem;width:60%;top:0;
 	transform:translate(-50%,0);
 }
 section .bd{padding:10% 0 0;}
-.part{border-radius:.1rem;}
+.part{}
 
 footer{background-image:url(../img/footer.jpg);background-size:cover;background-repeat: no-repeat;background-position:50% 50%;padding:10% 0;}
 footer .logo{margin-bottom:5%;}
@@ -228,7 +228,7 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 .indAbout .part .bn{}
 .indAbout .part .bn img{width:100%;display:block;}
 .indAbout .part .txt{padding:5%;background:#f4f4f4;}
-.indAbout .part .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.indAbout .part .txt p{text-indent:2em;margin-bottom:5%;color:#666;font-size:.3rem;line-height:1.6;}
 .indAbout .part .readMore{}
 .indAbout .part .readMore a{width:100%;background:#da5050;color:#fff;height:1rem;line-height:1rem;position:relative;z-index:1;text-align:center;font-size:.4rem;display:block;border-radius: .1rem;}
 .indAbout .part .readMore a:after{position:absolute;content: "\e612";font-family:'iconfont';font-size:.5rem;color:#fff;right:5%;top:0;}
@@ -239,13 +239,13 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 .about{}
 .about .bn img{width:100%;display:block;}
 .about .txt{padding:5%;background:#f4f4f4;}
-.about .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.about .txt p{text-indent:2em;margin-bottom:5%;color:#666;font-size:.3rem;line-height:1.6;}
 .about .txt p:last-child{margin-bottom:0;}
 
 /*我们的荣誉*/
 .honor{}
 .honor .txt{padding:5%;background:#f4f4f4;margin-bottom:5%;}
-.honor .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.honor .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.3rem;line-height:1.6;}
 .honor .txt p:last-child{margin-bottom:0;}
 .honor .lst{}
 .honor .lst ul li{float:left;width:50%;margin-bottom:5%;}
@@ -253,7 +253,7 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 
 /*联系我们*/
 .contact .txt{padding:5%;margin-bottom:5%;border-bottom:1px dashed #dadada;}
-.contact .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.contact .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.3rem;line-height:1.6;}
 .contact .txt p:last-child{margin-bottom:0;}
 .contact .form{}
 .contact .form .tit{margin-bottom:5%;text-align:center;}
@@ -294,3 +294,86 @@ overflow-x:scroll;list-style-type: none;display:-webkit-box;display:-webkit-flex
 .botnav a:last-child:after{display:none;}
 .botnav a.cu:before{content:'';display:block;width:80%;height:.6rem;background:#2993c7;border-radius: .1rem;position:absolute;left:50%;top:50%;margin-top:-.3rem;margin-left:-40%;z-index:1;}
 .botnav a b{font-weight:normal;position:relative;z-index:2;}
+
+/*律师团队-列表*/
+section.teams{padding:0;}
+.teams .ret{background:#f1f1f1;padding:5%;}
+.teams .ret dl dt{font-size:.35rem;margin-bottom:5%;}
+.teams .ret dl dd{}
+.teams .ret dl dd a{display:inline-block;border:1px solid #dadada;border-radius: .1rem;position:relative;z-index:1;height:.8rem;line-height:.8rem;padding:0 3%;background:#fff;margin:0 3% 5% 0;}
+.teams .ret dl dd a:after{position:absolute;content: "\e6b9";z-index:2;right:-.15rem;top:-.15rem;border-radius: 50%;font-size:.25rem;background:#bb2d2d;color:#fff;width:.4rem;height:.4rem;line-height:.4rem;font-family:'iconfont';text-align:center;}
+.teams .ret dl dd b{font-weight:normal;color:#bc3131;margin:0 3%;}
+
+.teams .lst{margin-bottom:5%;}
+.teams .lst ul{margin-bottom:5%;}
+.teams .lst ul li{}
+.teams .lst ul li a{padding:10% 5%;display:block;position:relative;z-index:1;border-bottom:1px dashed #dadada;}
+
+.teams .lst ul li:last-child a{border-bottom:0;}
+.teams .lst ul li a dl dt{position:absolute;width:25%;left:5%;top:50%;
+	-webkit-transform:translate(0,-50%);
+	-moz-transform:translate(0,-50%);
+	-o-transform:translate(0,-50%);
+	-ms-transform:translate(0,-50%);
+	transform:translate(0,-50%);
+}
+.teams .lst ul li:nth-child(even) a{background:#f9f9f9;}
+.teams .lst ul li a:hover{background:#f1f1f1;}
+.teams .lst ul li a dl dt img{display:block;width:100%;}
+.teams .lst ul li a dl dd{padding-left:35%;}
+.teams .lst ul li a dl dd p{font-size:.35rem;color:#999;}
+.teams .lst ul li a dl dd p.t{margin-bottom:5%;}
+.teams .lst ul li a dl dd p.t b{font-weight:normal;color:#015f8d;margin-right:5%;font-size:.4rem;}
+.teams .lst ul li a dl dd p.t em{color:#666;font-size:.35rem;}
+.teams .lst .more{width:90%;margin:0 auto;}
+.teams .lst .more a{width:100%;text-align:center;border:1px solid #dadada;border-radius: .1rem;height:1rem;line-height:1rem;background:#fff;display:inline-block;color:#414141;}
+.teams .lst .more a.un{background:#eee;color:#bbb;border-color:#eee;}
+
+/*律师详情*/
+section.person{padding:0;}
+.person .image {position:relative;z-index:1;}
+.person .image .pic{}
+.person .image .pic img{width:100%;display:block;}
+.person .image .txt{position:absolute;left:5%;bottom:5%;width:90%;background:rgba(0,0,0,.65);color:#fff;padding:5%;border-radius: .1rem;}
+.person .image .txt p:after{clear:both;content:'';display:block;}
+.person .image .txt p{margin-bottom:3%;}
+.person .image .txt p.t{margin-bottom:5%;}
+.person .image .txt p b{font-size:.4rem;margin:0 5% 0 0;font-weight:normal;}
+.person .info{margin:5%;padding:5%;background:#f9f9f9;border-radius: .1rem;line-height:1.6;font-size:.3rem;}
+.person .lst{margin:0 5% 5%;}
+.person .lst dl{margin-bottom:5%;background:#f9f9f9;border-radius: .1rem;border:1px solid #dadada;}
+.person .lst dl dt{position:relative;z-index:1;padding:5%;font-size:.4rem;}
+.person .lst dl dt:after{position:absolute;z-index:1;content:'\e600';display:block;font-family:'iconfont';right:5%;top:50%;color:#005e8c;transition: all .3s;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;
+	-webkit-transform:translate(0,-50%);
+	-moz-transform:translate(0,-50%);
+	-o-transform:translate(0,-50%);
+	-ms-transform:translate(0,-50%);
+	transform:translate(0,-50%);
+}
+.person .lst dl dd{border-top:1px solid #dadada;margin:0 5%;padding:5% 0;display:none;line-height:1.6;}
+.person .lst dl.open dt:after{-webkit-transform:translate(0,-50%) rotate(90deg);-moz-transform:translate(0,-50%) rotate(90deg);-ms-transform:translate(0,-50%) rotate(90deg);transform:translate(0,-50%) rotate(90deg);}
+
+/*专业领域列表*/
+.fieldlist{}
+.fieldlist .lst{}
+.fieldlist .lst ul li{float:left;width:50%;margin-bottom:5%;}
+.fieldlist .lst ul li .box{margin:0 5%;border:1px solid #dadada;border-radius: .1rem;height:3rem;}
+.fieldlist .lst ul li .layout{}
+.fieldlist .lst ul li .layout .pic img{width:60%;display:block;margin:0 auto;}
+.fieldlist .lst ul li .layout .tit{font-size:.35rem;height:1.1rem;margin-bottom:5%;}
+/*专业领域详情*/
+.fieldinfo{}
+.fieldinfo .txt{padding:5%;background:#f4f4f4;margin-bottom:5%;}
+.fieldinfo .txt p{text-indent:2em;margin-bottom:5%;color:#666;font-size:.3rem;line-height:1.6;}
+.fieldinfo .txt p:last-child{margin-bottom:0;}
+.fieldinfo .subset{margin-bottom:5%;}
+.fieldinfo .subset ul li{float:left;width:48%;margin-bottom:5%;}
+.fieldinfo .subset ul li:nth-child(odd){margin-right:4%;}
+.fieldinfo .subset ul li span{border:1px solid #dadada;border-radius: .1rem;height:1.4rem;border:1px solid #dadada;
+}
+.fieldinfo .bd{padding-top:5%;}
+.fieldinfo .bd ul li a{display:block;padding:5%;border-bottom:1px dashed #dadada;}
+.fieldinfo .bd ul li:last-child a{border:0;}
+.fieldinfo .bd ul li p{color:#666666;}
+.fieldinfo .bd ul li p.t{margin-bottom:3%;}
+.fieldinfo .bd ul li p.t b{font-weight:normal;color:#015f8d;font-size:.4rem;margin:0 5% 0 0;}
