@@ -1,0 +1,85 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url({:T('mobile/img/bn-field.jpg')})">
+			<h6>专业领域</h6>
+		</div>
+		<section class="fieldlist">
+			<div class="part">
+				<div class="lst">
+					<ul class="clear">
+						{{foreach from=$leftbarlist item="ls"}}
+						<li>
+							<a href="{:U('core/field/detail/default',array('id'=>{{$ls.id}}))}">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="{{$UPLOADURL}}{{$ls.url}}" /></div>
+										<div class="tit">{{$ls.title}}</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						{{/foreach}}
+						<!-- <li>
+							<a href="javascript:void(0);">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="assets/img/icon-2.png" /></div>
+										<div class="tit">财税法律事务</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="assets/img/icon-3.png" /></div>
+										<div class="tit">房地产与建设工程法律事务</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="assets/img/icon-4.png" /></div>
+										<div class="tit">行政法律事务</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="assets/img/icon-5.png" /></div>
+										<div class="tit">婚姻家庭法律事务</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<div class="box displayCenter">
+									<div class="layout">
+										<div class="pic"><img src="assets/img/icon-6.png" /></div>
+										<div class="tit">金融法律事务</div>
+									</div>
+								</div>
+							</a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+    {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>
