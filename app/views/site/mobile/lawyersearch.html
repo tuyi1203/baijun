@@ -5,15 +5,18 @@
             <h6>查找律师</h6>
 
             <div class="form">
-                <div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" /></div>
-                <div class="mod modSel"><span class="tips">办公地址不限</span><select><option>办公地址不限</option><option>重庆总部</option><option>合川分部</option><option>成都分部</option></select></div>
-                <div class="mod modSel"><span class="tips">部门不限</span><select><option>部门不限</option><option>刑辨中心</option><option>房地产事业部</option><option>刑辨中心</option></select></div>
                 <div class="modLetter mod">
                     <h4>按律师姓名首字母查找</h4>
                     <div class="lst">
-                        <a href="javascript:void(0);">A</a><a href="javascript:void(0);">B</a><a href="javascript:void(0);">C</a><a href="javascript:void(0);">D</a><a href="javascript:void(0);">E</a><a href="javascript:void(0);">F</a><a href="javascript:void(0);">G</a><a href="javascript:void(0);">H</a><a href="javascript:void(0);">J</a><a href="javascript:void(0);">K</a><a href="javascript:void(0);">L</a><a href="javascript:void(0);">M</a><a href="javascript:void(0);">N</a><a href="javascript:void(0);">O</a><a href="javascript:void(0);">P</a><a href="javascript:void(0);">Q</a><a href="javascript:void(0);">R</a><a href="javascript:void(0);">S</a><a href="javascript:void(0);">T</a><a href="javascript:void(0);">W</a><a href="javascript:void(0);">X</a><a href="javascript:void(0);">Y</a><a href="javascript:void(0);">Z</a>
+                        {{foreach from=$alphas item="ls"}}
+                            <a href="{:U('core/person/default/search',array('alpha'=>{{$ls.value}}))}"{{if (strtolower($ls.value) == strtolower($alpha))}}class="cu"{{/if}}>{{$ls.value}}</a>
+                        {{/foreach}}
+                     <!--    <a href="javascript:void(0);">A</a><a href="javascript:void(0);">B</a><a href="javascript:void(0);">C</a><a href="javascript:void(0);">D</a><a href="javascript:void(0);">E</a><a href="javascript:void(0);">F</a><a href="javascript:void(0);">G</a><a href="javascript:void(0);">H</a><a href="javascript:void(0);">J</a><a href="javascript:void(0);">K</a><a href="javascript:void(0);">L</a><a href="javascript:void(0);">M</a><a href="javascript:void(0);">N</a><a href="javascript:void(0);">O</a><a href="javascript:void(0);">P</a><a href="javascript:void(0);">Q</a><a href="javascript:void(0);">R</a><a href="javascript:void(0);">S</a><a href="javascript:void(0);">T</a><a href="javascript:void(0);">W</a><a href="javascript:void(0);">X</a><a href="javascript:void(0);">Y</a><a href="javascript:void(0);">Z</a> -->
                     </div>
                 </div>
+                <div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" /></div>
+                <div class="mod modSel"><span class="tips">办公地址不限</span><select name="data[jigou]">{{html_options options=$jigou_options selected=$sess.jigou}}</select></div>
+                <div class="mod modSel"><span class="tips">专业领域不限</span><select name="data[zhuanye]">{{html_options options=$zhuanye_options selected=$sess.zhuanye}}</select></div>
                 <div class="btns"><button class="redBtn">查找律师</button><button class="reset">重置条件</button></div>
             </div>
             
@@ -28,7 +31,7 @@ require(["jquery","script","mmenu"], function($,script,mmenu){
     script.sch('#_schBtn1','#_sch','#_closeSch');
     script.sch('#_schBtn2','#_sch','#_closeSch');
     $('select').bind('change',function(){
-        var val = $(this).val();
+        var val = $(this).find('option:selected').text();
         $(this).siblings('span.tips').text(val);
     });
 

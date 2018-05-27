@@ -1,0 +1,20 @@
+<root>
+ <data>
+     {{foreach from=$lawyers item="ls"}}
+	<li>
+		<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank">
+			<dl>
+				<dt><img src="{{$UPLOADURL}}{{$ls.url}}" /></dt>
+				<dd>
+					<p class="t"><b>{{$ls.fullname}}</b><em>{{$ls.positionname}}</em></p>
+					<p>执业领域：{{$ls.zhiyelingyu}}</p>
+				</dd>
+			</dl>
+		</a>
+	</li>
+	{{/foreach}}
+ </data>
+ <pagelink>
+    {{$pagelink}}
+ </pagelink>
+</root>

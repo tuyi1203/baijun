@@ -1,0 +1,110 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<div class="banner" style="background-image:url({:T('mobile/img/bn-teams.jpg')})">
+			<h6>律师团队</h6>
+		</div>
+		<section class="teams">
+			<div class="part">
+				{{if !empty($searchcond)}}
+				<div class="ret">
+					<dl>
+						<dt>检索条件</dt>
+							<dd>
+								{{foreach from=$searchcond item="ls"}}
+								<a href="{:U('core/person/default/search',array('searchunset'=>{{$ls.unset}}))}">{{$ls.type}}</a>
+								{{/foreach}}
+							</dd>
+							<!-- <dd><a href="javascript:void(0);">重庆总部</a><a href="javascript:void(0);">事务所主任</a><a href="javascript:void(0);">公司法律事务</a><a href="javascript:void(0);">重庆总部</a><a href="javascript:void(0);">事务所主任</a><a href="javascript:void(0);">公司法律事务</a></dd> -->
+						<dd>已找到律师<b>{{$all}}</b>人</dd>
+					</dl>
+				</div>
+				{{/if}}
+				<div class="lst">
+					{{if $all > 0}}
+					<ul class="clear">
+						{{foreach from=$lawyers item="ls"}}
+						<li>
+							<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank">
+								<dl>
+									<dt><img src="{{$UPLOADURL}}{{$ls.url}}" /></dt>
+									<dd>
+										<p class="t"><b>{{$ls.fullname}}</b><em>{{$ls.positionname}}</em></p>
+										<p>执业领域：{{$ls.zhiyelingyu}}</p>
+									</dd>
+								</dl>
+							</a>
+						</li>
+						{{/foreach}}
+						<!-- <li>
+							<a href="javascript:void(0);">
+								<dl>
+									<dt><img src="assets/img/team.jpg" /></dt>
+									<dd>
+										<p class="t"><b>孙渝</b><em>事务所主任</em></p>
+										<p>执业领域：刑事辩护、公司法律事务</p>
+									</dd>
+								</dl>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<dl>
+									<dt><img src="assets/img/team.jpg" /></dt>
+									<dd>
+										<p class="t"><b>孙渝</b><em>事务所主任</em></p>
+										<p>执业领域：刑事辩护、公司法律事务</p>
+									</dd>
+								</dl>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<dl>
+									<dt><img src="assets/img/team.jpg" /></dt>
+									<dd>
+										<p class="t"><b>孙渝</b><em>事务所主任</em></p>
+										<p>执业领域：刑事辩护、公司法律事务</p>
+									</dd>
+								</dl>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<dl>
+									<dt><img src="assets/img/team.jpg" /></dt>
+									<dd>
+										<p class="t"><b>孙渝</b><em>事务所主任</em></p>
+										<p>执业领域：刑事辩护、公司法律事务</p>
+									</dd>
+								</dl>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<dl>
+									<dt><img src="assets/img/team.jpg" /></dt>
+									<dd>
+										<p class="t"><b>孙渝</b><em>事务所主任</em></p>
+										<p>执业领域：刑事辩护、公司法律事务</p>
+									</dd>
+								</dl>
+							</a>
+						</li> -->
+					</ul>
+					{{$pagelink}}
+					<!-- <div class="more"><a href="javascript:void(0);">加载更多</a></div>
+					<div class="more"><a href="javascript:void(0);" class="un">没有更多了</a></div> -->
+					{{/if}}
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+    {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+</body>
+</html>

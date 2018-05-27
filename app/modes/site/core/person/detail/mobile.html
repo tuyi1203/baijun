@@ -1,0 +1,56 @@
+{{include file="$WWW_PATH/mobile/header.html"}}
+<body>
+<div id="page" class="frontPage">
+	{{include file="$WWW_PATH/mobile/frontheader.html"}}
+	<div class="content">
+		<section class="person">
+			<div class="part">
+				<div class="image">
+					<div class="pic"><img src="{{$UPLOADURL}}{{$detail.url}}" /></div>
+					<div class="txt">
+						<p class="t"><b>{{$detail.fullname}}</b><em>{{$detail.touxian}}</em></p>
+						<p><i>电子邮箱：</i><span>{{$detail.email}}</span></p>
+						<p><i>办公机构：</i><span>{{$detail.jigouname}}</span></p>
+						<p><i>执业领域：</i><span>{{$detail.zhiyelingyu}}</span></p>
+					</div>
+				</div>
+				<div class="info">
+					<p>{{$detail.desc}}</p>
+				</div>
+				<div class="lst" id="_lst">
+					<ul>
+						<dl>
+							<dt>代表业绩</dt>
+							<dd>{{$detail.daibiaoyeji|htmlspecialchars_decode}}</dd>
+						</dl>
+						<dl>
+							<dt>代表客户</dt>
+							<dd>{{$detail.daibiaokehu|htmlspecialchars_decode}}</dd>
+						</dl>
+						<dl>
+							<dt>学术成果</dt>
+							<dd>{{$detail.xueshuchengguo|htmlspecialchars_decode}}</dd>
+						</dl>
+						<dl>
+							<dt>其他</dt>
+							<dd>{{$detail.qita|htmlspecialchars_decode}}</dd>
+						</dl>
+					</ul>
+				</div>
+			</div>
+		</section>
+		{{include file="$WWW_PATH/mobile/footer.html"}}
+	</div>
+   {{include file="$WWW_PATH/mobile/menu.html"}}
+</div>
+{{include file="$WWW_PATH/mobile/lawyersearch.html"}}
+<script>
+require(["jquery","script","mmenu"], function($,script,mmenu){
+
+	script.personLst('#_lst');
+
+});
+</script>
+
+</body>
+</html>

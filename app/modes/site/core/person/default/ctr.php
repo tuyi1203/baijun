@@ -4,6 +4,20 @@ class clsCorePersonDefaultController extends clsAppController
 
     const recperpage = 15;//15条数据每页
 
+    public function __construct()
+    {
+        parent::__construct();
+        if (isset($this->input->searchunset))
+        {
+            $sess = unserialize($this->session->fncGetValue(__FILE__));
+            if (isset($sess[$this->input->searchunset]))
+            {
+                unset($sess[$this->input->searchunset]);
+            }
+            $this->session->subSetValue(__FILE__ , $sess);
+        }
+    }
+
 
     /**
      * 默认初始化页面方法
@@ -17,9 +31,17 @@ class clsCorePersonDefaultController extends clsAppController
         $input = new stdClass();
         $input->del = '0';
         $recTotal = $this->model->getCount($input);
-//        pr($recTotal);exit;
-        if ($recTotal > 0) {
-            $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+        if ($recTotal > 0) 
+        {
+            if ($this->isMobile())
+            {
+                $pager = new verticalpager($recTotal , self::recperpage , $currPage = 1);
+            }
+            else
+            {
+                $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+            }
+            // $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
             $input->start = $pager->getRecStart();
             $input->end   = $pager->getRecEnd();
             $input->order = "-sort desc , zhiwei , first_name_alpha asc";
@@ -27,12 +49,15 @@ class clsCorePersonDefaultController extends clsAppController
             $list = $this->getLawyers($input);
             $this->session->subSetValue(__FILE__ , $input);
         }
-//        pr($list);
-//        pr($zhuanyes);
         $this->output->all = $recTotal;
         $this->output->lawyers = $list ;
         $this->output->currpage = $currPage;
         $this->output->searchtype = "按姓氏拼音首字母搜索";
+        if ($this->isMobile())
+        {
+            $this->saveCurrpage($currPage);
+            $this->output->searchcond = null;
+        }
 
 
 //        $input = new stdClass();
@@ -109,40 +134,62 @@ class clsCorePersonDefaultController extends clsAppController
 
     public function _search()
     {
-        //搜索所有律师
-        $this->session->subUnsetValue(__FILE__);
         $this->init();
         $input = new stdClass();
-        $input->del = '0';
-        if (isset($this->input->alpha)) {
-            $input->first_name_alpha = strtolower($this->input->alpha);
-            $this->output->searchtype = "按姓氏拼音首字母搜索";
-            $this->output->alpha = $this->input->alpha;
+        //搜索所有律师
+        if ($this->isMobile() && isset($this->input->searchunset))
+        {
+            $input = unserialize($this->session->fncGetValue(__FILE__));
+            if (empty($input))
+            {
+                return $this->_default();
+            }
         }
-        if (!empty($this->input->jigou)) {
-            $input->jigou = $this->input->jigou;
-            $this->output->searchtype = "按指定条件搜索";
+        else
+        {
+            $this->session->subUnsetValue(__FILE__);
+            $input->del = '0';
+            if (isset($this->input->alpha)) 
+            {
+                $input->first_name_alpha = strtolower($this->input->alpha);
+                $this->output->searchcond[] = ['type' => sprintf("按姓氏拼音首字母%s搜索",$this->input->alpha),'unset' => 'first_name_alpha'];
+                $this->output->searchtype = "按姓氏拼音首字母搜索";
+                $this->output->alpha = $this->input->alpha;
+            }
+            if (!empty($this->input->jigou)) {
+                $input->jigou = $this->input->jigou;
+                $this->output->searchtype = "按指定条件搜索";
+            }
+    //        if (!empty($this->input->name)) {
+    //            $input->name = $this->input->name;
+    //        }
+            if (!empty($this->input->keyword)) {
+                $input->keyword = $this->input->keyword;
+                $this->output->searchtype = "按指定条件搜索";
+            }
+            if (!empty($this->input->zhiwei)) {
+                $input->zhiwei = $this->input->zhiwei;
+                $this->output->searchtype = "按指定条件搜索";
+            }
+            if (!empty($this->input->zhuanye)) {
+                $input->zhuanye = $this->input->zhuanye;
+                $this->output->searchtype = "按指定条件搜索";
+            }
         }
-//        if (!empty($this->input->name)) {
-//            $input->name = $this->input->name;
-//        }
-        if (!empty($this->input->keyword)) {
-            $input->keyword = $this->input->keyword;
-            $this->output->searchtype = "按指定条件搜索";
-        }
-        if (!empty($this->input->zhiwei)) {
-            $input->zhiwei = $this->input->zhiwei;
-            $this->output->searchtype = "按指定条件搜索";
-        }
-        if (!empty($this->input->zhuanye)) {
-            $input->zhuanye = $this->input->zhuanye;
-            $this->output->searchtype = "按指定条件搜索";
-        }
-//        $this->session->subSetValue('')
+
         $recTotal = $this->model->getCount($input);
-//        pr($recTotal);exit;
-        if ($recTotal > 0) {
-            $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+        $currPage = 1;
+        if ($recTotal > 0) 
+        {
+            // $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+            if ($this->isMobile())
+            {
+                $pager = new verticalpager($recTotal , self::recperpage , $currPage = 1);
+            }
+            else
+            {
+                $pager = new frontpager($recTotal , self::recperpage , $currPage = 1);
+            }
             $input->start = $pager->getRecStart();
             $input->end   = $pager->getRecEnd();
             $input->order = "-sort desc , zhiwei , first_name_alpha asc";
@@ -154,20 +201,29 @@ class clsCorePersonDefaultController extends clsAppController
         }
         $this->output->sess = $input;
         $this->output->all = $recTotal;
+       
+        if ($this->isMobile())
+        {
+            $this->saveCurrpage($currPage);
+            
+        }
     }
 
     public function _paging()
     {
         $this->init();
         $sess = unserialize($this->session->fncGetValue(__FILE__));
-//        if(empty($input)) {
-//            $input = new stdClass();
-//        }
-//        $input->del = $sess->del;
         $recTotal = $this->model->getCount($sess);
-//        pr($recTotal);exit;
         if ($recTotal > 0) {
-            $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
+            if ($this->isMobile())
+            {
+                $pager = new verticalpager($recTotal , self::recperpage , $this->input->currpage);
+            }
+            else
+            {
+                $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
+            }
+            // $pager = new frontpager($recTotal , self::recperpage , $this->input->currpage);
             $sess->start = $pager->getRecStart();
             $sess->end   = $pager->getRecEnd();
 //            $input->order = "-sort desc , zhiwei , first_name_alpha asc";
@@ -180,6 +236,11 @@ class clsCorePersonDefaultController extends clsAppController
         }
         $this->output->sess = $sess;
         $this->output->all = $recTotal;
+        if ($this->isMobile())
+        {
+            $this->smarty->setTpl('pagelink.parts.html') ;
+            $this->saveCurrpage($this->input->currpage);
+        }
         //$this->session->subSetValue(__FILE__ , $input);
     }
 
@@ -220,6 +281,16 @@ class clsCorePersonDefaultController extends clsAppController
         $this->output->zhuanye_options = $zhuanyes;
         $bannerurl = $this->model->getBanner();
         $this->output->bannerurl = $bannerurl;
+    }
+
+    private function saveCurrpage($page)
+    {
+        $this->session->subSetValue( __FILE__.'currpage' , $page);
+    }
+
+    private function loadCurrpage()
+    {
+        return $this->session->fncGetValue(__FILE__.'currpage');
     }
 
 
