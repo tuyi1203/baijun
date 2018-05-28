@@ -241,6 +241,7 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 .about .txt{padding:5%;background:#f4f4f4;}
 .about .txt p{text-indent:2em;margin-bottom:5%;color:#666;font-size:.3rem;line-height:1.6;}
 .about .txt p:last-child{margin-bottom:0;}
+.about .txt img{display:block;max-width:100%;margin:0 auto;}
 
 /*我们的荣誉*/
 .honor{}

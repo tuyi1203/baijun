@@ -149,9 +149,9 @@ li.mm-vertical.mm-opened > .mm-panel {
       right: 0; }
 
 .mm-panel .mm-navbar {
-  display: none; }
+/*  display: none;*/ }
 .mm-panel.mm-hasnavbar .mm-navbar {
-  display: none; }
+/*  display: none;*/ }
 
 .mm-listview,
 .mm-listview > li {
@@ -230,7 +230,7 @@ li.mm-vertical.mm-opened > .mm-panel {
   margin: 20px -20px; }
 .mm-panels > .mm-panel > .mm-listview:first-child,
 .mm-panels > .mm-panel > .mm-navbar + .mm-listview {
-  margin-top: -20px; }
+  margin-top: 20px; }
 
 .mm-listview .mm-inset {
   list-style: inside disc;
