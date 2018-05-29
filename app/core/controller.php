@@ -16,62 +16,101 @@ abstract class clsAppController extends clsController{
         # 返回值			：无
         # 初版作成日		：2010/06/20
         ###########################################################################
-        public function __construct(){
-
-            parent::__construct();
-
-            if (strtolower(MODE) == "site") 
-            {
-            	$this->createLeftBar();
-            }
-
-			$this->smarty->assign("modules"  ,      MODULES);
-            $this->smarty->assign("WWW_PATH" ,      $this->app->wwwroot);
-            $this->smarty->assign("SCRIPT_PATH" ,   $this->app->scriptroot);
-            $this->smarty->assign("MODULENAME" ,    $this->session->fncGetValue('module'));
-            $this->smarty->assign("MODULE_F" ,      $this->session->fncGetValue('module_f'));
-            $this->smarty->assign("MODULE_S" ,      $this->session->fncGetValue('module_s'));
-            $this->smarty->assign("MENUOUTER",      $this->fncGetMenuList('outer', $this->session->fncGetValue("menu_list") , $this->mode));
-            $this->smarty->assign("MENUINNER",      $this->fncGetMenuList('inner', $this->session->fncGetValue("menu_list") , $this->mode));
-            $this->smarty->assign("SCRIPT" ,        SCRIPT);
-            //TODO 单点登录用代码，更新时将注释取消
-            // if (session('_sysname') == C('sysname')) 
-            // {
-            //     $this->smarty->assign("MENUOUTER",      $this->fncGetMenuList('outer', $this->session->fncGetValue("menu_list") , $this->mode));
-            //     $this->smarty->assign("MENUINNER",      $this->fncGetMenuList('inner', $this->session->fncGetValue("menu_list") , $this->mode));
-            // }
-            $this->smarty->assign("CLIENTLANG",     strtolower($this->app->getClientLang()));
-            $this->smarty->assign("UPLOADURL" ,     UPLOAD_URL);
-            //         $this->smarty->assign('URI' , $this->uri);
-            $this->smarty->setTpl('index' . APPTYPE);
-
-            if ($this->isMobile() && (strtolower(MODE) == "site"))
-            {
-                $this->smarty->setTpl('mobile.html');
-            }
-        }
-
-        private function createLeftBar()
+        public function __construct()
         {
-        	//取得左侧菜单
-			$dao = getDAO();
-			$result = $dao->select("a.* , b.url")->from('mw_field')->alias('a')->leftjoin('mw_file')->alias('b')->on("b.objecttype='field'")->andWhere("a.id = b.objectid")->andWhere("b.editor='0'")->where('a.pid is null')->orderby('a.sort')->fetchAll();
-			$this->output->leftbarlist = $result;
-// 			$this->smarty->assign('leftbarlist' , $result);
-// 			pr($result);
 
-			//取得微信二维码图片
-			$result = $dao->select()->from('mw_file')->where("objecttype='qcode'")->andWhere("objectid=1")->fetch();
-			$this->output->qcode = $result;
+          parent::__construct();
 
-			//取得底部信息
-			$result = $dao->select()->from('mw_set')->where("`key`='siteinfo'")->andWhere("subkey='3'")->fetch();
-			$this->output->footer = $result->value;
+          if (strtolower(MODE) == "site") 
+          {
+          	$this->createLeftBar();
+          }
 
-			//取得机构信息
-			$result = $this->dao->select()->from('mw_branches')->orderby('sort')->fetchAll();
-			$this->output->branches = $result;
+		      $this->smarty->assign("modules"  ,      MODULES);
+          $this->smarty->assign("WWW_PATH" ,      $this->app->wwwroot);
+          $this->smarty->assign("SCRIPT_PATH" ,   $this->app->scriptroot);
+          $this->smarty->assign("MODULENAME" ,    $this->session->fncGetValue('module'));
+          $this->smarty->assign("MODULE_F" ,      $this->session->fncGetValue('module_f'));
+          $this->smarty->assign("MODULE_S" ,      $this->session->fncGetValue('module_s'));
+          $this->smarty->assign("MENUOUTER",      $this->fncGetMenuList('outer', $this->session->fncGetValue("menu_list") , $this->mode));
+          $this->smarty->assign("MENUINNER",      $this->fncGetMenuList('inner', $this->session->fncGetValue("menu_list") , $this->mode));
+          $this->smarty->assign("SCRIPT" ,        SCRIPT);
+          //TODO 单点登录用代码，更新时将注释取消
+          // if (session('_sysname') == C('sysname')) 
+          // {
+          //     $this->smarty->assign("MENUOUTER",      $this->fncGetMenuList('outer', $this->session->fncGetValue("menu_list") , $this->mode));
+          //     $this->smarty->assign("MENUINNER",      $this->fncGetMenuList('inner', $this->session->fncGetValue("menu_list") , $this->mode));
+          // }
+          $this->smarty->assign("CLIENTLANG",     strtolower($this->app->getClientLang()));
+          $this->smarty->assign("UPLOADURL" ,     UPLOAD_URL);
+          //         $this->smarty->assign('URI' , $this->uri);
+          $this->smarty->setTpl('index' . APPTYPE);
+
+          if ($this->isMobile() && (strtolower(MODE) == "site"))
+          {
+              $this->smarty->setTpl('mobile.html');
+              $this->lawyerSearchInit();
+          }
+      }
+
+      private function lawyerSearchInit()
+      {
+        $range = range('A','Z');
+        foreach ($range as $key => $value) 
+        {
+            $alphas[$value]['value'] = $value;
         }
+        unset($alphas['U'],$alphas['V']);
+        $this->output->alphas = $alphas;
+       
+        // $this->zhuanyes = $zhuanyes = $this->model->getField();
+        // $this->output->jigou_options = $jigous;
+        // $this->output->zhuanye_options = $zhuanyes;
+
+        $dao = getDAO();
+        $rows = $dao->select()->from("mw_branches")->orderby("sort")->fetchAll();
+        $list = array();
+        $list[''] = '不限办公机构';
+        foreach ($rows as $key => $value) 
+        {
+          $list[$value->id] = $value->name;
+        }
+        $this->output->jigou_options  = $list;
+
+
+        $rows = $dao->select()->from("mw_field")->where("pid is null")->fetchAll();
+        $list = array();
+        $list[''] = '不限专业领域';
+        foreach ($rows as $key => $value) 
+        {
+          $list[$value->id] = $value->title;
+        }
+        $this->output->zhuanye_options = $list;
+
+
+      }
+
+      private function createLeftBar()
+      {
+        	//取得左侧菜单
+    			$dao = getDAO();
+    			$result = $dao->select("a.* , b.url")->from('mw_field')->alias('a')->leftjoin('mw_file')->alias('b')->on("b.objecttype='field'")->andWhere("a.id = b.objectid")->andWhere("b.editor='0'")->where('a.pid is null')->orderby('a.sort')->fetchAll();
+    			$this->output->leftbarlist = $result;
+    // 			$this->smarty->assign('leftbarlist' , $result);
+    // 			pr($result);
+
+    			//取得微信二维码图片
+    			$result = $dao->select()->from('mw_file')->where("objecttype='qcode'")->andWhere("objectid=1")->fetch();
+    			$this->output->qcode = $result;
+
+    			//取得底部信息
+    			$result = $dao->select()->from('mw_set')->where("`key`='siteinfo'")->andWhere("subkey='3'")->fetch();
+    			$this->output->footer = $result->value;
+
+    			//取得机构信息
+    			$result = $this->dao->select()->from('mw_branches')->orderby('sort')->fetchAll();
+    			$this->output->branches = $result;
+      }
 
         /**
          * 输出页面
@@ -217,10 +256,10 @@ abstract class clsAppController extends clsController{
 
             }
         }
-// pr($menulist);
         return $menulist;
-
     }
+
+
 
      //判断是否为移动端
     function isMobile()

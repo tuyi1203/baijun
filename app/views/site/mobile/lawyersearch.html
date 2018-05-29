@@ -14,10 +14,12 @@
                      <!--    <a href="javascript:void(0);">A</a><a href="javascript:void(0);">B</a><a href="javascript:void(0);">C</a><a href="javascript:void(0);">D</a><a href="javascript:void(0);">E</a><a href="javascript:void(0);">F</a><a href="javascript:void(0);">G</a><a href="javascript:void(0);">H</a><a href="javascript:void(0);">J</a><a href="javascript:void(0);">K</a><a href="javascript:void(0);">L</a><a href="javascript:void(0);">M</a><a href="javascript:void(0);">N</a><a href="javascript:void(0);">O</a><a href="javascript:void(0);">P</a><a href="javascript:void(0);">Q</a><a href="javascript:void(0);">R</a><a href="javascript:void(0);">S</a><a href="javascript:void(0);">T</a><a href="javascript:void(0);">W</a><a href="javascript:void(0);">X</a><a href="javascript:void(0);">Y</a><a href="javascript:void(0);">Z</a> -->
                     </div>
                 </div>
-                <div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" /></div>
-                <div class="mod modSel"><span class="tips">办公地址不限</span><select name="data[jigou]">{{html_options options=$jigou_options selected=$sess.jigou}}</select></div>
-                <div class="mod modSel"><span class="tips">专业领域不限</span><select name="data[zhuanye]">{{html_options options=$zhuanye_options selected=$sess.zhuanye}}</select></div>
-                <div class="btns"><button class="redBtn">查找律师</button><button class="reset">重置条件</button></div>
+                <form action="{:U('core/person/default/search')}" method="post" id="myform">
+                <div class="mod"><input type="text" placeholder="输入律师名字进行查找" class="text" name="data[keyword]" value="{{$sess.keyword}}"/></div>
+                <div class="mod modSel"><span class="tips">不限办公地址</span><select name="data[jigou]">{{html_options options=$jigou_options selected=$sess.jigou}}</select></div>
+                <div class="mod modSel"><span class="tips">不限专业领域</span><select name="data[zhuanye]">{{html_options options=$zhuanye_options selected=$sess.zhuanye}}</select></div>
+                <div class="btns"><button class="redBtn" onclick="document.forms[0].submit();">查找律师</button><button type="button" class="reset" onclick="clearcond();">重置条件</button></div>
+                </form>
             </div>
             
         </div>
@@ -42,5 +44,30 @@ require(["jquery","script","mmenu"], function($,script,mmenu){
     }, {
         //configuration
     });//头部调用
+
+    $(document).ready(function()
+    {
+        $('select').each(function()
+        {
+            $(this).parent().find('.tips').text($(this).find('option:selected').text());
+        });
+        // $('select').parent().find('.tips').text($(this).find('option:selected').text());
+    });
+
 });
+
+function clearcond()
+{
+     $("#myform").find("input").each(function(){  
+        $(this).val('');
+
+     });
+     $("#myform").find("select").each(function(){  
+        $(this).val('');
+        $(this).parent().find('.tips').text($(this).find('option:selected').text());
+     });
+     // console.log("run");
+     return false;
+}
+
 </script>

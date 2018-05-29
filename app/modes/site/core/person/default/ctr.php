@@ -3,6 +3,8 @@ class clsCorePersonDefaultController extends clsAppController
     implements IAction_default {
 
     const recperpage = 15;//15条数据每页
+    private $jigous = [];  //机构数组
+    private $zhuanyes = []; //专业数组
 
     public function __construct()
     {
@@ -10,10 +12,12 @@ class clsCorePersonDefaultController extends clsAppController
         if (isset($this->input->searchunset))
         {
             $sess = unserialize($this->session->fncGetValue(__FILE__));
-            if (isset($sess[$this->input->searchunset]))
+// var_dump($sess);
+            if (property_exists($sess , $this->input->searchunset))
             {
-                unset($sess[$this->input->searchunset]);
+                unset($sess->{$this->input->searchunset});
             }
+// pr($sess);
             $this->session->subSetValue(__FILE__ , $sess);
         }
     }
@@ -140,7 +144,7 @@ class clsCorePersonDefaultController extends clsAppController
         if ($this->isMobile() && isset($this->input->searchunset))
         {
             $input = unserialize($this->session->fncGetValue(__FILE__));
-            if (empty($input))
+            if ($this->hasNoSearchCond($input))
             {
                 return $this->_default();
             }
@@ -156,16 +160,20 @@ class clsCorePersonDefaultController extends clsAppController
                 $this->output->searchtype = "按姓氏拼音首字母搜索";
                 $this->output->alpha = $this->input->alpha;
             }
-            if (!empty($this->input->jigou)) {
+            if (!empty($this->input->jigou)) 
+            {
                 $input->jigou = $this->input->jigou;
                 $this->output->searchtype = "按指定条件搜索";
+                $this->output->searchcond[] = ['type' => $this->jigous[$this->input->jigou],'unset' => 'jigou'];
             }
     //        if (!empty($this->input->name)) {
     //            $input->name = $this->input->name;
     //        }
-            if (!empty($this->input->keyword)) {
+            if (!empty($this->input->keyword)) 
+            {
                 $input->keyword = $this->input->keyword;
                 $this->output->searchtype = "按指定条件搜索";
+                $this->output->searchcond[] = ['type' => $this->input->keyword,'unset' => 'keyword'];
             }
             if (!empty($this->input->zhiwei)) {
                 $input->zhiwei = $this->input->zhiwei;
@@ -174,6 +182,7 @@ class clsCorePersonDefaultController extends clsAppController
             if (!empty($this->input->zhuanye)) {
                 $input->zhuanye = $this->input->zhuanye;
                 $this->output->searchtype = "按指定条件搜索";
+                $this->output->searchcond[] = ['type' => $this->zhuanyes[$this->input->zhuanye],'unset' => 'zhuanye'];
             }
         }
 
@@ -197,14 +206,17 @@ class clsCorePersonDefaultController extends clsAppController
             $list = $this->getLawyers($input);
             $this->output->lawyers = $list ;
             $this->output->currpage = $currPage;
-            $this->session->subSetValue(__FILE__ , $input);
         }
+        $this->session->subSetValue(__FILE__ , $input);
         $this->output->sess = $input;
         $this->output->all = $recTotal;
+
+
        
         if ($this->isMobile())
         {
             $this->saveCurrpage($currPage);
+            $this->setSearchCond($input);
             
         }
     }
@@ -270,10 +282,10 @@ class clsCorePersonDefaultController extends clsAppController
             $alphas[$value]['value'] = $value;
         }
         unset($alphas['U'],$alphas['V']);
-        $jigous  = $this->model->getJigou();
+        $this->jigous = $jigous  = $this->model->getJigou();
         $dics    = $this->model->getDic();
         $zhiweis = $this->model->getPositions();
-        $zhuanyes = $this->model->getField();
+        $this->zhuanyes = $zhuanyes = $this->model->getField();
         $this->output->alphas = $alphas;
         $this->output->dics = $dics;
         $this->output->jigou_options = $jigous;
@@ -293,5 +305,45 @@ class clsCorePersonDefaultController extends clsAppController
         return $this->session->fncGetValue(__FILE__.'currpage');
     }
 
+    private function hasNoSearchCond($input)
+    {
+        if (!property_exists($input, 'jigou')
+            && !property_exists($input, 'keyword') 
+              && !property_exists($input, 'zhuanye')
+                && !property_exists($input, 'first_name_alpha'))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    private function setSearchCond($input)
+    {
+        // $this->output->sess = new stdClass();
+        if (isset($input->alpha)) 
+        {
+            $this->output->searchcond[] = ['type' => sprintf("按姓氏拼音首字母%s搜索",$input->alpha),'unset' => 'first_name_alpha'];
+            // $this->output->sess->alpha = $input->alpha ;
+        }
+
+        if (!empty($input->jigou)) 
+        {
+            $this->output->searchcond[] = ['type' => $this->jigous[$input->jigou],'unset' => 'jigou'];
+            // $this->output->sess->jigou = $input->jigou ;
+        }
+
+        if (!empty($input->keyword))
+        {
+            $this->output->searchcond[] = ['type' => $input->keyword,'unset' => 'keyword'];
+            // $this->output->sess->keyword = $input->keyword ;
+        }
+
+        if (!empty($this->input->zhuanye)) 
+        {
+            $this->output->searchcond[] = ['type' => $this->zhuanyes[$input->zhuanye],'unset' => 'zhuanye'];
+            // $this->output->sess->zhuanye = $input->zhuanye ;
+        }
+    }
 
 }

@@ -207,8 +207,8 @@ class verticalpager {
     }
 
     private function createLink($label , $pageid = 0 , $current = false) {
-//         if (!$pageid) return '<a href="javascript:void(0);" class="unclick">'. $label .'</a>';
-           if (!$pageid) return $label ;
+        if (!$pageid) return '<a href="javascript:void(0);" class="un">'. $label .'</a>';
+           // if (!$pageid) return $label ;
 //         if ($current) {
 //             return '<a class="cu" href="javascript:void(0);">'.$label.'</a>';
 //         }
