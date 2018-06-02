@@ -10,8 +10,8 @@
 					<div class="txt">
 						<p class="t"><b>{{$detail.fullname}}</b><em>{{$detail.touxian}}</em></p>
 						<p><i>电子邮箱：</i><span>{{$detail.email}}</span></p>
-						<p><i>办公机构：</i><span>{{$detail.jigouname}}</span></p>
-						<p><i>执业领域：</i><span>{{$detail.zhiyelingyu}}</span></p>
+						<!-- <p><i>办公机构：</i><span>{{$detail.jigouname}}</span></p> -->
+						<p><i>执业领域：</i><span>{{$detail.zhiyelingyu|mb_substr:0:30}}{{if (mb_strlen($detail.zhiyelingyu)>30)}}...{{/if}}</span></p>
 					</div>
 				</div>
 				<div class="info">
