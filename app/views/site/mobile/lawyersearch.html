@@ -26,7 +26,7 @@
     </div>
 </div>
 <script>
-require(["jquery","script","mmenu"], function($,script,mmenu){
+require(["jquery","script"], function($,script){
 	script.fullPage('.indexBn');
 
     script.indTouch('.indexBn','.indPage','.downPageBtn');
@@ -37,14 +37,14 @@ require(["jquery","script","mmenu"], function($,script,mmenu){
         $(this).siblings('span.tips').text(val);
     });
 
-    $('nav#menu').mmenu({
-        navbar: {
-            title: "导航"
-        }
-    }, {
-        //configuration
-    });//头部调用
-
+    // $('nav#menu').mmenu({
+    //     navbar: {
+    //         title: "导航"
+    //     }
+    // }, {
+    //     //configuration
+    // });//头部调用
+    script.nav('#_navLnk','#_menu','#_closeNav','#_wxlnk','#_wxLayer','#_wxClose');
     $(document).ready(function()
     {
         $('select').each(function()

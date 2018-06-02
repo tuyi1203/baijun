@@ -1,17 +1,33 @@
-<nav id="menu">
-    <ul>
-        <li><a href="/">首页</a></li>
-		<li><a href="#aboutus">事务所介绍</a>
-			 <ul>
-                <li><a href="{:U('aboutus/intro')}">关于我们</a></li>
-                <li><a href="{:U('aboutus/honor')}">百君荣誉</a></li>
-                <li><a href="{:U('service/online/detail')}">联系我们</a></li>
+<nav id="_menu">
+    <div class="navBox displayCenter">
+        <a href="javascript:void(0);" class="icon closeNav" id="_closeNav">&#xe6b9;</a>
+        <div class="navLayer">
+            <div class="navLogo"><a href="/"><img src="{:T('mobile/img/ind_logo.png')}" /></a></div>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="downLnk">事务所介绍</a>
+                    <dl>
+                        <dd><a href="{:U('aboutus/intro')}">关于我们</a></dd>
+                        <dd><a href="{:U('aboutus/honor')}">百君荣誉</a></dd>
+                        <dd><a href="{:U('service/online/detail')}">联系我们</a></dd>
+                    </dl>
+                </li>
                 <li><a href="{:U('jigou/default')}">百君分所</a></li>
+                <li><a href="{:U('core/field')}">专业领域</a></li>
+                <li><a href="{:U('core/person')}">律师团队</a></li>
+                <li><a href="{:U('news/officenews')}">百君微讯</a></li>
+                <li><a href="javascript:void(0);">英文版</a></li>
             </ul>
-		</li>
-		<li><a href="{:U('core/field')}">专业领域</a></li>
-		<li><a href="{:U('core/person')}">律师团队</a></li>
-		<li><a href="{:U('news/officenews')}">百君微讯</a></li>
-		<li><a href="javascript:void(0);">英文版</a></li>
-    </ul>
+            <div class="oth"><a href="javascript:void(0);" id="_wxlnk"><img src="{:T('mobile/img/wx.png')}" /></a><a href="http://weibo.com/exceedon" id="_wbLnk" target="_blank"><img src="{:T('mobile/img/wb.png')}" /></a></div>
+        </div>
+    </div>
+    <div class="navMask"></div>
+    <div class="wxLayer" id="_wxLayer">
+        <a href="javascript:void(0);" class="icon wxClose" id="_wxClose">&#xe6b9;</a>
+        <div class="wxLayerBox">
+            <div class="pic"><img src="{:T('mobile/img/code.jpg')}" /></div>
+            <p>更多法务资讯，扫码关注百君微信公众号</p>
+        </div>
+    </div>
 </nav>
