@@ -365,6 +365,7 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 .division{}
 .division .txt{padding:5%;background:#f4f4f4;margin-bottom:5%;}
 .division .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.division .txt img{max-width:100%;margin:10% auto;display:block;}
 .division .txt p:last-child{margin-bottom:0;}
 
 .botnav{height:1.2rem;line-height:1.2rem;position:fixed;z-index:4;bottom:0;left:0;width:100%;background:#00689b;
@@ -437,11 +438,25 @@ section.person{padding:0;}
 /*专业领域列表*/
 .fieldlist{}
 .fieldlist .lst{}
-.fieldlist .lst ul li{float:left;width:50%;margin-bottom:5%;}
-.fieldlist .lst ul li .box{margin:0 5%;border:1px solid #dadada;border-radius: .1rem;height:3rem;}
+.fieldlist .lst ul li{float:left;width:50%;margin-bottom:10%;}
+.fieldlist .lst ul li .box{margin:0 5%;border-radius: .1rem;height:3rem;}
 .fieldlist .lst ul li .layout{}
-.fieldlist .lst ul li .layout .pic img{width:60%;display:block;margin:0 auto;}
-.fieldlist .lst ul li .layout .tit{font-size:.35rem;height:1.1rem;margin-bottom:5%;}
+.fieldlist .lst ul li .layout .pic img{width:100%;display:block;margin:0 auto;height:2rem;}
+.fieldlist .lst ul li .layout .tit{font-size:.3rem;height:1.1rem;background:#f1f1f1;padding:0 5%;
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
 /*专业领域详情*/
 .fieldinfo{}
 .fieldinfo .txt{padding:5%;background:#f4f4f4;margin-bottom:5%;}
