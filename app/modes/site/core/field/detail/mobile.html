@@ -27,14 +27,12 @@
 				<div class="bd">
 					<ul>
 						{{foreach from=$lawyers item="ls" key="key"}}
-						{{if ($key < 4)}}
 						<li>
-							<a href="javascript:void(0);">
+							<a href="{:U('core/person/detail/default',array('id'=>{{$ls.id}}))}" target="_blank">
 								<p class="t"><b>{{$ls.fullname}}</b><span>{{$ls.positionname}}</span></p>
 								<p>执业领域：{{$ls.zhiyelingyu}}</p>
 							</a>
 						</li>
-						{{/if}}
 						{{/foreach}}
 						<!-- <li>
 							<a href="javascript:void(0);">
