@@ -12,12 +12,10 @@ class clsCorePersonDefaultController extends clsAppController
         if (isset($this->input->searchunset))
         {
             $sess = unserialize($this->session->fncGetValue(__FILE__));
-// var_dump($sess);
             if (property_exists($sess , $this->input->searchunset))
             {
                 unset($sess->{$this->input->searchunset});
             }
-// pr($sess);
             $this->session->subSetValue(__FILE__ , $sess);
         }
     }
