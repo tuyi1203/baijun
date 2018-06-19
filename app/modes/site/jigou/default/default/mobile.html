@@ -12,10 +12,10 @@
 					{{$detail.desc|htmlspecialchars_decode}}
 				</div>
 			</div>
-			<div class="botnav">
+			<!-- <div class="botnav">
 				{{foreach from=$branches item="ls"}}<a href="{:U('jigou/default/default/default' , array('id'=>{{$ls.id}}))}" {{if $ls.id == $detail.id}}class="cu"{{/if}}><b>{{$ls.name}}</b></a>{{/foreach}}
 				</ul>
-			</div>
+			</div> -->
 		</section>
 		{{include file="$WWW_PATH/mobile/footer.html"}}
 	</div>

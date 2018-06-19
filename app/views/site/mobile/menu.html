@@ -13,7 +13,12 @@
                         <dd><a href="{:U('service/online/detail')}">联系我们</a></dd>
                     </dl>
                 </li>
-                <li><a href="{:U('jigou/default')}">百君分所</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="downLnk">百君分所</a>
+                    <dl>
+                        {{foreach from=$branches item="ls"}}<dd><a href="{:U('jigou/default/default/default' , array('id'=>{{$ls.id}}))}" >{{$ls.name}}</a></dd>{{/foreach}}
+                    </dl>
+                </li>
                 <li><a href="{:U('core/field')}">专业领域</a></li>
                 <li><a href="{:U('core/person')}">律师团队</a></li>
                 <li><a href="{:U('news/officenews')}">百君微讯</a></li>

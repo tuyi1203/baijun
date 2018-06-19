@@ -50,6 +50,7 @@ abstract class clsAppController extends clsController{
           {
               $this->smarty->setTpl('mobile.html');
               $this->lawyerSearchInit();
+              $this->getBranches();
           }
       }
 
@@ -90,6 +91,12 @@ abstract class clsAppController extends clsController{
 
       }
 
+      public function getBranches()
+      {
+        $dao = getDAO();
+        $this->output->branches = $dao->select()->from('mw_branches')->orderby('sort')->fetchAll();
+      }
+
       private function createLeftBar()
       {
         	//取得左侧菜单
@@ -117,14 +124,14 @@ abstract class clsAppController extends clsController{
          */
         public function _display()
         {
-            if (in_array(APPTYPE , array('.html','.modal'))) {
+            if (in_array(APPTYPE , array('.html','.modal'))) 
+            {
                 clsHook::listenFilter(__FUNCTION__);
                 $this->smarty->assign('ERRMSG' , $this->session->fncGetErrMsg());
                 $this->smarty->assign('NOTICE' , $this->session->fncGetNotice());
 
-//             pr((array)$this->output);
-			$this->output = obj2array($this->output);
-			//关键字过滤
+			         $this->output = obj2array($this->output);
+			      //关键字过滤
             if (MODE == 'site') {
                 $keywords = preg_split("/\n/" , getSiteInfo('config' , 'keywords'));
                 if ($keywords) {
