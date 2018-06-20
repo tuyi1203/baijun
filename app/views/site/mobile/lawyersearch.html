@@ -32,6 +32,7 @@ require(["jquery","script"], function($,script){
     script.indTouch('.indexBn','.indPage','.downPageBtn');
     script.sch('#_schBtn1','#_sch','#_closeSch');
     script.sch('#_schBtn2','#_sch','#_closeSch');
+    script.sch('#_subLnk','#_sub','#_closeSub');
     $('select').bind('change',function(){
         var val = $(this).find('option:selected').text();
         $(this).siblings('span.tips').text(val);

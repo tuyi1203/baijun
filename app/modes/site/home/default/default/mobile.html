@@ -17,7 +17,8 @@
 				<!-- <li><a href="javascript:void(0);">英文版</a></li> -->
 			</ul>
 		</div>
-		<div class="indBtn"><a href="{:U('jigou/default')}">百君分所</a></div>
+		<div class="indBtn"><a href="javascript:void(0);" id="_subLnk">百君分所</a></div>
+		<!-- href="{:U('jigou/default')}" -->
 
 	</div>
 	<div class="downPageBtn"><a href="javascript:void(0);" class="icon">&#xe627;</a></div>
@@ -47,6 +48,17 @@
 	</div>
 {{include file="$WWW_PATH/mobile/menu.html"}}
 </div>
+
+<div class="subLayout" id="_sub">
+	<a href="javascript:void(0);" class="icon closeSch" id="_closeSub">&#xe6b9;</a>
+	<div class="layout displayCenter">
+		<div class="box">
+			<h6>请选择分所</h6>
+			<div class="subList"> {{foreach from=$branches item="ls"}}<a href="{:U('jigou/default/default/default' , array('id'=>{{$ls.id}}))}" >{{$ls.name}}</a>{{/foreach}}</div>
+		</div>
+	</div>
+</div>
+
 {{include file="$WWW_PATH/mobile/lawyersearch.html"}}
 </body>
 </html>
