@@ -154,7 +154,7 @@ class clsCorePersonDefaultController extends clsAppController
             if (isset($this->input->alpha)) 
             {
                 $input->first_name_alpha = strtolower($this->input->alpha);
-                $this->output->searchcond[] = ['type' => sprintf("按姓氏拼音首字母%s搜索",$this->input->alpha),'unset' => 'first_name_alpha'];
+                // $this->output->searchcond[] = ['type' => sprintf("按姓氏拼音首字母%s搜索",$this->input->alpha),'unset' => 'first_name_alpha'];
                 $this->output->searchtype = "按姓氏拼音首字母搜索";
                 $this->output->alpha = $this->input->alpha;
             }
@@ -162,7 +162,7 @@ class clsCorePersonDefaultController extends clsAppController
             {
                 $input->jigou = $this->input->jigou;
                 $this->output->searchtype = "按指定条件搜索";
-                $this->output->searchcond[] = ['type' => $this->jigous[$this->input->jigou],'unset' => 'jigou'];
+                // $this->output->searchcond[] = ['type' => $this->jigous[$this->input->jigou],'unset' => 'jigou'];
             }
     //        if (!empty($this->input->name)) {
     //            $input->name = $this->input->name;
@@ -171,7 +171,7 @@ class clsCorePersonDefaultController extends clsAppController
             {
                 $input->keyword = $this->input->keyword;
                 $this->output->searchtype = "按指定条件搜索";
-                $this->output->searchcond[] = ['type' => $this->input->keyword,'unset' => 'keyword'];
+                // $this->output->searchcond[] = ['type' => $this->input->keyword,'unset' => 'keyword'];
             }
             if (!empty($this->input->zhiwei)) {
                 $input->zhiwei = $this->input->zhiwei;
@@ -180,7 +180,7 @@ class clsCorePersonDefaultController extends clsAppController
             if (!empty($this->input->zhuanye)) {
                 $input->zhuanye = $this->input->zhuanye;
                 $this->output->searchtype = "按指定条件搜索";
-                $this->output->searchcond[] = ['type' => $this->zhuanyes[$this->input->zhuanye],'unset' => 'zhuanye'];
+                // $this->output->searchcond[] = ['type' => $this->zhuanyes[$this->input->zhuanye],'unset' => 'zhuanye'];
             }
         }
 
