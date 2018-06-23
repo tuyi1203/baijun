@@ -374,7 +374,7 @@ footer .logo img{margin:0 auto;width:20%;border:1px solid #fff;display:block;}
 /*百君分所*/
 .division{}
 .division .txt{padding:5%;background:#f4f4f4;margin-bottom:5%;}
-.division .txt p{text-indent:2em;margin-bottom:10%;color:#666;font-size:.35rem;}
+.division .txt p{text-indent:2em;margin-bottom:5%;color:#666;font-size:.35rem;}
 .division .txt img{max-width:100%;margin:10% auto;display:block;}
 .division .txt p:last-child{margin-bottom:0;}
 
@@ -624,3 +624,7 @@ transform: scale3d(0,0,0);-webkit-transform: scale3d(0,0,0);-moz-transform: scal
 	0% {transform: rotate(0deg);}
 	100% {transform: rotate(360deg);}
 }
+
+
+
+a.backTop{width:1rem;height:1rem;background-color:rgba(0,0,0,.6);background-image:url(../img/backtop.png);background-repeat: no-repeat;background-size:40% auto;position:fixed;right:5%;bottom:5%;border-radius: .1rem;background-position:50% 50%;}

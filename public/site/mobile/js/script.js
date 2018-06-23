@@ -55,6 +55,7 @@ define(["jquery"],function (){
 	        var direction = getDirection(startx, starty, endx, endy);
 	        if(direction == 1){
 	        	if(touchFlag == 1){
+	        		backtop();
 			    	$(firPage).slideUp();
 			    	$(secPage).slideDown('',function(){touchFlag = 0;});
 	        	}
@@ -70,6 +71,7 @@ define(["jquery"],function (){
 			        endy = e.changedTouches[0].pageY;
 			        var direction = getDirection(startx, starty, endx, endy);
 			        if(direction == 2){
+			        	removebackTop();
 			        	$(secPage).slideUp();
 				    	$(firPage).slideDown('',function(){touchFlag = 1;});
 			        }
@@ -78,6 +80,7 @@ define(["jquery"],function (){
 	    });
 
 	    $(downLnk).bind('click',function(){
+	    	backtop();
 	    	$(firPage).slideUp();
 	    	$(secPage).slideDown();
 	    	touchFlag = 0;
@@ -163,10 +166,23 @@ define(["jquery"],function (){
 		});
 	};
 
+	var backtop = function(){
+		var html = '<a href="javascript:void(0);" class="backTop" id="_backTop"></a>';
+		$("body").append(html);
+		$('#_backTop').bind('click',function(){
+			$("html,body").animate({scrollTop:0},500);
+		});
+	}
+
+	var removebackTop = function(){
+		$('#_backTop').remove();
+	}
+
 	script.nav = nav;
 	script.fullPage = fullPage;
 	script.indTouch = indTouch;
 	script.sch = sch;
 	script.personLst = personLst;
+	script.backtop = backtop;
 	return script;
 });

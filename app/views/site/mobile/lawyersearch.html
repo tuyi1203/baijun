@@ -55,6 +55,12 @@ require(["jquery","script"], function($,script){
         // $('select').parent().find('.tips').text($(this).find('option:selected').text());
     });
 
+    if($('body').hasClass('ind')){
+        return;
+    }else{
+        script.backtop();
+    }
+
 });
 
 function clearcond()
