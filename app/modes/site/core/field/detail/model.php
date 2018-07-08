@@ -84,9 +84,9 @@ class clsModModel extends clsAppModel{
 
 	public function getLawyers($input)
 	{
-		$rows = $this->dao->select()->from("mw_lawyer")->where("( zhuanye='{$input->id}' or erjizhuanye='{$input->id}')")
-					->andWhere('del')->eq('0')
-					->orderby("zhiwei desc")->limit(0,20)->fetchAll();
+		$rows = $this->dao->select('a.* , b.sort')->from("mw_lawyer")->alias('a')->leftjoin('mw_position')->alias('b')->on('a.zhiwei=b.id')->where("( a.zhuanye='{$input->id}' or a.erjizhuanye='{$input->id}')")
+					->andWhere('a.del')->eq('0')
+					->orderby("b.sort asc")->limit(0,20)->fetchAll();
 		return $rows;
 	}
 
